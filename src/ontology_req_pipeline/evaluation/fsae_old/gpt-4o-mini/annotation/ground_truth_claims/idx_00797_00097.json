@@ -1,7 +1,7 @@
 {
   "idx": 797,
   "source_text": "All vehicles with a maximum nominal operation voltage below 500 V will be measured with the next available voltage level",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_797.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_797.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/797#DS_0",

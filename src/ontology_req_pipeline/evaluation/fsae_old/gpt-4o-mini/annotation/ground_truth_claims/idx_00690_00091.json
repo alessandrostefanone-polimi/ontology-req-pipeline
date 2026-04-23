@@ -1,7 +1,7 @@
 {
   "idx": 690,
   "source_text": "mm 4 mm EV.6.5.8 Teams must be prepared to show spacing on team built equipment For inaccessible circuitry, spare boards or appropriate photographs must be available for inspection",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_690.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_690.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/690#Action_0",

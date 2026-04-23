@@ -1,7 +1,7 @@
 {
   "idx": 576,
   "source_text": "The gas can is minimum 25 cm wide $\\times 25 \\mathrm{~cm}$ deep $\\times 35 \\mathrm{~cm}$ high, with a 25 cm spout at the top IC.5.4.8 The filler neck must have a fuel cap that can withstand severe vibrations or high pressures such as could occur during a vehicle rollover event # IC.5.5 Fuel Tank Filling IC.5.5.1 Fueling / Refueling policies and procedures are at the discretion of the fuel crew and officials",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_576.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_576.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/576#GasCan",

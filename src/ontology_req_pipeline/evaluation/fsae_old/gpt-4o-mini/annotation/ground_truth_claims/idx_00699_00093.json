@@ -1,7 +1,7 @@
 {
   "idx": 699,
   "source_text": "This additional Overcurrent Protection must be: a. 150 mm or less from the source end of the reduced conductor b",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_699.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_699.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/699#DS_req0",

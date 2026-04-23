@@ -1,7 +1,7 @@
 {
   "idx": 572,
   "source_text": "[img-23.jpeg](img-23.jpeg) IC.5.4.5 Fuel Level Line - A permanent, non movable fuel level line must be located between 12 mm and 25 mm below the top of the visible portion of the sight tube",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_572.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_572.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/572#DS_0",

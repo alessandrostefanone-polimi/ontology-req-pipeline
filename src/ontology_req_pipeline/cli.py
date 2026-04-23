@@ -23,7 +23,7 @@ from ontology_req_pipeline.plot_rdf_graph import render_rdf_file_to_png
 from dotenv import load_dotenv
 
 
-DEFAULT_DATASET = Path("datasets/extracted_reqs/fsae_test_number_unit_sample.jsonl")
+DEFAULT_DATASET = Path("datasets/fsae_test_number_unit_sample.jsonl")
 DEFAULT_EVALUATION_DIR = Path("src/ontology_req_pipeline/evaluation")
 DEFAULT_OPENAI_MODEL = "gpt-5.1"
 DEFAULT_OLLAMA_MODEL = "llama3.2"

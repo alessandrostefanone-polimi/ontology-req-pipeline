@@ -1,7 +1,7 @@
 {
   "idx": 111,
   "source_text": "Definition Any tubing which does NOT meet F.3.2.1.o Structural Tubing F.3.3.2 Applicability Non Structural Tubing is ignored when assessing compliance to any rule ## F.3.4 Steel Tubing and Material F.3.4.1 Minimum Requirements for Steel Tubing A tube must meet all four minimum requirements for each Size specified: Tube Minimum Area Moment of Inertia Minimum Cross Sectional Area Minimum Outside Diameter or Square Width Minimum Wall Thickness Example Sizes of Round Tube :--: :--: :--: :--: :--: :--: :--: a. Size A $11320 \\mathrm{~mm}^{4}$ $173 \\mathrm{~mm}^{2}$ 25.0 mm 2.0 mm $\\begin{aligned} & 1.0^{\\prime \\prime} \\times 0.095^{\\prime \\prime} \\\\ & 25 \\times 2.5 \\mathrm{~mm} \\end{aligned}$ b",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_111.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_111.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/111#ComplianceAssessment_0",

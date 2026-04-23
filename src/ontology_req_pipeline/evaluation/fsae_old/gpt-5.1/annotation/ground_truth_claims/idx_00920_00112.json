@@ -1,7 +1,7 @@
 {
   "idx": 920,
   "source_text": "9 ACCELERATION EVENT The Acceleration event evaluates the vehicle acceleration in a straight line on flat pavement. ## D.9.1 Acceleration Layout D.9.1.1 Course length will be 75 m from starting line to finish line D.9.1.2",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_920.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_920.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/920#CourseLength_0",

@@ -1,7 +1,7 @@
 {
   "idx": 165,
   "source_text": "A circle of diameter 300 mm will represent the head (with helmet)",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_165.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_165.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/165#CircleDesign_0",

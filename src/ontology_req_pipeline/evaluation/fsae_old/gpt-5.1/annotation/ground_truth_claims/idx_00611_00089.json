@@ -1,7 +1,7 @@
 {
   "idx": 611,
   "source_text": "3.3.2 The maximum permitted voltage that may occur between any two points must not exceed 600 V DC EV.3.3.3 The powertrain must not regenerate energy when vehicle speed is between 0 and $5 \\mathrm{~km} /",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_611.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_611.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/611#DS_0",

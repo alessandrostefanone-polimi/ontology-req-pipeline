@@ -1,7 +1,7 @@
 {
   "idx": 812,
   "source_text": "Loaded deflection should not be more than 25 mm b",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_812.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_812.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/812#DS_0",

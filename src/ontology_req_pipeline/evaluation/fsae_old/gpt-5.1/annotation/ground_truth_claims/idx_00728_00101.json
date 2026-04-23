@@ -1,7 +1,7 @@
 {
   "idx": 728,
   "source_text": "The voltage rating of the Overcurrent Protection must be equal to or higher than the maximum segment voltage EV.7.4.5 Overcurrent Protection is not required on a voltage sense wire if all three of the following conditions are met: - AMS is a distributed AMS system (one cell measurement per board) - $\\quad$ Sense wire length is less than 25 mm - AMS board has Overcurrent Protection # EV.7.5 Accumulator Temperature EV.7.5.1",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_728.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_728.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/728#AMS",

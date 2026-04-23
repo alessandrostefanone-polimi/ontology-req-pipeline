@@ -1,7 +1,7 @@
 {
   "idx": 460,
   "source_text": "The shields must be steel or aluminum with a minimum thickness of 1 mm",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_460.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_460.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/460#Output_0",

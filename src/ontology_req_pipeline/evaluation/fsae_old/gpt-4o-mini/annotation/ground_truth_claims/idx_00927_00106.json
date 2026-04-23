@@ -1,7 +1,7 @@
 {
   "idx": 927,
   "source_text": "10.1.3 Course Operation a. Vehicles will enter and exit through gates on a 3.0 m wide path that is tangential to the circles where they meet",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_927.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_927.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/927#Action_spec0",

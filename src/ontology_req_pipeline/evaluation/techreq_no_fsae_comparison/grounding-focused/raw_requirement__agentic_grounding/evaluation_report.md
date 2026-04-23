@@ -1,7 +1,7 @@
 # Evaluation Report
 
 - Generated at (UTC): `2026-04-13T10:19:12.630076+00:00`
-- Evaluation directory: `C:\Users\Alessandro Stefanone\repos\req-iof\src\ontology_req_pipeline\evaluation\techreq_no_fsae_comparison\grounding-focused\raw_requirement__agentic_grounding`
+- Evaluation directory: `src\ontology_req_pipeline\evaluation\techreq_no_fsae_comparison\grounding-focused\raw_requirement__agentic_grounding`
 - Run ID: `20260413T101128.431105Z`
 - Dataset: `techreq_no_fsae.jsonl`
 

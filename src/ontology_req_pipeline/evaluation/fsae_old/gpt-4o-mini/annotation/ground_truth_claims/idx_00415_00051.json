@@ -1,7 +1,7 @@
 {
   "idx": 415,
   "source_text": "Each spring must be capable of returning the pedal to $0 \\%$ Pedal Travel with the other disconnected",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_415.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_415.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/415#DS_req0",

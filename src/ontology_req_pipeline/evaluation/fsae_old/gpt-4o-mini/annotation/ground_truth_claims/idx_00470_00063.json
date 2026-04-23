@@ -1,7 +1,7 @@
 {
   "idx": 470,
   "source_text": "In the Rear Aerodynamic Zone must be no higher than 1200 mm above the ground b",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_470.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_470.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/470#DS_req0",

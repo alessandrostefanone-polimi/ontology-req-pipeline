@@ -1,7 +1,7 @@
 {
   "idx": 355,
   "source_text": "The design must address all three types of heat transfer between the heat source (examples include but are not limited to: exhaust pipe, coolant hose/tube, Accumulator Container) and the panel that the driver could contact (seat or floor): a. Conduction Isolation by one of the following: - No direct contact between the heat source and the panel - A heat resistant, conduction isolation material with a minimum thickness of 8 mm between the heat source and the panel b. Convection Isolation by a minimum air gap of 25 mm between the heat source and the panel c. Radiation Isolation by one of the following: - A solid metal heat shield with a minimum thickness of 0.4 mm - $\\quad$ Reflective foil or tape when combined with conduction insulation # T.1.7",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_355.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_355.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/355#AirGapForConvectionIsolation",

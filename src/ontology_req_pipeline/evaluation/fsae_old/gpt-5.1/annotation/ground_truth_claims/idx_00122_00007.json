@@ -1,7 +1,7 @@
 {
   "idx": 122,
   "source_text": "Refer to F.4.3.4 a. Test panels must: - Measure one of the two options: $138 \\mathrm{~mm} \\times 500 \\mathrm{~mm}$ OR $275 \\mathrm{~mm} \\times 500 \\mathrm{~mm}$ - Be supported by a span distance of 400 mm - Have equal surface area for the top and bottom skin - Have bare edges, without skin material b",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_122.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_122.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/122#DS_BareEdges",

@@ -1,4 +1,4 @@
-# ontology_req_pipeline
+# Ontology-Requirements Pipeline
 
 Pipeline for turning natural-language requirements into ontology-grounded RDF/OWL artifacts using:
 - LLM-based extraction
@@ -13,7 +13,16 @@ Pipeline for turning natural-language requirements into ontology-grounded RDF/OW
 - `src/ontology_req_pipeline/ontology`: ontology grounding and reasoning (`AgenticKGBuilder`).
 - `src/ontology_req_pipeline/cli.py`: main command-line entry point.
 - `ontologies/`: local ontology resources used by grounding (for example `Core.rdf`, `QUDT-all-in-one-OWL.ttl`).
-- `datasets/`: input datasets and derived evaluation artifacts.
+- `datasets/`: curated public datasets for the published examples and evaluation flow.
+
+## Public Release Notes
+
+- The public repository keeps the selected evaluation inputs in `datasets/` and the published reference runs in `src/ontology_req_pipeline/evaluation/`.
+- Larger extracted corpora and intermediate research datasets are intentionally excluded from the public repo.
+- Default CLI examples point to `datasets/fsae_test_number_unit_sample.jsonl`.
+- The ablation-study input used for `techreq_no_fsae_comparison` is published as `datasets/techreq_no_fsae.jsonl`.
+- Generated RDF/OWL/HTML outputs under `src/ontology_req_pipeline/outputs/` are excluded from version control.
+- Third-party licenses and attribution notes are listed in `THIRD_PARTY_NOTICES.md`.
 
 ## Requirements
 
@@ -86,7 +95,7 @@ python -m ontology_req_pipeline.cli run-pipeline
 
 ```powershell
 python -m ontology_req_pipeline.cli generate-labeled-dataset `
-  --input-path datasets/extracted_reqs/fsae_test_number_unit_sample.jsonl `
+  --input-path datasets/fsae_test_number_unit_sample.jsonl `
   --output-path src/ontology_req_pipeline/evaluation/labeled_dataset.jsonl `
   --limit 10 `
   --provider openai `
@@ -97,7 +106,7 @@ python -m ontology_req_pipeline.cli generate-labeled-dataset `
 
 ```powershell
 python -m ontology_req_pipeline.cli run-evaluation-pipeline `
-  --input-path datasets/extracted_reqs/fsae_test_number_unit_sample.jsonl `
+  --input-path datasets/fsae_test_number_unit_sample.jsonl `
   --output-dir src/ontology_req_pipeline/evaluation `
   --provider openai `
   --model gpt-5.1 `
@@ -120,7 +129,7 @@ python -m ontology_req_pipeline.cli run-evaluation-pipeline `
 
 ```powershell
 python -m ontology_req_pipeline.cli qa-evaluation-report `
-  --output-dir src/ontology_req_pipeline/evaluation
+  --output-dir src/ontology_req_pipeline/evaluation/fsae_test_pipeline_rerun
 ```
 
 ## Input Data Format
@@ -182,5 +191,5 @@ print(result["output_paths"])
 
 ## Notes
 
-- This repository contains research and experiment artifacts (datasets, evaluations, outputs, notebooks). Not all folders are part of the production CLI path.
+- Large source corpora and intermediate extracted datasets are intentionally omitted from the public repo.
 - Grounding/reasoning can be compute-intensive depending on model choice and input size.

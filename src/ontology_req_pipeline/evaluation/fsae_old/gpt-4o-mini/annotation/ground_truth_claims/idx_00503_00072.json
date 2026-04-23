@@ -1,7 +1,7 @@
 {
   "idx": 503,
   "source_text": "2.5.4 The body of a camera or recording unit that weighs more than 0.25 kg must be secured at a minimum of two points on different sides of the camera body",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_503.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_503.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/503#DS_req0",

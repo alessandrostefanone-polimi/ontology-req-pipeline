@@ -1,7 +1,7 @@
 {
   "idx": 312,
   "source_text": "This mounting system design must withstand the following accelerations: 40 g in the longitudinal direction (forward/aft) 40 g in the lateral direction (left/right) 20 g in the vertical direction (up/down) c. Calculations and/or tests proving these requirements are met must be included in the SES. d",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_312.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_312.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/312#DS_0",

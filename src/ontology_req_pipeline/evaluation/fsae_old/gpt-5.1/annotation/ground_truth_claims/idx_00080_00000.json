@@ -1,7 +1,7 @@
 {
   "idx": 80,
   "source_text": "Ground Clearance V.1.4.1 Ground clearance must be sufficient to prevent any portion of the vehicle except the tires from touching the ground during dynamic events V.1.4.2 The distance to the ground below the Lower Side Impact Structure ( F.6.4.5, F.7.5.1 ) at its lowest point should be 75 mm or less V.1.4.3 Intentional or excessive ground contact of any portion of the vehicle other than the tires will forfeit a run or an entire dynamic event",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_80.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_80.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/80#DS_GroundClearance",

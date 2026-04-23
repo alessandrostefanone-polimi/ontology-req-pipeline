@@ -1,7 +1,7 @@
 {
   "idx": 306,
   "source_text": "External Structure F.10.2.1 The Floor or Bottom must be made from one of the three: a. Steel 1.25 mm minimum thickness b. Aluminum 3.2 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.2 Vertical Walls, Covers and Lids must be made from one of the three: a. Steel 0.9 mm minimum thickness b. Aluminum 2.3 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.3 The accepted methods of joining walls to walls and walls to floor are: a. Welding - Welds may be continuous or interrupted. - If interrupted, the weld/space ratio must be 1:1 or higher - All weld lengths must be more than 25 mm b. Fasteners Combined strength of the fasteners must be Equivalent to the strength of the welded joint ( F.10.2.3.a above)",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_306.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_306.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/306#Aluminum_3_2_mm",

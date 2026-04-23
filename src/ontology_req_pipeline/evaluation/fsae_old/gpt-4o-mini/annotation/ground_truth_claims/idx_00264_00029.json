@@ -1,7 +1,7 @@
 {
   "idx": 264,
   "source_text": "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods: a. Physical testing of the AIP attached to a structurally representative section of the intended chassis - The test fixture must have equivalent strength and stiffness to a baseline front bulkhead or must be the same as the first 50 mm of the Chassis - Test data is valid for only one Competition Year b. Laminate material testing under F.4.3.2 and F.4.3.5 and calculations of 3 point bending and perimeter shear",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_264.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_264.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/264#CalculationsOf3PointBending_0",

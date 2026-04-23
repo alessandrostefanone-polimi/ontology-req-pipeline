@@ -1,7 +1,7 @@
 {
   "idx": 419,
   "source_text": "The intent is that in a short circuit the APPSs will only agree at 0\\% Pedal Travel T.4.2.4 Implausibility is defined as a deviation of more than 10\\% Pedal Travel between the sensors or other failure as defined in this Section T.4.2",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_419.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_419.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/419#AgreementLevel_Req0",

@@ -1,7 +1,7 @@
 {
   "idx": 448,
   "source_text": "5.5.3 Flammable liquid and vapors or other leaks must not collect or contact the driver T.5.5.4 Two holes of minimum diameter 25 mm each must be provided in the structure or belly pan at the locations: a",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_448.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_448.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/448#DS_0",

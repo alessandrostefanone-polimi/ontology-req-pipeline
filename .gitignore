@@ -33,3 +33,13 @@ src/ontology_req_pipeline/.env
 
 # dev folders
 notebooks
+
+# Public-safe defaults
+artifacts/
+datasets/all_rules_extracted.csv
+datasets/all_rules_extracted.jsonl
+datasets/extracted_reqs/
+src/ontology_req_pipeline/outputs/*.html
+src/ontology_req_pipeline/outputs/*.owl
+src/ontology_req_pipeline/outputs/*.png
+src/ontology_req_pipeline/outputs/*.ttl

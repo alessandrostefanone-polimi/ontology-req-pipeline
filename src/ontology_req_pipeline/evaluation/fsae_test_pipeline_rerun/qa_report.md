@@ -6,7 +6,7 @@
 - Extraction provider/model: `openai` / `gpt-5.1`
 - Normalization provider/model: `openai` / `gpt-5.1`
 - Grounding provider/model: `openai` / `gpt-5.1`
-- Evaluation directory: `C:\Users\Alessandro Stefanone\repos\req-iof\src\ontology_req_pipeline\evaluation\fsae_test_pipeline_rerun`
+- Evaluation directory: `src\ontology_req_pipeline\evaluation\fsae_test_pipeline_rerun`
 
 ## Summary
 

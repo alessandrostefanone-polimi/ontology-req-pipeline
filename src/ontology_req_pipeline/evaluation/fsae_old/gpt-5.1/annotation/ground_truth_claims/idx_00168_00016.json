@@ -1,7 +1,7 @@
 {
   "idx": 168,
   "source_text": "5.6.5 Driver Template Position The Driver Template will be positioned as follows: - The seat will be adjusted to the rearmost position - The pedals will be placed in the most forward position - The bottom 200 mm circle will be placed on the seat bottom where the distance between the center of this circle and the rearmost face of the pedals is no less than 915 mm - The middle 200 mm circle, representing the shoulders, will be positioned on the seat back",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_168.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_168.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/168#BottomCircleDiameter",

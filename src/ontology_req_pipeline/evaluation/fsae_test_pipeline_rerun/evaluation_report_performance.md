@@ -1,7 +1,7 @@
 # Evaluation Report
 
 - Generated at (UTC): `2026-04-19T20:42:08.795440+00:00`
-- Evaluation directory: `C:\Users\Alessandro Stefanone\repos\req-iof\src\ontology_req_pipeline\evaluation\fsae_test_pipeline_rerun`
+- Evaluation directory: `src\ontology_req_pipeline\evaluation\fsae_test_pipeline_rerun`
 - Run ID: `20260413T165250.439956Z`
 - Dataset: `fsae_test_number_unit_sample.jsonl`
 

@@ -1,7 +1,7 @@
 {
   "idx": 730,
   "source_text": "The temperature sensor used must be in direct contact with one of: - The negative terminal itself - The negative terminal busbar less than 10 mm away from the cell terminal EV.7.5.5 For lithium based cells, a",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_730.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_730.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/730#Input_1",

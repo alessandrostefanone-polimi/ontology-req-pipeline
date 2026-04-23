@@ -1,7 +1,7 @@
 {
   "idx": 179,
   "source_text": "In the front view of the vehicle, the vertical members of the Main Hoop must be minimum 380 mm apart (inside dimension) at the location where the Main Hoop is attached to the bottom tubes of the Major Structure of the Chassis",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_179.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_179.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/179#DesignSpec_0",

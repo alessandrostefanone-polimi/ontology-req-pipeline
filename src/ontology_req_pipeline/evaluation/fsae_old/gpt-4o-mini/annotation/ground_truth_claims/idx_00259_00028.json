@@ -1,7 +1,7 @@
 {
   "idx": 259,
   "source_text": "The accepted methods of attachment are: a. Welding - All weld lengths must be 25 mm or longer - If interrupted, the weld/space ratio must be 1:1 or higher b",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_259.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_259.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/259#DS_req0",

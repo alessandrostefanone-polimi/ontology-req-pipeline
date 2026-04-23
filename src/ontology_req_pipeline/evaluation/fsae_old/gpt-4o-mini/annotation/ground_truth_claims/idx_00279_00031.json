@@ -1,7 +1,7 @@
 {
   "idx": 279,
   "source_text": "A Custom Impact Attenuator must mount with an area of 200 mm or more long and 200 mm or more wide that intersects a plane parallel to the ground that is no more than 220 mm above the lowest point on the top of the Lower Side Impact Structure F.8.5.7 Impact Attenuator Orientation a",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_279.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_279.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/279#Action_0",

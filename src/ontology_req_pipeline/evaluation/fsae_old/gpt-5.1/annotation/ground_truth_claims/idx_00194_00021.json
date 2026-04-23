@@ -1,7 +1,7 @@
 {
   "idx": 194,
   "source_text": "[img-9.jpeg](img-9.jpeg) F.5.12.3 For Double Lug Joints, each lug must: a. Be minimum 4.5 mm ( 0.177 in) thickness steel b",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_194.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_194.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/194#DS_0",

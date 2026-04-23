@@ -1,7 +1,7 @@
 {
   "idx": 319,
   "source_text": "The mechanical connections at each corner must be 50 mm or less from the corner of the Segment c",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_319.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_319.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/319#C_req0",

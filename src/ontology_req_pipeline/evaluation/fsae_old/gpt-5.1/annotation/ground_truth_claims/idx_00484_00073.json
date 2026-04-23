@@ -1,7 +1,7 @@
 {
   "idx": 484,
   "source_text": "Must trigger due to a longitudinal impact load which decelerates the vehicle at between 8 g and 11 g depending on the duration of the deceleration (refer to spec sheet of the Sensata device)",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_484.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_484.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/484#PlanSpec_0",

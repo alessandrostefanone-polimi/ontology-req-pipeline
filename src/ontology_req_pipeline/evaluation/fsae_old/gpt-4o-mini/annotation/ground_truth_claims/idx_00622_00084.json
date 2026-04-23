@@ -1,7 +1,7 @@
 {
   "idx": 622,
   "source_text": "Symbol specified in ISO 7010-W012 (triangle with black lightning bolt on yellow background) with triangle side length of 100 mm minimum c. Text \"Always Energized\" d. Text \"High Voltage\" if the voltage meets T.9.1.1 ## EV.4.4 Grounded Low Voltage System EV.4.4.1 The GLV System must be",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_622.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_622.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/622#DS_req0",

@@ -1,7 +1,7 @@
 {
   "idx": 698,
   "source_text": "If conductor ampacity is reduced below the ampacity of the upstream Overcurrent Protection, the reduced conductor longer than 150 mm must have additional Overcurrent Protection",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_698.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_698.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/698#ConductorLength_0",

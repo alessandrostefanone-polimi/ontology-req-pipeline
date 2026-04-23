@@ -1,13 +1,13 @@
 {
   "generated_at_utc": "2026-04-13T10:11:28.394276+00:00",
-  "evaluation_dir": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding",
+  "evaluation_dir": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding",
   "inputs": {
-    "extraction_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\extraction.jsonl",
-    "normalization_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\normalization.jsonl",
-    "grounding_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\grounding.jsonl",
-    "run_metadata_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\run_metadata.json",
-    "ground_truth_extraction_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\ground_truth_extraction.jsonl",
-    "ground_truth_claims_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\ground_truth_claims.jsonl"
+    "extraction_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\extraction.jsonl",
+    "normalization_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\normalization.jsonl",
+    "grounding_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\grounding.jsonl",
+    "run_metadata_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\run_metadata.json",
+    "ground_truth_extraction_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\ground_truth_extraction.jsonl",
+    "ground_truth_claims_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\ground_truth_claims.jsonl"
   },
   "automatic_summary": {
     "run_id": "20260413T100027.414832Z",
@@ -208,7 +208,7 @@
     ],
     "graphs": [
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_0.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_0.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -221,7 +221,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_1.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_1.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -234,7 +234,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_10.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_10.ttl",
         "total_violations": 3,
         "error_violations": 3,
         "check_violations": {
@@ -247,7 +247,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_11.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_11.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -260,7 +260,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_12.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_12.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -273,7 +273,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_13.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_13.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -286,7 +286,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_14.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_14.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -299,7 +299,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_15.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_15.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -312,7 +312,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_16.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_16.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -325,7 +325,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_17.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_17.ttl",
         "total_violations": 2,
         "error_violations": 2,
         "check_violations": {
@@ -338,7 +338,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_18.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_18.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -351,7 +351,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_19.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_19.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -364,7 +364,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_2.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_2.ttl",
         "total_violations": 2,
         "error_violations": 2,
         "check_violations": {
@@ -377,7 +377,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_20.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_20.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -390,7 +390,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_21.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_21.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -403,7 +403,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_22.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_22.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -416,7 +416,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_23.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_23.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -429,7 +429,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_3.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_3.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -442,7 +442,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_7.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_7.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -455,7 +455,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_9.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\pipeline_extraction__pipeline_normalization__zero_shot_llm_grounding\\final_kg_inferred_9.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {

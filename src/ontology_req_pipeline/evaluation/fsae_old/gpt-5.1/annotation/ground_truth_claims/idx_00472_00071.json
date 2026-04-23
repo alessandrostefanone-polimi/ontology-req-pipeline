@@ -1,7 +1,7 @@
 {
   "idx": 472,
   "source_text": "Forward of the centerline of the front wheel axles and outboard of two vertical planes parallel to the centerline of the chassis touching the inside of the front tires at the height of the hubs must be no higher than 250 mm above the ground T.7.7.2",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_472.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_472.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/472#DesignSpec_0",

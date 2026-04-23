@@ -1,7 +1,7 @@
 # Evaluation Report
 
 - Generated at (UTC): `2026-04-13T10:00:27.377103+00:00`
-- Evaluation directory: `C:\Users\Alessandro Stefanone\repos\req-iof\src\ontology_req_pipeline\evaluation\techreq_no_fsae_comparison\grounding-focused\pipeline_extraction__pipeline_normalization__agentic_grounding`
+- Evaluation directory: `src\ontology_req_pipeline\evaluation\techreq_no_fsae_comparison\grounding-focused\pipeline_extraction__pipeline_normalization__agentic_grounding`
 - Run ID: `20260413T094656.027811Z`
 - Dataset: `techreq_no_fsae.jsonl`
 

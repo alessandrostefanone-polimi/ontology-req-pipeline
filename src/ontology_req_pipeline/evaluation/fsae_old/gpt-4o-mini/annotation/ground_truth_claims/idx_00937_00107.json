@@ -1,7 +1,7 @@
 {
   "idx": 937,
   "source_text": "Length of each run should be approximately 0.80 km D.11.1.2",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_937.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_937.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/937#DS_req0",

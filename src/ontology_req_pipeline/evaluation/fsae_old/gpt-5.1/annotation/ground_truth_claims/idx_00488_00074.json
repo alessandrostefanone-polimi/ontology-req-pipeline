@@ -1,7 +1,7 @@
 {
   "idx": 488,
   "source_text": "The name must be in Roman characters minimum 50 mm high on both sides of the vehicle",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_488.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_488.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/488#NameCharSet_0",

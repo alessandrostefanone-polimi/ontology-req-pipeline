@@ -1,7 +1,7 @@
 {
   "idx": 852,
   "source_text": "Late Submission Penalties for Late Submission of Cost Report will be imposed as given in section DR Document Requirements. ### 5.3.7 Cost Addendum 5.3.7.1 A supplement to the Cost Report that reflects any changes or corrections made after the submission of the Cost Report may be submitted",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_852.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_852.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/852#CostReport_1",

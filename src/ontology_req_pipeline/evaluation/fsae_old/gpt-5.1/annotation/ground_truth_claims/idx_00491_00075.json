@@ -1,7 +1,7 @@
 {
   "idx": 491,
   "source_text": "1.4 Inspection Sticker The vehicle must have space for the Inspection Sticker(s) IN.13.2 that is: - A clear and unobstructed area, minimum 25 cm wide $\\times 20 \\mathrm{~cm}$ high - Located on the upper front surface of the nose along the vehicle centerline ## VE.1.5 Transponder / RFID Tag VE.1.5.1",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_491.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_491.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/491#DS_0",

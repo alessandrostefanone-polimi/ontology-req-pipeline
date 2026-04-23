@@ -1,7 +1,7 @@
 {
   "idx": 438,
   "source_text": "Stay aligned with the belt under all conditions T.5.2.9 Attachment Fasteners - All fasteners attaching scatter shields and guards must be 6 mm or 1/4\" minimum diameter Critical Fasteners, see T.8.2 T.5.2.10 Finger Guards a. Must cover any drivetrain parts that spin while the vehicle is stationary with the engine running",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_438.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_438.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/438#ActSpec_0",

@@ -6,7 +6,7 @@
 - Extraction provider/model: `openai` / `gpt-5.4`
 - Normalization provider/model: `openai` / `gpt-5.4`
 - Grounding provider/model: `openai` / `gpt-5.4`
-- Evaluation directory: `C:\Users\Alessandro Stefanone\repos\req-iof\src\ontology_req_pipeline\evaluation\techreq_no_fsae_comparison\grounding-focused\pipeline_extraction__pipeline_normalization__agentic_grounding`
+- Evaluation directory: `src\ontology_req_pipeline\evaluation\techreq_no_fsae_comparison\grounding-focused\pipeline_extraction__pipeline_normalization__agentic_grounding`
 
 ## Summary
 

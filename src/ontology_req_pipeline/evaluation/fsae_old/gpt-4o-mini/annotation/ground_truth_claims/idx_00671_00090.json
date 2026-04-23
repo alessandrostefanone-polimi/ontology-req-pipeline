@@ -1,7 +1,7 @@
 {
   "idx": 671,
   "source_text": "6.1.2 Contact with any Tractive System connections with a 100 mm long, 6 mm diameter insulated test probe must not be possible when the Tractive System enclosures are in place",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_671.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_671.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/671#DS_0",

@@ -1,7 +1,7 @@
 {
   "idx": 514,
   "source_text": "2 AIR INTAKE SYSTEM ## IC.2.1 General ## IC.2.2 Intake System Location IC.2.2.1 The Intake System must meet IC.1.2 IC.2.2.2 Any portion of the air intake system that is less than 350 mm above the ground must be shielded from side or rear impacts by structure built per F.6.4 / F.7.5 as applicable. ## IC.2.3 Intake System Mounting IC.2.3.1",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_514.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_514.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/514#DS_Req514_Design",

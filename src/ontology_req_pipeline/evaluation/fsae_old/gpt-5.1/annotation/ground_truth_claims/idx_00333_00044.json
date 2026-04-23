@@ -1,7 +1,7 @@
 {
   "idx": 333,
   "source_text": "If used, the mounts or plate must be 25 mm or more larger at both the top and bottom of the upper and lower tubes F.11.2.3 All Non Crushable Items should have a minimum 25 mm clearance to the surface of the Accumulator Container",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_333.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_333.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/333#ClearanceDistance",

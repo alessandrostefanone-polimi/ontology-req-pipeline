@@ -1,7 +1,7 @@
 {
   "idx": 397,
   "source_text": "Meet one of the following: - minimum area of $235 \\mathrm{~cm}^{2}$ AND minimum total height adjustment of 17.5 cm - minimum height of 28 cm e. Be covered with a thin, flexible material that contains a $\\sim 20 \\mathrm{~mm}$ diameter inspection hole in a surface other than the front surface ## T.2.9 Roll Bar Padding Any portion of the roll bar, roll bar bracing or Chassis which might be contacted by the driver's helmet must be covered with a minimum thickness of 12 mm of padding which meets SFI Spec 45.1 or FIA 8857-2001",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_397.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_397.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/397#Area_0",

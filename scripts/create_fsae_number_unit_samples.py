@@ -243,14 +243,14 @@ def write_jsonl(path: Path, rows: List[Dict]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Create reproducible FSAE number+unit samples.")
-    parser.add_argument("--input", type=Path, default=Path("datasets/extracted_reqs/fsae.jsonl"))
+    parser.add_argument("--input", type=Path, default=Path("artifacts/private_inputs/fsae.jsonl"))
     parser.add_argument("--dev-size", type=int, default=20)
     parser.add_argument("--test-size", type=int, default=120)
     parser.add_argument("--seed", type=int, default=20260212)
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("datasets/extracted_reqs"),
+        default=Path("datasets"),
     )
     args = parser.parse_args()
 

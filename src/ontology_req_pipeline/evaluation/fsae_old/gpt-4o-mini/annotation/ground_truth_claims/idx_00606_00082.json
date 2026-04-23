@@ -1,7 +1,7 @@
 {
   "idx": 606,
   "source_text": "Have a diameter of 24 mm minimum IC.9.4.2 Location - The Cockpit Main Switch must be: a",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_606.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_606.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/606#DS_req0",

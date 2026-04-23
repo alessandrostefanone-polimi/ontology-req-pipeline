@@ -1,7 +1,7 @@
 {
   "idx": 236,
   "source_text": "The perimeter shear strength of the monocoque laminate must be 7.5 kN or more for a section with a diameter of 25 mm",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_236.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_236.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/236#DS_req0",

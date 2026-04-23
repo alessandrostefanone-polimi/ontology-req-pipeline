@@ -1,7 +1,7 @@
 {
   "idx": 300,
   "source_text": "Any portion of the Fuel System that is less than 350 mm above the ground, and all parts of the Fuel Tank, must be inside the Primary Structure (F.1.10)",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_300.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_300.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/300#DS_req0",

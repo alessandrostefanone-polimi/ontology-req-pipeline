@@ -1,13 +1,13 @@
 {
   "generated_at_utc": "2026-04-13T18:47:49.197129+00:00",
-  "evaluation_dir": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun",
+  "evaluation_dir": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun",
   "inputs": {
-    "extraction_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\extraction.jsonl",
-    "normalization_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\normalization.jsonl",
-    "grounding_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\grounding.jsonl",
-    "run_metadata_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\run_metadata.json",
-    "ground_truth_extraction_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\ground_truth_extraction.jsonl",
-    "ground_truth_claims_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\ground_truth_claims.jsonl"
+    "extraction_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\extraction.jsonl",
+    "normalization_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\normalization.jsonl",
+    "grounding_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\grounding.jsonl",
+    "run_metadata_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\run_metadata.json",
+    "ground_truth_extraction_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\ground_truth_extraction.jsonl",
+    "ground_truth_claims_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\ground_truth_claims.jsonl"
   },
   "automatic_summary": {
     "run_id": "20260413T165250.439956Z",
@@ -215,7 +215,7 @@
     ],
     "graphs": [
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_111.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_111.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -228,7 +228,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_113.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_113.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -241,7 +241,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_122.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_122.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -254,7 +254,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_128.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_128.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -267,7 +267,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_136.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_136.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -280,7 +280,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_160.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_160.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -293,7 +293,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_163.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_163.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -306,7 +306,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_164.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_164.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -319,7 +319,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_165.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_165.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -332,7 +332,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_166.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_166.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -345,7 +345,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_167.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_167.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -358,7 +358,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_168.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_168.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -371,7 +371,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_172.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_172.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -384,7 +384,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_174.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_174.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -397,7 +397,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_179.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_179.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -410,7 +410,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_190.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_190.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -423,7 +423,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_194.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_194.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -436,7 +436,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_199.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_199.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -449,7 +449,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_205.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_205.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -462,7 +462,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_206.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_206.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -475,7 +475,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_225.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_225.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -488,7 +488,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_232.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_232.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -501,7 +501,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_234.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_234.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -514,7 +514,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_236.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_236.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -527,7 +527,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_238.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_238.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -540,7 +540,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_259.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_259.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -553,7 +553,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_264.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_264.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -566,7 +566,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_276.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_276.ttl",
         "total_violations": 3,
         "error_violations": 3,
         "check_violations": {
@@ -579,7 +579,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_279.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_279.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -592,7 +592,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_281.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_281.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -605,7 +605,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_284.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_284.ttl",
         "total_violations": 2,
         "error_violations": 2,
         "check_violations": {
@@ -618,7 +618,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_287.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_287.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -631,7 +631,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_300.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_300.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -644,7 +644,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_306.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_306.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -657,7 +657,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_312.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_312.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -670,7 +670,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_315.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_315.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -683,7 +683,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_318.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_318.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -696,7 +696,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_319.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_319.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -709,7 +709,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_330.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_330.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -722,7 +722,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_333.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_333.ttl",
         "total_violations": 2,
         "error_violations": 2,
         "check_violations": {
@@ -735,7 +735,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_336.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_336.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -748,7 +748,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_355.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_355.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -761,7 +761,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_357.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_357.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -774,7 +774,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_372.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_372.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -787,7 +787,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_384.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_384.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -800,7 +800,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_385.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_385.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -813,7 +813,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_394.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_394.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -826,7 +826,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_397.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_397.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -839,7 +839,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_403.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_403.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -852,7 +852,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_408.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_408.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -865,7 +865,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_415.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_415.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -878,7 +878,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_418.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_418.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -891,7 +891,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_419.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_419.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -904,7 +904,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_438.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_438.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -917,7 +917,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_440.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_440.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -930,7 +930,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_443.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_443.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -943,7 +943,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_444.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_444.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -956,7 +956,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_448.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_448.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -969,7 +969,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_451.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_451.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -982,7 +982,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_452.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_452.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -995,7 +995,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_456.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_456.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1008,7 +1008,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_460.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_460.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1021,7 +1021,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_462.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_462.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1034,7 +1034,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_465.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_465.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1047,7 +1047,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_467.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_467.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1060,7 +1060,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_470.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_470.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1073,7 +1073,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_471.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_471.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1086,7 +1086,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_472.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_472.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1099,7 +1099,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_476.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_476.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -1112,7 +1112,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_484.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_484.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1125,7 +1125,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_488.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_488.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -1138,7 +1138,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_491.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_491.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1151,7 +1151,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_495.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_495.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1164,7 +1164,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_496.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_496.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1177,7 +1177,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_503.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_503.ttl",
         "total_violations": 2,
         "error_violations": 2,
         "check_violations": {
@@ -1190,7 +1190,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_509.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_509.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1203,7 +1203,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_514.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_514.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -1216,7 +1216,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_550.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_550.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1229,7 +1229,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_556.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_556.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1242,7 +1242,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_559.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_559.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1255,7 +1255,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_570.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_570.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1268,7 +1268,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_571.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_571.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -1281,7 +1281,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_572.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_572.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1294,7 +1294,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_576.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_576.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1307,7 +1307,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_606.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_606.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1320,7 +1320,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_611.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_611.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1333,7 +1333,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_622.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_622.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1346,7 +1346,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_625.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_625.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1359,7 +1359,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_646.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_646.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1372,7 +1372,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_647.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_647.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1385,7 +1385,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_648.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_648.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1398,7 +1398,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_658.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_658.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1411,7 +1411,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_668.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_668.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1424,7 +1424,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_671.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_671.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1437,7 +1437,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_690.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_690.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -1450,7 +1450,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_698.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_698.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1463,7 +1463,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_699.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_699.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1476,7 +1476,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_728.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_728.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1489,7 +1489,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_730.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_730.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1502,7 +1502,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_731.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_731.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1515,7 +1515,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_797.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_797.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1528,7 +1528,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_798.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_798.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1541,7 +1541,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_80.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_80.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1554,7 +1554,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_800.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_800.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -1567,7 +1567,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_807.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_807.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1580,7 +1580,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_812.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_812.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1593,7 +1593,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_852.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_852.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1606,7 +1606,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_855.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_855.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1619,7 +1619,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_856.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_856.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1632,7 +1632,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_89.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_89.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1645,7 +1645,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_920.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_920.ttl",
         "total_violations": 1,
         "error_violations": 1,
         "check_violations": {
@@ -1658,7 +1658,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_921.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_921.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1671,7 +1671,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_922.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_922.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1684,7 +1684,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_927.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_927.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1697,7 +1697,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_93.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_93.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1710,7 +1710,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_937.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_937.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1723,7 +1723,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_94.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_94.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1736,7 +1736,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_944.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_944.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1749,7 +1749,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_965.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_965.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {
@@ -1762,7 +1762,7 @@
         }
       },
       {
-        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_97.ttl",
+        "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun\\final_kg_inferred_97.ttl",
         "total_violations": 0,
         "error_violations": 0,
         "check_violations": {

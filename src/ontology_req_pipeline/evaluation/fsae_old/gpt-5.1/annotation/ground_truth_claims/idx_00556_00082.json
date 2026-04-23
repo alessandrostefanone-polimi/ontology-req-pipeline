@@ -1,7 +1,7 @@
 {
   "idx": 556,
   "source_text": "Brake System Plausibility Device - BSPD IC.4.8.1 A standalone nonprogrammable circuit must be used to monitor the electronic throttle control",
-  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_556.ttl",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_556.ttl",
   "predicted_claims": [
     {
       "s": "http://example.org/req/556#CircuitRole_0",
