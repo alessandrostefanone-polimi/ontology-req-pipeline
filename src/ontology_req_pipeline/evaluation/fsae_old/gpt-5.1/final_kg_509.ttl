@@ -1,0 +1,103 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/509#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:CompetitorRole a bfo:BFO_0000023 ;
+    rdfs:label "competitor role" ;
+    iof:roleOf :Competitor .
+
+:DriverSuit_Approved a bfo:BFO_0000040 ;
+    rdfs:label "approved driver suit" ;
+    iof:isSubjectOf :DesignSpec_Suit .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Each suit must meet one or more of the following standards and be labeled as such: - $\\quad$ SFI 3.2A/5 (or higher ex: /10, /15, /20) - $\\quad$ SFI 3.4/5 (or higher ex: /10, /15, /20) - FIA Standard 1986 - FIA Standard 8856-2000 - FIA Standard 8856-2018 VE.3.3.2 Underclothing All competitors should wear fire retardant underwear (long pants and long sleeve shirt) under their approved Driver Suit" ;
+    iof:isAbout :ObjSpec_SuitStandards,
+        :ObjSpec_Underclothing ;
+    iof:requirementSatisfiedBy :DesignSpec_Suit,
+        :PlanSpec_Underclothing .
+
+:Std_FIA_1986 a iof:InformationContentEntity ;
+    rdfs:label "FIA Standard 1986" ;
+    iof:isSubjectOf :ObjSpec_SuitStandards .
+
+:Std_FIA_8856_2000 a iof:InformationContentEntity ;
+    rdfs:label "FIA Standard 8856-2000" ;
+    iof:isSubjectOf :ObjSpec_SuitStandards .
+
+:Std_FIA_8856_2018 a iof:InformationContentEntity ;
+    rdfs:label "FIA Standard 8856-2018" ;
+    iof:isSubjectOf :ObjSpec_SuitStandards .
+
+:Std_SFI_3_2A_5 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/5 (or higher ex: /10, /15, /20)" ;
+    iof:isSubjectOf :ObjSpec_SuitStandards .
+
+:Std_SFI_3_4_5 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.4/5 (or higher ex: /10, /15, /20)" ;
+    iof:isSubjectOf :ObjSpec_SuitStandards .
+
+:Suit a bfo:BFO_0000040 ;
+    rdfs:label "driver suit" ;
+    iof:isSubjectOf :DesignSpec_Suit .
+
+:Suit_Labeling a iof:InformationContentEntity ;
+    rdfs:label "Suit labeling indicating applicable standard(s)" ;
+    iof:isSubjectOf :ObjSpec_SuitStandards .
+
+:Underwear_LayeringCondition a iof:ProcessCharacteristic ;
+    rdfs:label "underwear worn under approved driver suit" ;
+    iof:processCharacteristicOf :Process_WearUnderwear .
+
+:Competitor a iof:Person ;
+    rdfs:label "competitor" ;
+    iof:hasRole :CompetitorRole .
+
+:ObjSpec_Underclothing a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: competitors wear fire retardant underwear under driver suit" ;
+    iof:prescribes :Underwear_Item,
+        :Underwear_LayeringCondition,
+        :Underwear_MaterialProperty .
+
+:PlanSpec_Underclothing a iof:PlanSpecification ;
+    rdfs:label "Plan specification for competitor underclothing" ;
+    bfo:BFO_0000110 :ObjSpec_Underclothing ;
+    iof:prescribes :Process_WearUnderwear .
+
+:Process_WearUnderwear a iof:PlannedProcess ;
+    rdfs:label "Process of competitors wearing fire retardant underwear under driver suit" ;
+    iof:hasInput :Competitor,
+        :DriverSuit_Approved,
+        :Underwear_Item ;
+    iof:prescribedBy :PlanSpec_Underclothing .
+
+:Underwear_MaterialProperty a bfo:BFO_0000019 ;
+    rdfs:label "fire retardant material property" ;
+    iof:qualityOf :Underwear_Item .
+
+:DesignSpec_Suit a iof:DesignSpecification ;
+    rdfs:label "Design specification for driver suits" ;
+    iof:prescribes :Suit ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Underwear_Item a bfo:BFO_0000040 ;
+    rdfs:label "fire retardant underwear (long pants and long sleeve shirt)" ;
+    iof:hasQuality :Underwear_MaterialProperty .
+
+:ObjSpec_SuitStandards a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: driver suit standards and labeling" ;
+    iof:prescribes :Std_FIA_1986,
+        :Std_FIA_8856_2000,
+        :Std_FIA_8856_2018,
+        :Std_SFI_3_2A_5,
+        :Std_SFI_3_4_5,
+        :Suit_Labeling .
+

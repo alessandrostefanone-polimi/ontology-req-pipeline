@@ -1,0 +1,45 @@
+{
+  "idx": 797,
+  "req_idx": 0,
+  "source_text": "All vehicles with a maximum nominal operation voltage below 500 V will be measured with the next available voltage level",
+  "requirement_text_pred": "All vehicles with a maximum nominal operation voltage below 500 V will be measured with the next available voltage level.",
+  "prediction": {
+    "subject": "All vehicles with a maximum nominal operation voltage below 500 V",
+    "modality": "will",
+    "condition": "",
+    "action": "be measured",
+    "object": "with the next available voltage level"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "nominal operation voltage",
+      "operator_pred": "lt",
+      "value_raw_pred": "500 V",
+      "value_v1_pred": 500.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "V",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Voltage",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/V",
+      "normalized_si_value_primary_pred": 500.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/V",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

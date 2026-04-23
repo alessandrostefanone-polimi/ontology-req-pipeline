@@ -1,0 +1,46 @@
+{
+  "idx": 646,
+  "req_idx": 0,
+  "source_text": "A capacitor may be used to hold the AIRs closed for up to 250 ms after the Shutdown Circuit Opens EV.7.2.2 ## EV.5.5 High Voltage Disconnect - HVD A High Voltage Disconnect (HVD) must be included to quickly disconnect one or both poles of the Accumulator EV.11.3.2 EV.5.5.1 The High Voltage Disconnect (HVD) must be: a",
+  "requirement_text_pred": "A capacitor may be used to hold the AIRs closed for up to 250 ms after the Shutdown Circuit Opens EV.7.2.2",
+  "prediction": {
+    "subject": "A capacitor",
+    "modality": "may",
+    "condition": "after the Shutdown Circuit Opens",
+    "action": "be used to hold the AIRs closed for up to 250 ms",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "duration",
+      "operator_pred": "le",
+      "value_raw_pred": "up to 250 ms",
+      "value_v1_pred": 250.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "ms",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Time",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliSEC",
+      "normalized_si_value_primary_pred": 0.25,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/SEC",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

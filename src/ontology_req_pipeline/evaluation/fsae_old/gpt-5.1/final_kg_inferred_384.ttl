@@ -1,0 +1,148 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/384#> a owl:Ontology .
+
+<http://example.org/req/384#AttachmentMethod_BoltThroughWeldedTubeInsert> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Bolt through a welded tube insert" .
+
+<http://example.org/req/384#AttachmentMethod_BoltToTabOrBracket> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Bolt to a tab or bracket" .
+
+<http://example.org/req/384#AttachmentMethod_ClipToTabOrBracket> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Clip to a tab or bracket" .
+
+<http://example.org/req/384#AttachmentMethod_TestedMonocoqueAttachment> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Tested monocoque attachment" .
+
+<http://example.org/req/384#AttachmentMethod_WrapAroundMountingBar> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Wrap around the Shoulder Harness Mounting bar" .
+
+<http://example.org/req/384#AttachmentMethod_WrapAroundTestedHardwareMonocoque> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Wrap around physically tested hardware attached to a monocoque" .
+
+<http://example.org/req/384#DesignSpec_ShoulderBeltMountSpacing> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/384#ShoulderBeltMountSpacing> ;
+    ns1:satisfiesRequirement <http://example.org/req/384#Req_0> .
+
+<http://example.org/req/384#PlanSpec_ShoulderBeltAttachmentMethod> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/384#ShoulderBeltAttachmentProcess> ;
+    ns1:satisfiesRequirement <http://example.org/req/384#Req_0> .
+
+<http://example.org/req/384#ShoulderBeltAttachmentMethodChoice> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Shoulder Belt Attachment Method Choice" ;
+    ns1:hasOccurentPart <http://example.org/req/384#AttachmentMethod_BoltThroughWeldedTubeInsert>,
+        <http://example.org/req/384#AttachmentMethod_BoltToTabOrBracket>,
+        <http://example.org/req/384#AttachmentMethod_ClipToTabOrBracket>,
+        <http://example.org/req/384#AttachmentMethod_TestedMonocoqueAttachment>,
+        <http://example.org/req/384#AttachmentMethod_WrapAroundMountingBar>,
+        <http://example.org/req/384#AttachmentMethod_WrapAroundTestedHardwareMonocoque> .
+
+<http://example.org/req/384#ShoulderBeltAttachmentProcess> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Shoulder Belt Attachment Process" ;
+    ns1:hasParticipantAtSomeTime <http://example.org/req/384#ShoulderBelts> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/384#ShoulderBeltAttachmentMethodChoice> .
+
+<http://example.org/req/384#ShoulderBeltMountStructure> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Shoulder Belt Mount Structure" .
+
+<http://example.org/req/384#ShoulderBelts> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Shoulder Belts" .
+
+<http://example.org/req/384#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 2.35e+02 ;
+    ns2:minInclusive 1.75e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/384#ShoulderBeltMountSpacing> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/384#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The Shoulder Belt Mount Spacing must be between 175 mm and 235 mm , center to center T.2.6.3 The Shoulder Belts must attach by one of the four: a. Wrap around the Shoulder Harness Mounting bar b. Bolt through a welded tube insert or tested monocoque attachment F.7.9 c. Bolt or clip to a tab or bracket (T.2.4.3 ) on the Shoulder Harness Mounting bar d. Wrap around physically tested hardware attached to a monocoque T.2.6.4" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/384#DesignSpec_ShoulderBeltMountSpacing>,
+        <http://example.org/req/384#PlanSpec_ShoulderBeltAttachmentMethod> .
+
+<http://example.org/req/384#ShoulderBeltMountSpacing> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Shoulder Belt Mount Spacing" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/384#VE_req0_c0> ;
+    ns1:qualityOf <http://example.org/req/384#ShoulderBeltMountStructure> .
+

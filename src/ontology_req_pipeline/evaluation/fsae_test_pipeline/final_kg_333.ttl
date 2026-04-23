@@ -1,0 +1,75 @@
+@prefix : <http://example.org/req/333#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:AccumulatorContainer_1 a bfo:BFO_0000040 ;
+    rdfs:label "Accumulator Container"@en .
+
+:ClearanceProcess_1 a iof:PlannedProcess ;
+    rdfs:label "clearance between Non Crushable Item and Accumulator Container"@en ;
+    iof:hasParticipantAtSomeTime :AccumulatorContainer_1,
+        :NonCrushableItem_1 ;
+    iof:hasProcessCharacteristic :Clearance_1 .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :MountsOrPlate_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:MountsOrPlate_0 a bfo:BFO_0000040 ;
+    rdfs:label "mounts or plate"@en ;
+    iof:hasQuality :Size_0 .
+
+:NonCrushableItem_1 a bfo:BFO_0000040 ;
+    rdfs:label "Non Crushable Item"@en .
+
+:Objective_0 a iof:ObjectiveSpecification ;
+    iof:isSubjectOf :Req_0 .
+
+:PS_1 a iof:PlanSpecification ;
+    iof:prescribes :ClearanceProcess_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :Size_0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.5e-02 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :Clearance_1 .
+
+qudtqk:AbsoluteTypographicMeasurement a qudt:QuantityKind .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:AbsoluteTypographicMeasurement .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:Clearance_1 a iof:ProcessCharacteristic ;
+    rdfs:label "clearance"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 .
+
+:Size_0 a bfo:BFO_0000019 ;
+    rdfs:label "mounts or plate size"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "If used, the mounts or plate must be 25 mm or more larger at both the top and bottom of the upper and lower tubes F.11.2.3 All Non Crushable Items should have a minimum 25 mm clearance to the surface of the Accumulator Container" ;
+    iof:isAbout :Objective_0 ;
+    iof:requirementSatisfiedBy :DS_0,
+        :PS_1 .
+

@@ -1,0 +1,72 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/418#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The circuit must have a pull-up or pull-down resistor to bring an open circuit input to $0 \\%$ Pedal Travel - An OEM pedal sensor with opposite slopes" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "An OEM pedal sensor with opposite slopes." ;
+    iof:requirementSatisfiedBy :DS_1 .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :P_0 .
+
+:DS_1 a iof:DesignSpecification ;
+    iof:prescribes :P_1 .
+
+:P_0 a iof:PlanSpecification ;
+    iof:hasInput :R1,
+        :R2 ;
+    iof:prescribes :VE_req0_c2 .
+
+:P_1 a iof:PlanSpecification ;
+    iof:prescribes :VE_req1 .
+
+:R1 a iof:MaterialComponent ;
+    iof:hasRole :pull_up_resistor_role .
+
+:R2 a iof:MaterialComponent ;
+    iof:hasRole :pull_down_resistor_role .
+
+:open_circuit_input a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c2 .
+
+:pull_down_resistor_role a iof:MaterialComponentRole ;
+    rdfs:label "pull-down resistor" .
+
+:pull_up_or_pull_down_resistor a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req1 .
+
+:pull_up_resistor_role a iof:MaterialComponentRole ;
+    rdfs:label "pull-up resistor" .
+
+qudtqk:DutyCycle a qudt:QuantityKind .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudtu:NUM ;
+    qudt:maxInclusive 0e+00 ;
+    qudt:minInclusive 0e+00 ;
+    qudt:unit qudtu:NUM ;
+    iof:isValueExpressionOfAtAllTimes :open_circuit_input .
+
+:VE_req1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudtu:NUM ;
+    qudt:maxInclusive 0e+00 ;
+    qudt:minInclusive 0e+00 ;
+    iof:isValueExpressionOfAtSomeTime :pull_up_or_pull_down_resistor .
+
+qudtu:NUM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DutyCycle .
+

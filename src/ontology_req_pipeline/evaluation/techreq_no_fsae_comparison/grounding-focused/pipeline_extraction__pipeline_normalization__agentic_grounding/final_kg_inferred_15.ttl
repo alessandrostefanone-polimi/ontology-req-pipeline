@@ -1,0 +1,133 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/15#> a owl:Ontology .
+
+<http://example.org/req/15#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The robot shall be able to place its tool within a circle with a diameter of 1 meter at a height of 0.2 meters over the ground." ;
+    ns2:isAbout <http://example.org/req/15#ObjSpec_0> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/15#PlanSpec_0> .
+
+<http://example.org/req/15#VE_req0_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 1e+00 ;
+    ns1:minInclusive 1e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/15#PlacementRegionDiameter_0> .
+
+<http://example.org/req/15#VE_req0_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2e-01 ;
+    ns1:minInclusive 2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/DeciM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/15#HeightOverGround_0> .
+
+<http://qudt.org/vocab/unit/DeciM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+
+<http://example.org/req/15#HeightOverGround_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/15#VE_req0_c1> ;
+    ns2:processCharacteristicOf <http://example.org/req/15#PlaceProcess_0> .
+
+<http://example.org/req/15#ObjSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    ns2:isAchievedByAtSomeTime <http://example.org/req/15#PlaceProcess_0> ;
+    ns2:prescribes <http://example.org/req/15#PlacementCapability_0> .
+
+<http://example.org/req/15#PlacementCapability_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000016,
+        ns3:BFO_0000017,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:Capability ;
+    ns2:capabilityOf <http://example.org/req/15#Robot_0> .
+
+<http://example.org/req/15#PlacementRegionDiameter_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/15#VE_req0_c0> ;
+    ns2:processCharacteristicOf <http://example.org/req/15#PlaceProcess_0> .
+
+<http://example.org/req/15#PlanSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/15#PlaceProcess_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/15#Req_0> .
+
+<http://example.org/req/15#Robot_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000027,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:EngineeredSystem,
+        ns2:System ;
+    ns2:hasCapability <http://example.org/req/15#PlacementCapability_0> ;
+    ns2:hasComponentPartAtSomeTime <http://example.org/req/15#Tool_0> .
+
+<http://example.org/req/15#Tool_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact .
+
+<http://example.org/req/15#PlaceProcess_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    ns3:BFO_0000057 <http://example.org/req/15#Robot_0>,
+        <http://example.org/req/15#Tool_0> ;
+    ns2:achievesAtSomeTime <http://example.org/req/15#ObjSpec_0> ;
+    ns2:hasProcessCharacteristic <http://example.org/req/15#HeightOverGround_0>,
+        <http://example.org/req/15#PlacementRegionDiameter_0> ;
+    ns2:prescribedBy <http://example.org/req/15#PlanSpec_0> .
+

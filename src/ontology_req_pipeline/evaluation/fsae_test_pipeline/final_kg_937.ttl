@@ -1,0 +1,41 @@
+@prefix : <http://example.org/req/937#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Length of each run should be approximately 0.80 km D.11.1.2" ;
+    iof:requirementSatisfiedBy :RunLengthDesignSpec_0 .
+
+:RunLengthDesignSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :Run_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 8e-01 ;
+    qudt:minInclusive 8e-01 ;
+    qudt:unit qudtu:KiloM ;
+    iof:isValueExpressionOfAtAllTimes :RunLength_0 .
+
+qudtqk:PathLength a qudt:QuantityKind .
+
+qudtu:KiloM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:PathLength .
+
+:RunLength_0 a iof:ProcessCharacteristic ;
+    rdfs:label "length of each run"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 ;
+    iof:processCharacteristicOf :Run_0 .
+
+:Run_0 a bfo:BFO_0000015 ;
+    rdfs:label "run (process) constrained by requirement 0"@en ;
+    iof:hasProcessCharacteristic :RunLength_0 .
+

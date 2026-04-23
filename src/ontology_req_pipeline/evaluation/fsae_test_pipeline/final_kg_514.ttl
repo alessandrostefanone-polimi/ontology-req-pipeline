@@ -1,0 +1,102 @@
+@prefix : <http://example.org/req/514#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:IC_2_2_2 a iof:InformationContentEntity ;
+    rdfs:label "IC.2.2.2" .
+
+:Req1_ShieldingObjective a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :ShieldingProcess ;
+    iof:prescribes :ImpactDirectionCharacteristic,
+        :ProtectiveStructure .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxExclusive 3.5e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :HeightAboveGround .
+
+:AirIntakeSystem a iof:MaterialArtifact ;
+    iof:prescribedBy :Req1_Spec .
+
+:F_6_4 a iof:InformationContentEntity ;
+    rdfs:label "F.6.4" .
+
+:F_7_5 a iof:InformationContentEntity ;
+    rdfs:label "F.7.5" .
+
+:HeightAboveGround a bfo:BFO_0000019 ;
+    iof:qualityOf :PortionOfAirIntakeSystem .
+
+:IC_1_2 a iof:InformationContentEntity ;
+    rdfs:label "IC.1.2" .
+
+:IC_2_2_1 a iof:InformationContentEntity ;
+    rdfs:label "IC.2.2.1" .
+
+:IntakeSystemComplianceProcess a iof:PlannedProcess ;
+    iof:achievesAtSomeTime :Req0_ComplianceObjective ;
+    iof:hasSpecifiedOutput :IntakeSystem ;
+    iof:prescribedBy :IC_2_2_1 .
+
+:ObjSpec_Overall a iof:ObjectiveSpecification .
+
+:Req0_ComplianceObjective a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :IntakeSystemComplianceProcess ;
+    iof:prescribes :IC_1_2 .
+
+:Req1_Enum_Rear a iof:InformationContentEntity ;
+    rdfs:label "rear impact direction" .
+
+:Req1_Enum_Side a iof:InformationContentEntity ;
+    rdfs:label "side impact direction" .
+
+qudtqk:Height a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:ImpactDirectionCharacteristic a iof:ProcessCharacteristic ;
+    iof:isSubjectOf :Req1_Enum_Rear,
+        :Req1_Enum_Side .
+
+:IntakeSystem a iof:MaterialArtifact ;
+    iof:prescribedBy :Req0_Spec .
+
+:PortionOfAirIntakeSystem a iof:MaterialComponent ;
+    iof:componentPartOfAtSomeTime :AirIntakeSystem .
+
+:ProtectiveStructure a iof:MaterialArtifact ;
+    iof:prescribedBy :F_6_4,
+        :F_7_5 .
+
+:Req0_Spec a iof:DesignSpecification ;
+    iof:prescribes :IntakeSystem ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "2 AIR INTAKE SYSTEM ## IC.2.1 General ## IC.2.2 Intake System Location IC.2.2.1 The Intake System must meet IC.1.2 IC.2.2.2 Any portion of the air intake system that is less than 350 mm above the ground must be shielded from side or rear impacts by structure built per F.6.4 / F.7.5 as applicable. ## IC.2.3 Intake System Mounting IC.2.3.1" ;
+    iof:isAbout :ObjSpec_Overall ;
+    iof:requirementSatisfiedBy :DS_IntakeSystem,
+        :PS_Shielding,
+        :Req0_Spec,
+        :Req1_Spec .
+
+:ShieldingProcess a iof:PlannedProcess ;
+    bfo:BFO_0000057 :PortionOfAirIntakeSystem,
+        :ProtectiveStructure ;
+    iof:hasProcessCharacteristic :ImpactDirectionCharacteristic ;
+    iof:prescribedBy :Req1_Spec .
+
+:Req1_Spec a iof:PlanSpecification ;
+    iof:prescribes :ShieldingProcess ;
+    iof:satisfiesRequirement :Req_0 .
+

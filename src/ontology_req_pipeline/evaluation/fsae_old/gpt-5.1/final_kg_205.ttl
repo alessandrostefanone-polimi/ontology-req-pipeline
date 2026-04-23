@@ -1,0 +1,91 @@
+@prefix : <http://example.org/req/205#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:AttachmentToFrontBulkhead a bfo:BFO_0000015 ;
+    rdfs:label "attachment of upper support member to Front Bulkhead" ;
+    bfo:BFO_0000057 :FrontBulkhead,
+        :UpperSupportMember ;
+    iof:prescribedBy :DS_UpperSupportAttachment .
+
+:AttachmentToFrontHoop a bfo:BFO_0000015 ;
+    rdfs:label "attachment of upper support member to Front Hoop" ;
+    bfo:BFO_0000057 :FrontHoop,
+        :UpperSupportMember,
+        :Zone_AttachmentToFrontHoop ;
+    iof:prescribedBy :DS_UpperSupportAttachment .
+
+:UpperSideImpactMember a bfo:BFO_0000040 ;
+    rdfs:label "Upper Side Impact member" .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "distance <= 50 mm from top surface of Front Bulkhead" ;
+    qudt:maxInclusive 5e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :Distance_UpperSupport_to_FrontBulkheadTopSurface .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "extension 100 mm above Upper Side Impact member" ;
+    qudt:maxInclusive 1e+02 ;
+    qudt:minInclusive 1e+02 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :ExtensionAbove_UpperSideImpactMember .
+
+:VE_req1_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "extension 50 mm below Upper Side Impact member" ;
+    qudt:maxInclusive 5e+01 ;
+    qudt:minInclusive 5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :ExtensionBelow_UpperSideImpactMember .
+
+:Distance_UpperSupport_to_FrontBulkheadTopSurface a bfo:BFO_0000019 ;
+    rdfs:label "distance from upper support member to top surface of Front Bulkhead" ;
+    iof:qualityOf :UpperSupportMember .
+
+:ExtensionAbove_UpperSideImpactMember a bfo:BFO_0000019 ;
+    rdfs:label "extension above Upper Side Impact member" ;
+    iof:qualityOf :Zone_AttachmentToFrontHoop .
+
+:ExtensionBelow_UpperSideImpactMember a bfo:BFO_0000019 ;
+    rdfs:label "extension below Upper Side Impact member" ;
+    iof:qualityOf :Zone_AttachmentToFrontHoop .
+
+:FrontBulkhead a bfo:BFO_0000040 ;
+    rdfs:label "Front Bulkhead" .
+
+:FrontHoop a bfo:BFO_0000040 ;
+    rdfs:label "Front Hoop" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The upper support member must be attached 50 mm or less from the top surface of the Front Bulkhead, and attach to the Front Hoop inside a zone extending 100 mm above and 50 mm below the Upper Side Impact member" ;
+    iof:requirementSatisfiedBy :DS_UpperSupportAttachment .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:DS_UpperSupportAttachment a iof:DesignSpecification ;
+    iof:prescribes :UpperSupportMember .
+
+:Zone_AttachmentToFrontHoop a bfo:BFO_0000040 ;
+    rdfs:label "zone for attachment to Front Hoop relative to Upper Side Impact member" .
+
+:UpperSupportMember a bfo:BFO_0000040 ;
+    rdfs:label "upper support member" ;
+    iof:satisfiesRequirement :Req_0 .
+

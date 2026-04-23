@@ -1,0 +1,39 @@
+@prefix : <http://example.org/req/472#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Region_ForwardOutboard ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Region_ForwardOutboard a bfo:BFO_0000004 ;
+    rdfs:label "Region forward of front wheel axle centerline and outboard of specified planes"@en ;
+    iof:hasQuality :HeightAboveGround_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Forward of the centerline of the front wheel axles and outboard of two vertical planes parallel to the centerline of the chassis touching the inside of the front tires at the height of the hubs must be no higher than 250 mm above the ground T.7.7.2" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.5e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :HeightAboveGround_0 .
+
+qudtqk:Height a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:HeightAboveGround_0 a bfo:BFO_0000019 ;
+    rdfs:label "height above the ground of the forward/outboard region"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+

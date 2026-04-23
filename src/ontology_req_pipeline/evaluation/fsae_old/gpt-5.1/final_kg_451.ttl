@@ -1,0 +1,72 @@
+@prefix : <http://example.org/req/451#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Capacity_EngineSystems a bfo:BFO_0000019 ;
+    rdfs:label "Capacity of catch cans for engine coolant and lubrication systems" ;
+    iof:hasValueExpressionAtSomeTime :VE_req2_c0 .
+
+:Capacity_OtherSystems a bfo:BFO_0000019 ;
+    rdfs:label "Capacity of catch cans for other vented systems" ;
+    iof:hasValueExpressionAtSomeTime :VE_req3_c0 .
+
+:CatchCan_EngineSystems a bfo:BFO_0000002 ;
+    rdfs:label "Catch cans for the engine coolant system and engine lubrication system" ;
+    iof:hasQuality :Capacity_EngineSystems .
+
+:CatchCan_OtherSystems a bfo:BFO_0000002 ;
+    rdfs:label "Catch cans for vents on other systems containing liquid lubricant or coolant" ;
+    iof:hasQuality :Capacity_OtherSystems .
+
+:DS_CatchCan_EngineSystems a iof:DesignSpecification ;
+    rdfs:label "Design specification for catch cans of engine coolant and lubrication systems" ;
+    iof:prescribes :CatchCan_EngineSystems ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DS_CatchCan_OtherSystems a iof:DesignSpecification ;
+    rdfs:label "Design specification for catch cans of other vented systems with liquid lubricant or coolant" ;
+    iof:prescribes :CatchCan_OtherSystems ;
+    iof:satisfiesRequirement :Req_0 .
+
+:LocReq_0 a bfo:BFO_0000015 ;
+    rdfs:label "Location requirement for component (rearwards of Firewall below driver's shoulder level)" .
+
+:PS_LocationAndRetention a iof:PlanSpecification ;
+    rdfs:label "Plan for catch can location and retention" ;
+    iof:prescribes :LocReq_0,
+        :RetReq_1 .
+
+:RetReq_1 a bfo:BFO_0000015 ;
+    rdfs:label "Retention requirement for component (positively retained, no tie wraps or tape)" .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum capacity 10 percent of contained fluid (engine systems catch cans)" ;
+    qudt:minInclusive 1e+01 ;
+    qudt:unit qudtu:PERCENT .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum capacity 10 percent of contained fluid (other systems catch cans)" ;
+    qudt:minInclusive 1e+01 ;
+    qudt:unit qudtu:PERCENT .
+
+qudtqk:DutyCycle a qudt:QuantityKind .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Located rearwards of the Firewall below the driver's shoulder level c. Positively retained, using no tie wraps or tape T.5.6.3 Catch cans for the engine coolant system and engine lubrication system must have a minimum capacity of $10 \\%$ of the fluid being contained or 0.9 liter, whichever is higher T.5.6.4 Catch cans for any vent on other systems containing liquid lubricant or coolant, including a differential, gearbox, or electric motor, must have a minimum capacity of $10 \\%$ of the fluid being contained or 0.5 liter, whichever is higher T.5.6.5" ;
+    iof:requirementSatisfiedBy :DS_CatchCan_EngineSystems,
+        :DS_CatchCan_OtherSystems,
+        :PS_LocationAndRetention .
+
+qudtu:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DutyCycle .
+

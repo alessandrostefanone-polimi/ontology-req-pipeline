@@ -1,0 +1,36 @@
+@prefix : <http://example.org/req/470#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "In the Rear Aerodynamic Zone must be no higher than 1200 mm above the ground b" ;
+    iof:requirementSatisfiedBy :RearAeroZone_DesignSpec .
+
+:RearAeroZone a bfo:BFO_0000040 ;
+    iof:hasQuality :RearAeroZone_HeightAboveGround .
+
+:RearAeroZone_DesignSpec a iof:DesignSpecification ;
+    iof:prescribes :RearAeroZone .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.2e+03 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :RearAeroZone_HeightAboveGround .
+
+qudtqk:Height a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:RearAeroZone_HeightAboveGround a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 .
+

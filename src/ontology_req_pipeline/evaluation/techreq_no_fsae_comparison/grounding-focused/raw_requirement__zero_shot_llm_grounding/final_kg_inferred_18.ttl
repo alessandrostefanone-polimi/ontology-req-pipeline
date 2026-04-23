@@ -1,0 +1,103 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/18#> a owl:Ontology .
+
+<http://example.org/req/18#ControlEquipment_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact,
+        ns2:PieceOfEquipment .
+
+<http://example.org/req/18#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/18#Robot_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/18#Req_0> .
+
+<http://example.org/req/18#ElectromechanicalComponents_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialComponent .
+
+<http://example.org/req/18#Objective_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    ns2:isSubjectOf <http://example.org/req/18#Req_0> .
+
+<http://example.org/req/18#PowerEquipment_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact,
+        ns2:PieceOfEquipment .
+
+<http://example.org/req/18#Robot_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000027>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:EngineeredSystem,
+        ns2:System ;
+    ns2:hasComponentPartAtAllTimes <http://example.org/req/18#ControlEquipment_0>,
+        <http://example.org/req/18#ElectromechanicalComponents_0>,
+        <http://example.org/req/18#PowerEquipment_0> ;
+    ns2:hasQuality <http://example.org/req/18#Weight_0> .
+
+<http://example.org/req/18#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 5e+01,
+        50.0 ;
+    ns1:unit <http://qudt.org/vocab/unit/KiloGM> .
+
+<http://example.org/req/18#Weight_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/18#VE_req0_c0> .
+
+<http://qudt.org/vocab/unit/KiloGM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Mass> .
+
+<http://example.org/req/18#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The robot shall have a maximum weight of 50 kilograms, including not only the electromechanical components, but also the power and control equipment" ;
+    ns2:isAbout <http://example.org/req/18#Objective_0> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/18#DesignSpec_0> .
+

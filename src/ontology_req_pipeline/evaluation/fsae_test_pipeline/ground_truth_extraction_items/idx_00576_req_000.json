@@ -1,0 +1,109 @@
+{
+  "idx": 576,
+  "req_idx": 0,
+  "source_text": "The gas can is minimum 25 cm wide $\\times 25 \\mathrm{~cm}$ deep $\\times 35 \\mathrm{~cm}$ high, with a 25 cm spout at the top IC.5.4.8 The filler neck must have a fuel cap that can withstand severe vibrations or high pressures such as could occur during a vehicle rollover event # IC.5.5 Fuel Tank Filling IC.5.5.1 Fueling / Refueling policies and procedures are at the discretion of the fuel crew and officials",
+  "requirement_text_pred": "The gas can is minimum 25 cm wide $\\times 25 \\mathrm{~cm}$ deep $\\times 35 \\mathrm{~cm}$ high, with a 25 cm spout at the top IC.5.4.8",
+  "prediction": {
+    "subject": "The gas can",
+    "modality": "is",
+    "condition": "",
+    "action": "minimum 25 cm wide $\\times 25 \\mathrm{~cm}$ deep $\\times 35 \\mathrm{~cm}$ high, with a 25 cm spout at the top",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "width",
+      "operator_pred": "ge",
+      "value_raw_pred": "25 cm",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "cm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Width",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/CentiM",
+      "normalized_si_value_primary_pred": 0.25,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    },
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "depth",
+      "operator_pred": "eq",
+      "value_raw_pred": "25 \\mathrm{~cm}",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "cm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Depth",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/CentiM",
+      "normalized_si_value_primary_pred": 0.25,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    },
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "height",
+      "operator_pred": "eq",
+      "value_raw_pred": "35 \\mathrm{~cm}",
+      "value_v1_pred": 35.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "cm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Height",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/CentiM",
+      "normalized_si_value_primary_pred": 0.35000000000000003,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    },
+    {
+      "constraint_idx": 4,
+      "attribute_name_pred": "spout length",
+      "operator_pred": "eq",
+      "value_raw_pred": "25 cm",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "cm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/CentiM",
+      "normalized_si_value_primary_pred": 0.25,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

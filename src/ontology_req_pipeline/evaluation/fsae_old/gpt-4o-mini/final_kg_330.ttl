@@ -1,0 +1,65 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/330#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:AccumulatorContainer a iof:MaterialArtifact ;
+    iof:hasRole :AccumulatorContainerRole ;
+    iof:has_feature :EquivalentStructure .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Tractive System components other than Accumulator Containers in a position below 350 mm from the ground must be protected from side impact by structure that meets F.5.16 Component Protection F.11.2.2 Rear Impact Protection a. All Accumulator Containers must be protected from rear impact: - When the rear impact structure is 100 mm or less from an Accumulator Container, the structure must be Equivalent to Side Impact Structure (F.6.4, F.7.5) - When the rear impact structure is more than 100 mm from an Accumulator Container, the structure must meet F.5.16 Component Protection - The Accumulator Container must not be part of the Equivalent structure. b" ;
+    iof:requirementSatisfiedBy :Specification_0 .
+
+:EquivalentStructure a iof:MaterialArtifact ;
+    iof:hasRole :EquivalentStructureRole .
+
+:ProtectionPlan_0 a iof:ActionSpecification ;
+    iof:prescribes :ProtectionFromSideImpact .
+
+:RearImpactDistance a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req2_c0 .
+
+:RearImpactStructureDistance a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req3_c0 .
+
+:Specification_0 a iof:PlanSpecification ;
+    iof:prescribes :ProtectionPlan_0 .
+
+:TractiveSystemComponents a iof:MaterialArtifact ;
+    iof:hasRole :TractiveSystemRole ;
+    iof:has_feature :ProtectionFromSideImpact .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxExclusive 3.5e+02 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtAllTimes :TractiveSystemComponents .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1e+02 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtAllTimes :RearImpactDistance .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 1e+02 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtAllTimes :RearImpactStructureDistance .
+
+qudtqk:Height a qudt:QuantityKind .
+
+:ProtectionFromSideImpact a iof:ObjectiveSpecification ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+

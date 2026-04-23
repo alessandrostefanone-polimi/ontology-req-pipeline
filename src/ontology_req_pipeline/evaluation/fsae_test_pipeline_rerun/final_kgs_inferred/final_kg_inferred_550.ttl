@@ -1,0 +1,104 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/550#> a owl:Ontology .
+
+<http://example.org/req/550#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The power to the electronic throttle must be immediately shut down, if throttle position differs by more than $10 \\%$ from the expected target TPS position for more than one second" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/550#PlanSpec_0> .
+
+<http://example.org/req/550#DeviationDuration_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/550#VE_req0_c3> ;
+    ns1:processCharacteristicOf <http://example.org/req/550#DeviationProcess_0> .
+
+<http://example.org/req/550#DeviationProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/550#ElectronicThrottle_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/550#ShutdownProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns1:hasInput <http://example.org/req/550#ElectronicThrottlePower_0> ;
+    ns1:hasOutput <http://example.org/req/550#ElectronicThrottlePower_0> ;
+    ns1:prescribedBy <http://example.org/req/550#PlanSpec_0> .
+
+<http://example.org/req/550#ThrottlePositionDeviation_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/550#VE_req0_c2> ;
+    ns1:qualityOf <http://example.org/req/550#ElectronicThrottle_0> .
+
+<http://example.org/req/550#VE_req0_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/550#ThrottlePositionDeviation_0> .
+
+<http://example.org/req/550#VE_req0_c3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/SEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/550#DeviationDuration_0> .
+
+<http://qudt.org/vocab/unit/NUM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/DimensionlessRatio> .
+
+<http://qudt.org/vocab/unit/SEC> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Time> .
+
+<http://example.org/req/550#ElectronicThrottlePower_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/550#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/550#ShutdownProcess_0> .
+

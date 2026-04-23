@@ -1,0 +1,163 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix ns3: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/168#> a owl:Ontology .
+
+<http://example.org/req/168#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:RequirementSpecification ;
+    rdfs:comment "5.6.5 Driver Template Position The Driver Template will be positioned as follows: - The seat will be adjusted to the rearmost position - The pedals will be placed in the most forward position - The bottom 200 mm circle will be placed on the seat bottom where the distance between the center of this circle and the rearmost face of the pedals is no less than 915 mm - The middle 200 mm circle, representing the shoulders, will be positioned on the seat back" ;
+    ns3:requirementSatisfiedBy <http://example.org/req/168#Plan_0> .
+
+<http://example.org/req/168#Distance_BottomCircle_Pedals> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:ProcessCharacteristic ;
+    rdfs:label "Distance between bottom circle center and rearmost face of pedals" ;
+    ns3:hasValueExpressionAtSomeTime <http://example.org/req/168#VE_req2_c2> ;
+    ns3:processCharacteristicOf <http://example.org/req/168#Proc_BottomCirclePlace> .
+
+<http://example.org/req/168#Proc_MiddleCirclePlace> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:PlannedProcess ;
+    rdfs:label "Middle circle placement process" ;
+    ns2:BFO_0000057 <http://example.org/req/168#MiddleCircle>,
+        <http://example.org/req/168#Seat> ;
+    ns3:prescribedBy <http://example.org/req/168#Plan_0> .
+
+<http://example.org/req/168#Proc_PedalPlace> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:PlannedProcess ;
+    rdfs:label "Pedal placement process" ;
+    ns2:BFO_0000057 <http://example.org/req/168#Pedals> ;
+    ns3:prescribedBy <http://example.org/req/168#Plan_0> .
+
+<http://example.org/req/168#Proc_SeatAdjust> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:PlannedProcess ;
+    rdfs:label "Seat adjustment process" ;
+    ns2:BFO_0000057 <http://example.org/req/168#Seat> ;
+    ns3:prescribedBy <http://example.org/req/168#Plan_0> .
+
+<http://example.org/req/168#VE_req2_c0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:ValueExpression ;
+    rdfs:label "Bottom circle 200 mm" ;
+    ns1:maxInclusive 2e-01 ;
+    ns1:minInclusive 2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns3:isValueExpressionOfAtAllTimes <http://example.org/req/168#BottomCircle> .
+
+<http://example.org/req/168#VE_req2_c2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:ValueExpression ;
+    rdfs:label "Distance >= 0.915 m" ;
+    ns1:minInclusive 9.15e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns3:isValueExpressionOfAtSomeTime <http://example.org/req/168#Distance_BottomCircle_Pedals> .
+
+<http://example.org/req/168#VE_req3_c0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:ValueExpression ;
+    rdfs:label "Middle circle diameter 200 mm" ;
+    ns1:maxInclusive 2e-01 ;
+    ns1:minInclusive 2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns3:isValueExpressionOfAtAllTimes <http://example.org/req/168#MiddleCircle> .
+
+<http://example.org/req/168#BottomCircle> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Bottom 200 mm circle" ;
+    ns3:hasValueExpressionAtAllTimes <http://example.org/req/168#VE_req2_c0> .
+
+<http://example.org/req/168#MiddleCircle> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Middle 200 mm circle" ;
+    ns3:hasValueExpressionAtAllTimes <http://example.org/req/168#VE_req3_c0> .
+
+<http://example.org/req/168#Pedals> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Pedals" .
+
+<http://example.org/req/168#Proc_BottomCirclePlace> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:PlannedProcess ;
+    rdfs:label "Bottom circle placement process" ;
+    ns2:BFO_0000057 <http://example.org/req/168#BottomCircle>,
+        <http://example.org/req/168#Pedals>,
+        <http://example.org/req/168#Seat> ;
+    ns3:prescribedBy <http://example.org/req/168#Plan_0> .
+
+<http://example.org/req/168#Seat> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Driver seat" .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter>,
+        <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/168#Plan_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:ActionSpecification,
+        ns3:DirectiveInformationContentEntity,
+        ns3:InformationContentEntity,
+        ns3:PlanSpecification ;
+    ns3:prescribes <http://example.org/req/168#Proc_BottomCirclePlace>,
+        <http://example.org/req/168#Proc_MiddleCirclePlace>,
+        <http://example.org/req/168#Proc_PedalPlace>,
+        <http://example.org/req/168#Proc_SeatAdjust> .
+

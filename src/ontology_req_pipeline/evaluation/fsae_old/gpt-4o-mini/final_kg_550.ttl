@@ -1,0 +1,63 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/550#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The power to the electronic throttle must be immediately shut down, if throttle position differs by more than $10 \\%$ from the expected target TPS position for more than one second" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 1e-01 ;
+    qudt:unit qudtu:NUM ;
+    iof:isValueExpressionOfAtSomeTime :ThrottlePositionDifference_0 .
+
+:DS_0 a iof:PlanSpecification ;
+    iof:prescribes :P_0 .
+
+:OperatorRole_0 a iof:AgentRole ;
+    rdfs:label "Operator" .
+
+:Operator_0 a iof:Agent ;
+    iof:hasRole :OperatorRole_0 .
+
+:P_0 a iof:ManufacturingProcess ;
+    iof:hasInput :ThrottlePositionDifference_0 ;
+    iof:hasSpecifiedOutput :PowerShutdown_0 .
+
+:PowerShutdownEvent_0 a iof:Event ;
+    iof:recognizedByAtSomeTime :Operator_0 .
+
+:PowerShutdown_0 a qudt:QuantityValue ;
+    qudt:minExclusive 0.1 ;
+    qudt:unit qudtu:NUM ;
+    iof:isValueExpressionOfAtSomeTime :PowerShutdownEvent_0 .
+
+:ThrottlePosition_0 a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :ThrottlePositionDifference_0 .
+
+:ThrottlePosition_1 a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 1e-01 ;
+    qudt:unit qudtu:NUM ;
+    iof:isValueExpressionOfAtSomeTime :ThrottlePosition_1 .
+
+qudtqk:DutyCycle a qudt:QuantityKind .
+
+:ThrottlePositionDifference_0 a iof:ValueExpression ;
+    iof:isValueExpressionOfAtSomeTime :ThrottlePosition_0 .
+
+qudtu:NUM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DutyCycle .
+

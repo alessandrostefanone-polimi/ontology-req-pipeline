@@ -1,0 +1,45 @@
+{
+  "idx": 419,
+  "req_idx": 1,
+  "source_text": "The intent is that in a short circuit the APPSs will only agree at 0\\% Pedal Travel T.4.2.4 Implausibility is defined as a deviation of more than 10\\% Pedal Travel between the sensors or other failure as defined in this Section T.4.2",
+  "requirement_text_pred": "Implausibility is defined as a deviation of more than 10% Pedal Travel between the sensors.",
+  "prediction": {
+    "subject": "Implausibility",
+    "modality": "is",
+    "condition": "",
+    "action": "defined as",
+    "object": "a deviation of more than 10% Pedal Travel between the sensors"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "Pedal Travel",
+      "operator_pred": "gt",
+      "value_raw_pred": "10%",
+      "value_v1_pred": 10.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/DutyCycle",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/PERCENT",
+      "normalized_si_value_primary_pred": 0.1,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/NUM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

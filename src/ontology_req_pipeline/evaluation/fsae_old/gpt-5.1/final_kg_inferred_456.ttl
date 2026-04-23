@@ -1,0 +1,164 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/456#> a owl:Ontology .
+
+<http://example.org/req/456#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Insulation - The gas cylinder/tank must be insulated from any heat sources T.6.1.6 Cylinder Material - gas cylinders/tanks in a position 150 mm or less from an exhaust system must meet one of the two: - Made from metal" ;
+    ns1:isAbout <http://example.org/req/456#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/456#PlanSpec_0> .
+
+<http://example.org/req/456#CylTank_0_Insulation> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "insulation from heat sources",
+        "insulation from heat sources"@en .
+
+<http://example.org/req/456#ExhaustSystem_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "exhaust system",
+        "exhaust system"@en .
+
+<http://example.org/req/456#HeatSource_Generic> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "heat source (generic)",
+        "heat source (generic)"@en .
+
+<http://example.org/req/456#Metal_Material> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "metal material",
+        "metal material"@en .
+
+<http://example.org/req/456#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 1.5e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/MM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/456#PC_Distance_Cyl_Exhaust> .
+
+<http://qudt.org/vocab/unit/MM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/456#CylTank_0_Material> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "material role of gas cylinder/tank",
+        "material role of gas cylinder/tank"@en .
+
+<http://example.org/req/456#ObjSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/456#Proc_Insulation>,
+        <http://example.org/req/456#Proc_MaterialSelection>,
+        <http://example.org/req/456#Proc_Positioning> ;
+    ns1:prescribes <http://example.org/req/456#CylTank_0>,
+        <http://example.org/req/456#CylTank_0_Material> .
+
+<http://example.org/req/456#PC_Distance_Cyl_Exhaust> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "distance between gas cylinders/tanks and exhaust system",
+        "distance between gas cylinders/tanks and exhaust system"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/456#VE_req1_c0> .
+
+<http://example.org/req/456#Proc_Insulation> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "insulating gas cylinder/tank from heat sources",
+        "insulating gas cylinder/tank from heat sources"@en ;
+    ns1:hasParticipantAtSomeTime <http://example.org/req/456#CylTank_0>,
+        <http://example.org/req/456#HeatSource_Generic> ;
+    ns1:prescribedBy <http://example.org/req/456#PlanSpec_0> .
+
+<http://example.org/req/456#Proc_MaterialSelection> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "selection of metal material for gas cylinder/tank",
+        "selection of metal material for gas cylinder/tank"@en ;
+    ns1:hasParticipantAtSomeTime <http://example.org/req/456#CylTank_0>,
+        <http://example.org/req/456#Metal_Material> ;
+    ns1:prescribedBy <http://example.org/req/456#PlanSpec_0> .
+
+<http://example.org/req/456#Proc_Positioning> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "positioning gas cylinders/tanks relative to exhaust system",
+        "positioning gas cylinders/tanks relative to exhaust system"@en ;
+    ns1:hasParticipantAtSomeTime <http://example.org/req/456#CylTank_0>,
+        <http://example.org/req/456#ExhaustSystem_0> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/456#PC_Distance_Cyl_Exhaust> ;
+    ns1:prescribedBy <http://example.org/req/456#PlanSpec_0> .
+
+<http://example.org/req/456#CylTank_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "gas cylinder/tank",
+        "gas cylinder/tank"@en ;
+    ns1:hasQuality <http://example.org/req/456#CylTank_0_Insulation> ;
+    ns1:hasRole <http://example.org/req/456#CylTank_0_Material> .
+
+<http://example.org/req/456#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:hasContinuantPartAtAllTimes <http://example.org/req/456#ObjSpec_0> ;
+    ns1:prescribes <http://example.org/req/456#Proc_Insulation>,
+        <http://example.org/req/456#Proc_MaterialSelection>,
+        <http://example.org/req/456#Proc_Positioning> .
+

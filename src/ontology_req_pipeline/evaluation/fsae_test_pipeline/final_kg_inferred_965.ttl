@@ -1,0 +1,189 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/965#> a owl:Ontology .
+
+<http://example.org/req/965#ApplicabilityConstraint_Req0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Applicability of continuation to rules D.12.1.4 and D.12.4" ;
+    ns1:isAbout <http://example.org/req/965#Proc_VehicleContinuation> ;
+    ns1:prescribes <http://example.org/req/965#Rule_D_12_1_4>,
+        <http://example.org/req/965#Rule_D_12_4> .
+
+<http://example.org/req/965#Event_VehicleStallOrConeIngest> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Event ;
+    rdfs:label "Vehicle stalls or ingests a cone event" ;
+    ns1:recognizedByAtSomeTime <http://example.org/req/965#RaceOfficial> .
+
+<http://example.org/req/965#BlackFlag> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Black Flag" .
+
+<http://example.org/req/965#DS_VehicleContinuation> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design specification for vehicle continuation after stall or cone ingestion" ;
+    ns1:prescribes <http://example.org/req/965#Vehicle_It> ;
+    ns1:satisfiesRequirement <http://example.org/req/965#Req_0> .
+
+<http://example.org/req/965#DesignatedLocation> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000029,
+        ns2:BFO_0000141,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Designated location for Black Flag display" .
+
+<http://example.org/req/965#PC_BlackFlagShown> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Display of Black Flag" .
+
+<http://example.org/req/965#PC_PermissionToContinue> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Permission for vehicle to continue" .
+
+<http://example.org/req/965#PS_VehicleContinuation> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification for allowing vehicle to continue" ;
+    ns2:BFO_0000110 <http://example.org/req/965#Obj_Req0> ;
+    ns1:prescribes <http://example.org/req/965#Proc_VehicleContinuation> .
+
+<http://example.org/req/965#RaceOfficial> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Agent ;
+    rdfs:label "Race official" .
+
+<http://example.org/req/965#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "If a vehicle stalls, or ingests a cone, etc., it may be allowed to continue, subject to D.12.1.4 and D.12.4 ## D.12.10 Endurance Event - Black Flags D.12.10.1 A Black Flag will be shown at the designated location D.12.10.2" ;
+    ns1:isAbout <http://example.org/req/965#Obj_Req0>,
+        <http://example.org/req/965#Obj_Req1> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/965#DS_VehicleContinuation>,
+        <http://example.org/req/965#PS_BlackFlagDisplay> .
+
+<http://example.org/req/965#Rule_D_12_1_4> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Rule D.12.1.4" .
+
+<http://example.org/req/965#Rule_D_12_4> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Rule D.12.4" .
+
+<http://example.org/req/965#Obj_Req0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for vehicle continuation after stall or cone ingestion" ;
+    ns1:prescribes <http://example.org/req/965#Proc_VehicleContinuation> .
+
+<http://example.org/req/965#Obj_Req1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for Black Flag display at designated location" ;
+    ns1:prescribes <http://example.org/req/965#Proc_BlackFlagDisplay> .
+
+<http://example.org/req/965#PS_BlackFlagDisplay> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification for Black Flag display" ;
+    ns2:BFO_0000110 <http://example.org/req/965#Obj_Req1> ;
+    ns1:prescribes <http://example.org/req/965#Proc_BlackFlagDisplay> .
+
+<http://example.org/req/965#Proc_BlackFlagDisplay> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process of showing Black Flag" ;
+    ns2:BFO_0000057 <http://example.org/req/965#BlackFlag>,
+        <http://example.org/req/965#DesignatedLocation> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/965#PC_BlackFlagShown> ;
+    ns1:prescribedBy <http://example.org/req/965#PS_BlackFlagDisplay> .
+
+<http://example.org/req/965#Vehicle_It> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Vehicle referred to as 'it'" .
+
+<http://example.org/req/965#Proc_VehicleContinuation> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process of allowing vehicle to continue" ;
+    ns2:BFO_0000057 <http://example.org/req/965#Vehicle_It> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/965#PC_PermissionToContinue> ;
+    ns1:prescribedBy <http://example.org/req/965#PS_VehicleContinuation> .
+

@@ -1,0 +1,46 @@
+{
+  "idx": 465,
+  "req_idx": 0,
+  "source_text": "7.2.4 All forward facing edges on the Bodywork that could contact people, including the nose, must have forward facing radii minimum 38 mm",
+  "requirement_text_pred": "7.2.4 All forward facing edges on the Bodywork that could contact people, including the nose, must have forward facing radii minimum 38 mm",
+  "prediction": {
+    "subject": "All forward facing edges on the Bodywork that could contact people, including the nose",
+    "modality": "must",
+    "condition": "",
+    "action": "have",
+    "object": "forward facing radii minimum 38 mm"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "forward facing radii",
+      "operator_pred": "ge",
+      "value_raw_pred": "minimum 38 mm",
+      "value_v1_pred": 38.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Radius",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.038,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

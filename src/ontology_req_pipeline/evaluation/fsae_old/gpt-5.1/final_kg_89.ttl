@@ -1,0 +1,100 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/89#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req0_Requirement a iof:RequirementSpecification ;
+    iof:isAbout :Req0_Objective ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req0_Subject a bfo:BFO_0000040 ;
+    rdfs:label "All spherical rod ends and spherical bearings on the suspension and steering" .
+
+:Req1_Object a bfo:BFO_0000040 ;
+    rdfs:label "Mounted in double shear configuration" .
+
+:Req1_Requirement a iof:RequirementSpecification ;
+    iof:isAbout :Req1_Objective ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req2_Action a bfo:BFO_0000015 ;
+    rdfs:label "Captured by having a screw/bolt head or washer" .
+
+:Req2_Object a bfo:BFO_0000040 ;
+    rdfs:label "screw/bolt head or washer with outside diameter" .
+
+:Req2_Ref_SphericalBearingHousingInsideDiameter a bfo:BFO_0000019 ;
+    rdfs:label "spherical bearing housing inside diameter" .
+
+:Req2_Requirement a iof:RequirementSpecification ;
+    iof:isAbout :Req2_Objective ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req3_Object a bfo:BFO_0000040 ;
+    rdfs:label "front wheels" .
+
+:Req3_Requirement a iof:RequirementSpecification ;
+    iof:isAbout :Req3_Objective ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req3_Subject a bfo:BFO_0000040 ;
+    rdfs:label "The Steering Wheel" .
+
+:FrontWheels_0 a iof:MaterialArtifact ;
+    rdfs:label "front wheels (design-level)" .
+
+:Req0_ConfigOption_Enum a iof:InformationContentEntity ;
+    rdfs:label "configuration option for spherical rod ends and spherical bearings on the suspension and steering" .
+
+:Req0_Objective a iof:ObjectiveSpecification ;
+    iof:prescribes :Req0_ConfigOption_Enum .
+
+:Req1_MountingConfiguration_Enum a iof:InformationContentEntity ;
+    rdfs:label "mounting configuration: in double shear" .
+
+:Req1_Objective a iof:ObjectiveSpecification ;
+    iof:prescribes :Req1_MountingConfiguration_Enum .
+
+:Req2_CaptureMethod a iof:InformationContentEntity ;
+    rdfs:label "capture method: having a screw/bolt head or washer" .
+
+:Req2_Objective a iof:ObjectiveSpecification ;
+    iof:prescribes :Req2_CaptureMethod,
+        :Req2_OutsideDiameterRelation .
+
+:Req2_OutsideDiameterRelation a iof:InformationContentEntity ;
+    rdfs:label "outside diameter larger than spherical bearing housing inside diameter" .
+
+:Req3_MechanicalConnection_Process a bfo:BFO_0000015 ;
+    rdfs:label "mechanically connected to the front wheels" .
+
+:Req3_Objective a iof:ObjectiveSpecification ;
+    iof:prescribes :Req3_MechanicalConnection_Process .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "3.1.4 Fasteners in the Suspension system are Critical Fasteners, see T.8.2 V.3.1.5 All spherical rod ends and spherical bearings on the suspension and steering must be one of: - Mounted in double shear - Captured by having a screw/bolt head or washer with an outside diameter that is larger than spherical bearing housing inside diameter. ## V.3.2 Steering V.3.2.1 The Steering Wheel must be mechanically connected to the front wheels" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:SphericalBearing_Assembly_0 a iof:MaterialArtifact ;
+    rdfs:label "spherical bearing assembly (design-level)" .
+
+:SphericalRodEnd_Assembly_0 a iof:MaterialArtifact ;
+    rdfs:label "spherical rod end assembly (design-level)" .
+
+:SteeringWheel_0 a iof:MaterialArtifact ;
+    rdfs:label "steering wheel (design-level)" .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :FrontWheels_0,
+        :SphericalBearing_Assembly_0,
+        :SphericalRodEnd_Assembly_0,
+        :SteeringWheel_0 ;
+    iof:satisfiesRequirement :Req_0 .
+

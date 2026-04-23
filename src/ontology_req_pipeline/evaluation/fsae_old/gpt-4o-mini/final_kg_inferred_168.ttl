@@ -1,0 +1,133 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/168#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "5.6.5 Driver Template Position The Driver Template will be positioned as follows: - The seat will be adjusted to the rearmost position - The pedals will be placed in the most forward position - The bottom 200 mm circle will be placed on the seat bottom where the distance between the center of this circle and the rearmost face of the pedals is no less than 915 mm - The middle 200 mm circle, representing the shoulders, will be positioned on the seat back" ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "The seat will be adjusted to the rearmost position." ;
+    iof:requirementSatisfiedBy :Spec_1 .
+
+:Req_2 a iof:RequirementSpecification ;
+    rdfs:comment "The pedals will be placed in the most forward position." ;
+    iof:requirementSatisfiedBy :Spec_2 .
+
+:Req_3 a iof:RequirementSpecification ;
+    rdfs:comment "The bottom 200 mm circle will be placed on the seat bottom where the distance between the center of this circle and the rearmost face of the pedals is no less than 915 mm." ;
+    iof:requirementSatisfiedBy :Spec_3 .
+
+:Req_4 a iof:RequirementSpecification ;
+    rdfs:comment "The middle 200 mm circle, representing the shoulders, will be positioned on the seat back." ;
+    iof:requirementSatisfiedBy :Spec_4 .
+
+:Action_0 a iof:ActionSpecification ;
+    iof:prescribes :Feature_0,
+        :Feature_1,
+        :Feature_2,
+        :Feature_3 .
+
+:Action_1 a iof:ActionSpecification ;
+    iof:prescribes :Feature_4 .
+
+:Action_2 a iof:ActionSpecification ;
+    iof:prescribes :Feature_5 .
+
+:Action_3 a iof:ActionSpecification ;
+    iof:prescribes :Feature_6 .
+
+:Action_4 a iof:ActionSpecification ;
+    iof:prescribes :Feature_7 .
+
+:Feature_0 a iof:MaterialEntity ;
+    iof:has_feature :Position_0 .
+
+:Feature_1 a iof:MaterialEntity ;
+    iof:has_feature :Position_1 .
+
+:Feature_2 a iof:MaterialEntity ;
+    iof:has_feature :Distance_0 .
+
+:Feature_3 a iof:MaterialEntity ;
+    iof:has_feature :Position_2 .
+
+:Feature_4 a iof:MaterialEntity ;
+    iof:has_feature :Position_3 .
+
+:Feature_5 a iof:MaterialEntity ;
+    iof:has_feature :Position_4 .
+
+:Feature_6 a iof:MaterialEntity ;
+    iof:has_feature :Distance_0 .
+
+:Feature_7 a iof:MaterialEntity ;
+    iof:has_feature :Position_5 .
+
+:Objective_0 a iof:ObjectiveSpecification ;
+    iof:hasOutput :Output_0 .
+
+:Output_0 a iof:MaterialProduct ;
+    rdfs:label "the distance between the center of this circle and the rearmost face of the pedals is no less than 915 mm" .
+
+:Position_0 a iof:MaterialEntity ;
+    rdfs:label "the rearmost position" .
+
+:Position_1 a iof:MaterialEntity ;
+    rdfs:label "the most forward position" .
+
+:Position_2 a iof:MaterialEntity ;
+    rdfs:label "the middle 200 mm circle, representing the shoulders" .
+
+:Position_3 a iof:MaterialEntity ;
+    rdfs:label "to the rearmost position" .
+
+:Position_4 a iof:MaterialEntity ;
+    rdfs:label "in the most forward position" .
+
+:Position_5 a iof:MaterialEntity ;
+    rdfs:label "on the seat back" .
+
+:Spec_0 a iof:PlanSpecification ;
+    iof:prescribes :Action_0,
+        :Objective_0 .
+
+:Spec_1 a iof:PlanSpecification ;
+    iof:prescribes :Action_1 .
+
+:Spec_2 a iof:PlanSpecification ;
+    iof:prescribes :Action_2 .
+
+:Spec_3 a iof:PlanSpecification ;
+    iof:prescribes :Action_3 .
+
+:Spec_4 a iof:PlanSpecification ;
+    iof:prescribes :Action_4 .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 9.15e+02 ;
+    qudt:unit qudtu:MM .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 9.15e+02 ;
+    qudt:unit qudtu:MM .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:Distance_0 a iof:ValueExpression ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c2,
+        :VE_req3_c0 .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+

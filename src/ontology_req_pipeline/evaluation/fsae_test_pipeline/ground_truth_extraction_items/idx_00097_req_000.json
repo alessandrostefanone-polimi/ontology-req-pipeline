@@ -1,0 +1,24 @@
+{
+  "idx": 97,
+  "req_idx": 0,
+  "source_text": "In any angular position, the Steering Wheel must meet T.1.4.4 V.3.3.2 The Steering Wheel must be attached to the column with a quick disconnect",
+  "requirement_text_pred": "In any angular position, the Steering Wheel must meet T.1.4.4 V.3.3.2",
+  "prediction": {
+    "subject": "the Steering Wheel",
+    "modality": "must",
+    "condition": "In any angular position",
+    "action": "meet",
+    "object": "T.1.4.4 V.3.3.2"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": false
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

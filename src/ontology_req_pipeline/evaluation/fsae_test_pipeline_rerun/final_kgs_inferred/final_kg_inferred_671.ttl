@@ -1,0 +1,95 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/671#> a owl:Ontology .
+
+<http://example.org/req/671#Connections_TractiveSystem> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Tractive System connections" .
+
+<http://example.org/req/671#TestProbe_Insulated> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000030,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "insulated test probe (100 mm long, 6 mm diameter)" ;
+    rdfs:comment "Referenced in constraint req0_c1 as the probe used to attempt contact; dimensional details are captured textually because no normalized quantitative data was provided." .
+
+<http://example.org/req/671#Enclosures_TractiveSystem> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Tractive System enclosures" .
+
+<http://example.org/req/671#ObjSpec_ContactNotPossible> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/671#PlannedProc_ContactPrevention> ;
+    ns1:prescribes <http://example.org/req/671#PC_ContactWithConnections> .
+
+<http://example.org/req/671#Proc_EnclosuresInPlaceState> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialState ;
+    ns2:BFO_0000057 <http://example.org/req/671#Enclosures_TractiveSystem> ;
+    rdfs:comment "Constraint req0_c2: state where the Tractive System enclosures are in place; condition under which contact must not be possible." .
+
+<http://example.org/req/671#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "6.1.2 Contact with any Tractive System connections with a 100 mm long, 6 mm diameter insulated test probe must not be possible when the Tractive System enclosures are in place" ;
+    ns1:isAbout <http://example.org/req/671#ObjSpec_ContactNotPossible> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/671#PlanSpec_ContactPrevention> .
+
+<http://example.org/req/671#PC_ContactWithConnections> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:comment "Constraint req0_c0: contact with any Tractive System connections with the specified test probe must not be possible." ;
+    ns1:processCharacteristicOf <http://example.org/req/671#PlannedProc_ContactPrevention> .
+
+<http://example.org/req/671#PlanSpec_ContactPrevention> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/671#PlannedProc_ContactPrevention> ;
+    ns1:satisfiesRequirement <http://example.org/req/671#Req_0> .
+
+<http://example.org/req/671#PlannedProc_ContactPrevention> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns1:hasProcessCharacteristic <http://example.org/req/671#PC_ContactWithConnections> ;
+    ns1:occursDuring <http://example.org/req/671#Proc_EnclosuresInPlaceState> ;
+    ns1:prescribedBy <http://example.org/req/671#PlanSpec_ContactPrevention> .
+

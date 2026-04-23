@@ -1,0 +1,23 @@
+{
+  "idx": 287,
+  "req_idx": 4,
+  "source_text": "Energy absorbed must be more than 7350 J When: - Total mass of Vehicle is 300 kg - Impact velocity is $7.0 \\mathrm{~m} / \\mathrm{s}$ F.8.8.3 When using the Standard Impact Attenuator, the SES must meet the following: a. Test data will not be submitted b",
+  "requirement_text_pred": "Test data will not be submitted",
+  "prediction": {
+    "subject": "Test data",
+    "modality": "must",
+    "condition": "",
+    "action": "not be submitted",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

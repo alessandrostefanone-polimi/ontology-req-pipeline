@@ -1,0 +1,109 @@
+@prefix : <http://example.org/req/451#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:CatchCanType_1 a bfo:BFO_0000040 ;
+    rdfs:label "Catch cans for the engine coolant system and engine lubrication system"@en ;
+    iof:hasQuality :Capacity_Req1,
+        :FasteningMethod_Req0,
+        :Loc_Req0,
+        :Retention_Req0 .
+
+:CatchCanType_2 a bfo:BFO_0000040 ;
+    rdfs:label "Catch cans for vents on other systems containing liquid lubricant or coolant"@en ;
+    iof:hasQuality :Capacity_Req2,
+        :FasteningMethod_Req0,
+        :Loc_Req0,
+        :Retention_Req0 .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :CatchCanType_1,
+        :CatchCanType_2 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    rdfs:label "Mounting and retention of catch cans relative to firewall and driver"@en ;
+    iof:prescribes :FasteningMethod_Req0,
+        :Loc_Req0,
+        :Retention_Req0 .
+
+:ObjSpec_1 a iof:ObjectiveSpecification ;
+    rdfs:label "Capacity objective for engine coolant and lubrication catch cans"@en ;
+    iof:prescribes :Capacity_Req1 .
+
+:ObjSpec_2 a iof:ObjectiveSpecification ;
+    rdfs:label "Capacity objective for other-system vent catch cans"@en ;
+    iof:prescribes :Capacity_Req2 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Located rearwards of the Firewall below the driver's shoulder level c. Positively retained, using no tie wraps or tape T.5.6.3 Catch cans for the engine coolant system and engine lubrication system must have a minimum capacity of 10% of the fluid being contained or 0.9 liter, whichever is higher. T.5.6.4 Catch cans for any vent on other systems containing liquid lubricant or coolant, including a differential, gearbox, or electric motor, must have a minimum capacity of 10% of the fluid being contained or 0.5 liter, whichever is higher. T.5.6.5"@en ;
+    iof:isAbout :ObjSpec_0,
+        :ObjSpec_1,
+        :ObjSpec_2 ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1e+01 ;
+    qudt:quantityKind qudtqk:DimensionlessRatio ;
+    qudt:unit qudtu:PERCENT ;
+    iof:isValueExpressionOfAtSomeTime :Capacity_Req1 .
+
+:VE_req1_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 9e-04 ;
+    qudt:quantityKind qudtqk:CartesianVolume ;
+    qudt:unit qudtu:KiloL ;
+    iof:isValueExpressionOfAtSomeTime :Capacity_Req1 .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1e+01 ;
+    qudt:quantityKind qudtqk:DimensionlessRatio ;
+    qudt:unit qudtu:PERCENT ;
+    iof:isValueExpressionOfAtSomeTime :Capacity_Req2 .
+
+:VE_req2_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 5e-04 ;
+    qudt:quantityKind qudtqk:CartesianVolume ;
+    qudt:unit qudtu:KiloL ;
+    iof:isValueExpressionOfAtSomeTime :Capacity_Req2 .
+
+qudtu:KiloL a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:CartesianVolume .
+
+qudtu:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DimensionlessRatio .
+
+:FasteningMethod_Req0 a bfo:BFO_0000019 ;
+    rdfs:label "fastening method: no tie wraps or tape"@en .
+
+:Loc_Req0 a bfo:BFO_0000019 ;
+    rdfs:label "location: rearwards of the Firewall below the driver's shoulder level"@en .
+
+:Retention_Req0 a bfo:BFO_0000019 ;
+    rdfs:label "retention: positively retained"@en .
+
+qudtqk:CartesianVolume a qudt:QuantityKind .
+
+qudtqk:DimensionlessRatio a qudt:QuantityKind .
+
+:Capacity_Req1 a bfo:BFO_0000019 ;
+    rdfs:label "minimum capacity requirement for engine coolant and lubrication catch cans"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c1,
+        :VE_req1_c2 .
+
+:Capacity_Req2 a bfo:BFO_0000019 ;
+    rdfs:label "minimum capacity requirement for other-system vent catch cans"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req2_c0,
+        :VE_req2_c1 .
+

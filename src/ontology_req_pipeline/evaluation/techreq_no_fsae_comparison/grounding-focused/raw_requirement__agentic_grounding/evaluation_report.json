@@ -1,0 +1,460 @@
+{
+  "generated_at_utc": "2026-04-13T10:19:12.630076+00:00",
+  "evaluation_dir": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding",
+  "inputs": {
+    "extraction_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\extraction.jsonl",
+    "normalization_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\normalization.jsonl",
+    "grounding_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\grounding.jsonl",
+    "run_metadata_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\run_metadata.json",
+    "ground_truth_extraction_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\ground_truth_extraction.jsonl",
+    "ground_truth_claims_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\ground_truth_claims.jsonl"
+  },
+  "automatic_summary": {
+    "run_id": "20260413T101128.431105Z",
+    "dataset_name": "techreq_no_fsae.jsonl",
+    "records": {
+      "extraction": 20,
+      "normalization": 20,
+      "grounding": 20
+    },
+    "status_distributions": {
+      "extraction": {
+        "skipped": 20
+      },
+      "normalization": {
+        "skipped": 20
+      },
+      "grounding": {
+        "ok": 19,
+        "failed": 1
+      },
+      "inference": {
+        "ok": 19,
+        "skipped": 1
+      }
+    },
+    "quantity_coverage_auto": {
+      "extracted_quantities": 0,
+      "normalized_quantities": 0,
+      "normalized_over_extracted": null
+    },
+    "latency": {
+      "run_duration_seconds": 461.56438570000137,
+      "throughput_records_per_min": 2.599854,
+      "extraction_p95_seconds": null,
+      "normalization_p95_seconds": null,
+      "grounding_p95_seconds": 45.64597,
+      "inference_p95_seconds": 3.666129
+    }
+  },
+  "ground_truth_metrics": {
+    "structure_metrics": {
+      "subject": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "modality": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "condition": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "action": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "object": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      }
+    },
+    "structure_macro_accuracy": null,
+    "quantity_constraint_metrics": {
+      "extracted_quantitative_constraints": 0,
+      "judged_extracted_quantitative_constraints": 0,
+      "correct_extracted_quantitative_constraints": 0,
+      "missing_quantitative_constraints": 0,
+      "gold_quantitative_constraints_total": 0,
+      "quantitative_constraint_precision": null,
+      "quantitative_constraint_recall": null,
+      "operator_accuracy": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "quantity_value_accuracy": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "unit_accuracy": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "quantity_kind_accuracy": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "equivalence_accuracy": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      }
+    },
+    "normalization_metrics": {
+      "normalized_quantities": 0,
+      "extracted_quantities": 0,
+      "normalized_over_extracted": null,
+      "correct_quantity_kinds_over_judged": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "correct_units_over_judged": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      },
+      "correct_equivalences_over_judged": {
+        "correct": 0,
+        "judged": 0,
+        "accuracy": null
+      }
+    },
+    "claim_metrics": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": null,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "annotated_predicted_claims": 0,
+      "total_predicted_claims": 505,
+      "predicted_claim_annotation_coverage": 0.0
+    }
+  },
+  "conformance": {
+    "graph_source": "prefer_inferred",
+    "graph_count": 19,
+    "graphs_passing_all_checks": 12,
+    "graphs_passing_all_checks_rate": 0.631579,
+    "graphs_passing_error_checks": 12,
+    "graphs_passing_error_checks_rate": 0.631579,
+    "total_violations": 8,
+    "checks": [
+      {
+        "check_id": "C01",
+        "title": "Requirement has iof:RequirementSpecification type",
+        "severity": "error",
+        "graphs_with_violations": 0,
+        "total_violations": 0,
+        "graphs_with_violations_rate": 0.0,
+        "mean_violations_per_graph": 0.0
+      },
+      {
+        "check_id": "C02",
+        "title": "RequirementSpecification has satisfaction link",
+        "severity": "error",
+        "graphs_with_violations": 0,
+        "total_violations": 0,
+        "graphs_with_violations_rate": 0.0,
+        "mean_violations_per_graph": 0.0
+      },
+      {
+        "check_id": "C03",
+        "title": "requirementSatisfiedBy target typed as DesignSpecification or PlanSpecification",
+        "severity": "error",
+        "graphs_with_violations": 0,
+        "total_violations": 0,
+        "graphs_with_violations_rate": 0.0,
+        "mean_violations_per_graph": 0.0
+      },
+      {
+        "check_id": "C04",
+        "title": "QuantityValue must have qudt:unit",
+        "severity": "error",
+        "graphs_with_violations": 0,
+        "total_violations": 0,
+        "graphs_with_violations_rate": 0.0,
+        "mean_violations_per_graph": 0.0
+      },
+      {
+        "check_id": "C05",
+        "title": "Unit used by QuantityValue must declare qudt:hasQuantityKind",
+        "severity": "error",
+        "graphs_with_violations": 0,
+        "total_violations": 0,
+        "graphs_with_violations_rate": 0.0,
+        "mean_violations_per_graph": 0.0
+      },
+      {
+        "check_id": "C06",
+        "title": "QuantityValue must link to entity via isValueExpressionOf*",
+        "severity": "error",
+        "graphs_with_violations": 7,
+        "total_violations": 8,
+        "graphs_with_violations_rate": 0.368421,
+        "mean_violations_per_graph": 0.421053
+      }
+    ],
+    "graphs": [
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_0.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_1.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_10.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_12.ttl",
+        "total_violations": 1,
+        "error_violations": 1,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 1
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_13.ttl",
+        "total_violations": 1,
+        "error_violations": 1,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 1
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_14.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_15.ttl",
+        "total_violations": 2,
+        "error_violations": 2,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 2
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_16.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_17.ttl",
+        "total_violations": 1,
+        "error_violations": 1,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 1
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_18.ttl",
+        "total_violations": 1,
+        "error_violations": 1,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 1
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_19.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_2.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_20.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_21.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_22.ttl",
+        "total_violations": 1,
+        "error_violations": 1,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 1
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_23.ttl",
+        "total_violations": 1,
+        "error_violations": 1,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 1
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_3.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_7.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      },
+      {
+        "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__agentic_grounding\\final_kg_inferred_9.ttl",
+        "total_violations": 0,
+        "error_violations": 0,
+        "check_violations": {
+          "C01": 0,
+          "C02": 0,
+          "C03": 0,
+          "C04": 0,
+          "C05": 0,
+          "C06": 0
+        }
+      }
+    ]
+  }
+}

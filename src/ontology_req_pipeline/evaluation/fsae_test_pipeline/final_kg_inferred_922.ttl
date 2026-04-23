@@ -1,0 +1,68 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/922#> a owl:Ontology .
+
+<http://example.org/req/922#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The foremost part of the vehicle will be staged at 0.30 m behind the starting line b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/922#PlanSpec_0> .
+
+<http://example.org/req/922#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/922#StagingProcess_0> .
+
+<http://example.org/req/922#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 3e-01 ;
+    ns1:minInclusive 3e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/922#PosBehindStartLine_0> .
+
+<http://example.org/req/922#VehicleForemostPart_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Displacement> .
+
+<http://example.org/req/922#PosBehindStartLine_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/922#VE_req0_c0> ;
+    ns2:processCharacteristicOf <http://example.org/req/922#StagingProcess_0> .
+
+<http://example.org/req/922#StagingProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    ns2:hasParticipantAtSomeTime <http://example.org/req/922#VehicleForemostPart_0> ;
+    ns2:hasProcessCharacteristic <http://example.org/req/922#PosBehindStartLine_0> .
+

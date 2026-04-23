@@ -1,0 +1,44 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/451#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Located rearwards of the Firewall below the driver's shoulder level c. Positively retained, using no tie wraps or tape T.5.6.3 Catch cans for the engine coolant system and engine lubrication system must have a minimum capacity of $10 \\%$ of the fluid being contained or 0.9 liter, whichever is higher T.5.6.4 Catch cans for any vent on other systems containing liquid lubricant or coolant, including a differential, gearbox, or electric motor, must have a minimum capacity of $10 \\%$ of the fluid being contained or 0.5 liter, whichever is higher T.5.6.5" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:CatchCan1 a iof:MaterialProduct ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+
+:CatchCan2 a iof:MaterialProduct ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :Plan_req0 .
+
+:Plan_req0 a iof:PlanSpecification ;
+    iof:prescribes :CatchCan1,
+        :CatchCan2 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 9e-04 ;
+    qudt:unit qudtu:KiloL .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 5e-04 ;
+    qudt:unit qudtu:KiloL .
+
+qudtqk:CartesianVolume a qudt:QuantityKind .
+
+qudtu:KiloL a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:CartesianVolume .
+

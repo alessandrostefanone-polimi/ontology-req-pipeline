@@ -1,0 +1,46 @@
+{
+  "idx": 300,
+  "req_idx": 0,
+  "source_text": "Any portion of the Fuel System that is less than 350 mm above the ground, and all parts of the Fuel Tank, must be inside the Primary Structure (F.1.10)",
+  "requirement_text_pred": "Any portion of the Fuel System that is less than 350 mm above the ground, and all parts of the Fuel Tank, must be inside the Primary Structure (F.1.10)",
+  "prediction": {
+    "subject": "Any portion of the Fuel System that is less than 350 mm above the ground, and all parts of the Fuel Tank",
+    "modality": "must",
+    "condition": "",
+    "action": "be inside",
+    "object": "the Primary Structure (F.1.10)"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "height above the ground",
+      "operator_pred": "lt",
+      "value_raw_pred": "350 mm",
+      "value_v1_pred": 350.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Height",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.35000000000000003,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

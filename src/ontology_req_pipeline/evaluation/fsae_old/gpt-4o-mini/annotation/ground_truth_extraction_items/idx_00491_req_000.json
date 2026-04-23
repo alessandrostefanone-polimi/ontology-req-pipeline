@@ -1,0 +1,23 @@
+{
+  "idx": 491,
+  "req_idx": 0,
+  "source_text": "1.4 Inspection Sticker The vehicle must have space for the Inspection Sticker(s) IN.13.2 that is: - A clear and unobstructed area, minimum 25 cm wide $\\times 20 \\mathrm{~cm}$ high - Located on the upper front surface of the nose along the vehicle centerline ## VE.1.5 Transponder / RFID Tag VE.1.5.1",
+  "requirement_text_pred": "The vehicle must have space for the Inspection Sticker(s) IN.13.2.",
+  "prediction": {
+    "subject": "The vehicle",
+    "modality": "must",
+    "condition": "",
+    "action": "have space for",
+    "object": "the Inspection Sticker(s) IN.13.2"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

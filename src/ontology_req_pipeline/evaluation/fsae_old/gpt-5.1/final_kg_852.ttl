@@ -1,0 +1,69 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/852#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:PenaltyImpositionApplicability_0 a iof:InformationContentEntity ;
+    rdfs:label "Applicability of penalty imposition as given in DR Document Requirements" ;
+    iof:describes :DR_DocumentRequirements_Section ;
+    iof:isAbout :PenaltyImpositionProcess_0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:label "Requirement 1: Supplement to Cost Report may be submitted" ;
+    iof:requirementSatisfiedBy :PS_Req0_Processes .
+
+:CostReport_1 a iof:InformationContentEntity ;
+    rdfs:label "Cost Report (Req 1 reference)" .
+
+:DR_DocumentRequirements_Section a iof:InformationContentEntity ;
+    rdfs:label "section DR Document Requirements" .
+
+:DS_Req0_Design a iof:DesignSpecification ;
+    rdfs:label "Design spec for Cost Report artifacts and penalties" ;
+    iof:prescribes :CostReport_0,
+        :LateSubmissionPenalty_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Late Submission Penalties for Late Submission of Cost Report will be imposed as given in section DR Document Requirements. ### 5.3.7 Cost Addendum 5.3.7.1 A supplement to the Cost Report that reflects any changes or corrections made after the submission of the Cost Report may be submitted" ;
+    iof:requirementSatisfiedBy :DS_Req0_Design,
+        :PS_Req0_Processes .
+
+:SubmissionOfCostReport_1 a bfo:BFO_0000015 ;
+    rdfs:label "Submission of the Cost Report (Req 1)" .
+
+:SupplementSubmissionProcess_1 a iof:PlannedProcess ;
+    rdfs:label "Submission of supplement to the Cost Report" ;
+    iof:after :SubmissionOfCostReport_1 ;
+    iof:hasInput :SupplementToCostReport_1 ;
+    iof:hasSpecifiedOutput :SupplementToCostReport_1 ;
+    iof:prescribedBy :PS_Req0_Processes .
+
+:CostReport_0 a bfo:BFO_0000040 ;
+    rdfs:label "Cost Report (information artifact treated as material bearer)" .
+
+:LateSubmissionPenalty_0 a bfo:BFO_0000040 ;
+    rdfs:label "Late Submission Penalties for Late Submission of Cost Report" ;
+    iof:satisfiesRequirement :Req_0 .
+
+:PenaltyImpositionProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Imposition of late submission penalties for Cost Report" ;
+    iof:hasInput :CostReport_0 ;
+    iof:hasSpecifiedOutput :LateSubmissionPenalty_0 ;
+    iof:prescribedBy :PS_Req0_Processes .
+
+:SupplementToCostReport_1 a iof:InformationContentEntity ;
+    rdfs:label "Supplement to the Cost Report reflecting post-submission changes" ;
+    iof:isAbout :CostReport_1 .
+
+:PS_Req0_Processes a iof:PlanSpecification ;
+    rdfs:label "Plan spec for penalty imposition and cost report supplements" ;
+    iof:prescribes :PenaltyImpositionProcess_0,
+        :SupplementSubmissionProcess_1 .
+

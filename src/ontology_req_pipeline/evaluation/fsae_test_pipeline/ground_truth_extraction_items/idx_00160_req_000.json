@@ -1,0 +1,24 @@
+{
+  "idx": 160,
+  "req_idx": 0,
+  "source_text": "Document the adhesive choice, age and expiration date, substrate preparation, and the equivalency of the bonded joint in the SES F.5.5.3 The SES will reduce any referenced or tested adhesive values by $50 \\%$ ## F.5.6 Roll Hoops F.5.6.1 The Chassis must include both a Main Hoop and a Front Hoop. F.5.6.2",
+  "requirement_text_pred": "Document the adhesive choice, age and expiration date, substrate preparation, and the equivalency of the bonded joint in the SES F.5.5.3",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "Document",
+    "object": "the adhesive choice, age and expiration date, substrate preparation, and the equivalency of the bonded joint in the SES F.5.5.3"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

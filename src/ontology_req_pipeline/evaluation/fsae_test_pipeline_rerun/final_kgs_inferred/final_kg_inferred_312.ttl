@@ -1,0 +1,167 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix ns3: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/312#> a owl:Ontology .
+
+<http://example.org/req/312#SES_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "SES",
+        "SES"@en ;
+    ns1:prescribes <http://example.org/req/312#VerificationProcess_0> .
+
+<http://example.org/req/312#DesignSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/312#MountingSystem_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/312#Req_0> .
+
+<http://example.org/req/312#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "This mounting system design must withstand the following accelerations: 40 g in the longitudinal direction (forward/aft) 40 g in the lateral direction (left/right) 20 g in the vertical direction (up/down) c. Calculations and/or tests proving these requirements are met must be included in the SES. d" ;
+    ns1:isAbout <http://example.org/req/312#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/312#DesignSpec_0>,
+        <http://example.org/req/312#PlanSpec_0> .
+
+<http://example.org/req/312#VE_req0_c0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns3:maxInclusive 3.92266e+02 ;
+    ns3:minInclusive 3.92266e+02 ;
+    ns3:unit <http://qudt.org/vocab/unit/M-PER-SEC2> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/312#LongitudinalAccel_0> .
+
+<http://example.org/req/312#VE_req0_c1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns3:maxInclusive 3.92266e+02 ;
+    ns3:minInclusive 3.92266e+02 ;
+    ns3:unit <http://qudt.org/vocab/unit/M-PER-SEC2> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/312#LateralAccel_0> .
+
+<http://example.org/req/312#VE_req0_c2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns3:maxInclusive 1.96133e+02 ;
+    ns3:minInclusive 1.96133e+02 ;
+    ns3:unit <http://qudt.org/vocab/unit/M-PER-SEC2> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/312#VerticalAccel_0> .
+
+<http://example.org/req/312#MountingSystem_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000030,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "mounting system",
+        "mounting system"@en ;
+    ns1:hasQuality <http://example.org/req/312#LateralAccel_0>,
+        <http://example.org/req/312#LongitudinalAccel_0>,
+        <http://example.org/req/312#VerticalAccel_0> .
+
+<http://example.org/req/312#PlanSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns2:BFO_0000110 <http://example.org/req/312#ObjSpec_0> ;
+    ns1:prescribes <http://example.org/req/312#VerificationProcess_0> .
+
+<http://example.org/req/312#LateralAccel_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "lateral acceleration withstand capability",
+        "lateral acceleration withstand capability"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/312#VE_req0_c1> .
+
+<http://example.org/req/312#LongitudinalAccel_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "longitudinal acceleration withstand capability",
+        "longitudinal acceleration withstand capability"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/312#VE_req0_c0> .
+
+<http://example.org/req/312#ObjSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/312#LateralAccel_0>,
+        <http://example.org/req/312#LongitudinalAccel_0>,
+        <http://example.org/req/312#MountingSystem_0>,
+        <http://example.org/req/312#VerificationProcess_0>,
+        <http://example.org/req/312#VerticalAccel_0> .
+
+<http://example.org/req/312#VerificationProcess_0> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "calculations and/or tests proving accelerations are met",
+        "calculations and/or tests proving accelerations are met"@en ;
+    ns1:achievesAtSomeTime <http://example.org/req/312#ObjSpec_0> ;
+    ns1:prescribedBy <http://example.org/req/312#PlanSpec_0> .
+
+<http://example.org/req/312#VerticalAccel_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "vertical acceleration withstand capability",
+        "vertical acceleration withstand capability"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/312#VE_req0_c2> .
+
+<http://qudt.org/vocab/unit/M-PER-SEC2> ns3:hasQuantityKind <http://qudt.org/vocab/quantitykind/LinearAcceleration> .
+

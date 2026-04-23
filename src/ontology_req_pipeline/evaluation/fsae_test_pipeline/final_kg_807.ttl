@@ -1,0 +1,48 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/807#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:DriverAgent a iof:Agent ;
+    rdfs:label "driver(s)" ;
+    bfo:BFO_0000056 :DriverCockpitChecksProcess,
+        :MechanicalInspectionProcess ;
+    iof:hasRole :DriverAgentRole .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Successfully complete the Egress Test IN.5.2 IN.5.3.2 A driver(s) must complete the Driver Cockpit Checks to pass Mechanical Inspection # IN" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:DriverAgentRole a iof:AgentRole ;
+    rdfs:label "driver role" .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :DriverCockpitChecksProcess,
+        :EgressTestProcess,
+        :MechanicalInspectionProcess .
+
+:EgressTestProcess a iof:PlannedProcess ;
+    rdfs:label "Egress Test IN.5.2 IN.5.3.2" ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:DriverCockpitChecksProcess a iof:PlannedProcess ;
+    rdfs:label "Driver Cockpit Checks" ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:MechanicalInspectionProcess a iof:PlannedProcess ;
+    rdfs:label "Mechanical Inspection # IN" ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :DriverCockpitChecksProcess,
+        :EgressTestProcess,
+        :MechanicalInspectionProcess .
+

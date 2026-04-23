@@ -1,0 +1,45 @@
+{
+  "idx": 276,
+  "req_idx": 0,
+  "source_text": "All weld lengths must be more than 25 mm F.8.5.5 If the Impact Attenuator is attached by bolting: a. Must have no less than eight 8 mm or $5 / 16^{\\prime \\prime}$ minimum diameter Critical Fasteners, T.8.2 b",
+  "requirement_text_pred": "All weld lengths must be more than 25 mm",
+  "prediction": {
+    "subject": "All weld lengths",
+    "modality": "must",
+    "condition": "",
+    "action": "be more than",
+    "object": "25 mm"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "weld length",
+      "operator_pred": "gt",
+      "value_raw_pred": "25 mm",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 25.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

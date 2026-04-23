@@ -1,0 +1,106 @@
+@prefix : <http://example.org/req/312#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 3.92266e+02 ;
+    qudt:minInclusive 3.92266e+02 ;
+    qudt:quantityKind qudtqk:AccelerationOfGravity ;
+    qudt:unit qudtu:M-PER-SEC2 ;
+    iof:isValueExpressionOfAtSomeTime :LongitudinalAcceleration_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 3.92266e+02 ;
+    qudt:minInclusive 3.92266e+02 ;
+    qudt:quantityKind qudtqk:AccelerationOfGravity ;
+    qudt:unit qudtu:M-PER-SEC2 ;
+    iof:isValueExpressionOfAtSomeTime :LateralAcceleration_0 .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.96133e+02 ;
+    qudt:minInclusive 1.96133e+02 ;
+    qudt:quantityKind qudtqk:AccelerationOfGravity ;
+    qudt:unit qudtu:M-PER-SEC2 ;
+    iof:isValueExpressionOfAtSomeTime :VerticalAcceleration_0 .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :MountingSystem_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "This mounting system design must withstand the following accelerations: 40 g in the longitudinal direction (forward/aft) 40 g in the lateral direction (left/right) 20 g in the vertical direction (up/down) c. Calculations and/or tests proving these requirements are met must be included in the SES. d" ;
+    iof:isAbout :Obj_0,
+        :Obj_1 ;
+    iof:requirementSatisfiedBy :DS_0,
+        :PS_0 .
+
+:EvidenceArtifacts_0 a iof:InformationContentEntity ;
+    rdfs:label "calculations and/or tests proving requirements are met"@en ;
+    iof:isAbout :Obj_0 .
+
+:MountingSystem_0 a iof:MaterialArtifact ;
+    rdfs:label "mounting system"@en .
+
+:Obj_1 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :EvidenceInclusionProcess_0 ;
+    iof:prescribes :EvidenceArtifacts_0,
+        :SES_0 .
+
+:SES_0 a iof:InformationContentEntity ;
+    rdfs:label "SES document"@en ;
+    iof:isSubjectOf :EvidenceInclusionProcess_0 .
+
+:EvidenceInclusionProcess_0 a iof:PlannedProcess ;
+    rdfs:label "inclusion of calculations/tests in SES"@en ;
+    bfo:BFO_0000057 :EvidenceArtifacts_0,
+        :SES_0 ;
+    iof:prescribedBy :PS_0 .
+
+:LateralAcceleration_0 a iof:ProcessCharacteristic ;
+    rdfs:label "lateral acceleration withstand capability"@en ;
+    iof:processCharacteristicOf :MountingSystemAccelerationProcess_0 .
+
+:LongitudinalAcceleration_0 a iof:ProcessCharacteristic ;
+    rdfs:label "longitudinal acceleration withstand capability"@en ;
+    iof:processCharacteristicOf :MountingSystemAccelerationProcess_0 .
+
+:Obj_0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :MountingSystemAccelerationProcess_0 ;
+    iof:prescribes :LateralAcceleration_0,
+        :LongitudinalAcceleration_0,
+        :VerticalAcceleration_0 .
+
+:PS_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :Obj_0,
+        :Obj_1 ;
+    iof:prescribes :EvidenceInclusionProcess_0,
+        :MountingSystemAccelerationProcess_0 .
+
+:VerticalAcceleration_0 a iof:ProcessCharacteristic ;
+    rdfs:label "vertical acceleration withstand capability"@en ;
+    iof:processCharacteristicOf :MountingSystemAccelerationProcess_0 .
+
+qudtu:M-PER-SEC2 a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:AccelerationOfGravity .
+
+qudtqk:AccelerationOfGravity a qudt:QuantityKind .
+
+:MountingSystemAccelerationProcess_0 a iof:PlannedProcess ;
+    rdfs:label "mounting system acceleration loading process"@en ;
+    bfo:BFO_0000057 :MountingSystem_0 ;
+    iof:hasProcessCharacteristic :LateralAcceleration_0,
+        :LongitudinalAcceleration_0,
+        :VerticalAcceleration_0 ;
+    iof:prescribedBy :PS_0 .
+

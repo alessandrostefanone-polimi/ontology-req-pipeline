@@ -1,0 +1,82 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/415#> a owl:Ontology .
+
+<http://example.org/req/415#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Each spring must be capable of returning the pedal to $0 \\%$ Pedal Travel with the other disconnected" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/415#SpringReturnPlan_0> .
+
+<http://example.org/req/415#Pedal_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "pedal" .
+
+<http://example.org/req/415#SpringReturnPlan_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    rdfs:label "Plan for spring to return pedal to 0% travel" ;
+    ns2:prescribes <http://example.org/req/415#SpringReturnProcess_0> .
+
+<http://example.org/req/415#Spring_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "spring" .
+
+<http://example.org/req/415#VE_req0_c3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "Pedal travel 0 percent" ;
+    ns1:maxInclusive 0e+00 ;
+    ns1:minInclusive 0e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/PERCENT> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/415#PedalTravel_0> .
+
+<http://qudt.org/vocab/unit/PERCENT> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/DutyCycle> .
+
+<http://example.org/req/415#PedalTravel_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    rdfs:label "Pedal travel" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/415#VE_req0_c3> ;
+    ns2:processCharacteristicOf <http://example.org/req/415#SpringReturnProcess_0> .
+
+<http://example.org/req/415#SpringReturnProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Spring returning pedal process" ;
+    ns2:hasParticipantAtSomeTime <http://example.org/req/415#Pedal_0>,
+        <http://example.org/req/415#Spring_0> ;
+    ns2:hasProcessCharacteristic <http://example.org/req/415#PedalTravel_0> .
+

@@ -1,0 +1,139 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/576#> a owl:Ontology .
+
+<http://example.org/req/576#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The gas can is minimum 25 cm wide $\\times 25 \\mathrm{~cm}$ deep $\\times 35 \\mathrm{~cm}$ high, with a 25 cm spout at the top IC.5.4.8 The filler neck must have a fuel cap that can withstand severe vibrations or high pressures such as could occur during a vehicle rollover event # IC.5.5 Fuel Tank Filling IC.5.5.1 Fueling / Refueling policies and procedures are at the discretion of the fuel crew and officials" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/576#GasCan_DesignSpec> .
+
+<http://example.org/req/576#GasCan> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    ns2:hasComponentPartAtAllTimes <http://example.org/req/576#GasCan_Spout> ;
+    ns2:hasQuality <http://example.org/req/576#GasCan_Depth>,
+        <http://example.org/req/576#GasCan_Height>,
+        <http://example.org/req/576#GasCan_Width> .
+
+<http://example.org/req/576#GasCan_DesignSpec> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/576#GasCan> .
+
+<http://example.org/req/576#GasCan_Spout> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    ns2:hasQuality <http://example.org/req/576#GasCan_SpoutLength> .
+
+<http://example.org/req/576#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/CentiM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/576#GasCan_Width> .
+
+<http://example.org/req/576#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2.5e+01 ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/CentiM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/576#GasCan_Depth> .
+
+<http://example.org/req/576#VE_req0_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 3.5e+01 ;
+    ns1:minInclusive 3.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/CentiM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/576#GasCan_Height> .
+
+<http://example.org/req/576#VE_req0_c3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2.5e+01 ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/CentiM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/576#GasCan_SpoutLength> .
+
+<http://example.org/req/576#GasCan_Depth> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/576#VE_req0_c1> .
+
+<http://example.org/req/576#GasCan_Height> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/576#VE_req0_c2> .
+
+<http://example.org/req/576#GasCan_SpoutLength> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/576#VE_req0_c3> .
+
+<http://example.org/req/576#GasCan_Width> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/576#VE_req0_c0> .
+
+<http://qudt.org/vocab/unit/CentiM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length>,
+        <http://qudt.org/vocab/quantitykind/MigrationLength>,
+        <http://qudt.org/vocab/quantitykind/PathLength>,
+        <http://qudt.org/vocab/quantitykind/Thickness> .
+

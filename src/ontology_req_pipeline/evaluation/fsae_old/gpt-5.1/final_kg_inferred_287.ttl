@@ -1,0 +1,189 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/287#> a owl:Ontology .
+
+<http://example.org/req/287#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/287#ImpactScenario_0>,
+        <http://example.org/req/287#Vehicle_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/287#Req_0> .
+
+<http://example.org/req/287#ImpactScenario_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Impact scenario (design condition)",
+        "Impact scenario (design condition)"@en ;
+    ns2:hasQuality <http://example.org/req/287#EnergyAbsorbed_0>,
+        <http://example.org/req/287#ImpactVelocity_0> .
+
+<http://example.org/req/287#SES_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000027>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:EngineeredSystem,
+        ns2:System ;
+    rdfs:label "SES (Standard Impact Attenuator System)",
+        "SES (Standard Impact Attenuator System)"@en .
+
+<http://example.org/req/287#SES_Use_Process_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Using the Standard Impact Attenuator",
+        "Using the Standard Impact Attenuator"@en ;
+    ns2:hasParticipantAtSomeTime <http://example.org/req/287#SES_0>,
+        <http://example.org/req/287#StandardImpactAttenuator_0> ;
+    ns2:prescribedBy <http://example.org/req/287#PlanSpec_0> .
+
+<http://example.org/req/287#StandardImpactAttenuator_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    rdfs:label "Standard Impact Attenuator",
+        "Standard Impact Attenuator"@en .
+
+<http://example.org/req/287#TestDataSubmissionProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Test data submission",
+        "Test data submission"@en ;
+    ns2:prescribedBy <http://example.org/req/287#PlanSpec_0> .
+
+<http://example.org/req/287#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "Energy absorbed > 7350 J",
+        "Energy absorbed > 7350 J"@en ;
+    ns1:minExclusive 7.35e+03 ;
+    ns1:unit <http://qudt.org/vocab/unit/J> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/287#EnergyAbsorbed_0> .
+
+<http://example.org/req/287#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "Total mass of Vehicle = 300 kg",
+        "Total mass of Vehicle = 300 kg"@en ;
+    ns1:maxInclusive 3e+02 ;
+    ns1:minInclusive 3e+02 ;
+    ns1:unit <http://qudt.org/vocab/unit/KiloGM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/287#VehicleMass_0> .
+
+<http://example.org/req/287#VE_req0_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "Impact velocity = 7.0 m/s",
+        "Impact velocity = 7.0 m/s"@en ;
+    ns1:maxInclusive 7e+00 ;
+    ns1:minInclusive 7e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/KiloGM-PER-SEC> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/287#ImpactVelocity_0> .
+
+<http://example.org/req/287#Vehicle_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Vehicle (impact test configuration)",
+        "Vehicle (impact test configuration)"@en ;
+    ns2:hasQuality <http://example.org/req/287#VehicleMass_0> .
+
+<http://qudt.org/vocab/unit/J> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/KineticEnergy> .
+
+<http://qudt.org/vocab/unit/KiloGM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/FinalOrCurrentVehicleMass> .
+
+<http://qudt.org/vocab/unit/KiloGM-PER-SEC> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/MassFlowRate> .
+
+<http://example.org/req/287#EnergyAbsorbed_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Energy absorbed",
+        "Energy absorbed"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/287#VE_req0_c0> .
+
+<http://example.org/req/287#ImpactVelocity_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Impact velocity",
+        "Impact velocity"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/287#VE_req0_c2> .
+
+<http://example.org/req/287#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Energy absorbed must be more than 7350 J When: - Total mass of Vehicle is 300 kg - Impact velocity is $7.0 \\mathrm{~m} / \\mathrm{s}$ F.8.8.3 When using the Standard Impact Attenuator, the SES must meet the following: a. Test data will not be submitted b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/287#DesignSpec_0>,
+        <http://example.org/req/287#PlanSpec_0> .
+
+<http://example.org/req/287#VehicleMass_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Total mass of Vehicle",
+        "Total mass of Vehicle"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/287#VE_req0_c1> .
+
+<http://example.org/req/287#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/287#SES_Use_Process_0>,
+        <http://example.org/req/287#TestDataSubmissionProcess_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/287#Req_0> .
+

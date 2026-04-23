@@ -1,0 +1,24 @@
+{
+  "idx": 206,
+  "req_idx": 0,
+  "source_text": "If the upper support member is further than 100 mm above the Upper Side Impact member, then properly Triangulated bracing is required to transfer load to the Main Hoop by one of: - the Upper Side Impact member - an additional member transmitting load from the junction of the Upper Support Member with the Front Hoop c",
+  "requirement_text_pred": "properly Triangulated bracing is required to transfer load to the Main Hoop by one of: - the Upper Side Impact member",
+  "prediction": {
+    "subject": "properly Triangulated bracing",
+    "modality": "is",
+    "condition": "If the upper support member is further than 100 mm above the Upper Side Impact member, then",
+    "action": "required to transfer",
+    "object": "load to the Main Hoop by one of: - the Upper Side Impact member"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

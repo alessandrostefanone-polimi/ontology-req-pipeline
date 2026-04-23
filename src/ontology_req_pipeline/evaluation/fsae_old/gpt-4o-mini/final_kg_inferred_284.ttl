@@ -1,0 +1,131 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/284#> a owl:Ontology .
+
+<http://example.org/req/284#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The attachment points for the front wing and bodywork mounts should be aft of the Anti Intrusion Plate." ;
+    ns2:requirementSatisfiedBy <http://example.org/req/284#DesignSpec_0> .
+
+<http://example.org/req/284#Req_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Tabs for wing and bodywork attachment must not extend more than 25 mm forward of the Anti Intrusion Plate." ;
+    ns2:requirementSatisfiedBy <http://example.org/req/284#DesignSpec_1> .
+
+<http://example.org/req/284#Req_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Pedal assembly at full travel and adjustment must have a minimum 25 mm clearance to the rear face of the Anti Intrusion Plate." ;
+    ns2:requirementSatisfiedBy <http://example.org/req/284#DesignSpec_2> .
+
+<http://example.org/req/284#AntiIntrusionPlate_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "Anti Intrusion Plate" .
+
+<http://example.org/req/284#AntiIntrusionPlate_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "Anti Intrusion Plate" .
+
+<http://example.org/req/284#AntiIntrusionPlate_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "Anti Intrusion Plate" .
+
+<http://example.org/req/284#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/284#AntiIntrusionPlate_0> .
+
+<http://example.org/req/284#DesignSpec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/284#AntiIntrusionPlate_1> .
+
+<http://example.org/req/284#DesignSpec_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/284#AntiIntrusionPlate_2> .
+
+<http://example.org/req/284#PedalAssembly_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "Pedal assembly" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/284#VE_req2_c0> .
+
+<http://example.org/req/284#Tabs_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "Tabs for wing and bodywork attachment" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/284#VE_req1_c0> .
+
+<http://example.org/req/284#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:hasUnit ns1:MilliM ;
+    ns1:maxInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/284#Tabs_0> .
+
+<http://example.org/req/284#VE_req2_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:hasUnit ns1:MilliM ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/284#PedalAssembly_0> .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+

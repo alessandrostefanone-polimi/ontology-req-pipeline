@@ -1,0 +1,183 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/0#> a owl:Ontology .
+
+<http://example.org/req/0#ActionSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/0#MiningProcess_0>,
+        <http://example.org/req/0#TransportProcess_0> .
+
+<http://example.org/req/0#MaterialTypeConstraint_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns1:describes <http://example.org/req/0#MinedRock_0> ;
+    ns1:hasSimpleExpressionValue "hard rock" .
+
+<http://example.org/req/0#ObjSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification .
+
+<http://example.org/req/0#ProcessingPlant_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/0#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The robot miner should be able to mine up to 0,2 m3/h 100 MPa (uniaxial compressive strength) hard rock and transport the same amount to the processing plant." ;
+    ns1:isAbout <http://example.org/req/0#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/0#Spec_0> .
+
+<http://example.org/req/0#VE_req0_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 5.555556e-05 ;
+    ns2:unit <http://qudt.org/vocab/unit/M3-PER-SEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/0#MiningRate_0> .
+
+<http://example.org/req/0#VE_req0_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:numericValue 1e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/MegaPA> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/0#UniaxialCompressiveStrength_0> .
+
+<http://qudt.org/vocab/unit/M3-PER-SEC> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/VolumeFlowRate> .
+
+<http://qudt.org/vocab/unit/MegaPA> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/TotalPressure> .
+
+<http://example.org/req/0#MiningRate_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/0#VE_req0_c0> ;
+    ns1:processCharacteristicOf <http://example.org/req/0#MiningProcess_0> .
+
+<http://example.org/req/0#RobotMiner_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000027,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:EngineeredSystem,
+        ns1:System ;
+    ns1:prescribedBy <http://example.org/req/0#Spec_0> .
+
+<http://example.org/req/0#TransportedAmount_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:prescribedBy <http://example.org/req/0#ObjectiveSpec_0> .
+
+<http://example.org/req/0#UniaxialCompressiveStrength_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/0#VE_req0_c1> ;
+    ns1:qualityOf <http://example.org/req/0#MinedRock_0> .
+
+<http://example.org/req/0#ObjectiveSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/0#MiningProcess_0>,
+        <http://example.org/req/0#TransportProcess_0> ;
+    ns1:prescribes <http://example.org/req/0#MinedRock_0>,
+        <http://example.org/req/0#TransportedAmount_0> .
+
+<http://example.org/req/0#TransportProcess_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns3:BFO_0000057 <http://example.org/req/0#MinedRock_0>,
+        <http://example.org/req/0#ProcessingPlant_0>,
+        <http://example.org/req/0#RobotMiner_0> ;
+    ns1:hasInput <http://example.org/req/0#MinedRock_0> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/0#TransportedAmount_0> ;
+    ns1:prescribedBy <http://example.org/req/0#Spec_0> .
+
+<http://example.org/req/0#MiningProcess_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns3:BFO_0000057 <http://example.org/req/0#RobotMiner_0> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/0#MiningRate_0> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/0#MinedRock_0> ;
+    ns1:prescribedBy <http://example.org/req/0#Spec_0> .
+
+<http://example.org/req/0#Spec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns3:BFO_0000110 <http://example.org/req/0#ActionSpec_0>,
+        <http://example.org/req/0#ObjectiveSpec_0> ;
+    ns1:prescribes <http://example.org/req/0#MiningProcess_0>,
+        <http://example.org/req/0#TransportProcess_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/0#Req_0> .
+
+<http://example.org/req/0#MinedRock_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:describedBy <http://example.org/req/0#MaterialTypeConstraint_0> ;
+    ns1:hasQuality <http://example.org/req/0#UniaxialCompressiveStrength_0> ;
+    ns1:prescribedBy <http://example.org/req/0#ObjectiveSpec_0> .
+

@@ -1,0 +1,69 @@
+@prefix : <http://example.org/req/611#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :VoltageQuality_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :VoltageConstraintProcess_0 ;
+    iof:prescribes :VoltageQuality_0 .
+
+:ObjSpec_1 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :PowertrainProcess_1 ;
+    iof:prescribes :VehicleSpeed_1 .
+
+:PS_1 a iof:PlanSpecification ;
+    iof:prescribes :PowertrainProcess_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 6e+02 ;
+    qudt:unit qudtu:V ;
+    iof:isValueExpressionOfAtSomeTime :VoltageQuality_0 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 5e+00 ;
+    qudt:minInclusive 0e+00 ;
+    qudt:unit qudtu:KiloM-PER-HR ;
+    iof:isValueExpressionOfAtSomeTime :VehicleSpeed_1 .
+
+:VoltageConstraintProcess_0 a bfo:BFO_0000015 .
+
+qudtqk:ElectricPotentialDifference a qudt:QuantityKind .
+
+qudtqk:LinearVelocity a qudt:QuantityKind .
+
+qudtu:KiloM-PER-HR a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:LinearVelocity .
+
+qudtu:V a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:ElectricPotentialDifference .
+
+:PowertrainProcess_1 a iof:PlannedProcess ;
+    iof:hasProcessCharacteristic :VehicleSpeed_1 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "3.3.2 The maximum permitted voltage that may occur between any two points must not exceed 600 V DC EV.3.3.3 The powertrain must not regenerate energy when vehicle speed is between 0 and $5 \\mathrm{~km} /" ;
+    iof:isAbout :ObjSpec_0,
+        :ObjSpec_1 ;
+    iof:requirementSatisfiedBy :DS_0,
+        :PS_1 .
+
+:VehicleSpeed_1 a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c1 .
+
+:VoltageQuality_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+

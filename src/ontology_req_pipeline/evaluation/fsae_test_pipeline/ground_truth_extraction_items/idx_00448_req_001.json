@@ -1,0 +1,67 @@
+{
+  "idx": 448,
+  "req_idx": 1,
+  "source_text": "5.5.3 Flammable liquid and vapors or other leaks must not collect or contact the driver T.5.5.4 Two holes of minimum diameter 25 mm each must be provided in the structure or belly pan at the locations: a",
+  "requirement_text_pred": "T.5.5.4 Two holes of minimum diameter 25 mm each must be provided in the structure or belly pan at the locations: a",
+  "prediction": {
+    "subject": "Two holes of minimum diameter 25 mm each",
+    "modality": "must",
+    "condition": "",
+    "action": "be provided",
+    "object": "in the structure or belly pan at the locations: a"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "holes",
+      "operator_pred": "eq",
+      "value_raw_pred": "Two",
+      "value_v1_pred": 2.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "DimensionlessUnit",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/CharacteristicNumber",
+      "normalized_unit_uri_pred": "COUNT",
+      "normalized_si_value_primary_pred": 2.0,
+      "normalized_si_unit_primary_pred": "COUNT",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    },
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "diameter",
+      "operator_pred": "ge",
+      "value_raw_pred": "25 mm",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Diameter",
+      "normalized_unit_uri_pred": "MilliM",
+      "normalized_si_value_primary_pred": 25.0,
+      "normalized_si_unit_primary_pred": "MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

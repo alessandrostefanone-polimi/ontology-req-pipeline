@@ -1,0 +1,97 @@
+@prefix : <http://example.org/req/622#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:AlwaysEnergizedContent a iof:InformationContentEntity ;
+    rdfs:label "\"Always Energized\" content" ;
+    iof:isAbout :TextAlwaysEnergized .
+
+:EV_4_4_1_Spec a iof:InformationContentEntity ;
+    rdfs:label "EV.4.4.1 specification" ;
+    iof:isAbout :GLV_System .
+
+:HighVoltageContent a iof:InformationContentEntity ;
+    rdfs:label "\"High Voltage\" content" ;
+    iof:isAbout :TextHighVoltage .
+
+:T_9_1_1_Spec a iof:InformationContentEntity ;
+    rdfs:label "T.9.1.1 voltage specification" ;
+    iof:isAbout :VoltageConditionProcess .
+
+:DS_GLVSystem a iof:DesignSpecification ;
+    rdfs:label "Design specification for GLV System" ;
+    iof:prescribes :GLV_System .
+
+:DS_WarningSymbol a iof:DesignSpecification ;
+    rdfs:label "Design specification for ISO 7010-W012 warning symbol" ;
+    iof:prescribes :WarningSymbol .
+
+:ISO_7010_W012_Spec a iof:InformationContentEntity ;
+    rdfs:label "ISO 7010-W012 symbol specification" ;
+    iof:isAbout :WarningSymbol .
+
+:PS_TextAlwaysEnergized a iof:PlanSpecification ;
+    rdfs:label "Plan specification for presence of text 'Always Energized'" ;
+    iof:prescribes :TextAlwaysEnergized .
+
+:PS_TextHighVoltage a iof:PlanSpecification ;
+    rdfs:label "Plan specification for presence of text 'High Voltage' under voltage condition" ;
+    iof:prescribes :TextHighVoltage .
+
+:TriangleGraphic a bfo:BFO_0000040 ;
+    rdfs:label "Triangle with black lightning bolt on yellow background" ;
+    iof:isComponentPartOfAtSomeTime :WarningSymbol .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum triangle side length for warning symbol" ;
+    qudt:minInclusive 1e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :TriangleSideLength .
+
+:VoltageConditionProcess a bfo:BFO_0000015 ;
+    rdfs:label "Voltage meets T.9.1.1 process" .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:GLV_System a bfo:BFO_0000040 ;
+    rdfs:label "GLV System" ;
+    iof:satisfiesRequirement :Req_0 .
+
+:TextAlwaysEnergized a bfo:BFO_0000040 ;
+    rdfs:label "Text 'Always Energized'" ;
+    iof:satisfiesRequirement :Req_0 .
+
+:TextHighVoltage a bfo:BFO_0000040 ;
+    rdfs:label "Text 'High Voltage'" ;
+    iof:satisfiesRequirement :Req_0 .
+
+:TriangleSideLength a bfo:BFO_0000019 ;
+    rdfs:label "Triangle side length" ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c2 ;
+    iof:qualityOf :TriangleGraphic .
+
+:WarningSymbol a bfo:BFO_0000040 ;
+    rdfs:label "Warning symbol for high voltage" ;
+    iof:hasQuality :TriangleSideLength ;
+    iof:isSubjectOf :ISO_7010_W012_Spec ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Symbol specified in ISO 7010-W012 (triangle with black lightning bolt on yellow background) with triangle side length of 100 mm minimum c. Text \"Always Energized\" d. Text \"High Voltage\" if the voltage meets T.9.1.1 ## EV.4.4 Grounded Low Voltage System EV.4.4.1 The GLV System must be" ;
+    iof:requirementSatisfiedBy :DS_GLVSystem,
+        :DS_WarningSymbol,
+        :PS_TextAlwaysEnergized,
+        :PS_TextHighVoltage .
+

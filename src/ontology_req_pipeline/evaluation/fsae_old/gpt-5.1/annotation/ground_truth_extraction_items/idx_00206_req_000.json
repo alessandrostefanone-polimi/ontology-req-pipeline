@@ -1,0 +1,45 @@
+{
+  "idx": 206,
+  "req_idx": 0,
+  "source_text": "If the upper support member is further than 100 mm above the Upper Side Impact member, then properly Triangulated bracing is required to transfer load to the Main Hoop by one of: - the Upper Side Impact member - an additional member transmitting load from the junction of the Upper Support Member with the Front Hoop c",
+  "requirement_text_pred": "If the upper support member is further than 100 mm above the Upper Side Impact member, then properly Triangulated bracing is required to transfer load to the Main Hoop by the Upper Side Impact member",
+  "prediction": {
+    "subject": "properly Triangulated bracing",
+    "modality": "is",
+    "condition": "If the upper support member is further than 100 mm above the Upper Side Impact member, then",
+    "action": "required to transfer load to the Main Hoop by",
+    "object": "the Upper Side Impact member"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "relative vertical position",
+      "operator_pred": "gt",
+      "value_raw_pred": "further than 100 mm above the Upper Side Impact member",
+      "value_v1_pred": 100.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM",
+      "normalized_si_value_primary_pred": 100.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

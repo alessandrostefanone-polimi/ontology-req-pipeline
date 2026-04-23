@@ -1,0 +1,46 @@
+{
+  "idx": 264,
+  "req_idx": 3,
+  "source_text": "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods: a. Physical testing of the AIP attached to a structurally representative section of the intended chassis - The test fixture must have equivalent strength and stiffness to a baseline front bulkhead or must be the same as the first 50 mm of the Chassis - Test data is valid for only one Competition Year b. Laminate material testing under F.4.3.2 and F.4.3.5 and calculations of 3 point bending and perimeter shear",
+  "requirement_text_pred": "Test data is valid for only one Competition Year",
+  "prediction": {
+    "subject": "Test data",
+    "modality": "is",
+    "condition": "",
+    "action": "is valid",
+    "object": "for only one Competition Year"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": false,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "applicability duration",
+      "operator_pred": "eq",
+      "value_raw_pred": "only one Competition Year",
+      "value_v1_pred": 1.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "Competition Year",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Time",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/YR",
+      "normalized_si_value_primary_pred": 31557600.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/SEC",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": "The action field should not have extracted the modality of the requirement (verb \"is\")"
+}

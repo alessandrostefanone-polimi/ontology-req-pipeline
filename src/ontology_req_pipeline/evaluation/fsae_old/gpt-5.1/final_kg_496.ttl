@@ -1,0 +1,83 @@
+@prefix : <http://example.org/req/496#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:WheelAssembly_1 a bfo:BFO_0000040 ;
+    rdfs:label "wheels of vehicle"@en .
+
+:DS_TubeHeightClearance a iof:DesignSpecification ;
+    iof:prescribes :Clearance_0,
+        :Tube_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Tube_1 a bfo:BFO_0000040 ;
+    rdfs:label "tube on vehicle (for raised condition)"@en .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "minimum clearance from bottom of tube to ground >= 75 mm"@en ;
+    qudt:minInclusive 7.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :Clearance_0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "bottom of tube height above ground = 200 mm"@en ;
+    qudt:maxInclusive 2e+02 ;
+    qudt:minInclusive 2e+02 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :BottomOfTubeHeight_1 .
+
+:Vehicle_1 a bfo:BFO_0000040 ;
+    rdfs:label "vehicle"@en .
+
+:WheelGroundContactState_1 a iof:ProcessCharacteristic ;
+    rdfs:label "wheel-ground contact state during full rebound when vehicle raised"@en ;
+    iof:processCharacteristicOf :VehicleRaiseProcess_1 .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:BottomOfTubeHeight_1 a iof:ProcessCharacteristic ;
+    rdfs:label "height of bottom of tube above ground during raised condition"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 ;
+    iof:processCharacteristicOf :VehicleRaiseProcess_1 .
+
+:Clearance_0 a bfo:BFO_0000019 ;
+    rdfs:label "clearance from bottom of tube to ground"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 ;
+    iof:qualityOf :Tube_0 .
+
+:PS_VehicleRaisedNoWheelContact a iof:PlanSpecification ;
+    iof:prescribes :VehicleRaiseProcess_1,
+        :WheelGroundContactState_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The height of the tube must allow 75 mm minimum clearance from the bottom of the tube to the ground i. When the vehicle is raised to where the bottom of the tube is 200 mm above ground, the wheels do not touch the ground when they are in full rebound # VE.2.2 Push Bar Each vehicle must have a removable device which attaches to the rear of the vehicle that: a. Allows two people, standing erect behind the vehicle, to push the vehicle around the competition site b" ;
+    iof:requirementSatisfiedBy :DS_TubeHeightClearance,
+        :PS_VehicleRaisedNoWheelContact .
+
+:Tube_0 a bfo:BFO_0000040 ;
+    rdfs:label "tube (vehicle tube whose height is constrained)"@en .
+
+qudtqk:Height a qudt:QuantityKind .
+
+:VehicleRaiseProcess_1 a iof:PlannedProcess ;
+    rdfs:label "vehicle raised until bottom of tube is 200 mm above ground"@en ;
+    bfo:BFO_0000057 :Tube_1,
+        :Vehicle_1 ;
+    iof:hasProcessCharacteristic :BottomOfTubeHeight_1 ;
+    iof:prescribedBy :PS_VehicleRaisedNoWheelContact .
+

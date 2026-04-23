@@ -1,0 +1,99 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/385#> a owl:Ontology .
+
+<http://example.org/req/385#ASB_Mounting_Process_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Anti-Submarine Belt mounting process",
+        "Anti-Submarine Belt mounting process"@en ;
+    ns1:hasProcessCharacteristic <http://example.org/req/385#ASB_SideViewAngle_1> .
+
+<http://example.org/req/385#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/385#Bolt_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/385#Req_0> .
+
+<http://example.org/req/385#PS_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/385#ASB_Mounting_Process_1> ;
+    ns1:satisfiesRequirement <http://example.org/req/385#Req_0> .
+
+<http://example.org/req/385#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minInclusive 0e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/385#Bolt_0> .
+
+<http://example.org/req/385#VE_req1_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 2e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/DEG> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/385#ASB_SideViewAngle_1> .
+
+<http://qudt.org/vocab/unit/DEG> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/PlaneAngle> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/PathLength> .
+
+<http://example.org/req/385#ASB_SideViewAngle_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Anti-Submarine Belt Side View Angle",
+        "Anti-Submarine Belt Side View Angle"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/385#VE_req1_c2> .
+
+<http://example.org/req/385#Bolt_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Bolt used to attach a Shoulder Belt",
+        "Bolt used to attach a Shoulder Belt"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/385#VE_req0_c1> .
+
+<http://example.org/req/385#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Any bolt used to attach a Shoulder Belt, directly to the chassis or to an intermediate bracket, is a Critical Fasteners, see T.8.2, with a minimum diameter that is the smaller of: - The bolt diameter specified by the manufacturer - 10 mm or $3 / 8^{\\prime \\prime}$ ## T.2.7 Anti-Submarine Belt Mounting T.2.7.1 The Anti-Submarine Belt of a 5 point harness must be mounted with the mounting point in line with or slightly forward of the driver's Chest to Groin Line with an Anti-Submarine Belt Side View Angle no more than $20^{\\circ}$" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/385#DS_0>,
+        <http://example.org/req/385#PS_1> .
+

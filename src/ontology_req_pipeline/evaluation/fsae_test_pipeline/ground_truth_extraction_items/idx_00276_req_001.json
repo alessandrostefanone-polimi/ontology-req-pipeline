@@ -1,0 +1,67 @@
+{
+  "idx": 276,
+  "req_idx": 1,
+  "source_text": "All weld lengths must be more than 25 mm F.8.5.5 If the Impact Attenuator is attached by bolting: a. Must have no less than eight 8 mm or $5 / 16^{\\prime \\prime}$ minimum diameter Critical Fasteners, T.8.2 b",
+  "requirement_text_pred": "If the Impact Attenuator is attached by bolting: a. Must have no less than eight 8 mm or $5 / 16^{\nu \nu}$ minimum diameter Critical Fasteners, T.8.2 b",
+  "prediction": {
+    "subject": "the Impact Attenuator",
+    "modality": "must",
+    "condition": "If the Impact Attenuator is attached by bolting",
+    "action": "have no less than eight 8 mm or $5 / 16^{\n    u \n    u}$ minimum diameter Critical Fasteners",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": false,
+    "object_correct": false
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "number of Critical Fasteners",
+      "operator_pred": "ge",
+      "value_raw_pred": "eight",
+      "value_v1_pred": 8.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "DimensionlessUnit",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Dimensionless",
+      "normalized_unit_uri_pred": "COUNT",
+      "normalized_si_value_primary_pred": 8.0,
+      "normalized_si_unit_primary_pred": "COUNT",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    },
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "fastener diameter",
+      "operator_pred": "ge",
+      "value_raw_pred": "8 mm",
+      "value_v1_pred": 8.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Diameter",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.008,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

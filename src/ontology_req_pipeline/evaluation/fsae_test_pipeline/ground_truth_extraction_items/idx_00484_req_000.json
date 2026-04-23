@@ -1,0 +1,46 @@
+{
+  "idx": 484,
+  "req_idx": 0,
+  "source_text": "Must trigger due to a longitudinal impact load which decelerates the vehicle at between 8 g and 11 g depending on the duration of the deceleration (refer to spec sheet of the Sensata device)",
+  "requirement_text_pred": "Must trigger due to a longitudinal impact load which decelerates the vehicle at between 8 g and 11 g depending on the duration of the deceleration (refer to spec sheet of the Sensata device)",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "trigger due to a longitudinal impact load which decelerates the vehicle at between 8 g and 11 g depending on the duration of the deceleration (refer to spec sheet of the Sensata device)",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "longitudinal impact deceleration",
+      "operator_pred": "between",
+      "value_raw_pred": "8 g and 11 g",
+      "value_v1_pred": 8.0,
+      "value_v2_pred": 11.0,
+      "unit_text_pred": "g",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/LinearAcceleration",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/G",
+      "normalized_si_value_primary_pred": 78.4532,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M-PER-SEC2",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

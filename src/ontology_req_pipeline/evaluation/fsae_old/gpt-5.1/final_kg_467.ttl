@@ -1,0 +1,62 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/467#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Ref_req0_AerodynamicDevice a bfo:BFO_0000040 ;
+    rdfs:label "Aerodynamic Device" .
+
+:Ref_req0_Bodywork a bfo:BFO_0000040 ;
+    rdfs:label "Bodywork" .
+
+:Constraint_req0_c0 a owl:NamedIndividual ;
+    rdfs:label "Constraint 0: subject is a material component part of an aerodynamic device or bodywork" ;
+    iof:isAbout :Subject_req0_partOfAeroOrBodywork ;
+    iof:isSubjectOf :Req_0 .
+
+:Constraint_req0_c1 a owl:NamedIndividual ;
+    rdfs:label "Constraint 1: compliance with V.1.1 and V.1.4.1" ;
+    iof:isAbout :Ref_req0_V_1_1,
+        :Ref_req0_V_1_4_1 ;
+    iof:isSubjectOf :Req_0 .
+
+:PlanSpec_req0 a iof:PlanSpecification ;
+    rdfs:label "Plan specification for aerodynamic device/bodywork compliance with V.1.1 and V.1.4.1" ;
+    iof:isSubjectOf :Req_0 ;
+    iof:prescribes :Process_req0_meetCompliance .
+
+:Process_req0_meetCompliance a iof:PlannedProcess ;
+    rdfs:label "Process in which aerodynamic device/bodywork parts are checked to meet V.1.1 and V.1.4.1" ;
+    bfo:BFO_0000057 :Subject_req0_partOfAeroOrBodywork ;
+    iof:isSubjectOf :Constraint_req0_c1 ;
+    iof:prescribedBy :PlanSpec_req0 .
+
+:Role_req0_materialComponent a iof:MaterialComponentRole ;
+    rdfs:label "Material component role of aerodynamic device or bodywork part" ;
+    iof:roleOf :Subject_req0_partOfAeroOrBodywork .
+
+:Ref_req0_V_1_1 a iof:InformationContentEntity ;
+    rdfs:label "V.1.1" .
+
+:Ref_req0_V_1_4_1 a iof:InformationContentEntity ;
+    rdfs:label "V.1.4.1" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:label "Req 467-0: Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1." ;
+    rdfs:comment "Source text: Without a driver in the vehicle The intent is to standardize the measurement, see GR.6.4.1 T.7.3.2 Head Restraint Plane ... T.7.4 Location Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1 ## T.7.5" ;
+    iof:isAbout :Ref_req0_V_1_1,
+        :Ref_req0_V_1_4_1,
+        :Subject_req0_partOfAeroOrBodywork .
+
+:Subject_req0_partOfAeroOrBodywork a bfo:BFO_0000040 ;
+    rdfs:label "Any part of any Aerodynamic Device or Bodywork" ;
+    iof:hasRole :Role_req0_materialComponent ;
+    iof:isSubjectOf :Constraint_req0_c0 .
+

@@ -1,0 +1,196 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/514#> a owl:Ontology .
+
+<http://example.org/req/514#F_6_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "F.6.4 structural standard" .
+
+<http://example.org/req/514#F_7_5> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "F.7.5 structural standard" .
+
+<http://example.org/req/514#LowIntakePortion> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Portion of air intake system less than 350 mm above ground" ;
+    ns1:componentPartOfAtSomeTime <http://example.org/req/514#AirIntakeSystem> ;
+    ns1:hasQuality <http://example.org/req/514#HeightAboveGround_Req514_1> .
+
+<http://example.org/req/514#ProtectiveStructure> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Protective structure built per F.6.4 / F.7.5" ;
+    ns1:componentPartOfAtSomeTime <http://example.org/req/514#ShieldedLowIntakePortion> .
+
+<http://example.org/req/514#Req514_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "IC.2.2.2 Any portion of the air intake system that is less than 350 mm above the ground must be shielded from side or rear impacts by structure built per F.6.4 / F.7.5 as applicable." ;
+    ns1:isAbout <http://example.org/req/514#Obj_Req514_1> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/514#PS_Req514_Shielding> .
+
+<http://example.org/req/514#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "2 AIR INTAKE SYSTEM ## IC.2.1 General ## IC.2.2 Intake System Location IC.2.2.1 The Intake System must meet IC.1.2 IC.2.2.2 Any portion of the air intake system that is less than 350 mm above the ground must be shielded from side or rear impacts by structure built per F.6.4 / F.7.5 as applicable. ## IC.2.3 Intake System Mounting IC.2.3.1" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/514#DS_Req514_Design>,
+        <http://example.org/req/514#PS_Req514_Shielding> .
+
+<http://example.org/req/514#IC_1_2_Requirement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.1.2 requirement reference" .
+
+<http://example.org/req/514#IntakeSystem> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Intake System" .
+
+<http://example.org/req/514#Obj_Req514_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for Intake System compliance with IC.1.2" ;
+    ns1:prescribes <http://example.org/req/514#IC_1_2_Requirement> .
+
+<http://example.org/req/514#Obj_Req514_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for shielding low air intake portions" ;
+    ns1:prescribes <http://example.org/req/514#ShieldingProcessCharacteristic> .
+
+<http://example.org/req/514#Req514_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "IC.2.2.1 The Intake System must meet IC.1.2" ;
+    ns1:isAbout <http://example.org/req/514#Obj_Req514_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/514#DS_Req514_Design> .
+
+<http://example.org/req/514#ShieldingProcess> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Shielding of low air intake portions from side or rear impacts" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/514#ShieldingProcessCharacteristic> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/514#ShieldedLowIntakePortion> .
+
+<http://example.org/req/514#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Height above ground < 350 mm" ;
+    ns2:maxExclusive 3.5e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/MM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/514#HeightAboveGround_Req514_1> .
+
+<http://qudt.org/vocab/unit/MM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://example.org/req/514#AirIntakeSystem> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "air intake system" .
+
+<http://example.org/req/514#DS_Req514_Design> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design specification for Intake System" ;
+    ns1:prescribes <http://example.org/req/514#IntakeSystem> ;
+    ns1:satisfiesRequirement <http://example.org/req/514#Req514_0> .
+
+<http://example.org/req/514#HeightAboveGround_Req514_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "height above the ground of low intake portion" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/514#VE_req1_c0> .
+
+<http://example.org/req/514#PS_Req514_Shielding> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification for shielding air intake portions" ;
+    ns1:prescribes <http://example.org/req/514#ShieldingProcess> .
+
+<http://example.org/req/514#ShieldedLowIntakePortion> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Low intake portion shielded from side or rear impacts" ;
+    ns1:componentPartOfAtSomeTime <http://example.org/req/514#AirIntakeSystem> .
+
+<http://example.org/req/514#ShieldingProcessCharacteristic> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Shielding from side or rear impacts by compliant structure" .
+

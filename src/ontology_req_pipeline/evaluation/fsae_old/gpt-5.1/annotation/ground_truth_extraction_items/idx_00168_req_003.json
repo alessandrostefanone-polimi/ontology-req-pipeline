@@ -1,0 +1,23 @@
+{
+  "idx": 168,
+  "req_idx": 3,
+  "source_text": "5.6.5 Driver Template Position The Driver Template will be positioned as follows: - The seat will be adjusted to the rearmost position - The pedals will be placed in the most forward position - The bottom 200 mm circle will be placed on the seat bottom where the distance between the center of this circle and the rearmost face of the pedals is no less than 915 mm - The middle 200 mm circle, representing the shoulders, will be positioned on the seat back",
+  "requirement_text_pred": "The middle 200 mm circle, representing the shoulders, will be positioned on the seat back",
+  "prediction": {
+    "subject": "The middle 200 mm circle, representing the shoulders",
+    "modality": "will",
+    "condition": "",
+    "action": "be positioned",
+    "object": "on the seat back"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": "The requirement does not contain explicit quantitative constraints, but the mention of '200 mm circle' could be considered as an implicit quantitative constraint related to the size of the circle. However, since it is not explicitly stated as a constraint on the position or distance, it is not included in the quantity_constraints list."
+}

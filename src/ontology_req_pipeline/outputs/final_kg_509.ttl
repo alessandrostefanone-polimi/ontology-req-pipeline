@@ -1,0 +1,129 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/509#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req0_Constraint_0 a iof:InformationContentEntity ;
+    rdfs:label "Suit standard option: SFI 3.2A/5 (or higher ex: /10, /15, /20)"@en ;
+    iof:isAbout :Suit_0 .
+
+:Req0_Constraint_1 a iof:InformationContentEntity ;
+    rdfs:label "Suit standard option: SFI 3.4/5 (or higher ex: /10, /15, /20)"@en ;
+    iof:isAbout :Suit_0 .
+
+:Req0_Constraint_2 a iof:InformationContentEntity ;
+    rdfs:label "Suit standard option: FIA Standard 1986"@en ;
+    iof:isAbout :Suit_0 .
+
+:Req0_Constraint_3 a iof:InformationContentEntity ;
+    rdfs:label "Suit standard option: FIA Standard 8856-2000"@en ;
+    iof:isAbout :Suit_0 .
+
+:Req0_Constraint_4 a iof:InformationContentEntity ;
+    rdfs:label "Suit standard option: FIA Standard 8856-2018"@en ;
+    iof:isAbout :Suit_0 .
+
+:Req0_Constraint_5 a iof:InformationContentEntity ;
+    rdfs:label "Suit labeling requirement: be labeled as such"@en ;
+    iof:isAbout :Suit_0 .
+
+:Req1_Constraint_0 a iof:InformationContentEntity ;
+    rdfs:label "All competitors"@en ;
+    iof:isAbout :Competitor_1 .
+
+:Req1_Constraint_1 a iof:InformationContentEntity ;
+    rdfs:label "Modality: should (recommended)"@en ;
+    iof:isAbout :UnderclothingWearingProcess_1 .
+
+:Req1_Constraint_2 a iof:InformationContentEntity ;
+    rdfs:label "Wearing fire retardant underwear under driver suit"@en ;
+    iof:isAbout :UnderclothingWearingProcess_1 .
+
+:Req1_Constraint_3 a iof:InformationContentEntity ;
+    rdfs:label "Underwear type: fire retardant underwear"@en ;
+    iof:isAbout :Underwear_1 .
+
+:Req1_Constraint_4 a iof:InformationContentEntity ;
+    rdfs:label "Garment configuration: long pants and long sleeve shirt"@en ;
+    iof:isAbout :Underwear_1 .
+
+:Req1_Constraint_5 a iof:InformationContentEntity ;
+    rdfs:label "Underwear worn under approved Driver Suit"@en ;
+    iof:isAbout :Suit_1,
+        :Underwear_1 .
+
+:Std_FIA_1986 a iof:InformationContentEntity ;
+    rdfs:label "FIA Standard 1986"@en .
+
+:Std_FIA_8856_2000 a iof:InformationContentEntity ;
+    rdfs:label "FIA Standard 8856-2000"@en .
+
+:Std_FIA_8856_2018 a iof:InformationContentEntity ;
+    rdfs:label "FIA Standard 8856-2018"@en .
+
+:Std_SFI_3_2A_10 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/10"@en .
+
+:Std_SFI_3_2A_15 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/15"@en .
+
+:Std_SFI_3_2A_20 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/20"@en .
+
+:Std_SFI_3_2A_5 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/5"@en .
+
+:Std_SFI_3_4_10 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.4/10"@en .
+
+:Std_SFI_3_4_15 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.4/15"@en .
+
+:Std_SFI_3_4_20 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.4/20"@en .
+
+:Std_SFI_3_4_5 a iof:InformationContentEntity ;
+    rdfs:label "SFI 3.4/5"@en .
+
+:SuitLabel_0 a iof:InformationContentEntity ;
+    rdfs:label "suit standard label"@en ;
+    iof:describes :Suit_0 .
+
+:SuitDesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Suit_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:UnderclothingPlanSpec_1 a iof:PlanSpecification ;
+    iof:prescribes :UnderclothingWearingProcess_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Competitor_1 a iof:Agent ;
+    rdfs:label "competitor"@en .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Each suit must meet one or more of the following standards and be labeled as such: - $\\quad$ SFI 3.2A/5 (or higher ex: /10, /15, /20) - $\\quad$ SFI 3.4/5 (or higher ex: /10, /15, /20) - FIA Standard 1986 - FIA Standard 8856-2000 - FIA Standard 8856-2018 VE.3.3.2 Underclothing All competitors should wear fire retardant underwear (long pants and long sleeve shirt) under their approved Driver Suit" ;
+    iof:requirementSatisfiedBy :SuitDesignSpec_0,
+        :UnderclothingPlanSpec_1 .
+
+:Suit_1 a bfo:BFO_0000040 ;
+    rdfs:label "approved driver suit"@en .
+
+:UnderclothingWearingProcess_1 a iof:PlannedProcess ;
+    rdfs:label "wearing fire retardant underwear under driver suit"@en ;
+    iof:hasParticipantAtSomeTime :Competitor_1,
+        :Suit_1,
+        :Underwear_1 .
+
+:Underwear_1 a bfo:BFO_0000040 ;
+    rdfs:label "fire retardant underwear (long pants and long sleeve shirt)"@en .
+
+:Suit_0 a bfo:BFO_0000040 ;
+    rdfs:label "driver suit"@en .
+

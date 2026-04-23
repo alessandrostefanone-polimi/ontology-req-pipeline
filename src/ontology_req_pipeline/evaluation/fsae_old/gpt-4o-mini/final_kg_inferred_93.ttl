@@ -1,0 +1,79 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/93#> a owl:Ontology .
+
+<http://example.org/req/93#Joints_Steering_Wheel> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Joints between all components attaching the Steering Wheel to the steering rack must be mechanical." ;
+    ns1:requirementSatisfiedBy <http://example.org/req/93#MechanicalJoints> .
+
+<http://example.org/req/93#Joints_Steering_Wheel_Visible> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Joints between all components attaching the Steering Wheel to the steering rack must be visible at Technical Inspection." ;
+    ns1:requirementSatisfiedBy <http://example.org/req/93#VisibilityRequirement> .
+
+<http://example.org/req/93#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The steering rack must be mechanically attached to the Chassis F.5.14 V.3.2.7. Joints between all components attaching the Steering Wheel to the steering rack must be mechanical and be visible at Technical Inspection" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/93#DesignSpec_0> .
+
+<http://example.org/req/93#Chassis_F_5_14_V_3_2_7> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity .
+
+<http://example.org/req/93#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/93#Chassis_F_5_14_V_3_2_7> .
+
+<http://example.org/req/93#MechanicalJoints> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:InformationContentEntity .
+
+<http://example.org/req/93#TechnicalInspection> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    ns1:hasFeature <http://example.org/req/93#Visibility> .
+
+<http://example.org/req/93#Visibility> a owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/93#VisibilityRequirement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/93#TechnicalInspection> .
+

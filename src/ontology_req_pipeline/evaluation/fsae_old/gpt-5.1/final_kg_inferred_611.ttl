@@ -1,0 +1,124 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/611#> a owl:Ontology .
+
+<http://example.org/req/611#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/611#VoltageQuality_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/611#Req_0> .
+
+<http://example.org/req/611#ObjSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/611#VoltageConstraintProcess_0> ;
+    ns1:prescribes <http://example.org/req/611#VoltageQuality_0> .
+
+<http://example.org/req/611#ObjSpec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/611#PowertrainProcess_1> ;
+    ns1:prescribes <http://example.org/req/611#VehicleSpeed_1> .
+
+<http://example.org/req/611#PS_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/611#PowertrainProcess_1> ;
+    ns1:satisfiesRequirement <http://example.org/req/611#Req_0> .
+
+<http://example.org/req/611#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 6e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/V> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/611#VoltageQuality_0> .
+
+<http://example.org/req/611#VE_req1_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 5e+00 ;
+    ns2:minInclusive 0e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/KiloM-PER-HR> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/611#VehicleSpeed_1> .
+
+<http://example.org/req/611#VoltageConstraintProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://qudt.org/vocab/unit/KiloM-PER-HR> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/LinearVelocity> .
+
+<http://qudt.org/vocab/unit/V> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/ElectricPotentialDifference> .
+
+<http://example.org/req/611#PowertrainProcess_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns1:hasProcessCharacteristic <http://example.org/req/611#VehicleSpeed_1> .
+
+<http://example.org/req/611#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "3.3.2 The maximum permitted voltage that may occur between any two points must not exceed 600 V DC EV.3.3.3 The powertrain must not regenerate energy when vehicle speed is between 0 and $5 \\mathrm{~km} /" ;
+    ns1:isAbout <http://example.org/req/611#ObjSpec_0>,
+        <http://example.org/req/611#ObjSpec_1> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/611#DS_0>,
+        <http://example.org/req/611#PS_1> .
+
+<http://example.org/req/611#VehicleSpeed_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/611#VE_req1_c1> .
+
+<http://example.org/req/611#VoltageQuality_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/611#VE_req0_c0> .
+

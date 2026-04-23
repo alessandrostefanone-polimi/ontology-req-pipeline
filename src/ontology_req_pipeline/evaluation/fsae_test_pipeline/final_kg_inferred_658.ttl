@@ -1,0 +1,152 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/658#> a owl:Ontology .
+
+<http://example.org/req/658#Req_1_DesignSpec> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "TSMP color design specification" ;
+    ns1:prescribedBy <http://example.org/req/658#Req_1_ObjSpec> ;
+    ns1:prescribes <http://example.org/req/658#TSMPs> ;
+    ns1:satisfiesRequirement <http://example.org/req/658#Req_0> .
+
+<http://example.org/req/658#ObjSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for TSMPs under accumulator charging" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/658#TSMPs_ChargingAvailability_Process> ;
+    ns1:prescribes <http://example.org/req/658#TSMPs> .
+
+<http://example.org/req/658#Req_1_ObjSpec> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for TSMP color" .
+
+<http://example.org/req/658#TSMP_Charging_Plan> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan for TSMP behavior during accumulator charging" ;
+    ns1:prescribes <http://example.org/req/658#TSMPs_ChargingAvailability_Process> .
+
+<http://example.org/req/658#TSMP_Connector_0_TypeRole> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "connector type role: shrouded banana jack" ;
+    ns1:roleOf <http://example.org/req/658#TSMP_Connector_0> .
+
+<http://example.org/req/658#TSMP_DesignSpec> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "TSMP design specification" ;
+    ns1:prescribes <http://example.org/req/658#TSMPs> ;
+    ns1:satisfiesRequirement <http://example.org/req/658#Req_0> .
+
+<http://example.org/req/658#TSMPs_Availability_Characteristic> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "availability of TSMPs during accumulator charging" .
+
+<http://example.org/req/658#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Required diameter = 4 mm for TSMP connector" ;
+    ns2:maxInclusive 4e+00 ;
+    ns2:minInclusive 4e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/658#TSMP_Connector_0_Diameter> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+
+<http://example.org/req/658#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Available during charging of any Accumulator(s) EV.5.8.3 The TSMPs must be: a. 4 mm shrouded banana jacks rated to an appropriate voltage level b. Color" ;
+    ns1:isAbout <http://example.org/req/658#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/658#TSMP_DesignSpec> .
+
+<http://example.org/req/658#TSMP_Connector_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "TSMP connector (shrouded banana jack)" ;
+    ns1:hasQuality <http://example.org/req/658#TSMP_Connector_0_Diameter> ;
+    ns1:hasRole <http://example.org/req/658#TSMP_Connector_0_TypeRole> .
+
+<http://example.org/req/658#TSMP_Connector_0_Diameter> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "diameter of TSMP connector" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/658#VE_req0_c1> .
+
+<http://example.org/req/658#TSMPs_ChargingAvailability_Process> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "TSMP availability during accumulator charging" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/658#TSMPs_Availability_Characteristic> ;
+    ns1:prescribedBy <http://example.org/req/658#TSMP_Charging_Plan> .
+
+<http://example.org/req/658#TSMPs> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "TSMPs" ;
+    ns1:hasComponentPartAtSomeTime <http://example.org/req/658#TSMP_Connector_0> .
+

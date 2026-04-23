@@ -1,0 +1,90 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/113#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req1_Process a iof:PlannedProcess ;
+    rdfs:comment "Alternative Materials may be used for applications shown as permitted in F.3.2.1" ;
+    iof:hasInput :Req1_AlternativeMaterial ;
+    iof:hasProcessCharacteristic :Req1_UsagePermission ;
+    iof:isSubjectOf :Req1_Ref_F321 ;
+    iof:prescribedBy :Spec_0 .
+
+:Req2_Process a iof:PlannedProcess ;
+    rdfs:comment "If any Alternative Materials are used, the SES must contain documentation of material type (with evidence such as purchase receipt, shipping document or letter of donation) and the material properties." ;
+    iof:hasInput :Req2_AlternativeMaterialUsage ;
+    iof:hasSpecifiedOutput :Req2_SESDocument ;
+    iof:prescribedBy :Spec_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Young's Modulus (E) $=200 \\mathrm{GPa}(29,000 \\mathrm{ksi})$ Yield Strength (Sy) $=305 \\mathrm{MPa}(44.2 \\mathrm{ksi})$ Ultimate Strength (Su) $=365 \\mathrm{MPa}(52.9 \\mathrm{ksi})$ b. Welded Properties for discontinuous material such as joint calculations: Yield Strength (Sy) $=180 \\mathrm{MPa}(26 \\mathrm{ksi})$ Ultimate Strength (Su) $=300 \\mathrm{MPa}(43.5 \\mathrm{ksi})$ F.3.4.3 Where Welded tubing reinforcements are required (such as inserts for bolt holes or material to support suspension cutouts), Equivalence of the Welded tube and reinforcement must be shown to the original Non Welded tube in the SES # F.3.5 Alternative Tubing Materials F.3.5.1 Alternative Materials may be used for applications shown as permitted in F.3.2.1 F.3.5.2 If any Alternative Materials are used, the SES must contain: a. Documentation of material type, (purchase receipt, shipping document or letter of donation) and the material properties" ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:Req0_EquivalenceQuality a bfo:BFO_0000019 ;
+    rdfs:label "Equivalence of the Welded tube and reinforcement to the original Non Welded tube" ;
+    iof:qualityOf :Req0_WeldedTubeReinforcementAssembly .
+
+:Req0_EquivalenceSpec a iof:ObjectiveSpecification ;
+    rdfs:comment "Equivalence of the Welded tube and reinforcement must be shown to the original Non Welded tube in the SES # F.3.5" ;
+    iof:isAchievedByAtSomeTime :Req0_Process ;
+    iof:isSubjectOf :Req0_SES_F35 ;
+    iof:prescribes :Req0_EquivalenceQuality .
+
+:Req0_Process a iof:PlannedProcess ;
+    rdfs:comment "Process that demonstrates equivalence of the welded tube + reinforcement to the original non-welded tube, documented in SES # F.3.5." ;
+    iof:achievesAtSomeTime :Req0_EquivalenceSpec ;
+    iof:hasInput :Req0_ReferenceTube,
+        :Req0_WeldedTubeReinforcementAssembly ;
+    iof:isSubjectOf :Req0_SES_F35 ;
+    iof:prescribedBy :Spec_0 .
+
+:Req0_ReferenceTube a bfo:BFO_0000040 ;
+    rdfs:label "original Non Welded tube" .
+
+:Req1_Ref_F321 a iof:InformationContentEntity ;
+    rdfs:label "Reference F.3.2.1" .
+
+:Req1_UsagePermission a iof:ProcessCharacteristic ;
+    rdfs:label "Use of alternative materials only for applications permitted in F.3.2.1" .
+
+:Req2_AlternativeMaterialUsage a iof:PlannedProcess ;
+    rdfs:label "Use of Alternative Materials" ;
+    rdfs:comment "Planned process in which alternative materials are used." ;
+    iof:hasInput :Req1_AlternativeMaterial ;
+    iof:prescribedBy :Spec_0 .
+
+:Req2_DocEvidenceType a iof:InformationContentEntity ;
+    rdfs:label "Documentation evidence type (purchase receipt, shipping document or letter of donation)" ;
+    rdfs:comment "Enum members: purchase receipt; shipping document; letter of donation." .
+
+:Req2_MaterialPropertiesDocumentation a iof:InformationContentEntity ;
+    rdfs:label "Documentation of material properties" .
+
+:Req2_MaterialTypeDocumentation a iof:InformationContentEntity ;
+    rdfs:label "Documentation of material type" .
+
+:Req2_SESDocument a iof:InformationContentEntity ;
+    rdfs:label "SES document for alternative materials" ;
+    iof:hasContinuantPartAtAllTimes :Req2_DocEvidenceType,
+        :Req2_MaterialPropertiesDocumentation,
+        :Req2_MaterialTypeDocumentation .
+
+:Req0_SES_F35 a iof:InformationContentEntity ;
+    rdfs:label "SES # F.3.5" .
+
+:Req0_WeldedTubeReinforcementAssembly a bfo:BFO_0000040 ;
+    rdfs:label "Welded tube and reinforcement" .
+
+:Req1_AlternativeMaterial a bfo:BFO_0000040 ;
+    rdfs:label "Alternative Material" .
+
+:Spec_0 a iof:PlanSpecification ;
+    rdfs:label "SES plan specification for tubing materials" .
+

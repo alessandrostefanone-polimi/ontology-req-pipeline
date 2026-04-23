@@ -1,0 +1,54 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/462#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Refer to IN.8.2 T.7.1.4 All forward facing edges that could contact a pedestrian (wings, end plates, and undertrays) must have a minimum radius of 5 mm for all horizontal edges and 3 mm for vertical edges" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :Plan_req0 .
+
+:Plan_req0 a iof:PlanSpecification ;
+    iof:prescribes :VE_req0_c0,
+        :VE_req1_c0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudt:MilliM ;
+    qudt:minInclusive 5e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :horizontal_edges .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudt:MilliM ;
+    qudt:minInclusive 3e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :vertical_edges .
+
+:horizontal_edges a iof:MaterialArtifact ;
+    iof:hasRole :minimum_radius_horizontal .
+
+:minimum_radius_horizontal a iof:MaterialComponentRole ;
+    rdfs:label "minimum radius for horizontal edges" .
+
+:minimum_radius_vertical a iof:MaterialComponentRole ;
+    rdfs:label "minimum radius for vertical edges" .
+
+:vertical_edges a iof:MaterialArtifact ;
+    iof:hasRole :minimum_radius_vertical .
+
+qudtqk:Radius a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Radius .
+

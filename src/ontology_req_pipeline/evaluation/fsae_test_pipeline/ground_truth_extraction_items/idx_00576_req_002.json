@@ -1,0 +1,24 @@
+{
+  "idx": 576,
+  "req_idx": 2,
+  "source_text": "The gas can is minimum 25 cm wide $\\times 25 \\mathrm{~cm}$ deep $\\times 35 \\mathrm{~cm}$ high, with a 25 cm spout at the top IC.5.4.8 The filler neck must have a fuel cap that can withstand severe vibrations or high pressures such as could occur during a vehicle rollover event # IC.5.5 Fuel Tank Filling IC.5.5.1 Fueling / Refueling policies and procedures are at the discretion of the fuel crew and officials",
+  "requirement_text_pred": "Fueling / Refueling policies and procedures are at the discretion of the fuel crew and officials",
+  "prediction": {
+    "subject": "Fueling / Refueling policies and procedures",
+    "modality": "is",
+    "condition": "",
+    "action": "are at the discretion",
+    "object": "of the fuel crew and officials"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

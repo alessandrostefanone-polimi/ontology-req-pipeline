@@ -1,0 +1,157 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/279#> a owl:Ontology .
+
+<http://example.org/req/279#LowerSideImpactStructure_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    rdfs:label "Lower Side Impact Structure" .
+
+<http://example.org/req/279#OrientationSpecRef_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity ;
+    rdfs:label "F.8.5.7 Impact Attenuator Orientation" .
+
+<http://example.org/req/279#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/279#ImpactAttenuator_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/279#Req_0> .
+
+<http://example.org/req/279#IA_MaterialProductRole_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialProductRole ;
+    ns2:roleOf <http://example.org/req/279#ImpactAttenuator_0> .
+
+<http://example.org/req/279#MountingProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "mounting of impact attenuator" ;
+    ns2:hasParticipantAtSomeTime <http://example.org/req/279#ImpactAttenuator_0> ;
+    ns2:hasProcessCharacteristic <http://example.org/req/279#MountingHeightAboveRef_0> .
+
+<http://example.org/req/279#ObjSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification .
+
+<http://example.org/req/279#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "A Custom Impact Attenuator must mount with an area of 200 mm or more long and 200 mm or more wide that intersects a plane parallel to the ground that is no more than 220 mm above the lowest point on the top of the Lower Side Impact Structure F.8.5.7 Impact Attenuator Orientation a" ;
+    ns2:isAbout <http://example.org/req/279#ObjSpec_0> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/279#DS_0> .
+
+<http://example.org/req/279#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/279#IA_Length_0> .
+
+<http://example.org/req/279#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/279#IA_Width_0> .
+
+<http://example.org/req/279#VE_req0_c3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2.2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/279#MountingHeightAboveRef_0> .
+
+<http://example.org/req/279#IA_Length_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "impact attenuator mounting length" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/279#VE_req0_c0> .
+
+<http://example.org/req/279#IA_Width_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "impact attenuator mounting width" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/279#VE_req0_c1> .
+
+<http://example.org/req/279#MountingHeightAboveRef_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    rdfs:label "height of mounting plane above reference structure" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/279#VE_req0_c3> ;
+    ns2:processCharacteristicOf <http://example.org/req/279#MountingProcess_0> .
+
+<http://example.org/req/279#ImpactAttenuator_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact,
+        ns2:MaterialProduct ;
+    rdfs:label "Custom Impact Attenuator" ;
+    ns2:hasQuality <http://example.org/req/279#IA_Length_0>,
+        <http://example.org/req/279#IA_Width_0> ;
+    ns2:hasRole <http://example.org/req/279#IA_MaterialProductRole_0> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height>,
+        <http://qudt.org/vocab/quantitykind/Length>,
+        <http://qudt.org/vocab/quantitykind/Width> .
+

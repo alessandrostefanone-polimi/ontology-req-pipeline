@@ -1,0 +1,59 @@
+@prefix : <http://example.org/req/462#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :ForwardFacingEdge_Horiz,
+        :ForwardFacingEdge_Vert ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ForwardFacingEdge_Horiz a bfo:BFO_0000040 ;
+    rdfs:label "forward facing horizontal edge that could contact a pedestrian (wings, end plates, undertrays)"@en ;
+    iof:hasQuality :EdgeRadiusQuality_Horiz .
+
+:ForwardFacingEdge_Vert a bfo:BFO_0000040 ;
+    rdfs:label "forward facing vertical edge that could contact a pedestrian (wings, end plates, undertrays)"@en ;
+    iof:hasQuality :EdgeRadiusQuality_Vert .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :EdgeRadiusQuality_Horiz,
+        :EdgeRadiusQuality_Vert .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Refer to IN.8.2 T.7.1.4 All forward facing edges that could contact a pedestrian (wings, end plates, and undertrays) must have a minimum radius of 5 mm for all horizontal edges and 3 mm for vertical edges" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 5e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtAllTimes :EdgeRadiusQuality_Horiz .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 3e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtAllTimes :EdgeRadiusQuality_Vert .
+
+qudtqk:Radius a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Radius .
+
+:EdgeRadiusQuality_Horiz a bfo:BFO_0000019 ;
+    rdfs:label "radius of forward facing horizontal edge"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 .
+
+:EdgeRadiusQuality_Vert a bfo:BFO_0000019 ;
+    rdfs:label "radius of forward facing vertical edge"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c2 .
+

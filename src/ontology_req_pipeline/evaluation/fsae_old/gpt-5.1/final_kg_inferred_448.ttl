@@ -1,0 +1,161 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/448#> a owl:Ontology .
+
+<http://example.org/req/448#StructureOrBellyPan> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "structure or belly pan" ;
+    ns1:hasComponentPartAtSomeTime <http://example.org/req/448#HoleAssembly> .
+
+<http://example.org/req/448#VE_req1_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression: exactly 2 holes" ;
+    ns2:maxInclusive 2e+00 ;
+    ns2:minInclusive 2e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/COUNT> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/448#HoleCountQuality> .
+
+<http://example.org/req/448#VE_req1_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression: minimum diameter 25 mm" ;
+    ns2:minInclusive 2.5e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/448#HoleDiameterQuality> .
+
+<http://example.org/req/448#DS_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design specification for holes in structure or belly pan" ;
+    ns1:prescribes <http://example.org/req/448#HoleAssembly> ;
+    ns1:satisfiesRequirement <http://example.org/req/448#Req_0> .
+
+<http://example.org/req/448#Driver> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "driver" .
+
+<http://example.org/req/448#HoleCountQuality> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "number of holes" ;
+    ns1:qualityOf <http://example.org/req/448#HoleAssembly> .
+
+<http://example.org/req/448#HoleDiameterQuality> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "hole diameter" ;
+    ns1:qualityOf <http://example.org/req/448#HoleAssembly> .
+
+<http://example.org/req/448#LeakMaterial> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Flammable liquid and vapors or other leaks" .
+
+<http://example.org/req/448#NoCollectContactProcess> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Process in which leaks do not collect or contact driver" ;
+    ns3:BFO_0000057 <http://example.org/req/448#Driver>,
+        <http://example.org/req/448#LeakMaterial> .
+
+<http://example.org/req/448#ObjSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: prevent leaks from collecting or contacting driver" ;
+    ns1:prescribes <http://example.org/req/448#NoCollectContactProcess> .
+
+<http://example.org/req/448#PS_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification for providing holes" ;
+    ns1:prescribes <http://example.org/req/448#ProvideHolesProcess> .
+
+<http://example.org/req/448#ProvideHolesProcess> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "process providing holes in structure or belly pan" ;
+    ns1:hasSpecifiedOutput <http://example.org/req/448#HoleAssembly> .
+
+<http://example.org/req/448#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "5.5.3 Flammable liquid and vapors or other leaks must not collect or contact the driver T.5.5.4 Two holes of minimum diameter 25 mm each must be provided in the structure or belly pan at the locations: a" ;
+    ns1:isAbout <http://example.org/req/448#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/448#DS_0>,
+        <http://example.org/req/448#PS_0> .
+
+<http://qudt.org/vocab/unit/COUNT> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Dimensionless> .
+
+<http://qudt.org/vocab/unit/MM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+
+<http://example.org/req/448#HoleAssembly> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "set of holes in structure or belly pan" .
+

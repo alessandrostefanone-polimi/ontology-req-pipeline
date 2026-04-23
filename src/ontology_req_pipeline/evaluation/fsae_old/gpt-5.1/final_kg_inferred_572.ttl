@@ -1,0 +1,65 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/572#> a owl:Ontology .
+
+<http://example.org/req/572#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/572#FuelLevelLine_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/572#Req_0> .
+
+<http://example.org/req/572#FuelLevelLineLocation_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "location of fuel level line below top of visible portion of sight tube",
+        "location of fuel level line below top of visible portion of sight tube"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/572#VE_req0_c1> .
+
+<http://example.org/req/572#FuelLevelLine_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "permanent, non movable fuel level line",
+        "permanent, non movable fuel level line"@en ;
+    ns1:hasQuality <http://example.org/req/572#FuelLevelLineLocation_0> .
+
+<http://example.org/req/572#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "[img-23.jpeg](img-23.jpeg) IC.5.4.5 Fuel Level Line - A permanent, non movable fuel level line must be located between 12 mm and 25 mm below the top of the visible portion of the sight tube" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/572#DS_0> .
+
+<http://example.org/req/572#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "location between 12 mm and 25 mm below reference",
+        "location between 12 mm and 25 mm below reference"@en ;
+    ns2:maxInclusive 2.5e+01 ;
+    ns2:minInclusive 1.2e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/IN> .
+
+<http://qudt.org/vocab/unit/IN> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+

@@ -1,0 +1,50 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/179#> a owl:Ontology .
+
+<http://example.org/req/179#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "In the front view of the vehicle, the vertical members of the Main Hoop must be minimum 380 mm apart (inside dimension) at the location where the Main Hoop is attached to the bottom tubes of the Major Structure of the Chassis" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/179#DS_req0> .
+
+<http://example.org/req/179#DS_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/179#VE_req0_c0> .
+
+<http://example.org/req/179#vertical_members_distance> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/179#VE_req0_c0> ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/179#VE_req0_c0> .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/179#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:hasSimpleExpressionValue 3.8e+02,
+        "380.0"^^xsd:float ;
+    ns1:minInclusive 3.8e+02 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/179#vertical_members_distance> .
+

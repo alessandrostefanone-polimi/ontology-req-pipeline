@@ -1,0 +1,23 @@
+{
+  "idx": 606,
+  "req_idx": 1,
+  "source_text": "Have a diameter of 24 mm minimum IC.9.4.2 Location - The Cockpit Main Switch must be: a",
+  "requirement_text_pred": "The Cockpit Main Switch must be:",
+  "prediction": {
+    "subject": "The Cockpit Main Switch",
+    "modality": "must",
+    "condition": "",
+    "action": "",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": "incomplete requirement"
+}

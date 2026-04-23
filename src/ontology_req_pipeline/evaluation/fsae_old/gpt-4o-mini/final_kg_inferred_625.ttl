@@ -1,0 +1,132 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/625#> a owl:Ontology .
+
+<http://example.org/req/625#PedalTravelCondition> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/625#APPSCondition> .
+
+<http://example.org/req/625#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "4.6 Brake System Encoder - BSE Refer to T.4.3 for specific requirements of the BSE ## EV.4.7 APPS / Brake Pedal Plausibility Check EV.4.7.1 Must monitor for the two conditions: - The mechanical brakes are engaged EV.4.6, T.3.2.4 - The APPS signals more than 25% Pedal Travel EV.4.5 EV.4.7.2 If the two conditions in EV.4.7.1 occur at the same time: a. Power to the Motor(s) must be immediately and completely shut down b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/625#Spec_0> .
+
+<http://example.org/req/625#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minExclusive 2.5e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/625#APPSCondition> .
+
+<http://example.org/req/625#VE_req2_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minExclusive 2.5e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/625#APPSCondition> .
+
+<http://example.org/req/625#Action_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/625#Condition_0> .
+
+<http://example.org/req/625#Condition_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/625#MechanicalBrakesCondition> .
+
+<http://example.org/req/625#MechanicalBrakesCondition> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    ns2:satisfiesRequirement <http://example.org/req/625#MechanicalBrakesEngaged> .
+
+<http://example.org/req/625#MechanicalBrakesEngaged> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification,
+        ns2:ValueExpression ;
+    ns2:hasSimpleExpressionValue true .
+
+<http://example.org/req/625#Objective_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    ns2:prescribes <http://example.org/req/625#Output_0> .
+
+<http://example.org/req/625#Spec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/625#Action_0>,
+        <http://example.org/req/625#Objective_0>,
+        <http://example.org/req/625#Output_0> .
+
+<http://example.org/req/625#Output_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns2:hasSimpleExpressionValue "Power to the Motor(s) must be immediately and completely shut down",
+        "Power to the Motor(s) must be immediately and completely shut down"^^xsd:string .
+
+<http://qudt.org/vocab/unit/NUM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/DutyCycle> .
+
+<http://example.org/req/625#APPSCondition> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression .
+

@@ -1,0 +1,82 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/699#> a owl:Ontology .
+
+<http://example.org/req/699#SourceEnd_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "source end of the reduced conductor",
+        "source end of the reduced conductor"@en ;
+    ns3:BFO_0000110 <http://example.org/req/699#ReducedConductor_0> .
+
+<http://example.org/req/699#DS_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/699#OvercurrentProtection_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/699#Req_0> .
+
+<http://example.org/req/699#OvercurrentProtection_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "additional Overcurrent Protection",
+        "additional Overcurrent Protection"@en ;
+    ns2:hasQuality <http://example.org/req/699#DistanceFromSourceEnd_0> .
+
+<http://example.org/req/699#ReducedConductor_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "reduced conductor",
+        "reduced conductor"@en .
+
+<http://example.org/req/699#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "This additional Overcurrent Protection must be: a. 150 mm or less from the source end of the reduced conductor b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/699#DS_0> .
+
+<http://example.org/req/699#VE_req0_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 1.5e+02 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/699#DistanceFromSourceEnd_0> .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/699#DistanceFromSourceEnd_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "distance from the source end of the reduced conductor",
+        "distance from the source end of the reduced conductor"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/699#VE_req0_c0> .
+

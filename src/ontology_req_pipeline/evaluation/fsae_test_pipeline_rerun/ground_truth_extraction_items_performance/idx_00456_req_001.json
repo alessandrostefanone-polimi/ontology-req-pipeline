@@ -1,0 +1,46 @@
+{
+  "idx": 456,
+  "req_idx": 1,
+  "source_text": "Insulation - The gas cylinder/tank must be insulated from any heat sources T.6.1.6 Cylinder Material - gas cylinders/tanks in a position 150 mm or less from an exhaust system must meet one of the two: - Made from metal",
+  "requirement_text_pred": "gas cylinders/tanks in a position 150 mm or less from an exhaust system must meet one of the two:",
+  "prediction": {
+    "subject": "gas cylinders/tanks in a position 150 mm or less from an exhaust system",
+    "modality": "must",
+    "condition": "",
+    "action": "meet",
+    "object": "one of the two:"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "location relative to exhaust system",
+      "operator_pred": "le",
+      "value_raw_pred": "150 mm or less from an exhaust system",
+      "value_v1_pred": 150.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.15,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

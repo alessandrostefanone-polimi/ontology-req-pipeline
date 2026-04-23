@@ -1,0 +1,24 @@
+{
+  "idx": 264,
+  "req_idx": 1,
+  "source_text": "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods: a. Physical testing of the AIP attached to a structurally representative section of the intended chassis - The test fixture must have equivalent strength and stiffness to a baseline front bulkhead or must be the same as the first 50 mm of the Chassis - Test data is valid for only one Competition Year b. Laminate material testing under F.4.3.2 and F.4.3.5 and calculations of 3 point bending and perimeter shear",
+  "requirement_text_pred": "The test fixture must have equivalent strength and stiffness to a baseline front bulkhead",
+  "prediction": {
+    "subject": "The test fixture",
+    "modality": "must",
+    "condition": "",
+    "action": "have",
+    "object": "equivalent strength and stiffness to a baseline front bulkhead"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,96 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/570#> a owl:Ontology .
+
+<http://example.org/req/570#FuelFillerCap_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    rdfs:label "Fuel Filler cap",
+        "Fuel Filler cap"@en .
+
+<http://example.org/req/570#FuelFillerNeck_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    rdfs:label "Fuel Filler Neck",
+        "Fuel Filler Neck"@en .
+
+<http://example.org/req/570#FuelTank_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    rdfs:label "Fuel Tank",
+        "Fuel Tank"@en .
+
+<http://example.org/req/570#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/570#FuelFillerNeckPortion_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/570#Req_0> .
+
+<http://example.org/req/570#FuelFillerNeckPortion_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Portion of the Fuel Filler Neck nearest to the Fuel Filler cap",
+        "Portion of the Fuel Filler Neck nearest to the Fuel Filler cap"@en ;
+    ns2:hasQuality <http://example.org/req/570#VerticalHeightAboveFuelTank_0> .
+
+<http://example.org/req/570#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The portion of the Fuel Filler Neck nearest to the Fuel Filler cap must be: a. Minimum 125 mm vertical height above the top level of the Fuel Tank b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/570#DesignSpec_0> .
+
+<http://example.org/req/570#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 1.25e+02 ;
+    ns1:unit <http://qudt.org/vocab/unit/MM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/570#VerticalHeightAboveFuelTank_0> .
+
+<http://qudt.org/vocab/unit/MM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://example.org/req/570#VerticalHeightAboveFuelTank_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "vertical height above the top level of the Fuel Tank",
+        "vertical height above the top level of the Fuel Tank"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/570#VE_req0_c0> .
+

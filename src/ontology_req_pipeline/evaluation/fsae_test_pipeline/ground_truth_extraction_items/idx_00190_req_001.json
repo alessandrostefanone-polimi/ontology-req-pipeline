@@ -1,0 +1,24 @@
+{
+  "idx": 190,
+  "req_idx": 1,
+  "source_text": "Any item which meets all three of: - Located outside the Component Envelope F.1.15 - Located above 350 mm from the ground - Could load the Main Hoop, Main Hoop Brace, or Shoulder Harness Mounting during a rollover F.5.11.2 External Items must meet one of the two conditions: a. Be attached at a Hoop to Brace node or a fully Triangulated structural node without the ability to create a moment at the node b",
+  "requirement_text_pred": "a. Be attached at a Hoop to Brace node or a fully Triangulated structural node without the ability to create a moment at the node b",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "Be attached at a Hoop to Brace node or a fully Triangulated structural node without the ability to create a moment at the node",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

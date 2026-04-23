@@ -1,0 +1,193 @@
+@prefix : <http://example.org/req/559#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:IC_4_4 a iof:InformationContentEntity ;
+    rdfs:label "IC.4.4" .
+
+:IC_4_8_4 a iof:InformationContentEntity ;
+    rdfs:label "IC.4.8.4" .
+
+:IC_4_8_5 a iof:InformationContentEntity ;
+    rdfs:label "IC.4.8.5" .
+
+:IC_4_8_6 a iof:InformationContentEntity ;
+    rdfs:label "IC.4.8.6" .
+
+:IC_9_2_2 a iof:InformationContentEntity ;
+    rdfs:label "IC.9.2.2" .
+
+:IC_9_3 a iof:InformationContentEntity ;
+    rdfs:label "IC.9.3" .
+
+:PowerRemoval_Monitoring_Condition a iof:ProcessCharacteristic ;
+    rdfs:label "Condition: removal of power from BSPD circuit" ;
+    iof:processCharacteristicOf :BSPD_Monitoring_Process .
+
+:Throttle_Monitoring_Condition a iof:ProcessCharacteristic ;
+    rdfs:label "Condition: throttle opening above threshold" ;
+    iof:processCharacteristicOf :BSPD_Monitoring_Process .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Duration > 1.0 (req 1, c0)" ;
+    qudt:minExclusive 1e+00 ;
+    qudt:unit qudtu:M-PER-SEC ;
+    iof:isValueExpressionOfAtSomeTime :HardBraking_Monitoring_Condition .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Throttle opening > 10.0 percent (req 3, c0)" ;
+    qudt:minExclusive 1e+01 ;
+    qudt:unit qudtu:PERCENT ;
+    iof:isValueExpressionOfAtSomeTime :ThrottleOpeningQuality .
+
+:VE_req4_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Brake signal loss duration > 100.0 s (req 4, c1)" ;
+    qudt:minExclusive 1e+02 ;
+    qudt:unit qudtu:SEC ;
+    iof:isValueExpressionOfAtSomeTime :BrakeSignalLoss_Monitoring_Condition .
+
+:VE_req5_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Throttle signal loss duration > 100.0 s (req 5, c1)" ;
+    qudt:minExclusive 1e+02 ;
+    qudt:unit qudtu:SEC ;
+    iof:isValueExpressionOfAtSomeTime :ThrottleSignalLoss_Monitoring_Condition .
+
+:AboveConditions a iof:Process ;
+    rdfs:label "Any of the above BSPD fault conditions" ;
+    bfo:BFO_0000117 :HardBrakingDemand,
+        :LossOfBrakeSignal,
+        :LossOfThrottleSignal,
+        :PowerRemovalFromBSPD .
+
+:BSPD_Monitoring_Design a iof:PlanSpecification ;
+    rdfs:label "BSPD monitoring and reaction design" ;
+    iof:prescribes :BSPD,
+        :BSPD_Monitoring_Process,
+        :BSPD_Reset_Process,
+        :BSPD_Shutdown_Action ;
+    iof:satisfiesRequirement :Req_0 .
+
+:BSPD_Monitoring_Plan a iof:PlanSpecification ;
+    rdfs:label "Plan: BSPD monitoring of conditions" ;
+    bfo:BFO_0000110 :Obj_Monitoring ;
+    iof:prescribes :BSPD_Monitoring_Process .
+
+:BSPD_Reset_Plan a iof:PlanSpecification ;
+    rdfs:label "Plan: BSPD reset by cycling Primary Master Switch" ;
+    bfo:BFO_0000110 :Obj_Monitoring ;
+    iof:prescribes :BSPD_Reset_Process .
+
+:BSPD_Shutdown_Plan a iof:PlanSpecification ;
+    rdfs:label "Plan: BSPD opens shutdown circuit on fault" ;
+    bfo:BFO_0000110 :Obj_Monitoring ;
+    iof:prescribes :BSPD_Shutdown_Action .
+
+:BrakeSensor a iof:MaterialArtifact ;
+    rdfs:label "Braking sensor" .
+
+:BrakeSignalLoss_Monitoring_Condition a iof:ProcessCharacteristic ;
+    rdfs:label "Condition: loss of brake sensor signal" ;
+    iof:processCharacteristicOf :BSPD_Monitoring_Process .
+
+:HardBrakingDemand a iof:Process ;
+    rdfs:label "Demand for Hard Braking" ;
+    iof:isSubjectOf :IC_4_6 .
+
+:HardBraking_Monitoring_Condition a iof:ProcessCharacteristic ;
+    rdfs:label "Condition: demand for hard braking present" ;
+    iof:processCharacteristicOf :BSPD_Monitoring_Process .
+
+:IC_4_6 a iof:InformationContentEntity ;
+    rdfs:label "IC.4.6" .
+
+:LossOfBrakeSignal a iof:Process ;
+    rdfs:label "Loss of signal from the braking sensor(s)" ;
+    bfo:BFO_0000057 :BrakeSensor .
+
+:LossOfThrottleSignal a iof:Process ;
+    rdfs:label "Loss of signal from the throttle sensor(s)" ;
+    bfo:BFO_0000057 :ThrottleSensor .
+
+:PowerRemovalFromBSPD a iof:Process ;
+    rdfs:label "Removal of power from the BSPD circuit" ;
+    bfo:BFO_0000057 :BSPD .
+
+:PrimaryMasterSwitch a iof:MaterialArtifact ;
+    rdfs:label "Primary Master Switch" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6" ;
+    iof:isAbout :Obj_Monitoring ;
+    iof:requirementSatisfiedBy :BSPD_Monitoring_Design .
+
+:ShutdownCircuit a iof:System ;
+    rdfs:label "Shutdown Circuit" .
+
+:Throttle a iof:MaterialArtifact ;
+    rdfs:label "Throttle" .
+
+:ThrottleOpeningQuality a bfo:BFO_0000019 ;
+    rdfs:label "Throttle opening" ;
+    iof:qualityOf :Throttle .
+
+:ThrottleSensor a iof:MaterialArtifact ;
+    rdfs:label "Throttle sensor" .
+
+:ThrottleSignalLoss_Monitoring_Condition a iof:ProcessCharacteristic ;
+    rdfs:label "Condition: loss of throttle sensor signal" ;
+    iof:processCharacteristicOf :BSPD_Monitoring_Process .
+
+qudtqk:DutyCycle a qudt:QuantityKind .
+
+qudtqk:Time a qudt:QuantityKind .
+
+qudtqk:VehicleVelocity a qudt:QuantityKind .
+
+qudtu:M-PER-SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:VehicleVelocity .
+
+qudtu:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DutyCycle .
+
+qudtu:SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Time .
+
+:BSPD_Reset_Process a iof:PlannedProcess ;
+    rdfs:label "Reset BSPD by cycling Primary Master Switch OFF and ON" ;
+    bfo:BFO_0000057 :BSPD,
+        :PrimaryMasterSwitch ;
+    iof:prescribedBy :BSPD_Reset_Plan .
+
+:BSPD_Shutdown_Action a iof:PlannedProcess ;
+    rdfs:label "BSPD opens Shutdown Circuit" ;
+    bfo:BFO_0000057 :BSPD,
+        :ShutdownCircuit ;
+    iof:occursDuring :AboveConditions ;
+    iof:prescribedBy :BSPD_Shutdown_Plan .
+
+:Obj_Monitoring a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: BSPD monitors and reacts to fault conditions" ;
+    iof:prescribes :BSPD_Monitoring_Process,
+        :BSPD_Reset_Process,
+        :BSPD_Shutdown_Action .
+
+:BSPD a iof:EngineeredSystem ;
+    rdfs:label "BSPD" .
+
+:BSPD_Monitoring_Process a iof:PlannedProcess ;
+    rdfs:label "BSPD monitoring process" ;
+    bfo:BFO_0000057 :BSPD ;
+    iof:prescribedBy :BSPD_Monitoring_Plan .
+

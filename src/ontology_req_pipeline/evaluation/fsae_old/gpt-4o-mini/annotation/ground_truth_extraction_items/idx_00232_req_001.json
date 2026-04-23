@@ -1,0 +1,23 @@
+{
+  "idx": 232,
+  "req_idx": 1,
+  "source_text": "A small gap in the laminate (approximately 25 mm ) exists for inspection of the Front Hoop F.5.7.6 F.7.4.4 Adhesive must not be the sole method of attaching the Front Hoop to the monocoque",
+  "requirement_text_pred": "Adhesive must not be the sole method of attaching the Front Hoop to the monocoque.",
+  "prediction": {
+    "subject": "Adhesive",
+    "modality": "must",
+    "condition": "",
+    "action": "not be the sole method of attaching",
+    "object": "the Front Hoop to the monocoque"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,57 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/232#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Adhesive_0 a iof:MaterialEntity ;
+    iof:hasFeature :Adhesive_Entity,
+        :Attaching_Method ;
+    iof:hasRole :Adhesive_Role .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "A small gap in the laminate (approximately 25 mm ) exists for inspection of the Front Hoop F.5.7.6 F.7.4.4 Adhesive must not be the sole method of attaching the Front Hoop to the monocoque" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue "25.0"^^xsd:float ;
+    qudt:maxInclusive 2.5e+01 ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :Gap_Entity .
+
+:Adhesive_Entity a iof:MaterialEntity ;
+    iof:hasFeature :Attaching_Method ;
+    iof:hasRole :Adhesive_Role .
+
+:DesignSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :Gap_0 .
+
+:Gap_0 a iof:PlannedProcess ;
+    iof:hasInput :Gap_Entity ;
+    iof:hasSpecifiedOutput :Gap_Entity .
+
+:Gap_Role a iof:MaterialComponentRole ;
+    rdfs:label "gap role" .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:Adhesive_Role a iof:SupplierRole ;
+    rdfs:label "Adhesive role" .
+
+:Attaching_Method a iof:MaterialComponentRole ;
+    rdfs:label "attaching method" .
+
+:Gap_Entity a iof:MaterialComponent ;
+    iof:hasRole :Gap_Role .
+

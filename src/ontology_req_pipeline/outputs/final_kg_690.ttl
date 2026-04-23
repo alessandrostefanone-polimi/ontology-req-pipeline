@@ -1,0 +1,62 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/690#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "mm 4 mm EV.6.5.8 Teams must be prepared to show spacing on team built equipment For inaccessible circuitry, spare boards or appropriate photographs must be available for inspection" ;
+    iof:isAbout :ObjSpec_0,
+        :ObjSpec_1 .
+
+:ActionSpec_0 a iof:ActionSpecification ;
+    rdfs:label "action: team shows spacing on team built equipment" ;
+    iof:prescribes :InspectionProcess_0 .
+
+:ActionSpec_1 a iof:ActionSpecification ;
+    rdfs:label "action: maintain availability of spare boards or photographs for inspection" ;
+    iof:prescribes :AvailabilityProcess_0 .
+
+:SpareBoardsOrPhotos_0 a bfo:BFO_0000040 ;
+    rdfs:label "spare boards or appropriate photographs" .
+
+:TeamEquipment_0 a bfo:BFO_0000040 ;
+    rdfs:label "team built equipment" .
+
+:Team_0 a iof:Agent ;
+    rdfs:label "Teams" .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    rdfs:label "objective: teams prepared to show spacing on team built equipment" ;
+    iof:prescribes :InspectionProcess_0 .
+
+:ObjSpec_1 a iof:ObjectiveSpecification ;
+    rdfs:label "objective: availability of spare boards or appropriate photographs for inspection" ;
+    iof:prescribes :AvailabilityProcess_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    rdfs:label "plan for inspection and evidence availability" ;
+    bfo:BFO_0000110 :ActionSpec_0,
+        :ActionSpec_1,
+        :ObjSpec_0,
+        :ObjSpec_1 ;
+    iof:prescribes :AvailabilityProcess_0,
+        :InspectionProcess_0 .
+
+:AvailabilityProcess_0 a iof:PlannedProcess ;
+    rdfs:label "availability of spare boards or appropriate photographs for inspection" ;
+    bfo:BFO_0000057 :SpareBoardsOrPhotos_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:InspectionProcess_0 a iof:PlannedProcess ;
+    rdfs:label "inspection of spacing on team built equipment" ;
+    bfo:BFO_0000057 :TeamEquipment_0,
+        :Team_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+

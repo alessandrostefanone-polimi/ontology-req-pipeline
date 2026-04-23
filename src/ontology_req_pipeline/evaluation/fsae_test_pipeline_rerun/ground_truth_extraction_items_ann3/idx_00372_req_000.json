@@ -1,0 +1,24 @@
+{
+  "idx": 372,
+  "req_idx": 0,
+  "source_text": "Attachment of tabs or brackets must meet the following: a. Where brackets are fastened to the chassis, no less than two 6 mm or $1 / 4^{\\prime \\prime}$ minimum diameter Critical Fasteners, see T.8.2 or stronger must be used to attach the bracket to the chassis",
+  "requirement_text_pred": "Attachment of tabs or brackets must meet the following:",
+  "prediction": {
+    "subject": "Attachment of tabs or brackets",
+    "modality": "must",
+    "condition": "",
+    "action": "meet",
+    "object": "the following:"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

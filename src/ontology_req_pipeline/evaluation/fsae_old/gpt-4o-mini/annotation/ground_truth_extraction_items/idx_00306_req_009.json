@@ -1,0 +1,45 @@
+{
+  "idx": 306,
+  "req_idx": 9,
+  "source_text": "External Structure F.10.2.1 The Floor or Bottom must be made from one of the three: a. Steel 1.25 mm minimum thickness b. Aluminum 3.2 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.2 Vertical Walls, Covers and Lids must be made from one of the three: a. Steel 0.9 mm minimum thickness b. Aluminum 2.3 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.3 The accepted methods of joining walls to walls and walls to floor are: a. Welding - Welds may be continuous or interrupted. - If interrupted, the weld/space ratio must be 1:1 or higher - All weld lengths must be more than 25 mm b. Fasteners Combined strength of the fasteners must be Equivalent to the strength of the welded joint ( F.10.2.3.a above)",
+  "requirement_text_pred": "b. Fasteners Combined strength of the fasteners must be Equivalent to the strength of the welded joint ( F.10.2.3.a above)",
+  "prediction": {
+    "subject": "Fasteners",
+    "modality": "must",
+    "condition": "",
+    "action": "Combined strength must be Equivalent",
+    "object": "to the strength of the welded joint"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "combined strength of the fasteners",
+      "operator_pred": "eq",
+      "value_raw_pred": "Equivalent to the strength of the welded joint",
+      "value_v1_pred": null,
+      "value_v2_pred": null,
+      "unit_text_pred": null,
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": false,
+        "quantity_value_correct": false,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

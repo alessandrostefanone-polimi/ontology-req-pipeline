@@ -1,0 +1,46 @@
+{
+  "idx": 306,
+  "req_idx": 3,
+  "source_text": "External Structure F.10.2.1 The Floor or Bottom must be made from one of the three: a. Steel 1.25 mm minimum thickness b. Aluminum 3.2 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.2 Vertical Walls, Covers and Lids must be made from one of the three: a. Steel 0.9 mm minimum thickness b. Aluminum 2.3 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.3 The accepted methods of joining walls to walls and walls to floor are: a. Welding - Welds may be continuous or interrupted. - If interrupted, the weld/space ratio must be 1:1 or higher - All weld lengths must be more than 25 mm b. Fasteners Combined strength of the fasteners must be Equivalent to the strength of the welded joint ( F.10.2.3.a above)",
+  "requirement_text_pred": "Vertical Walls, Covers and Lids must be made from Steel 0.9 mm minimum thickness",
+  "prediction": {
+    "subject": "Vertical Walls, Covers and Lids",
+    "modality": "must",
+    "condition": "",
+    "action": "be made from",
+    "object": "Steel 0.9 mm minimum thickness"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "thickness",
+      "operator_pred": "ge",
+      "value_raw_pred": "0.9 mm",
+      "value_v1_pred": 0.9,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "MilliM",
+      "normalized_si_value_primary_pred": 0.9,
+      "normalized_si_unit_primary_pred": "MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,89 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/503#> a owl:Ontology .
+
+<http://example.org/req/503#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "2.5.4 The body of a camera or recording unit that weighs more than 0.25 kg must be secured at a minimum of two points on different sides of the camera body" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/503#PlanSpec_0> .
+
+<http://example.org/req/503#PlanSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/503#SecuringProcess_0> .
+
+<http://example.org/req/503#SecuringPointsChar_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/503#VE_req0_c2> .
+
+<http://example.org/req/503#SecuringProcess_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    ns3:BFO_0000057 <http://example.org/req/503#CameraBody_0> ;
+    ns2:hasProcessCharacteristic <http://example.org/req/503#SecuringPointsChar_0> ;
+    ns2:hasSpecifiedOutput <http://example.org/req/503#CameraBody_0> .
+
+<http://example.org/req/503#VE_req0_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minExclusive 2.5e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/KiloGM> .
+
+<http://example.org/req/503#VE_req0_c2> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 2e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/NUM-PER-M3> .
+
+<http://example.org/req/503#Weight_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/503#VE_req0_c0> .
+
+<http://qudt.org/vocab/unit/KiloGM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Mass> .
+
+<http://qudt.org/vocab/unit/NUM-PER-M3> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/HoleDensity> .
+
+<http://example.org/req/503#CameraBody_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasQuality <http://example.org/req/503#Weight_0> .
+

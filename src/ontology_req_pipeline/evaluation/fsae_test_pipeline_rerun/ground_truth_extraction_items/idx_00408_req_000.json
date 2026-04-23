@@ -1,0 +1,24 @@
+{
+  "idx": 408,
+  "req_idx": 0,
+  "source_text": "3.3.3 Operation of the BOTS to the OFF position must Open the Shutdown Circuit IC.9.2.2 / EV.7.2.2 T.3.3.4 Repeated operation of the switch must not reset or restore power T.3.3.5",
+  "requirement_text_pred": "3.3.3 Operation of the BOTS to the OFF position must Open the Shutdown Circuit IC.9.2.2 / EV.7.2.2 T.3.3.4 Repeated operation of the switch must not reset or restore power T.3.3.5",
+  "prediction": {
+    "subject": "Operation of the BOTS to the OFF position",
+    "modality": "must",
+    "condition": "",
+    "action": "Open",
+    "object": "the Shutdown Circuit IC.9.2.2 / EV.7.2.2 T.3.3.4 Repeated operation of the switch must not reset or restore power T.3.3.5"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

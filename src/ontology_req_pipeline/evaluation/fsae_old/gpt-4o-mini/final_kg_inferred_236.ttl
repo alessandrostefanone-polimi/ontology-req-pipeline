@@ -1,0 +1,107 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/236#> a owl:Ontology .
+
+<http://example.org/req/236#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The perimeter shear strength of the monocoque laminate must be 7.5 kN or more for a section with a diameter of 25 mm" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/236#DS_req0> .
+
+<http://example.org/req/236#DS_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/236#P_req0> .
+
+<http://example.org/req/236#P_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/236#diameter_value>,
+        <http://example.org/req/236#shear_strength_value> .
+
+<http://example.org/req/236#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 3.858333e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/M-PER-SEC> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/236#shear_strength> .
+
+<http://example.org/req/236#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2.5e+01 ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MM> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/236#diameter> .
+
+<http://example.org/req/236#diameter_value> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2.5e+01 ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/236#diameter> .
+
+<http://example.org/req/236#shear_strength_value> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 3.858333e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/M-PER-SEC> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/236#shear_strength> .
+
+<http://example.org/req/236#diameter> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/236#VE_req0_c1> .
+
+<http://example.org/req/236#shear_strength> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/236#VE_req0_c0> .
+
+<http://qudt.org/vocab/unit/M-PER-SEC> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Velocity> .
+
+<http://qudt.org/vocab/unit/MM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Thickness> .
+

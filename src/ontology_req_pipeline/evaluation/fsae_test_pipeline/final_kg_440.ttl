@@ -1,0 +1,41 @@
+@prefix : <http://example.org/req/440#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:GuardDesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Guard_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:GuardOpening_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :OpeningDiameter_0 .
+
+:Guard_0 a bfo:BFO_0000040 ;
+    iof:hasComponentPartAtSomeTime :GuardOpening_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Mesh or perforated material may be used but must prevent the passage of a 12 mm diameter object through the guard" ;
+    iof:requirementSatisfiedBy :GuardDesignSpec_0 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.2e+01 ;
+    qudt:minInclusive 1.2e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :OpeningDiameter_0 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:OpeningDiameter_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtAllTimes :VE_req1_c1 .
+

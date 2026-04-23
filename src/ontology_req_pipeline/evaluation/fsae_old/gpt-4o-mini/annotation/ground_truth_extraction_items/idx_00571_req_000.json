@@ -1,0 +1,23 @@
+{
+  "idx": 571,
+  "req_idx": 0,
+  "source_text": "Angled no more than $30^{\\circ}$ from the vertical IC.5.4.3 The Fuel Filler Neck must be accompanied by a clear fuel resistant sight tube for reading the fuel level which must be: a. Visible vertical height: 125 mm minimum b",
+  "requirement_text_pred": "The Fuel Filler Neck must be accompanied by a clear fuel resistant sight tube for reading the fuel level.",
+  "prediction": {
+    "subject": "The Fuel Filler Neck",
+    "modality": "must",
+    "condition": "",
+    "action": "be accompanied by",
+    "object": "a clear fuel resistant sight tube for reading the fuel level"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

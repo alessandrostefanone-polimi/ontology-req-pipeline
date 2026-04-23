@@ -1,0 +1,113 @@
+@prefix : <http://example.org/req/264#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:BaselineBulkheadStiffness a bfo:BFO_0000016 ;
+    iof:dispositionOf :BaselineFrontBulkhead .
+
+:BaselineBulkheadStrength a bfo:BFO_0000016 ;
+    iof:dispositionOf :BaselineFrontBulkhead .
+
+:Req0 a iof:ObjectiveSpecification ;
+    rdfs:comment "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods" ;
+    iof:isSubjectOf :Req_0 ;
+    iof:prescribes :AIPStrengthVerificationProcess .
+
+:Req1 a iof:ObjectiveSpecification ;
+    rdfs:comment "The test fixture must have equivalent strength and stiffness to a baseline front bulkhead" ;
+    iof:isSubjectOf :Req_0 ;
+    iof:prescribes :TestFixtureStiffness,
+        :TestFixtureStrength .
+
+:Req2 a iof:ObjectiveSpecification ;
+    rdfs:comment "The test fixture must be the same as the first 50 mm of the Chassis" ;
+    iof:isSubjectOf :Req_0 ;
+    iof:prescribes :ChassisFirst50mm,
+        :TestFixture .
+
+:Req3 a iof:ObjectiveSpecification ;
+    rdfs:comment "Test data is valid for only one Competition Year" ;
+    iof:isSubjectOf :Req_0 ;
+    iof:prescribes :TestDataValidityDuration .
+
+:TestData a iof:InformationContentEntity .
+
+:VE_req2_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 5e-02 ;
+    qudt:minInclusive 5e-02 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :ChassisFirst50mm .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 3.15576e+07 ;
+    qudt:minInclusive 3.15576e+07 ;
+    qudt:unit qudtu:SEC ;
+    iof:isValueExpressionOfAtSomeTime :TestDataValidityDuration .
+
+:Chassis a bfo:BFO_0000040 .
+
+:DS_CompositeAIPStrength a iof:DesignSpecification ;
+    iof:prescribes :BaselineFrontBulkhead,
+        :ChassisFirst50mm,
+        :CompositeAntiIntrusionPlate,
+        :TestFixture .
+
+:LaminateMaterialTestProcess a iof:PlannedProcess ;
+    iof:prescribedBy :PS_AIPStrengthVerification .
+
+:PhysicalAIPTestProcess a iof:PlannedProcess ;
+    iof:hasInput :CompositeAntiIntrusionPlate,
+        :TestFixture ;
+    iof:prescribedBy :PS_AIPStrengthVerification .
+
+:TestFixtureStiffness a bfo:BFO_0000016 ;
+    iof:dispositionOf :TestFixture .
+
+:TestFixtureStrength a bfo:BFO_0000016 ;
+    iof:dispositionOf :TestFixture .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtqk:Time a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+qudtu:SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Time .
+
+:CompositeAntiIntrusionPlate a bfo:BFO_0000040 .
+
+:TestDataValidityDuration a iof:ProcessCharacteristic ;
+    iof:processCharacteristicOf :AIPStrengthVerificationProcess .
+
+:AIPStrengthVerificationProcess a iof:PlannedProcess ;
+    iof:prescribedBy :PS_AIPStrengthVerification .
+
+:BaselineFrontBulkhead a bfo:BFO_0000040 .
+
+:ChassisFirst50mm a bfo:BFO_0000040 ;
+    iof:componentPartOfAtSomeTime :Chassis .
+
+:PS_AIPStrengthVerification a iof:PlanSpecification ;
+    iof:prescribes :AIPStrengthVerificationProcess,
+        :LaminateMaterialTestProcess,
+        :PhysicalAIPTestProcess .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods: a. Physical testing of the AIP attached to a structurally representative section of the intended chassis - The test fixture must have equivalent strength and stiffness to a baseline front bulkhead or must be the same as the first 50 mm of the Chassis - Test data is valid for only one Competition Year b. Laminate material testing under F.4.3.2 and F.4.3.5 and calculations of 3 point bending and perimeter shear" ;
+    iof:requirementSatisfiedBy :DS_CompositeAIPStrength,
+        :PS_AIPStrengthVerification .
+
+:TestFixture a bfo:BFO_0000040 .
+

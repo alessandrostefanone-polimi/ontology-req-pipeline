@@ -1,0 +1,113 @@
+@prefix : <http://example.org/req/576#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The gas can is minimum 25 cm wide $\\times 25 \\mathrm{~cm}$ deep $\\times 35 \\mathrm{~cm}$ high, with a 25 cm spout at the top IC.5.4.8 The filler neck must have a fuel cap that can withstand severe vibrations or high pressures such as could occur during a vehicle rollover event # IC.5.5 Fuel Tank Filling IC.5.5.1 Fueling / Refueling policies and procedures are at the discretion of the fuel crew and officials" ;
+    iof:requirementSatisfiedBy :FillerNeck_DesignSpec,
+        :FuelingPlan_Spec,
+        :GasCan_DesignSpec .
+
+:VehicleRolloverEvent a iof:Event .
+
+:FillerNeck a iof:MaterialArtifact ;
+    iof:hasComponentPartAtSomeTime :FuelCap .
+
+:FillerNeck_DesignSpec a iof:DesignSpecification ;
+    iof:prescribes :FillerNeck .
+
+:FuelCap a iof:MaterialArtifact ;
+    iof:hasDisposition :FuelCap_PressureResistance,
+        :FuelCap_VibrationResistance .
+
+:FuelCap_PressureResistance a bfo:BFO_0000016 .
+
+:FuelCap_VibrationResistance a bfo:BFO_0000016 .
+
+:FuelCrew a iof:GroupOfAgents .
+
+:FuelingPlan_Spec a iof:PlanSpecification ;
+    iof:isAbout :FuelingPolicies ;
+    iof:prescribes :FuelingProcess .
+
+:FuelingPolicies a iof:InformationContentEntity .
+
+:FuelingProcess a iof:PlannedProcess ;
+    iof:hasParticipantAtSomeTime :FuelCrew,
+        :Officials .
+
+:GasCan a iof:MaterialArtifact ;
+    iof:hasComponentPartAtSomeTime :GasCan_Spout ;
+    iof:hasQuality :GasCan_Depth,
+        :GasCan_Height,
+        :GasCan_Width .
+
+:GasCan_DesignSpec a iof:DesignSpecification ;
+    iof:prescribes :GasCan .
+
+:GasCan_Spout a iof:MaterialArtifact ;
+    iof:hasQuality :Spout_Length .
+
+:Officials a iof:GroupOfAgents .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.5e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :GasCan_Width .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.5e-01 ;
+    qudt:minInclusive 2.5e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :GasCan_Depth .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 3.5e-01 ;
+    qudt:minInclusive 3.5e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :GasCan_Height .
+
+:VE_req0_c4 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.5e-01 ;
+    qudt:minInclusive 2.5e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :Spout_Length .
+
+qudtqk:Depth a qudt:QuantityKind .
+
+qudtqk:Height a qudt:QuantityKind .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtqk:Width a qudt:QuantityKind .
+
+:GasCan_Depth a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 .
+
+:GasCan_Height a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c2 .
+
+:GasCan_Width a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+
+:Spout_Length a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c4 .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Depth,
+        qudtqk:Height,
+        qudtqk:Length,
+        qudtqk:Width .
+

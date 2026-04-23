@@ -1,0 +1,45 @@
+{
+  "idx": 385,
+  "req_idx": 1,
+  "source_text": "Any bolt used to attach a Shoulder Belt, directly to the chassis or to an intermediate bracket, is a Critical Fasteners, see T.8.2, with a minimum diameter that is the smaller of: - The bolt diameter specified by the manufacturer - 10 mm or $3 / 8^{\\prime \\prime}$ ## T.2.7 Anti-Submarine Belt Mounting T.2.7.1 The Anti-Submarine Belt of a 5 point harness must be mounted with the mounting point in line with or slightly forward of the driver's Chest to Groin Line with an Anti-Submarine Belt Side View Angle no more than $20^{\\circ}$",
+  "requirement_text_pred": "T.2.7.1 The Anti-Submarine Belt of a 5 point harness must be mounted with the mounting point in line with or slightly forward of the driver's Chest to Groin Line with an Anti-Submarine Belt Side View Angle no more than $20^{\u0000}$",
+  "prediction": {
+    "subject": "The Anti-Submarine Belt of a 5 point harness",
+    "modality": "must",
+    "condition": "",
+    "action": "be mounted",
+    "object": "with the mounting point in line with or slightly forward of the driver's Chest to Groin Line with an Anti-Submarine Belt Side View Angle no more than $20^{"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "Anti-Submarine Belt Side View Angle",
+      "operator_pred": "le",
+      "value_raw_pred": "no more than $20^{",
+      "value_v1_pred": 20.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "DEG",
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

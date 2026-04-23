@@ -1,0 +1,158 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/394#> a owl:Ontology .
+
+<http://example.org/req/394#Cap_WithstandLateralVerticalForce> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000016,
+        ns3:BFO_0000017,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Capability ;
+    rdfs:label "Capability to withstand lateral or vertical force" ;
+    ns3:BFO_0000054 <http://example.org/req/394#Proc_WithstandLateralVerticalForce> ;
+    ns1:capabilityOf <http://example.org/req/394#HeadRestraintAssembly> .
+
+<http://example.org/req/394#Cap_WithstandRearwardForce> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000016,
+        ns3:BFO_0000017,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Capability ;
+    rdfs:label "Capability to withstand rearward force" ;
+    ns3:BFO_0000054 <http://example.org/req/394#Proc_WithstandRearwardForce> ;
+    ns1:capabilityOf <http://example.org/req/394#HeadRestraintAssembly> .
+
+<http://example.org/req/394#DS_HeadRestraintStrength> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/394#HeadRestraintAssembly> ;
+    ns1:satisfiesRequirement <http://example.org/req/394#Req_0> .
+
+<http://example.org/req/394#PS_WithstandLateralVerticalForce> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan for lateral/vertical head restraint load case" ;
+    ns1:prescribes <http://example.org/req/394#Proc_WithstandLateralVerticalForce> .
+
+<http://example.org/req/394#PS_WithstandRearwardForce> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan for rearward head restraint load case" ;
+    ns1:prescribes <http://example.org/req/394#Proc_WithstandRearwardForce> .
+
+<http://example.org/req/394#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Head Restraint Protection (if used) F.5.10 T.2.8.4 The Head Restraint, attachment and mounting must be strong enough to withstand a minimum force of: a. 900 N applied in a rearward direction b. 300 N applied in a lateral or vertical direction T.2.8.5 For all drivers, the Head Restraint must be located and adjusted where: a" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/394#DS_HeadRestraintStrength> .
+
+<http://example.org/req/394#VE_req0_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum rearward force ≥ 900 N" ;
+    ns2:minInclusive 9e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/N> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/394#PC_Req0_Force> .
+
+<http://example.org/req/394#VE_req1_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum lateral/vertical force ≥ 300 N" ;
+    ns2:minInclusive 3e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/N> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/394#PC_Req1_Force> .
+
+<http://example.org/req/394#PC_Req0_Force> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Applied rearward force for requirement 0" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/394#VE_req0_c0> ;
+    ns1:processCharacteristicOf <http://example.org/req/394#Proc_WithstandRearwardForce> .
+
+<http://example.org/req/394#PC_Req1_Force> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Applied lateral/vertical force for requirement 1" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/394#VE_req1_c0> ;
+    ns1:processCharacteristicOf <http://example.org/req/394#Proc_WithstandLateralVerticalForce> .
+
+<http://qudt.org/vocab/unit/N> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Force> .
+
+<http://example.org/req/394#Proc_WithstandLateralVerticalForce> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Head restraint lateral/vertical load case process" ;
+    ns1:hasParticipantAtSomeTime <http://example.org/req/394#HeadRestraintAssembly> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/394#PC_Req1_Force> ;
+    ns1:prescribedBy <http://example.org/req/394#PS_WithstandLateralVerticalForce> .
+
+<http://example.org/req/394#Proc_WithstandRearwardForce> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Head restraint rearward load case process" ;
+    ns1:hasParticipantAtSomeTime <http://example.org/req/394#HeadRestraintAssembly> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/394#PC_Req0_Force> ;
+    ns1:prescribedBy <http://example.org/req/394#PS_WithstandRearwardForce> .
+
+<http://example.org/req/394#HeadRestraintAssembly> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Head Restraint, attachment and mounting" ;
+    ns1:hasCapability <http://example.org/req/394#Cap_WithstandLateralVerticalForce>,
+        <http://example.org/req/394#Cap_WithstandRearwardForce> .
+

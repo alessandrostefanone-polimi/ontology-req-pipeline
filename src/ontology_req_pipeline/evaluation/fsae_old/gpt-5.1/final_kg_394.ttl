@@ -1,0 +1,48 @@
+@prefix : <http://example.org/req/394#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:WithstandForceProcess a iof:PlannedProcess ;
+    bfo:BFO_0000057 :HeadRestraintAssembly ;
+    iof:hasProcessCharacteristic :WithstandForceCapability ;
+    iof:prescribedBy :DS_HeadRestraintStrength .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Head Restraint Protection (if used) F.5.10 T.2.8.4 The Head Restraint, attachment and mounting must be strong enough to withstand a minimum force of: a. 900 N applied in a rearward direction b. 300 N applied in a lateral or vertical direction T.2.8.5 For all drivers, the Head Restraint must be located and adjusted where: a" ;
+    iof:requirementSatisfiedBy :DS_HeadRestraintStrength .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 9e+02 ;
+    qudt:unit qudtu:N ;
+    iof:isValueExpressionOfAtSomeTime :WithstandForceCapability .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 3e+02 ;
+    qudt:unit qudtu:N ;
+    iof:isValueExpressionOfAtSomeTime :WithstandForceCapability .
+
+qudtqk:Force a qudt:QuantityKind .
+
+:DS_HeadRestraintStrength a iof:DesignSpecification ;
+    iof:prescribes :HeadRestraintAssembly .
+
+:HeadRestraintAssembly a bfo:BFO_0000040 ;
+    iof:satisfiesRequirement :Req_0 .
+
+qudtu:N a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Force .
+
+:WithstandForceCapability a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0,
+        :VE_req1_c1 .
+

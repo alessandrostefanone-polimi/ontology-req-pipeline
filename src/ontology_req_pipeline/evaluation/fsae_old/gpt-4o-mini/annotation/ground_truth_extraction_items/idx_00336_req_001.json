@@ -1,0 +1,23 @@
+{
+  "idx": 336,
+  "req_idx": 1,
+  "source_text": "The template will be held horizontally, parallel to the ground, and inserted vertically from a height above any Primary Structure or bodywork that is between the Front Hoop and the Main Hoop until it meets both of: ( refer to F.6.4 and F.7.5.1) a. Has passed 25 mm below the lowest point of the top of the Side Impact Structure b",
+  "requirement_text_pred": "The template will be inserted vertically from a height above any Primary Structure or bodywork that is between the Front Hoop and the Main Hoop until it meets both of: ( refer to F.6.4 and F.7.5.1)",
+  "prediction": {
+    "subject": "The template",
+    "modality": "will",
+    "condition": "",
+    "action": "be inserted vertically",
+    "object": "from a height above any Primary Structure or bodywork that is between the Front Hoop and the Main Hoop until it meets both of:"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,54 @@
+@prefix : <http://example.org/req/730#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:CellTerminal_0 a bfo:BFO_0000040 ;
+    rdfs:label "cell terminal"@en .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The temperature sensor used must be in direct contact with one of: - The negative terminal itself - The negative terminal busbar less than 10 mm away from the cell terminal EV.7.5.5 For lithium based cells, a" ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:Distance_NegBusbar_CellTerminal_0 a bfo:BFO_0000019 ;
+    rdfs:label "distance from the cell terminal (busbar)"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c2 ;
+    iof:qualityOf :NegBusbar_0 .
+
+:NegTerminal_0 a bfo:BFO_0000040 ;
+    rdfs:label "negative terminal itself"@en .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :PlannedProcess_0 .
+
+:PlannedProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Process of placing temperature sensor in contact with negative terminal or busbar"@en ;
+    iof:hasParticipantAtSomeTime :NegBusbar_0,
+        :NegTerminal_0,
+        :TempSensor_0 .
+
+:TempSensor_0 a bfo:BFO_0000040 ;
+    rdfs:label "temperature sensor used"@en .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "distance from the cell terminal < 10 mm"@en ;
+    qudt:maxExclusive 1e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :Distance_NegBusbar_CellTerminal_0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:NegBusbar_0 a bfo:BFO_0000040 ;
+    rdfs:label "negative terminal busbar"@en .
+

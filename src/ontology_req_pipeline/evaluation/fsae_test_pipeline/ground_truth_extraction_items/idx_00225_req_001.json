@@ -1,0 +1,24 @@
+{
+  "idx": 225,
+  "req_idx": 1,
+  "source_text": "An inspection hole approximately 4 mm in diameter must be drilled through a low stress location of every monocoque section regulated by the Structural Equivalency Spreadsheet This inspection hole is not required in the Vertical Side Impact Structure F.7.5.3.b",
+  "requirement_text_pred": "This inspection hole is not required in the Vertical Side Impact Structure F.7.5.3.b",
+  "prediction": {
+    "subject": "This inspection hole",
+    "modality": "is",
+    "condition": "",
+    "action": "not required",
+    "object": "in the Vertical Side Impact Structure F.7.5.3.b"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

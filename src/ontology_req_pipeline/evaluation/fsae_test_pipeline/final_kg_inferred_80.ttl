@@ -1,0 +1,122 @@
+@prefix : <http://example.org/req/80#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:PS_DynamicEvents a iof:PlanSpecification ;
+    rdfs:label "Dynamic events plan specification" ;
+    iof:prescribes :DynamicEvents_0 .
+
+:PS_GroundClearanceBehavior a iof:PlanSpecification ;
+    rdfs:label "Ground clearance behavior during dynamic events" ;
+    iof:isAbout :DynamicEvents_0,
+        :GroundClearanceBehavior_0,
+        :GroundContact_0 ;
+    iof:prescribes :GroundClearanceBehavior_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Ground Clearance V.1.4.1 Ground clearance must be sufficient to prevent any portion of the vehicle except the tires from touching the ground during dynamic events V.1.4.2 The distance to the ground below the Lower Side Impact Structure ( F.6.4.5, F.7.5.1 ) at its lowest point should be 75 mm or less V.1.4.3 Intentional or excessive ground contact of any portion of the vehicle other than the tires will forfeit a run or an entire dynamic event" ;
+    iof:requirementSatisfiedBy :DS_GroundClearance,
+        :PS_DistanceToGround,
+        :PS_GroundContactPenalty .
+
+:Tires_0 a bfo:BFO_0000040 ;
+    rdfs:label "Vehicle tires" ;
+    bfo:BFO_0000175 :Vehicle_0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression for distance to ground below LSIS (≤ 75 mm)" ;
+    qudt:maxInclusive 7.5e+01 ;
+    qudt:quantityKind qudtqk:Height ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :LSIS_GroundDistance_0 .
+
+:VehiclePortion_0 a bfo:BFO_0000040 ;
+    rdfs:label "Any portion of the vehicle" ;
+    bfo:BFO_0000175 :Vehicle_0 .
+
+:DS_GroundClearance a iof:DesignSpecification ;
+    rdfs:label "Ground clearance design specification" ;
+    iof:isAbout :DynamicEvents_0,
+        :GroundClearanceBehavior_0,
+        :GroundContact_0 ;
+    iof:prescribes :Vehicle_0 .
+
+:DistanceToGroundProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Process in which distance to ground below LSIS is constrained" ;
+    bfo:BFO_0000057 :LowerSideImpactStructure_0 ;
+    iof:hasProcessCharacteristic :LSIS_GroundDistance_0 .
+
+:GroundContact_1 a iof:ProcessCharacteristic ;
+    rdfs:label "Intentional or excessive ground contact of vehicle portions" ;
+    iof:processCharacteristicOf :GroundContactPenaltyProcess_0 .
+
+:Ground_0 a bfo:BFO_0000029 ;
+    rdfs:label "Ground (site)" .
+
+:LSIS_LowestPoint_0 a bfo:BFO_0000004 ;
+    rdfs:label "Lowest point of Lower Side Impact Structure" ;
+    bfo:BFO_0000110 :LowerSideImpactStructure_0 .
+
+:PS_DistanceToGround a iof:PlanSpecification ;
+    rdfs:label "Distance to ground below Lower Side Impact Structure specification" ;
+    iof:isAbout :Ground_0,
+        :LSIS_GroundDistance_0,
+        :LowerSideImpactStructure_0 ;
+    iof:prescribes :DistanceToGroundProcess_0 .
+
+:PS_GroundContactPenalty a iof:PlanSpecification ;
+    rdfs:label "Ground contact penalty specification" ;
+    iof:isAbout :DynamicEvent_1,
+        :GroundContact_1,
+        :Run_0 ;
+    iof:prescribes :GroundContactPenaltyProcess_0 .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:DynamicEvent_1 a iof:PlannedProcess ;
+    rdfs:label "Dynamic event (single)" .
+
+:GroundContactPenaltyProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Process of forfeiting a run or event due to ground contact" ;
+    bfo:BFO_0000057 :DynamicEvent_1,
+        :Run_0,
+        :Vehicle_0 .
+
+:GroundContact_0 a iof:ProcessCharacteristic ;
+    rdfs:label "Ground contact of vehicle portions (excluding tires) during dynamic events" ;
+    iof:processCharacteristicOf :GroundClearanceBehavior_0 .
+
+:Run_0 a iof:PlannedProcess ;
+    rdfs:label "Run" .
+
+qudtqk:Height a qudt:QuantityKind .
+
+:LSIS_GroundDistance_0 a bfo:BFO_0000019 ;
+    rdfs:label "Distance to the ground below LSIS at its lowest point" ;
+    iof:qualityOf :LSIS_LowestPoint_0 .
+
+:LowerSideImpactStructure_0 a bfo:BFO_0000040 ;
+    rdfs:label "Lower Side Impact Structure" ;
+    bfo:BFO_0000175 :Vehicle_0 .
+
+:DynamicEvents_0 a iof:PlannedProcess ;
+    rdfs:label "Dynamic events (set of dynamic event runs)" .
+
+:GroundClearanceBehavior_0 a iof:PlannedProcess ;
+    rdfs:label "Vehicle operation with required ground clearance during dynamic events" ;
+    bfo:BFO_0000057 :Vehicle_0 ;
+    bfo:BFO_0000117 :DynamicEvents_0 .
+
+:Vehicle_0 a bfo:BFO_0000040 ;
+    rdfs:label "Vehicle" .
+

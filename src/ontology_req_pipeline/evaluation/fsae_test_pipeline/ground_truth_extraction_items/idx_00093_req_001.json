@@ -1,0 +1,24 @@
+{
+  "idx": 93,
+  "req_idx": 1,
+  "source_text": "The steering rack must be mechanically attached to the Chassis F.5.14 V.3.2.7 Joints between all components attaching the Steering Wheel to the steering rack must be mechanical and be visible at Technical Inspection",
+  "requirement_text_pred": "Joints between all components attaching the Steering Wheel to the steering rack must be mechanical and be visible at Technical Inspection",
+  "prediction": {
+    "subject": "Joints between all components attaching the Steering Wheel to the steering rack",
+    "modality": "must",
+    "condition": "",
+    "action": "be mechanical and be visible",
+    "object": "at Technical Inspection"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

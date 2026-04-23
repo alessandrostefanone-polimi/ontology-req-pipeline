@@ -1,0 +1,45 @@
+{
+  "idx": 330,
+  "req_idx": 3,
+  "source_text": "Tractive System components other than Accumulator Containers in a position below 350 mm from the ground must be protected from side impact by structure that meets F.5.16 Component Protection F.11.2.2 Rear Impact Protection a. All Accumulator Containers must be protected from rear impact: - When the rear impact structure is 100 mm or less from an Accumulator Container, the structure must be Equivalent to Side Impact Structure (F.6.4, F.7.5) - When the rear impact structure is more than 100 mm from an Accumulator Container, the structure must meet F.5.16 Component Protection - The Accumulator Container must not be part of the Equivalent structure. b",
+  "requirement_text_pred": "When the rear impact structure is more than 100 mm from an Accumulator Container, the structure must meet F.5.16 Component Protection",
+  "prediction": {
+    "subject": "the structure",
+    "modality": "must",
+    "condition": "When the rear impact structure is more than 100 mm from an Accumulator Container",
+    "action": "meet",
+    "object": "F.5.16 Component Protection"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "distance between rear impact structure and Accumulator Container",
+      "operator_pred": "gt",
+      "value_raw_pred": "more than 100 mm",
+      "value_v1_pred": 100.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Height",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM",
+      "normalized_si_value_primary_pred": 100.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

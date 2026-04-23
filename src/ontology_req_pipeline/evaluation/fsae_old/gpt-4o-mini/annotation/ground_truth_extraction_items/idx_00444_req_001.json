@@ -1,0 +1,45 @@
+{
+  "idx": 444,
+  "req_idx": 1,
+  "source_text": "The Motor Scatter Shield must be: - Made from aluminum alloy 6061-T6 or steel - Minimum thickness: 1.0 mm ## T.5.4 Coolant Fluid T.5.4.1 Water cooled engines must use only plain water with no additives of any kind T.5.4.2 Liquid coolant for electric motors, Accumulators or HV electronics must be one of: - plain water with no additives - oil T.5.4.3 (EV only)",
+  "requirement_text_pred": "Minimum thickness must be 1.0 mm.",
+  "prediction": {
+    "subject": "Minimum thickness",
+    "modality": "must",
+    "condition": "",
+    "action": "be",
+    "object": "1.0 mm"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "minimum thickness",
+      "operator_pred": "ge",
+      "value_raw_pred": "1.0 mm",
+      "value_v1_pred": 1.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 1.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

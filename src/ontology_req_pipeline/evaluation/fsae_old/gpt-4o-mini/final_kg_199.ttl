@@ -1,0 +1,49 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/199#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Other Bracing Requirements F.5.13.1 Where the braces are not welded to steel Frame Members, the braces must be securely attached to the Frame using 8 mm or 5/16\" minimum diameter Critical Fasteners, see T.8.2 F.5.13.2 Mounting plates welded to Roll Hoop Bracing must be 2.0 mm ( 0.080 in) minimum thickness steel" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :Plan_req0 .
+
+:Plan_req0 a iof:PlanSpecification ;
+    iof:prescribes :CriticalFastener_8mm,
+        :MountingPlate_2mm .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 8e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :CriticalFastener_8mm .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtAllTimes :MountingPlate_2mm .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+:CriticalFastener_8mm a iof:MaterialProduct ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 .
+
+:MountingPlate_2mm a iof:MaterialProduct ;
+    iof:hasValueExpressionAtAllTimes :VE_req1_c0 .
+
+qudtqk:Thickness a qudt:QuantityKind .
+

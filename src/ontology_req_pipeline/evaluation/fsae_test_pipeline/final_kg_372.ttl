@@ -1,0 +1,67 @@
+@prefix : <http://example.org/req/372#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:BracketFastenedState_0 a iof:MaterialState ;
+    bfo:BFO_0000057 :Bracket_0,
+        :Chassis_0 ;
+    bfo:BFO_0000117 :FasteningProcess_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Attachment of tabs or brackets must meet the following: a. Where brackets are fastened to the chassis, no less than two 6 mm or $1 / 4^{\\prime \\prime}$ minimum diameter Critical Fasteners, see T.8.2 or stronger must be used to attach the bracket to the chassis" ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:NUM-PER-M3 ;
+    iof:isValueExpressionOfAtSomeTime :FastenerCount_Quality_0 .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 6e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :FastenerDiameter_Quality_0 .
+
+:AttachBracketProcess_0 a iof:PlannedProcess ;
+    iof:hasInput :Bracket_0,
+        :Chassis_0 ;
+    iof:hasSpecifiedOutput :BracketChassisAssembly_0 .
+
+:BracketChassisAssembly_0 a bfo:BFO_0000040 .
+
+:FastenerCount_Quality_0 a bfo:BFO_0000019 ;
+    iof:qualityOf :Fastener_0 .
+
+:FastenerDiameter_Quality_0 a bfo:BFO_0000019 ;
+    iof:qualityOf :Fastener_0 .
+
+:FasteningProcess_0 a iof:PlannedProcess .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :AttachBracketProcess_0 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtqk:ParticleNumberDensity a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+qudtu:NUM-PER-M3 a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:ParticleNumberDensity .
+
+:Bracket_0 a bfo:BFO_0000040 .
+
+:Chassis_0 a bfo:BFO_0000040 .
+
+:Fastener_0 a bfo:BFO_0000040 .
+

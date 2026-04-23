@@ -1,0 +1,320 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/509#> a owl:Ontology .
+
+<http://example.org/req/509#Req0_Constraint_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Suit standard option: SFI 3.2A/5 (or higher ex: /10, /15, /20)",
+        "Suit standard option: SFI 3.2A/5 (or higher ex: /10, /15, /20)"@en ;
+    ns1:isAbout <http://example.org/req/509#Suit_0> .
+
+<http://example.org/req/509#Req0_Constraint_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Suit standard option: SFI 3.4/5 (or higher ex: /10, /15, /20)",
+        "Suit standard option: SFI 3.4/5 (or higher ex: /10, /15, /20)"@en ;
+    ns1:isAbout <http://example.org/req/509#Suit_0> .
+
+<http://example.org/req/509#Req0_Constraint_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Suit standard option: FIA Standard 1986",
+        "Suit standard option: FIA Standard 1986"@en ;
+    ns1:isAbout <http://example.org/req/509#Suit_0> .
+
+<http://example.org/req/509#Req0_Constraint_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Suit standard option: FIA Standard 8856-2000",
+        "Suit standard option: FIA Standard 8856-2000"@en ;
+    ns1:isAbout <http://example.org/req/509#Suit_0> .
+
+<http://example.org/req/509#Req0_Constraint_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Suit standard option: FIA Standard 8856-2018",
+        "Suit standard option: FIA Standard 8856-2018"@en ;
+    ns1:isAbout <http://example.org/req/509#Suit_0> .
+
+<http://example.org/req/509#Req0_Constraint_5> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Suit labeling requirement: be labeled as such",
+        "Suit labeling requirement: be labeled as such"@en ;
+    ns1:isAbout <http://example.org/req/509#Suit_0> .
+
+<http://example.org/req/509#Req1_Constraint_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "All competitors",
+        "All competitors"@en ;
+    ns1:isAbout <http://example.org/req/509#Competitor_1> .
+
+<http://example.org/req/509#Req1_Constraint_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Modality: should (recommended)",
+        "Modality: should (recommended)"@en ;
+    ns1:isAbout <http://example.org/req/509#UnderclothingWearingProcess_1> .
+
+<http://example.org/req/509#Req1_Constraint_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Wearing fire retardant underwear under driver suit",
+        "Wearing fire retardant underwear under driver suit"@en ;
+    ns1:isAbout <http://example.org/req/509#UnderclothingWearingProcess_1> .
+
+<http://example.org/req/509#Req1_Constraint_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Underwear type: fire retardant underwear",
+        "Underwear type: fire retardant underwear"@en ;
+    ns1:isAbout <http://example.org/req/509#Underwear_1> .
+
+<http://example.org/req/509#Req1_Constraint_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Garment configuration: long pants and long sleeve shirt",
+        "Garment configuration: long pants and long sleeve shirt"@en ;
+    ns1:isAbout <http://example.org/req/509#Underwear_1> .
+
+<http://example.org/req/509#Req1_Constraint_5> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Underwear worn under approved Driver Suit",
+        "Underwear worn under approved Driver Suit"@en ;
+    ns1:isAbout <http://example.org/req/509#Suit_1>,
+        <http://example.org/req/509#Underwear_1> .
+
+<http://example.org/req/509#Std_FIA_1986> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "FIA Standard 1986",
+        "FIA Standard 1986"@en .
+
+<http://example.org/req/509#Std_FIA_8856_2000> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "FIA Standard 8856-2000",
+        "FIA Standard 8856-2000"@en .
+
+<http://example.org/req/509#Std_FIA_8856_2018> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "FIA Standard 8856-2018",
+        "FIA Standard 8856-2018"@en .
+
+<http://example.org/req/509#Std_SFI_3_2A_10> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/10",
+        "SFI 3.2A/10"@en .
+
+<http://example.org/req/509#Std_SFI_3_2A_15> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/15",
+        "SFI 3.2A/15"@en .
+
+<http://example.org/req/509#Std_SFI_3_2A_20> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/20",
+        "SFI 3.2A/20"@en .
+
+<http://example.org/req/509#Std_SFI_3_2A_5> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SFI 3.2A/5",
+        "SFI 3.2A/5"@en .
+
+<http://example.org/req/509#Std_SFI_3_4_10> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SFI 3.4/10",
+        "SFI 3.4/10"@en .
+
+<http://example.org/req/509#Std_SFI_3_4_15> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SFI 3.4/15",
+        "SFI 3.4/15"@en .
+
+<http://example.org/req/509#Std_SFI_3_4_20> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SFI 3.4/20",
+        "SFI 3.4/20"@en .
+
+<http://example.org/req/509#Std_SFI_3_4_5> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SFI 3.4/5",
+        "SFI 3.4/5"@en .
+
+<http://example.org/req/509#SuitLabel_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "suit standard label",
+        "suit standard label"@en ;
+    ns1:describes <http://example.org/req/509#Suit_0> .
+
+<http://example.org/req/509#SuitDesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/509#Suit_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/509#Req_0> .
+
+<http://example.org/req/509#UnderclothingPlanSpec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/509#UnderclothingWearingProcess_1> ;
+    ns1:satisfiesRequirement <http://example.org/req/509#Req_0> .
+
+<http://example.org/req/509#Competitor_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Agent ;
+    rdfs:label "competitor",
+        "competitor"@en .
+
+<http://example.org/req/509#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Each suit must meet one or more of the following standards and be labeled as such: - $\\quad$ SFI 3.2A/5 (or higher ex: /10, /15, /20) - $\\quad$ SFI 3.4/5 (or higher ex: /10, /15, /20) - FIA Standard 1986 - FIA Standard 8856-2000 - FIA Standard 8856-2018 VE.3.3.2 Underclothing All competitors should wear fire retardant underwear (long pants and long sleeve shirt) under their approved Driver Suit" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/509#SuitDesignSpec_0>,
+        <http://example.org/req/509#UnderclothingPlanSpec_1> .
+
+<http://example.org/req/509#Suit_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "approved driver suit",
+        "approved driver suit"@en .
+
+<http://example.org/req/509#UnderclothingWearingProcess_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "wearing fire retardant underwear under driver suit",
+        "wearing fire retardant underwear under driver suit"@en ;
+    ns1:hasParticipantAtSomeTime <http://example.org/req/509#Competitor_1>,
+        <http://example.org/req/509#Suit_1>,
+        <http://example.org/req/509#Underwear_1> .
+
+<http://example.org/req/509#Underwear_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "fire retardant underwear (long pants and long sleeve shirt)",
+        "fire retardant underwear (long pants and long sleeve shirt)"@en .
+
+<http://example.org/req/509#Suit_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "driver suit",
+        "driver suit"@en .
+

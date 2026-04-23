@@ -1,0 +1,121 @@
+@prefix : <http://example.org/req/199#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DS_BraceFastener a iof:DesignSpecification ;
+    rdfs:label "Design specification for critical fasteners on braces"@en ;
+    iof:prescribes :CriticalFastener ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DS_MountingPlate a iof:DesignSpecification ;
+    rdfs:label "Design specification for mounting plates"@en ;
+    iof:prescribes :MountingPlate ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Frame a bfo:BFO_0000040 ;
+    rdfs:label "frame"@en .
+
+:MountingPlateWeldingProcess a iof:PlannedProcess ;
+    rdfs:label "mounting plate welding process"@en ;
+    iof:hasInput :MountingPlate,
+        :RollHoopBracing ;
+    iof:hasSpecifiedOutput :MountingPlate ;
+    iof:prescribedBy :PlanSpec_1 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    rdfs:label "Plan for brace attachment using critical fasteners"@en ;
+    bfo:BFO_0000110 :ObjSpec_0 ;
+    iof:prescribes :BraceAttachmentProcess .
+
+:PlanSpec_1 a iof:PlanSpecification ;
+    rdfs:label "Plan for mounting plate welding to roll hoop bracing"@en ;
+    bfo:BFO_0000110 :ObjSpec_1 ;
+    iof:prescribes :MountingPlateWeldingProcess .
+
+:RollHoopBracing a bfo:BFO_0000040 ;
+    rdfs:label "roll hoop bracing"@en .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "minimum fastener diameter 8 mm"@en ;
+    qudt:minInclusive 8e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :FastenerDiameterQuality .
+
+:VE_req0_c3 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "minimum fastener diameter 5/16 inch"@en ;
+    qudt:minInclusive 3.125e-01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :FastenerDiameterQuality .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "minimum mounting plate thickness 2.0 mm (0.080 in)"@en ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:IN ;
+    iof:isValueExpressionOfAtSomeTime :MountingPlateThicknessQuality .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:IN a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:Brace a bfo:BFO_0000040 ;
+    rdfs:label "brace"@en .
+
+:BraceAttachmentProcess a iof:PlannedProcess ;
+    rdfs:label "brace attachment process"@en ;
+    iof:hasInput :Brace,
+        :CriticalFastener,
+        :Frame ;
+    iof:hasSpecifiedOutput :Brace ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:CriticalFastener a iof:MaterialArtifact ;
+    rdfs:label "critical fastener"@en ;
+    iof:hasQuality :FastenerDiameterQuality .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for brace attachment using critical fasteners"@en ;
+    iof:prescribes :BraceAttachmentProcess,
+        :FastenerDiameterQuality .
+
+:ObjSpec_1 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for mounting plate minimum thickness"@en ;
+    iof:prescribes :MountingPlate,
+        :MountingPlateThicknessQuality .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Other Bracing Requirements F.5.13.1 Where the braces are not welded to steel Frame Members, the braces must be securely attached to the Frame using 8 mm or 5/16\" minimum diameter Critical Fasteners, see T.8.2 F.5.13.2 Mounting plates welded to Roll Hoop Bracing must be 2.0 mm ( 0.080 in) minimum thickness steel" ;
+    iof:isAbout :ObjSpec_0,
+        :ObjSpec_1 ;
+    iof:requirementSatisfiedBy :DS_BraceFastener,
+        :DS_MountingPlate .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+:MountingPlateThicknessQuality a bfo:BFO_0000019 ;
+    rdfs:label "mounting plate thickness quality"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 .
+
+:FastenerDiameterQuality a bfo:BFO_0000019 ;
+    rdfs:label "fastener diameter quality"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c2,
+        :VE_req0_c3 .
+
+:MountingPlate a iof:MaterialArtifact ;
+    rdfs:label "mounting plate"@en ;
+    iof:hasQuality :MountingPlateThicknessQuality .
+

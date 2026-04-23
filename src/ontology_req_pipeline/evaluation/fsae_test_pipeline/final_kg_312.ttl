@@ -1,0 +1,70 @@
+@prefix : <http://example.org/req/312#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :MountingSystem_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "This mounting system design must withstand the following accelerations: 40 g in the longitudinal direction (forward/aft) 40 g in the lateral direction (left/right) 20 g in the vertical direction (up/down) c. Calculations and/or tests proving these requirements are met must be included in the SES. d" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 3.92266e+02 ;
+    qudt:minInclusive 3.92266e+02 ;
+    qudt:unit qudtu:M-PER-SEC2 ;
+    iof:isValueExpressionOfAtAllTimes :LongitudinalAccelerationTolerance_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 3.92266e+02 ;
+    qudt:minInclusive 3.92266e+02 ;
+    qudt:unit qudtu:M-PER-SEC2 ;
+    iof:isValueExpressionOfAtAllTimes :LateralAccelerationTolerance_0 .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.96133e+02 ;
+    qudt:minInclusive 1.96133e+02 ;
+    qudt:unit qudtu:M-PER-SEC2 ;
+    iof:isValueExpressionOfAtAllTimes :VerticalAccelerationTolerance_0 .
+
+qudtqk:Acceleration a qudt:QuantityKind .
+
+qudtqk:LinearAcceleration a qudt:QuantityKind .
+
+:LateralAccelerationTolerance_0 a bfo:BFO_0000019 ;
+    rdfs:label "lateral acceleration tolerance" ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 ;
+    iof:qualityOf :MountingSystem_0 .
+
+:LongitudinalAccelerationTolerance_0 a bfo:BFO_0000019 ;
+    rdfs:label "longitudinal acceleration tolerance" ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 ;
+    iof:qualityOf :MountingSystem_0 .
+
+:VerticalAccelerationTolerance_0 a bfo:BFO_0000019 ;
+    rdfs:label "vertical acceleration tolerance" ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c2 ;
+    iof:qualityOf :MountingSystem_0 .
+
+qudtu:M-PER-SEC2 a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Acceleration,
+        qudtqk:LinearAcceleration .
+
+:MountingSystem_0 a iof:MaterialArtifact ;
+    rdfs:label "mounting system" ;
+    iof:hasQuality :LateralAccelerationTolerance_0,
+        :LongitudinalAccelerationTolerance_0,
+        :VerticalAccelerationTolerance_0 .
+

@@ -1,0 +1,118 @@
+@prefix : <http://example.org/req/728#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req0_Constraint0 a iof:ObjectiveSpecification ;
+    rdfs:label "Constraint: OC protection voltage rating >= max segment voltage" ;
+    iof:isAbout :MaxSegmentVoltage ;
+    iof:prescribes :OCProtVoltageRating .
+
+:Req1_Constraint0 a iof:ObjectiveSpecification ;
+    rdfs:label "Constraint: OC protection requirement on sense wire is false" ;
+    iof:isAbout :OvercurrentProtection ;
+    iof:prescribes :OCProtRequirementFlag .
+
+:Req1_Constraint1 a iof:ObjectiveSpecification ;
+    rdfs:label "Constraint: three conditions must be met" ;
+    iof:isAbout :OvercurrentProtectionNotRequiredProcess .
+
+:Req2_Constraint0 a iof:ObjectiveSpecification ;
+    rdfs:label "Constraint: AMS is distributed AMS system" ;
+    iof:isAbout :AMS_SystemArchitecture .
+
+:Req3_Constraint0 a iof:ObjectiveSpecification ;
+    rdfs:label "Constraint: Sense wire length < 25 mm" ;
+    iof:isAbout :SenseWireLengthQuality ;
+    iof:prescribes :VE_req3_c0 .
+
+:Req4_Constraint0 a iof:ObjectiveSpecification ;
+    rdfs:label "Constraint: AMS board has Overcurrent Protection" ;
+    iof:isAbout :AMS_Board ;
+    iof:prescribes :OvercurrentProtection .
+
+:AMS_SystemArchitecture a bfo:BFO_0000019 ;
+    rdfs:label "AMS system architecture" ;
+    iof:qualityOf :AMS_System .
+
+:DS_AMSBoard_OCProt a iof:DesignSpecification ;
+    rdfs:label "AMS board Overcurrent Protection specification" ;
+    iof:prescribes :AMS_Board .
+
+:DS_AMS_System a iof:DesignSpecification ;
+    rdfs:label "AMS system architecture specification" ;
+    iof:prescribes :AMS_System .
+
+:DS_OvercurrentProtection a iof:DesignSpecification ;
+    rdfs:label "Overcurrent Protection design specification" ;
+    iof:prescribes :OvercurrentProtection .
+
+:DS_SenseWireLength a iof:DesignSpecification ;
+    rdfs:label "Sense wire length specification" ;
+    iof:prescribes :VoltageSenseWire .
+
+:MaxSegmentVoltage a bfo:BFO_0000019 ;
+    rdfs:label "maximum segment voltage quality" .
+
+:OCProtRequirementFlag a bfo:BFO_0000019 ;
+    rdfs:label "Overcurrent Protection requirement flag on sense wire" ;
+    iof:qualityOf :VoltageSenseWire .
+
+:OCProtVoltageRating a bfo:BFO_0000019 ;
+    rdfs:label "voltage rating of Overcurrent Protection" ;
+    iof:qualityOf :OvercurrentProtection .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "ValueExpression for Sense wire length < 25 mm" ;
+    qudt:maxExclusive 2.5e-02 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :SenseWireLengthQuality .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:AMS_Board a bfo:BFO_0000040 ;
+    rdfs:label "AMS board" ;
+    iof:satisfiesRequirement :Req_0 .
+
+:AMS_System a bfo:BFO_0000040 ;
+    rdfs:label "AMS system" ;
+    iof:satisfiesRequirement :Req_0 .
+
+:OvercurrentProtectionNotRequiredProcess a iof:PlannedProcess ;
+    rdfs:label "Overcurrent protection omission process" ;
+    iof:prescribedBy :PS_OvercurrentProtectionNotRequiredOnSenseWire .
+
+:PS_OvercurrentProtectionNotRequiredOnSenseWire a iof:PlanSpecification ;
+    rdfs:label "Plan: conditions under which OC protection not required on sense wire" ;
+    iof:prescribes :OvercurrentProtectionNotRequiredProcess .
+
+:SenseWireLengthQuality a bfo:BFO_0000019 ;
+    rdfs:label "Sense wire length quality" ;
+    iof:qualityOf :VoltageSenseWire .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The voltage rating of the Overcurrent Protection must be equal to or higher than the maximum segment voltage EV.7.4.5 Overcurrent Protection is not required on a voltage sense wire if all three of the following conditions are met: - AMS is a distributed AMS system (one cell measurement per board) - $\\quad$ Sense wire length is less than 25 mm - AMS board has Overcurrent Protection # EV.7.5 Accumulator Temperature EV.7.5.1" ;
+    iof:requirementSatisfiedBy :DS_AMSBoard_OCProt,
+        :DS_AMS_System,
+        :DS_OvercurrentProtection,
+        :DS_SenseWireLength,
+        :PS_OvercurrentProtectionNotRequiredOnSenseWire .
+
+:VoltageSenseWire a bfo:BFO_0000040 ;
+    rdfs:label "voltage sense wire" .
+
+:OvercurrentProtection a bfo:BFO_0000040 ;
+    rdfs:label "Overcurrent Protection" ;
+    iof:satisfiesRequirement :Req_0 .
+

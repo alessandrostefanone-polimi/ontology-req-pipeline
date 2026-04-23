@@ -1,0 +1,46 @@
+{
+  "idx": 731,
+  "req_idx": 0,
+  "source_text": "The temperature of a minimum of $20 \\%$ of the cells must be monitored by the AMS b",
+  "requirement_text_pred": "The temperature of a minimum of $20 \\%$ of the cells must be monitored by the AMS b",
+  "prediction": {
+    "subject": "The temperature of a minimum of $20 \\%$ of the cells",
+    "modality": "must",
+    "condition": "",
+    "action": "be monitored by the AMS b",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "fraction of the cells",
+      "operator_pred": "ge",
+      "value_raw_pred": "$20 \\%$",
+      "value_v1_pred": 20.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/PositiveDimensionlessRatio",
+      "normalized_unit_uri_pred": "PERCENT",
+      "normalized_si_value_primary_pred": 20.0,
+      "normalized_si_unit_primary_pred": "PERCENT",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

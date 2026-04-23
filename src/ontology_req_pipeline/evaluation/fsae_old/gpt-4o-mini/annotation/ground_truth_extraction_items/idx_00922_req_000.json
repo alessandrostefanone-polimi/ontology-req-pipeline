@@ -1,0 +1,45 @@
+{
+  "idx": 922,
+  "req_idx": 0,
+  "source_text": "The foremost part of the vehicle will be staged at 0.30 m behind the starting line b",
+  "requirement_text_pred": "The foremost part of the vehicle will be staged at 0.30 m behind the starting line",
+  "prediction": {
+    "subject": "The foremost part of the vehicle",
+    "modality": "will",
+    "condition": "",
+    "action": "be staged",
+    "object": "at 0.30 m behind the starting line"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "staging distance",
+      "operator_pred": "eq",
+      "value_raw_pred": "0.30 m",
+      "value_v1_pred": 0.3,
+      "value_v2_pred": null,
+      "unit_text_pred": "m",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.3,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

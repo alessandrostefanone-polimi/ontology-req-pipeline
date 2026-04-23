@@ -1,0 +1,440 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/330#> a owl:Ontology .
+
+<http://example.org/req/330#Doc_F_11_2_2> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "F.11.2.2 Rear Impact Protection a." .
+
+<http://example.org/req/330#Doc_F_5_16> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "F.5.16 Component Protection" .
+
+<http://example.org/req/330#Doc_F_6_4> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "F.6.4" .
+
+<http://example.org/req/330#Doc_F_7_5> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "F.7.5" .
+
+<http://example.org/req/330#ObjSpec_Req1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for Req1 (rear impact protection of all Accumulator Containers)" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/330#Proc_RearImpactProtection_Overall> .
+
+<http://example.org/req/330#ObjSpec_Req4> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for Req4 (Accumulator Container not part of Equivalent structure)" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/330#Proc_RearImpactProtection_Le100> .
+
+<http://example.org/req/330#RearImpactStructure> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "rear impact structure" .
+
+<http://example.org/req/330#Role_MemberOfEquivalentStructure> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000017,
+        ns3:BFO_0000020,
+        ns3:BFO_0000023,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "member of Equivalent structure role" ;
+    ns1:roleOf <http://example.org/req/330#EquivalentStructure> .
+
+<http://example.org/req/330#SideImpactStructure> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Side Impact Structure (F.6.4, F.7.5)" .
+
+<http://example.org/req/330#AccumulatorContainer> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Accumulator Container" ;
+    ns1:hasRole <http://example.org/req/330#Role_RearImpactProtected_Req1> .
+
+<http://example.org/req/330#ObjSpec_Req2> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for Req2 (<=100 mm: structure equivalent to Side Impact Structure)" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/330#Proc_RearImpactProtection_Le100> ;
+    ns1:prescribes <http://example.org/req/330#PC_Distance_RearImpact_Le100>,
+        <http://example.org/req/330#PC_StructuralEquivalence_Req2> .
+
+<http://example.org/req/330#ObjSpec_Req3> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for Req3 (>100 mm: structure meets F.5.16 Component Protection)" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/330#Proc_RearImpactProtection_Gt100> ;
+    ns1:prescribes <http://example.org/req/330#PC_Distance_RearImpact_Gt100>,
+        <http://example.org/req/330#PC_RequirementCompliance_Req3> .
+
+<http://example.org/req/330#Proc_RearImpactProtection_Overall> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Overall rear impact protection process for Accumulator Containers" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/330#PC_Distance_RearImpact_Gt100>,
+        <http://example.org/req/330#PC_Distance_RearImpact_Le100>,
+        <http://example.org/req/330#PC_RequirementCompliance_Req3>,
+        <http://example.org/req/330#PC_StructuralEquivalence_Req2> ;
+    ns1:prescribedBy <http://example.org/req/330#Req2_PlanSpec>,
+        <http://example.org/req/330#Req3_PlanSpec> .
+
+<http://example.org/req/330#RearImpactProtectiveStructure> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Rear-impact protective structure for Accumulator Container" .
+
+<http://example.org/req/330#Req0_DesignSpec> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:comment "Req0: Tractive System components (excluding Accumulator Containers) below 350 mm from the ground must be protected from side impact by structure that meets F.5.16 Component Protection and F.11.2.2 Rear Impact Protection a." ;
+    ns1:prescribes <http://example.org/req/330#SideImpactProtectiveStructure>,
+        <http://example.org/req/330#TS_Component_LowPos> ;
+    ns1:satisfiesRequirement <http://example.org/req/330#Req_0> .
+
+<http://example.org/req/330#Req1_DesignSpec> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:comment "Req1: All Accumulator Containers must be protected from rear impact." ;
+    ns1:prescribes <http://example.org/req/330#RearImpactProtectiveStructure> ;
+    ns1:satisfiesRequirement <http://example.org/req/330#Req_0> .
+
+<http://example.org/req/330#Req4_DesignSpec> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:comment "Req4: The Accumulator Container must not be part of the Equivalent structure." ;
+    ns1:prescribes <http://example.org/req/330#EquivalentStructure> ;
+    ns1:satisfiesRequirement <http://example.org/req/330#Req_0> .
+
+<http://example.org/req/330#Role_RearImpactProtected_Req1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000017,
+        ns3:BFO_0000020,
+        ns3:BFO_0000023,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "rear impact protected role (Accumulator Container)" ;
+    ns1:roleOf <http://example.org/req/330#AccumulatorContainer> .
+
+<http://example.org/req/330#Role_SideImpactProtection_Req0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000017,
+        ns3:BFO_0000020,
+        ns3:BFO_0000023,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "side impact protective structure role" ;
+    ns1:roleOf <http://example.org/req/330#SideImpactProtectiveStructure> .
+
+<http://example.org/req/330#TS_Component_LowPos> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Tractive System component below 350 mm (non-Accumulator)" ;
+    ns1:hasQuality <http://example.org/req/330#Qual_PositionFromGround_Req0> .
+
+<http://example.org/req/330#VE_req0_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "height < 350 mm (Req0)" ;
+    ns2:maxExclusive 3.5e+02 ;
+    ns2:quantityKind <http://qudt.org/vocab/quantitykind/Height> ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:upperBoundIncluded false ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/330#Qual_PositionFromGround_Req0> .
+
+<http://example.org/req/330#VE_req2_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "distance <= 100 mm (Req2)" ;
+    ns2:maxInclusive 1e+02 ;
+    ns2:quantityKind <http://qudt.org/vocab/quantitykind/Height> ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:upperBoundIncluded true ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/330#PC_Distance_RearImpact_Le100> .
+
+<http://example.org/req/330#VE_req3_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "distance > 100 mm (Req3)" ;
+    ns2:lowerBoundIncluded false ;
+    ns2:minExclusive 1e+02 ;
+    ns2:quantityKind <http://qudt.org/vocab/quantitykind/Height> ;
+    ns2:unit <http://qudt.org/vocab/unit/MM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/330#PC_Distance_RearImpact_Gt100> .
+
+<http://qudt.org/vocab/unit/MM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://example.org/req/330#EquivalentStructure> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Equivalent rear impact structure" .
+
+<http://example.org/req/330#ObjSpec_Req0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for Req0 (side impact protection of low TS components)" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/330#Proc_TractiveProtection> ;
+    ns1:prescribes <http://example.org/req/330#PC_TractiveProtectionOutcome> .
+
+<http://example.org/req/330#PC_TractiveProtectionOutcome> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "overall tractive system protection outcome" ;
+    ns1:processCharacteristicOf <http://example.org/req/330#Proc_TractiveProtection> .
+
+<http://example.org/req/330#PlanSpec_Overall> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Overall plan for tractive system impact protection" ;
+    ns3:BFO_0000110 <http://example.org/req/330#ObjSpec_Req0> ;
+    ns1:prescribes <http://example.org/req/330#Proc_TractiveProtection> .
+
+<http://example.org/req/330#Qual_PositionFromGround_Req0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "position from ground of TS component (Req0)" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/330#VE_req0_c0> .
+
+<http://example.org/req/330#SideImpactProtectiveStructure> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Side-impact protective structure for low TS components" ;
+    ns1:hasRole <http://example.org/req/330#Role_SideImpactProtection_Req0> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://example.org/req/330#PC_RequirementCompliance_Req3> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "compliance with F.5.16 Component Protection (Req3)" ;
+    ns1:processCharacteristicOf <http://example.org/req/330#Proc_RearImpactProtection_Gt100> .
+
+<http://example.org/req/330#PC_StructuralEquivalence_Req2> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "structural equivalence to Side Impact Structure (Req2)" ;
+    ns1:processCharacteristicOf <http://example.org/req/330#Proc_RearImpactProtection_Le100> .
+
+<http://example.org/req/330#Proc_TractiveProtection> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Tractive system protection process (side and rear impact)" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/330#PC_TractiveProtectionOutcome> ;
+    ns1:prescribedBy <http://example.org/req/330#PlanSpec_Overall> .
+
+<http://example.org/req/330#Req2_PlanSpec> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns3:BFO_0000110 <http://example.org/req/330#ObjSpec_Req2> ;
+    rdfs:comment "Req2: When the rear impact structure is 100 mm or less from an Accumulator Container, the structure must be equivalent to Side Impact Structure (F.6.4, F.7.5)." ;
+    ns1:prescribes <http://example.org/req/330#Proc_RearImpactProtection_Le100> ;
+    ns1:satisfiesRequirement <http://example.org/req/330#Req_0> .
+
+<http://example.org/req/330#Req3_PlanSpec> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns3:BFO_0000110 <http://example.org/req/330#ObjSpec_Req3> ;
+    rdfs:comment "Req3: When the rear impact structure is more than 100 mm from an Accumulator Container, the structure must meet F.5.16 Component Protection." ;
+    ns1:prescribes <http://example.org/req/330#Proc_RearImpactProtection_Gt100> ;
+    ns1:satisfiesRequirement <http://example.org/req/330#Req_0> .
+
+<http://example.org/req/330#PC_Distance_RearImpact_Gt100> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "distance between rear impact structure and Accumulator Container (>100 mm)" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/330#VE_req3_c0> ;
+    ns1:processCharacteristicOf <http://example.org/req/330#Proc_RearImpactProtection_Gt100> .
+
+<http://example.org/req/330#PC_Distance_RearImpact_Le100> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "distance between rear impact structure and Accumulator Container (<=100 mm)" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/330#VE_req2_c0> ;
+    ns1:processCharacteristicOf <http://example.org/req/330#Proc_RearImpactProtection_Le100> .
+
+<http://example.org/req/330#Proc_RearImpactProtection_Gt100> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Rear impact protection when distance > 100 mm" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/330#PC_Distance_RearImpact_Gt100>,
+        <http://example.org/req/330#PC_RequirementCompliance_Req3> ;
+    ns1:prescribedBy <http://example.org/req/330#Req3_PlanSpec> .
+
+<http://example.org/req/330#Proc_RearImpactProtection_Le100> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Rear impact protection when distance <= 100 mm" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/330#PC_Distance_RearImpact_Le100>,
+        <http://example.org/req/330#PC_StructuralEquivalence_Req2> ;
+    ns1:prescribedBy <http://example.org/req/330#Req2_PlanSpec> .
+
+<http://example.org/req/330#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Tractive System components other than Accumulator Containers in a position below 350 mm from the ground must be protected from side impact by structure that meets F.5.16 Component Protection F.11.2.2 Rear Impact Protection a. All Accumulator Containers must be protected from rear impact: - When the rear impact structure is 100 mm or less from an Accumulator Container, the structure must be Equivalent to Side Impact Structure (F.6.4, F.7.5) - When the rear impact structure is more than 100 mm from an Accumulator Container, the structure must meet F.5.16 Component Protection - The Accumulator Container must not be part of the Equivalent structure. b" ;
+    ns1:isAbout <http://example.org/req/330#ObjSpec_Req0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/330#PlanSpec_Overall>,
+        <http://example.org/req/330#Req0_DesignSpec>,
+        <http://example.org/req/330#Req1_DesignSpec>,
+        <http://example.org/req/330#Req2_PlanSpec>,
+        <http://example.org/req/330#Req3_PlanSpec>,
+        <http://example.org/req/330#Req4_DesignSpec> .
+

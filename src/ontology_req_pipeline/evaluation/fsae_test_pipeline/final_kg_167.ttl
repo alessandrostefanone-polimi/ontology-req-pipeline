@@ -1,0 +1,38 @@
+@prefix : <http://example.org/req/167#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :Line_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Line_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :Line_0_Length .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "A straight line measuring 280 mm will connect the centers of the upper 200 mm circle and the 300 mm head circle" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.8e-01 ;
+    qudt:minInclusive 2.8e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtAllTimes :Line_0_Length .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:Line_0_Length a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+

@@ -1,0 +1,70 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/276#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "All weld lengths must be more than 25 mm." ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "If the Impact Attenuator is attached by bolting: Must have no less than eight 8 mm minimum diameter Critical Fasteners." ;
+    iof:requirementSatisfiedBy :DS_req1 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 8e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:hasValueExpressionAtAllTimes :Critical_Fasteners ;
+    iof:isValueExpressionOfAtSomeTime :Critical_Fasteners .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :P_req0 .
+
+:DS_req1 a iof:DesignSpecification ;
+    iof:prescribes :P_req1 .
+
+:P_req0 a iof:PlanSpecification ;
+    iof:prescribes :VE_req0_c0 .
+
+:P_req1 a iof:PlanSpecification ;
+    iof:prescribes :VE_req1_c0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 2.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:hasValueExpressionAtAllTimes :weld_lengths ;
+    iof:isValueExpressionOfAtSomeTime :weld_lengths .
+
+:critical_fastener_role a iof:MaterialComponentRole ;
+    rdfs:label "critical fastener role" .
+
+:weld_length_role a iof:MaterialComponentRole ;
+    rdfs:label "weld length role" .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:unit qudtu:MilliM ;
+    iof:hasValueExpressionAtAllTimes :Critical_Fasteners ;
+    iof:isValueExpressionOfAtSomeTime :Critical_Fasteners .
+
+:weld_lengths a iof:MaterialArtifact ;
+    iof:hasRole :weld_length_role .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:Critical_Fasteners a iof:MaterialArtifact ;
+    iof:hasRole :critical_fastener_role ;
+    iof:hasSpecifiedOutput :VE_req1_c0 .
+

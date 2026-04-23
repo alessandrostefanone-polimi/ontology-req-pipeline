@@ -1,0 +1,23 @@
+{
+  "idx": 163,
+  "req_idx": 0,
+  "source_text": "A two dimensional template used to represent the 95th percentile male is made to the following dimensions (see figure below): - A circle of diameter 200 mm will represent the hips and buttocks",
+  "requirement_text_pred": "A two dimensional template used to represent the 95th percentile male is made to the following dimensions",
+  "prediction": {
+    "subject": "A two dimensional template",
+    "modality": "shall",
+    "condition": "",
+    "action": "used to represent",
+    "object": "the 95th percentile male"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": false,
+    "condition_correct": true,
+    "action_correct": false,
+    "object_correct": false
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

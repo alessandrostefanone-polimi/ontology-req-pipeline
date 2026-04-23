@@ -1,0 +1,23 @@
+{
+  "idx": 646,
+  "req_idx": 1,
+  "source_text": "A capacitor may be used to hold the AIRs closed for up to 250 ms after the Shutdown Circuit Opens EV.7.2.2 ## EV.5.5 High Voltage Disconnect - HVD A High Voltage Disconnect (HVD) must be included to quickly disconnect one or both poles of the Accumulator EV.11.3.2 EV.5.5.1 The High Voltage Disconnect (HVD) must be: a",
+  "requirement_text_pred": "A High Voltage Disconnect (HVD) must be included to quickly disconnect one or both poles of the Accumulator.",
+  "prediction": {
+    "subject": "A High Voltage Disconnect (HVD)",
+    "modality": "must",
+    "condition": "",
+    "action": "be included to quickly disconnect",
+    "object": "one or both poles of the Accumulator"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

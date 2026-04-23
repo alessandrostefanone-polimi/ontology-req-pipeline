@@ -1,0 +1,24 @@
+{
+  "idx": 238,
+  "req_idx": 0,
+  "source_text": "7.6 Main Hoop Attachment F.7.6.1 The Main Hoop must be mechanically attached to the monocoque a. Main Hoop mounting plates must be 2.0 mm minimum thickness steel b",
+  "requirement_text_pred": "The Main Hoop must be mechanically attached to the monocoque",
+  "prediction": {
+    "subject": "The Main Hoop",
+    "modality": "must",
+    "condition": "",
+    "action": "be mechanically attached",
+    "object": "to the monocoque"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

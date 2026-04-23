@@ -1,0 +1,45 @@
+{
+  "idx": 403,
+  "req_idx": 0,
+  "source_text": "In side view any portion of the Brake System that is mounted on the sprung part of the vehicle must not project below the lower surface of the chassis T.3.1.10 Fasteners in the Brake System are Critical Fasteners, see T.8.2 ## T.3.2 Brake Pedal, Pedal Box and Mounting T.3.2.1 The Brake Pedal must be one of: - Fabricated from steel or aluminum - Machined from steel, aluminum or titanium T.3.2.2 The Brake Pedal and associated components design must withstand a minimum force of 2000 N without any failure of the Brake System, pedal box, chassis mounting, or pedal adjustment",
+  "requirement_text_pred": "In side view any portion of the Brake System that is mounted on the sprung part of the vehicle must not project below the lower surface of the chassis.",
+  "prediction": {
+    "subject": "any portion of the Brake System",
+    "modality": "must",
+    "condition": "In side view",
+    "action": "not project",
+    "object": "below the lower surface of the chassis"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "projection",
+      "operator_pred": "neq",
+      "value_raw_pred": "below the lower surface of the chassis",
+      "value_v1_pred": null,
+      "value_v2_pred": null,
+      "unit_text_pred": null,
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": false,
+        "quantity_value_correct": false,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

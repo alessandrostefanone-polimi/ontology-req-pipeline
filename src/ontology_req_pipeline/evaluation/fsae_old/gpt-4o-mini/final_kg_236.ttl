@@ -1,0 +1,63 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/236#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The perimeter shear strength of the monocoque laminate must be 7.5 kN or more for a section with a diameter of 25 mm" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :P_req0 .
+
+:P_req0 a iof:PlanSpecification ;
+    iof:prescribes :diameter_value,
+        :shear_strength_value .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 3.858333e+00 ;
+    qudt:unit qudtu:M-PER-SEC ;
+    iof:isValueExpressionOfAtAllTimes :shear_strength .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.5e+01 ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtAllTimes :diameter .
+
+:diameter_value a qudt:QuantityValue ;
+    qudt:maxInclusive 2.5e+01 ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :diameter .
+
+:shear_strength_value a qudt:QuantityValue ;
+    qudt:minInclusive 3.858333e+00 ;
+    qudt:unit qudtu:M-PER-SEC ;
+    iof:isValueExpressionOfAtSomeTime :shear_strength .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtqk:Velocity a qudt:QuantityKind .
+
+:diameter a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 .
+
+:shear_strength a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+qudtu:M-PER-SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Velocity .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+

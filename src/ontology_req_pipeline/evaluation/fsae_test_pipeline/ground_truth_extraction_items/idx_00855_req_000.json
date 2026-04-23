@@ -1,0 +1,24 @@
+{
+  "idx": 855,
+  "req_idx": 0,
+  "source_text": "3.7.6 Changes to the Cost Report in the Cost Addendum will incur additional cost: a. Added items will be cost at $125 \\%$ of the table cost: + (1.25 x Cost) b",
+  "requirement_text_pred": "3.7.6 Changes to the Cost Report in the Cost Addendum will incur additional cost:",
+  "prediction": {
+    "subject": "Changes to the Cost Report in the Cost Addendum",
+    "modality": "will",
+    "condition": "",
+    "action": "incur",
+    "object": "additional cost:"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

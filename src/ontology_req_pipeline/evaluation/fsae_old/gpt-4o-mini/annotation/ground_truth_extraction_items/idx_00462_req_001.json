@@ -1,0 +1,45 @@
+{
+  "idx": 462,
+  "req_idx": 1,
+  "source_text": "Refer to IN.8.2 T.7.1.4 All forward facing edges that could contact a pedestrian (wings, end plates, and undertrays) must have a minimum radius of 5 mm for all horizontal edges and 3 mm for vertical edges",
+  "requirement_text_pred": "All forward facing edges that could contact a pedestrian (wings, end plates, and undertrays) must have a minimum radius of 3 mm for vertical edges.",
+  "prediction": {
+    "subject": "All forward facing edges that could contact a pedestrian (wings, end plates, and undertrays)",
+    "modality": "must",
+    "condition": "",
+    "action": "have a minimum radius",
+    "object": "of 3 mm for vertical edges"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "radius for vertical edges",
+      "operator_pred": "ge",
+      "value_raw_pred": "3 mm",
+      "value_v1_pred": 3.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Radius",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 3.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

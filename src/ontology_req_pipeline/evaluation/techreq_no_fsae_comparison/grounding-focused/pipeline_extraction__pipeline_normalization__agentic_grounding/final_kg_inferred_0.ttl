@@ -1,0 +1,115 @@
+@prefix : <http://example.org/req/0#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:ProcessingPlant_0 a bfo:BFO_0000040 ;
+    iof:prescribedBy :DestinationRelation_0 .
+
+:ActionSpec_0 a iof:ActionSpecification ;
+    iof:prescribes :MiningProcess_0,
+        :TransportProcess_0 .
+
+:MiningRate_0 a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 ;
+    iof:processCharacteristicOf :MiningProcess_0 .
+
+:PhysicalLocationIdentifier_0 a iof:PhysicalLocationIdentifier ;
+    iof:designates :ProcessingPlantSite_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The robot miner should be able to mine up to 0,2 m3/h 100 MPa (uniaxial compressive strength) hard rock and transport the same amount to the processing plant."^^xsd:string ;
+    iof:isAbout :Objective_0 ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:TransportAmount_0 a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 ;
+    iof:processCharacteristicOf :TransportProcess_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1e+02 ;
+    qudt:minInclusive 1e+02 ;
+    qudt:unit qudtu:MegaPA ;
+    iof:isValueExpressionOfAtSomeTime :RockStrength_0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 5.555556e-05 ;
+    qudt:unit qudtu:M3-PER-SEC ;
+    iof:isAbout :VE_req0_c0 ;
+    iof:isValueExpressionOfAtSomeTime :TransportAmount_0 .
+
+qudtqk:TotalPressure a qudt:QuantityKind .
+
+qudtqk:VolumeFlowRate a qudt:QuantityKind .
+
+qudtu:MegaPA a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:TotalPressure .
+
+:DestinationRelation_0 a iof:InformationContentEntity ;
+    iof:describes :ProcessingPlantSite_0 ;
+    iof:isAbout :ProcessingPlantSite_0,
+        :TransportProcess_0 .
+
+:Objective_0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :MiningProcess_0,
+        :TransportProcess_0 ;
+    iof:prescribes :TransportedRock_0 .
+
+:RobotMiner_0 a iof:EngineeredSystem ;
+    bfo:BFO_0000057 :MiningProcess_0,
+        :TransportProcess_0 .
+
+:RockStrength_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 ;
+    iof:qualityOf :HardRock_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 5.555556e-05 ;
+    qudt:unit qudtu:M3-PER-SEC ;
+    iof:isValueExpressionOfAtSomeTime :MiningRate_0 .
+
+qudtu:M3-PER-SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:VolumeFlowRate .
+
+:HardRock_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :RockStrength_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ActionSpec_0,
+        :Objective_0 ;
+    iof:prescribes :MiningProcess_0,
+        :TransportProcess_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ProcessingPlantSite_0 a bfo:BFO_0000029 ;
+    iof:describedBy :DestinationRelation_0 ;
+    iof:designatedBy :PhysicalLocationIdentifier_0 .
+
+:TransportedRock_0 a bfo:BFO_0000040 ;
+    iof:isOutputOf :MiningProcess_0,
+        :TransportProcess_0 .
+
+:MiningProcess_0 a iof:PlannedProcess ;
+    bfo:BFO_0000057 :HardRock_0,
+        :RobotMiner_0 ;
+    iof:hasInput :HardRock_0 ;
+    iof:hasOutput :TransportedRock_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:TransportProcess_0 a iof:MaterialLocationChangeProcess ;
+    bfo:BFO_0000057 :RobotMiner_0,
+        :TransportedRock_0 ;
+    iof:hasInput :TransportedRock_0 ;
+    iof:hasOutput :TransportedRock_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+

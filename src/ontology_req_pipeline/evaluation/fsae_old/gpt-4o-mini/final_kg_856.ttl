@@ -1,0 +1,38 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/856#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Removed items will be credited $75 \\%$ of the table cost: - ( $0.75 \\times$ Cost) ### 5.3.8 Cost Tables 5.3.8.1 All costs in the Cost Report must come from the standardized Cost Tables. 5.3.8.2" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:CreditAmountRole a iof:AgentRole ;
+    rdfs:label "credit amount" .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :VE_req0_c0 .
+
+:RemovedItems a iof:MaterialArtifact ;
+    iof:hasRole :CreditAmountRole .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudt:NUM ;
+    qudt:maxInclusive 7.5e-01 ;
+    qudt:minInclusive 7.5e-01 ;
+    qudt:unit qudtu:NUM ;
+    iof:isValueExpressionOfAtAllTimes :RemovedItems .
+
+qudtqk:ServiceFactor a qudt:QuantityKind .
+
+qudtu:NUM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:ServiceFactor .
+

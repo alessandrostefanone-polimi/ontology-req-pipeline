@@ -1,0 +1,46 @@
+{
+  "idx": 397,
+  "req_idx": 3,
+  "source_text": "Meet one of the following: - minimum area of $235 \\mathrm{~cm}^{2}$ AND minimum total height adjustment of 17.5 cm - minimum height of 28 cm e. Be covered with a thin, flexible material that contains a $\\sim 20 \\mathrm{~mm}$ diameter inspection hole in a surface other than the front surface ## T.2.9 Roll Bar Padding Any portion of the roll bar, roll bar bracing or Chassis which might be contacted by the driver's helmet must be covered with a minimum thickness of 12 mm of padding which meets SFI Spec 45.1 or FIA 8857-2001",
+  "requirement_text_pred": "Any portion of the roll bar, roll bar bracing or Chassis which might be contacted by the driver's helmet must be covered with a minimum thickness of 12 mm of padding which meets SFI Spec 45.1 or FIA 8857-2001",
+  "prediction": {
+    "subject": "Any portion of the roll bar, roll bar bracing or Chassis which might be contacted by the driver's helmet",
+    "modality": "must",
+    "condition": "",
+    "action": "be covered",
+    "object": "with a minimum thickness of 12 mm of padding which meets SFI Spec 45.1 or FIA 8857-2001"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "thickness",
+      "operator_pred": "ge",
+      "value_raw_pred": "12 mm",
+      "value_v1_pred": 12.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "MilliM",
+      "normalized_si_value_primary_pred": 12.0,
+      "normalized_si_unit_primary_pred": "MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

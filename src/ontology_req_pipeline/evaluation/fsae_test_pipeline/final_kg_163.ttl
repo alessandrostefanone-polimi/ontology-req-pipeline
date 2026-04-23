@@ -1,0 +1,49 @@
+@prefix : <http://example.org/req/163#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "A two dimensional template used to represent the 95th percentile male is made to the following dimensions (see figure below): - A circle of diameter 200 mm will represent the hips and buttocks" ;
+    iof:isAbout :ObjSpec_req0 ;
+    iof:requirementSatisfiedBy :PlanSpec_req0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2e+02 ;
+    qudt:minInclusive 2e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :Diameter_req0 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:Circle_req0 a bfo:BFO_0000030 ;
+    rdfs:label "Circle representing the hips and buttocks (req 0)"@en ;
+    iof:hasQuality :Diameter_req0 .
+
+:Diameter_req0 a bfo:BFO_0000019 ;
+    rdfs:label "Diameter of circle (req 0)"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+:ObjSpec_req0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :Proc_req0 ;
+    iof:prescribes :Circle_req0 .
+
+:PlanSpec_req0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_req0 ;
+    iof:prescribes :Proc_req0 .
+
+:Proc_req0 a iof:PlannedProcess ;
+    iof:hasSpecifiedOutput :Circle_req0 ;
+    iof:prescribedBy :PlanSpec_req0 .
+

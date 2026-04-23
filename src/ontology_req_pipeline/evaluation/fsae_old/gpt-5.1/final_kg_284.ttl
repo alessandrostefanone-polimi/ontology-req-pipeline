@@ -1,0 +1,74 @@
+@prefix : <http://example.org/req/284#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:AntiIntrusionPlate a bfo:BFO_0000040 ;
+    rdfs:label "Anti Intrusion Plate"@en .
+
+:AttachmentPoints_FW_BW a bfo:BFO_0000040 ;
+    rdfs:label "attachment points for the front wing and bodywork mounts"@en ;
+    iof:hasQuality :PosRel_AttachmentPoints_AIP .
+
+:Clearance_Pedal_AIP a iof:ProcessCharacteristic ;
+    rdfs:label "clearance between pedal assembly and rear face of Anti Intrusion Plate"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req2_c0 .
+
+:DS_AttachmentPoints a iof:DesignSpecification ;
+    iof:prescribes :AttachmentPoints_FW_BW ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DS_Tabs a iof:DesignSpecification ;
+    iof:prescribes :Tabs_Wing_Bodywork_Attachment ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ExtForward_Tabs_AIP a bfo:BFO_0000019 ;
+    rdfs:label "extension distance forward of the Anti Intrusion Plate for tabs"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification .
+
+:PS_PedalClearance a iof:PlanSpecification ;
+    iof:prescribes :PedalAssemblyFullTravelProcess ;
+    iof:satisfiesRequirement :Req_0 .
+
+:PedalAssemblyFullTravelProcess a iof:PlannedProcess ;
+    rdfs:label "pedal assembly at full travel and adjustment process"@en ;
+    iof:hasProcessCharacteristic :Clearance_Pedal_AIP .
+
+:PosRel_AttachmentPoints_AIP a bfo:BFO_0000019 ;
+    rdfs:label "position of attachment points relative to Anti Intrusion Plate"@en .
+
+:Tabs_Wing_Bodywork_Attachment a bfo:BFO_0000040 ;
+    rdfs:label "tabs for wing and bodywork attachment"@en ;
+    iof:hasQuality :ExtForward_Tabs_AIP .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.5e+01 ;
+    qudt:unit qudtu:MM .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MM .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The attachment points for the front wing and bodywork mounts should be aft of the Anti Intrusion Plate c. Tabs for wing and bodywork attachment must not extend more than 25 mm forward of the Anti Intrusion Plate F.8.6.3 Pedal assembly at full travel and adjustment must have a minimum 25 mm clearance to the: a. Rear face of the Anti Intrusion Plate b" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DS_AttachmentPoints,
+        :DS_Tabs,
+        :PS_PedalClearance .
+

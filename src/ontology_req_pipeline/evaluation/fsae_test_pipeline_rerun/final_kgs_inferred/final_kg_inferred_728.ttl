@@ -1,0 +1,249 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/728#> a owl:Ontology .
+
+<http://example.org/req/728#Req0_Constraint0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Constraint: OC protection voltage rating >= max segment voltage" ;
+    ns1:isAbout <http://example.org/req/728#MaxSegmentVoltage> ;
+    ns1:prescribes <http://example.org/req/728#OCProtVoltageRating> .
+
+<http://example.org/req/728#Req1_Constraint0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Constraint: OC protection requirement on sense wire is false" ;
+    ns1:isAbout <http://example.org/req/728#OvercurrentProtection> ;
+    ns1:prescribes <http://example.org/req/728#OCProtRequirementFlag> .
+
+<http://example.org/req/728#Req1_Constraint1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Constraint: three conditions must be met" ;
+    ns1:isAbout <http://example.org/req/728#OvercurrentProtectionNotRequiredProcess> .
+
+<http://example.org/req/728#Req2_Constraint0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Constraint: AMS is distributed AMS system" ;
+    ns1:isAbout <http://example.org/req/728#AMS_SystemArchitecture> .
+
+<http://example.org/req/728#Req3_Constraint0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Constraint: Sense wire length < 25 mm" ;
+    ns1:isAbout <http://example.org/req/728#SenseWireLengthQuality> ;
+    ns1:prescribes <http://example.org/req/728#VE_req3_c0> .
+
+<http://example.org/req/728#Req4_Constraint0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Constraint: AMS board has Overcurrent Protection" ;
+    ns1:isAbout <http://example.org/req/728#AMS_Board> ;
+    ns1:prescribes <http://example.org/req/728#OvercurrentProtection> .
+
+<http://example.org/req/728#AMS_SystemArchitecture> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "AMS system architecture" ;
+    ns1:qualityOf <http://example.org/req/728#AMS_System> .
+
+<http://example.org/req/728#DS_AMSBoard_OCProt> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "AMS board Overcurrent Protection specification" ;
+    ns1:prescribes <http://example.org/req/728#AMS_Board> .
+
+<http://example.org/req/728#DS_AMS_System> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "AMS system architecture specification" ;
+    ns1:prescribes <http://example.org/req/728#AMS_System> .
+
+<http://example.org/req/728#DS_OvercurrentProtection> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Overcurrent Protection design specification" ;
+    ns1:prescribes <http://example.org/req/728#OvercurrentProtection> .
+
+<http://example.org/req/728#DS_SenseWireLength> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Sense wire length specification" ;
+    ns1:prescribes <http://example.org/req/728#VoltageSenseWire> .
+
+<http://example.org/req/728#MaxSegmentVoltage> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "maximum segment voltage quality" .
+
+<http://example.org/req/728#OCProtRequirementFlag> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Overcurrent Protection requirement flag on sense wire" ;
+    ns1:qualityOf <http://example.org/req/728#VoltageSenseWire> .
+
+<http://example.org/req/728#OCProtVoltageRating> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "voltage rating of Overcurrent Protection" ;
+    ns1:qualityOf <http://example.org/req/728#OvercurrentProtection> .
+
+<http://example.org/req/728#VE_req3_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "ValueExpression for Sense wire length < 25 mm" ;
+    ns2:maxExclusive 2.5e-02 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/728#SenseWireLengthQuality> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/728#AMS_Board> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "AMS board" ;
+    ns1:satisfiesRequirement <http://example.org/req/728#Req_0> .
+
+<http://example.org/req/728#AMS_System> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "AMS system" ;
+    ns1:satisfiesRequirement <http://example.org/req/728#Req_0> .
+
+<http://example.org/req/728#OvercurrentProtectionNotRequiredProcess> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Overcurrent protection omission process" ;
+    ns1:prescribedBy <http://example.org/req/728#PS_OvercurrentProtectionNotRequiredOnSenseWire> .
+
+<http://example.org/req/728#PS_OvercurrentProtectionNotRequiredOnSenseWire> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan: conditions under which OC protection not required on sense wire" ;
+    ns1:prescribes <http://example.org/req/728#OvercurrentProtectionNotRequiredProcess> .
+
+<http://example.org/req/728#SenseWireLengthQuality> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Sense wire length quality" ;
+    ns1:qualityOf <http://example.org/req/728#VoltageSenseWire> .
+
+<http://example.org/req/728#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The voltage rating of the Overcurrent Protection must be equal to or higher than the maximum segment voltage EV.7.4.5 Overcurrent Protection is not required on a voltage sense wire if all three of the following conditions are met: - AMS is a distributed AMS system (one cell measurement per board) - $\\quad$ Sense wire length is less than 25 mm - AMS board has Overcurrent Protection # EV.7.5 Accumulator Temperature EV.7.5.1" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/728#DS_AMSBoard_OCProt>,
+        <http://example.org/req/728#DS_AMS_System>,
+        <http://example.org/req/728#DS_OvercurrentProtection>,
+        <http://example.org/req/728#DS_SenseWireLength>,
+        <http://example.org/req/728#PS_OvercurrentProtectionNotRequiredOnSenseWire> .
+
+<http://example.org/req/728#VoltageSenseWire> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "voltage sense wire" .
+
+<http://example.org/req/728#OvercurrentProtection> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Overcurrent Protection" ;
+    ns1:satisfiesRequirement <http://example.org/req/728#Req_0> .
+

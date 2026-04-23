@@ -1,0 +1,272 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix ns3: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/284#> a owl:Ontology .
+
+<http://example.org/req/284#ObjSpec_PedalState> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/284#FullTravelAndAdjustment> ;
+    ns1:prescribes <http://example.org/req/284#State_PedalFullTravel> .
+
+<http://example.org/req/284#PedalAssembly> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "pedal assembly" .
+
+<http://example.org/req/284#RearFace_AIP> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "rear face of Anti Intrusion Plate" ;
+    ns2:BFO_0000110 <http://example.org/req/284#AIP> .
+
+<http://example.org/req/284#VE_req1_c0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns3:maxInclusive 2.5e+01 ;
+    ns3:quantityKind <http://qudt.org/vocab/quantitykind/Length> ;
+    ns3:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/284#Rel_Tabs_Extension> .
+
+<http://example.org/req/284#VE_req2_c1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns3:minInclusive 2.5e+01 ;
+    ns3:quantityKind <http://qudt.org/vocab/quantitykind/Length> ;
+    ns3:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/284#Rel_Pedal_Clearance> .
+
+<http://example.org/req/284#AIP> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Anti Intrusion Plate" .
+
+<http://example.org/req/284#AP_AttachmentPoints> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "attachment points for the front wing and bodywork mounts" ;
+    ns1:prescribedBy <http://example.org/req/284#DS_AttachmentPoints> .
+
+<http://example.org/req/284#ObjSpec_AttachmentPoints> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/284#Proc_AttachmentPoints> ;
+    ns1:prescribes <http://example.org/req/284#Rel_AttachmentPoints_AIP> .
+
+<http://example.org/req/284#ObjSpec_Overall> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/284#Proc_AttachmentPoints>,
+        <http://example.org/req/284#Proc_PedalClearance>,
+        <http://example.org/req/284#Proc_Tabs> .
+
+<http://example.org/req/284#ObjSpec_PedalClearance> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/284#Proc_PedalClearance> ;
+    ns1:prescribes <http://example.org/req/284#Rel_Pedal_Clearance> .
+
+<http://example.org/req/284#ObjSpec_Tabs> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/284#Proc_Tabs> ;
+    ns1:prescribes <http://example.org/req/284#Rel_Tabs_Extension> .
+
+<http://example.org/req/284#PS_AttachmentPoints> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns2:BFO_0000110 <http://example.org/req/284#ObjSpec_AttachmentPoints> ;
+    ns1:prescribes <http://example.org/req/284#Proc_AttachmentPoints> .
+
+<http://example.org/req/284#PS_Tabs> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns2:BFO_0000110 <http://example.org/req/284#ObjSpec_Tabs> ;
+    ns1:prescribes <http://example.org/req/284#Proc_Tabs> .
+
+<http://example.org/req/284#State_PedalFullTravel> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "pedal assembly at full travel and adjustment" ;
+    ns1:processCharacteristicOf <http://example.org/req/284#FullTravelAndAdjustment> .
+
+<http://example.org/req/284#Tabs_Attachment> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "tabs for wing and bodywork attachment" ;
+    ns1:prescribedBy <http://example.org/req/284#DS_Tabs> .
+
+<http://example.org/req/284#DS_AttachmentPoints> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/284#AP_AttachmentPoints> ;
+    ns1:satisfiesRequirement <http://example.org/req/284#Req_0> .
+
+<http://example.org/req/284#DS_Tabs> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/284#Tabs_Attachment> ;
+    ns1:satisfiesRequirement <http://example.org/req/284#Req_0> .
+
+<http://example.org/req/284#FullTravelAndAdjustment> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "full travel and adjustment of pedal assembly" .
+
+<http://example.org/req/284#PS_PedalClearance> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns2:BFO_0000110 <http://example.org/req/284#ObjSpec_PedalClearance> ;
+    ns1:prescribes <http://example.org/req/284#Proc_PedalClearance> .
+
+<http://example.org/req/284#Rel_AttachmentPoints_AIP> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "position relation: attachment points aft of Anti Intrusion Plate" ;
+    ns1:processCharacteristicOf <http://example.org/req/284#Proc_AttachmentPoints> .
+
+<http://example.org/req/284#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The attachment points for the front wing and bodywork mounts should be aft of the Anti Intrusion Plate. Tabs for wing and bodywork attachment must not extend more than 25 mm forward of the Anti Intrusion Plate. Pedal assembly at full travel and adjustment must have a minimum 25 mm clearance to the rear face of the Anti Intrusion Plate." ;
+    ns1:isAbout <http://example.org/req/284#ObjSpec_Overall> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/284#DS_AttachmentPoints>,
+        <http://example.org/req/284#DS_Tabs>,
+        <http://example.org/req/284#PS_PedalClearance> .
+
+<http://qudt.org/vocab/unit/MilliM> ns3:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/284#Rel_Pedal_Clearance> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "clearance between pedal assembly and rear face of Anti Intrusion Plate" ;
+    ns1:processCharacteristicOf <http://example.org/req/284#Proc_PedalClearance> .
+
+<http://example.org/req/284#Rel_Tabs_Extension> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "extension of tabs forward of Anti Intrusion Plate" ;
+    ns1:processCharacteristicOf <http://example.org/req/284#Proc_Tabs> .
+
+<http://example.org/req/284#Proc_AttachmentPoints> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns1:hasProcessCharacteristic <http://example.org/req/284#Rel_AttachmentPoints_AIP> ;
+    ns1:prescribedBy <http://example.org/req/284#PS_AttachmentPoints> .
+
+<http://example.org/req/284#Proc_PedalClearance> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns1:hasProcessCharacteristic <http://example.org/req/284#Rel_Pedal_Clearance> ;
+    ns1:prescribedBy <http://example.org/req/284#PS_PedalClearance> .
+
+<http://example.org/req/284#Proc_Tabs> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns1:hasProcessCharacteristic <http://example.org/req/284#Rel_Tabs_Extension> ;
+    ns1:prescribedBy <http://example.org/req/284#PS_Tabs> .
+

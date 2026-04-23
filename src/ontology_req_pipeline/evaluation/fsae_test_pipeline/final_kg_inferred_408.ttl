@@ -1,0 +1,194 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/408#> a owl:Ontology .
+
+<http://example.org/req/408#EV_7_2_2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "EV.7.2.2 reference" .
+
+<http://example.org/req/408#IC_9_2_2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.9.2.2 reference" .
+
+<http://example.org/req/408#T_3_3_4> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "T.3.3.4 reference" .
+
+<http://example.org/req/408#T_3_3_5> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "T.3.3.5 reference" .
+
+<http://example.org/req/408#BOTS_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "BOTS" .
+
+<http://example.org/req/408#BOTS_OFF_Triggers_Open_1> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "BOTS OFF operation causes shutdown circuit to be open" ;
+    ns1:processCharacteristicOf <http://example.org/req/408#BOTS_OFF_Operation_1> .
+
+<http://example.org/req/408#DS_Req0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec for BOTS OFF shutdown behavior" ;
+    ns1:prescribes <http://example.org/req/408#ShutdownCircuit_1> ;
+    ns1:satisfiesRequirement <http://example.org/req/408#Req_0> .
+
+<http://example.org/req/408#OS_Req0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: BOTS OFF opens shutdown circuit" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/408#BOTS_OFF_Operation_1> ;
+    ns1:prescribes <http://example.org/req/408#ShutdownCircuitState_Open> .
+
+<http://example.org/req/408#OS_Req1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: repeated operation does not reset or restore power" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/408#RepeatedSwitchOperation_1> ;
+    ns1:prescribes <http://example.org/req/408#NoPowerResetOrRestore_1> .
+
+<http://example.org/req/408#PS_Req0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan spec for BOTS OFF operation" ;
+    ns2:BFO_0000110 <http://example.org/req/408#OS_Req0> ;
+    ns1:prescribes <http://example.org/req/408#BOTS_OFF_Operation_1> .
+
+<http://example.org/req/408#PowerSupply_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Power" .
+
+<http://example.org/req/408#Switch_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Switch" .
+
+<http://example.org/req/408#NoPowerResetOrRestore_1> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "No reset or restore of power during repeated switch operation" ;
+    ns1:processCharacteristicOf <http://example.org/req/408#RepeatedSwitchOperation_1> .
+
+<http://example.org/req/408#PS_Req1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan spec for repeated switch operation behavior" ;
+    ns2:BFO_0000110 <http://example.org/req/408#OS_Req1> ;
+    ns1:prescribes <http://example.org/req/408#RepeatedSwitchOperation_1> ;
+    ns1:satisfiesRequirement <http://example.org/req/408#Req_0> .
+
+<http://example.org/req/408#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "3.3.3 Operation of the BOTS to the OFF position must Open the Shutdown Circuit IC.9.2.2 / EV.7.2.2 T.3.3.4 Repeated operation of the switch must not reset or restore power T.3.3.5" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/408#DS_Req0>,
+        <http://example.org/req/408#PS_Req1> .
+
+<http://example.org/req/408#ShutdownCircuitState_Open> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Open state of Shutdown Circuit when BOTS is OFF" .
+
+<http://example.org/req/408#ShutdownCircuit_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Shutdown Circuit" ;
+    ns1:hasQuality <http://example.org/req/408#ShutdownCircuitState_Open> .
+
+<http://example.org/req/408#BOTS_OFF_Operation_1> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Operation of the BOTS to the OFF position" ;
+    ns2:BFO_0000057 <http://example.org/req/408#BOTS_1>,
+        <http://example.org/req/408#ShutdownCircuit_1> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/408#BOTS_OFF_Triggers_Open_1> ;
+    ns1:prescribedBy <http://example.org/req/408#PS_Req0> .
+
+<http://example.org/req/408#RepeatedSwitchOperation_1> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Repeated operation of the switch" ;
+    ns2:BFO_0000057 <http://example.org/req/408#PowerSupply_1>,
+        <http://example.org/req/408#Switch_1> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/408#NoPowerResetOrRestore_1> ;
+    ns1:prescribedBy <http://example.org/req/408#PS_Req1> .
+

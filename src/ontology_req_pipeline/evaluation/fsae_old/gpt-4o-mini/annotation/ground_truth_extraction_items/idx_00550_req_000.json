@@ -1,0 +1,45 @@
+{
+  "idx": 550,
+  "req_idx": 0,
+  "source_text": "The power to the electronic throttle must be immediately shut down, if throttle position differs by more than $10 \\%$ from the expected target TPS position for more than one second",
+  "requirement_text_pred": "The power to the electronic throttle must be immediately shut down",
+  "prediction": {
+    "subject": "The power to the electronic throttle",
+    "modality": "must",
+    "condition": "if throttle position differs by more than $10 \\%$ from the expected target TPS position for more than one second",
+    "action": "shut down",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "throttle position difference",
+      "operator_pred": "gt",
+      "value_raw_pred": "more than $10 \\%$",
+      "value_v1_pred": 10.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/DutyCycle",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/PERCENT",
+      "normalized_si_value_primary_pred": 0.1,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/NUM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

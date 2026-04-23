@@ -1,0 +1,106 @@
+@prefix : <http://example.org/req/448#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:StructureOrBellyPan_1 a bfo:BFO_0000040 ;
+    rdfs:label "Structure or belly pan (location options for holes)"@en .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression: exactly 2 holes"@en ;
+    qudt:maxInclusive 2e+00 ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:BEAT ;
+    iof:isValueExpressionOfAtSomeTime :HoleCount_1 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression: hole diameter >= 0.025 m (25 mm)"@en ;
+    qudt:minInclusive 2.5e-02 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :HoleDiameter_1 .
+
+:DS_0 a iof:DesignSpecification ;
+    rdfs:label "Design specification satisfying leak/driver separation requirement"@en ;
+    iof:prescribes :VehicleStructure_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:HoleLocationRelation_1 a bfo:BFO_0000019 ;
+    rdfs:label "Location of holes in structure or belly pan"@en ;
+    iof:qualityOf :HoleSet_1 .
+
+:HoleProvisionProcess_1 a iof:PlannedProcess ;
+    rdfs:label "Process of providing two holes of minimum diameter 25 mm each"@en ;
+    iof:hasSpecifiedOutput :HoleSet_1 .
+
+:Hole_1a a bfo:BFO_0000040 ;
+    rdfs:label "Required hole 1"@en ;
+    iof:componentPartOfAtSomeTime :VehicleStructure_0 .
+
+:Hole_1b a bfo:BFO_0000040 ;
+    rdfs:label "Required hole 2"@en ;
+    iof:componentPartOfAtSomeTime :VehicleStructure_0 .
+
+:LeakBehaviorProcess_0 a bfo:BFO_0000015 ;
+    rdfs:label "Process involving flammable liquids, vapors, or other leaks relative to the driver"@en .
+
+:NoLeakContactProcessChar_0 a iof:ProcessCharacteristic ;
+    rdfs:label "Absence of collection/contact of flammable liquids, vapors, or other leaks with the driver"@en ;
+    iof:processCharacteristicOf :LeakBehaviorProcess_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: prevent flammable liquids, vapors, or other leaks from collecting or contacting the driver"@en ;
+    iof:prescribes :NoLeakContactProcessChar_0 .
+
+:ObjSpec_1 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: provide two holes of minimum diameter 25 mm each in the structure or belly pan at specified locations"@en ;
+    iof:prescribes :HoleCount_1,
+        :HoleDiameter_1,
+        :HoleLocationRelation_1 .
+
+:PS_0 a iof:PlanSpecification ;
+    rdfs:label "Plan specification for providing required holes"@en ;
+    iof:prescribes :HoleProvisionProcess_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtqk:Dimensionless a qudt:QuantityKind .
+
+qudtu:BEAT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Dimensionless .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:HoleCount_1 a bfo:BFO_0000019 ;
+    rdfs:label "Number of drain/vent holes"@en ;
+    iof:qualityOf :HoleSet_1 .
+
+:HoleDiameter_1 a bfo:BFO_0000019 ;
+    rdfs:label "Diameter of each hole"@en ;
+    iof:qualityOf :Hole_1a,
+        :Hole_1b .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "5.5.3 Flammable liquid and vapors or other leaks must not collect or contact the driver T.5.5.4 Two holes of minimum diameter 25 mm each must be provided in the structure or belly pan at the locations: a" ;
+    iof:isAbout :ObjSpec_0,
+        :ObjSpec_1 ;
+    iof:requirementSatisfiedBy :DS_0,
+        :PS_0 .
+
+:HoleSet_1 a bfo:BFO_0000040 ;
+    rdfs:label "Set of two holes required by requirement 1"@en ;
+    iof:componentPartOfAtSomeTime :VehicleStructure_0 .
+
+:VehicleStructure_0 a bfo:BFO_0000002 ;
+    rdfs:label "Vehicle structure / containment for flammable liquids and vapors"@en .
+

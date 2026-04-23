@@ -1,0 +1,93 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/397#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Meet one of the following: - minimum area of $235 \\mathrm{~cm}^{2}$ AND minimum total height adjustment of 17.5 cm - minimum height of 28 cm e. Be covered with a thin, flexible material that contains a $\\sim 20 \\mathrm{~mm}$ diameter inspection hole in a surface other than the front surface ## T.2.9 Roll Bar Padding Any portion of the roll bar, roll bar bracing or Chassis which might be contacted by the driver's helmet must be covered with a minimum thickness of 12 mm of padding which meets SFI Spec 45.1 or FIA 8857-2001" ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "minimum area of $235 \\mathrm{~cm}^{2}$ AND minimum total height adjustment of 17.5 cm" ;
+    iof:requirementSatisfiedBy :Spec_1 .
+
+:Req_2 a iof:RequirementSpecification ;
+    rdfs:comment "minimum height of 28 cm" ;
+    iof:requirementSatisfiedBy :Spec_2 .
+
+:Req_3 a iof:RequirementSpecification ;
+    rdfs:comment "Be covered with a thin, flexible material that contains a $\\sim 20 \\mathrm{~mm}$ diameter inspection hole in a surface other than the front surface" ;
+    iof:requirementSatisfiedBy :Spec_3 .
+
+:Req_4 a iof:RequirementSpecification ;
+    rdfs:comment "Any portion of the roll bar, roll bar bracing or Chassis which might be contacted by the driver's helmet must be covered with a minimum thickness of 12 mm of padding which meets SFI Spec 45.1 or FIA 8857-2001" ;
+    iof:requirementSatisfiedBy :Spec_4 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.35e+02 ;
+    qudt:unit qudtu:CentiM2 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.75e+01 ;
+    qudt:unit qudtu:MilliM .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.8e+01 ;
+    qudt:unit qudtu:MilliM .
+
+:VE_req0_c3 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.2e+01 ;
+    qudt:unit qudtu:MilliM .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.35e+02 ;
+    qudt:unit qudtu:CentiM2 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.75e+01 ;
+    qudt:unit qudtu:MM .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.8e+01 ;
+    qudt:unit qudtu:MilliM .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.2e+01 ;
+    qudt:unit qudtu:MilliM .
+
+:VE_req4_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.2e+01 ;
+    qudt:unit qudtu:MilliM .
+
+qudtqk:CartesianArea a qudt:QuantityKind .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:MigrationLength .
+
+qudtqk:MigrationLength a qudt:QuantityKind .
+
+qudtu:CentiM2 a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:CartesianArea .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:MigrationLength,
+        qudtqk:Thickness .
+

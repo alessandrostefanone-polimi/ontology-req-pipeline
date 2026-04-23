@@ -1,0 +1,138 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/798#> a owl:Ontology .
+
+<http://example.org/req/798#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "All teams with a system voltage of 500 V or more will be measured with 500 V" ;
+    ns1:isAbout <http://example.org/req/798#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/798#PlanSpec_0> .
+
+<http://example.org/req/798#MeasICE_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:MeasurementInformationContentEntity ;
+    ns3:BFO_0000110 <http://example.org/req/798#VE_req0_c3> ;
+    ns1:describes <http://example.org/req/798#TestVoltage_0> ;
+    ns1:isOutputOf <http://example.org/req/798#MeasProc_0> .
+
+<http://example.org/req/798#PlanSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns3:BFO_0000110 <http://example.org/req/798#ObjSpec_0> ;
+    ns1:prescribes <http://example.org/req/798#MeasProc_0> .
+
+<http://example.org/req/798#SysVoltage_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "system voltage quality",
+        "system voltage quality"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/798#VE_req0_c1> ;
+    ns1:qualityOf <http://example.org/req/798#System_0> .
+
+<http://example.org/req/798#Team_Collection_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000027,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "All teams with required system voltage",
+        "All teams with required system voltage"@en .
+
+<http://example.org/req/798#VE_req0_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "system voltage >= 500 V",
+        "system voltage >= 500 V"@en ;
+    ns2:minInclusive 5e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/V> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/798#SysVoltage_0> .
+
+<http://example.org/req/798#ObjSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/798#MeasProc_0> .
+
+<http://example.org/req/798#System_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "team system",
+        "team system"@en ;
+    ns3:BFO_0000056 <http://example.org/req/798#MeasProc_0> .
+
+<http://example.org/req/798#TestVoltage_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "test voltage quality",
+        "test voltage quality"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/798#VE_req0_c3> ;
+    ns1:qualityOf <http://example.org/req/798#System_0> .
+
+<http://example.org/req/798#VE_req0_c3> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "test voltage = 500 V",
+        "test voltage = 500 V"@en ;
+    ns2:maxInclusive 5e+02 ;
+    ns2:minInclusive 5e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/V> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/798#TestVoltage_0> .
+
+<http://qudt.org/vocab/unit/V> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Voltage> .
+
+<http://example.org/req/798#MeasProc_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MeasurementProcess,
+        ns1:PlannedProcess ;
+    ns3:BFO_0000057 <http://example.org/req/798#Team_Collection_0> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/798#MeasICE_0> .
+

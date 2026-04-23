@@ -1,0 +1,45 @@
+{
+  "idx": 418,
+  "req_idx": 0,
+  "source_text": "The circuit must have a pull-up or pull-down resistor to bring an open circuit input to $0 \\%$ Pedal Travel - An OEM pedal sensor with opposite slopes",
+  "requirement_text_pred": "The circuit must have a pull-up or pull-down resistor to bring an open circuit input to $0 \\%$ Pedal Travel.",
+  "prediction": {
+    "subject": "The circuit",
+    "modality": "must",
+    "condition": "",
+    "action": "have",
+    "object": "a pull-up or pull-down resistor to bring an open circuit input to $0 \\%$ Pedal Travel"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "open circuit input",
+      "operator_pred": "eq",
+      "value_raw_pred": "$0 \\%$ Pedal Travel",
+      "value_v1_pred": 0.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/DutyCycle",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/PERCENT",
+      "normalized_si_value_primary_pred": 0.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/NUM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

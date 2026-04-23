@@ -1,0 +1,24 @@
+{
+  "idx": 690,
+  "req_idx": 1,
+  "source_text": "mm 4 mm EV.6.5.8 Teams must be prepared to show spacing on team built equipment For inaccessible circuitry, spare boards or appropriate photographs must be available for inspection",
+  "requirement_text_pred": "spare boards or appropriate photographs must be available for inspection",
+  "prediction": {
+    "subject": "spare boards or appropriate photographs",
+    "modality": "must",
+    "condition": "",
+    "action": "be available",
+    "object": "for inspection"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

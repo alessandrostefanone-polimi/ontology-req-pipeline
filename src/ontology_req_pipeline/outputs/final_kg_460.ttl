@@ -1,0 +1,37 @@
+@prefix : <http://example.org/req/460#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The shields must be steel or aluminum with a minimum thickness of 1 mm" ;
+    iof:requirementSatisfiedBy :ShieldDesign_0 .
+
+:ShieldDesign_0 a iof:DesignSpecification ;
+    iof:prescribes :Shield_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Shield_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :ShieldThickness_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtAllTimes :ShieldThickness_0 .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+:ShieldThickness_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 .
+

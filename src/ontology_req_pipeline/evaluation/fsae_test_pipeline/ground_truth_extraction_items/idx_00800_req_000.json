@@ -1,0 +1,46 @@
+{
+  "idx": 800,
+  "req_idx": 0,
+  "source_text": "4.6 Ready to Drive Sound The sound level will be measured with a free field microphone placed free from obstructions in a radius of 2 m around the vehicle against the criteria in EV.9.5 ## IN.4.7 Electrical Inspection Completion IN.4.7.1 All or portions of the Tractive System, Charger and other components may be sealed IN.2.6 IN.4.7.2 Additional monitoring to verify conformance to rules may be installed",
+  "requirement_text_pred": "The sound level will be measured with a free field microphone placed free from obstructions in a radius of 2 m around the vehicle against the criteria in EV.9.5",
+  "prediction": {
+    "subject": "The sound level",
+    "modality": "will",
+    "condition": "",
+    "action": "be measured",
+    "object": "with a free field microphone placed free from obstructions in a radius of 2 m around the vehicle against the criteria in EV.9.5"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "measurement location radius",
+      "operator_pred": "eq",
+      "value_raw_pred": "2 m",
+      "value_v1_pred": 2.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "m",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Radius",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/M",
+      "normalized_si_value_primary_pred": 2.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

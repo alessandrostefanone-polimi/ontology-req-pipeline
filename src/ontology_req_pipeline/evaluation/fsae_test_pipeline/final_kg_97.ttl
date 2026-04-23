@@ -1,0 +1,58 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/97#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:AngularPositionState a iof:MaterialState ;
+    rdfs:label "Any angular position state of steering wheel" ;
+    bfo:BFO_0000057 :SteeringWheel .
+
+:Obj_SteeringWheelAttachment a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: steering wheel attached to column with quick disconnect" ;
+    iof:isAbout :DS_SteeringWheelAttachment ;
+    iof:isSubjectOf :Req_0 .
+
+:Obj_SteeringWheelCompliance a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: steering wheel meets T.1.4.4 V.3.3.2 in any angular position" ;
+    iof:isAbout :DS_SteeringWheelCompliance ;
+    iof:isSubjectOf :Req_0 ;
+    iof:prescribes :T_1_4_4_V_3_3_2 .
+
+:QuickDisconnect a bfo:BFO_0000040 ;
+    rdfs:label "Quick Disconnect" .
+
+:SteeringColumn a bfo:BFO_0000040 ;
+    rdfs:label "Steering Column" .
+
+:T_1_4_4_V_3_3_2 a iof:InformationContentEntity ;
+    rdfs:label "T.1.4.4 V.3.3.2" .
+
+:DS_SteeringWheelAttachment a iof:DesignSpecification ;
+    rdfs:label "Design spec: steering wheel attached to column with quick disconnect" ;
+    iof:isAbout :Obj_SteeringWheelAttachment ;
+    iof:prescribes :QuickDisconnect,
+        :SteeringColumn,
+        :SteeringWheel ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DS_SteeringWheelCompliance a iof:DesignSpecification ;
+    rdfs:label "Design spec: steering wheel compliance with T.1.4.4 V.3.3.2" ;
+    iof:isAbout :Obj_SteeringWheelCompliance ;
+    iof:prescribes :SteeringWheel ;
+    iof:satisfiesRequirement :Req_0 .
+
+:SteeringWheel a bfo:BFO_0000040 ;
+    rdfs:label "Steering Wheel" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "In any angular position, the Steering Wheel must meet T.1.4.4 V.3.3.2 The Steering Wheel must be attached to the column with a quick disconnect" ;
+    iof:requirementSatisfiedBy :DS_SteeringWheelAttachment,
+        :DS_SteeringWheelCompliance .
+

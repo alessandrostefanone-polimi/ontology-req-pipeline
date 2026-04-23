@@ -1,0 +1,42 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/19#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Robot_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Objective_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :LoadCapacity_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The robot shall have a load capacity of 1.5 kilograms in operation positions to carry out sensing and actuation elements." ;
+    iof:isAbout :Objective_0 ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:numericValue 1.5 ;
+    qudt:unit qudtu:KiloGM ;
+    iof:isValueExpressionOfAtSomeTime :LoadCapacity_0 .
+
+qudtqk:Mass a qudt:QuantityKind .
+
+qudtu:KiloGM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Mass .
+
+:Robot_0 a iof:EngineeredSystem ;
+    iof:hasCapability :LoadCapacity_0 .
+
+:LoadCapacity_0 a iof:Capability ;
+    iof:capabilityOf :Robot_0 ;
+    iof:isValueExpressionOfAtSomeTime :VE_req0_c0 .
+

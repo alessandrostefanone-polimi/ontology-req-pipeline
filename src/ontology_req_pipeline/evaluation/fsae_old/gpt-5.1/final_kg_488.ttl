@@ -1,0 +1,57 @@
+@prefix : <http://example.org/req/488#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Vehicle_0 a bfo:BFO_0000040 ;
+    rdfs:comment "The vehicle that bears the name marking on both sides." .
+
+:NameCharSet_0 a bfo:BFO_0000019 ;
+    rdfs:comment "Character set of the vehicle name; required to be Roman characters." ;
+    iof:qualityOf :VehicleNameMarking_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 5e+01 ;
+    qudt:quantityKind qudtqk:Height ;
+    qudt:unit qudtu:MilliM ;
+    rdfs:comment "Minimum required height of the vehicle name marking: 50 mm." ;
+    iof:isValueExpressionOfAtSomeTime :NameHeight_0 .
+
+:VehicleSideLocation_0 a bfo:BFO_0000029 ;
+    rdfs:comment "Both sides of the vehicle where the name marking is located." .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:NameDesignSpec_0 a iof:DesignSpecification ;
+    rdfs:comment "Design specification for the vehicle name marking satisfying Req_0." ;
+    iof:prescribes :VehicleNameMarking_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:NameHeight_0 a bfo:BFO_0000019 ;
+    rdfs:comment "Height of the vehicle name marking; required to be at least 50 mm." ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 ;
+    iof:qualityOf :VehicleNameMarking_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The name must be in Roman characters minimum 50 mm high on both sides of the vehicle" ;
+    iof:requirementSatisfiedBy :NameDesignSpec_0 .
+
+qudtqk:Height a qudt:QuantityKind .
+
+:VehicleNameMarking_0 a bfo:BFO_0000040 ;
+    bfo:BFO_0000082 :VehicleSideLocation_0 ;
+    rdfs:comment "Name marking on the vehicle that must be in Roman characters, at least 50 mm high, on both sides of the vehicle." ;
+    iof:hasQuality :NameCharSet_0,
+        :NameHeight_0 ;
+    iof:prescribedBy :NameDesignSpec_0 ;
+    iof:satisfiesRequirement :Req_0 .
+

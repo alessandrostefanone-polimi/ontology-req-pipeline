@@ -1,0 +1,76 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/318#> a owl:Ontology .
+
+<http://example.org/req/318#AccumulatorContainerAttachmentSystem> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasComponentPartAtAllTimes <http://example.org/req/318#AttachmentSet_Req3> .
+
+<http://example.org/req/318#AttachmentSet_Req3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasQuality <http://example.org/req/318#NumAttachments_Req3> .
+
+<http://example.org/req/318#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/318#AccumulatorContainerAttachmentSystem> ;
+    ns2:satisfiesRequirement <http://example.org/req/318#Req_0> .
+
+<http://example.org/req/318#ObjSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification .
+
+<http://example.org/req/318#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Alternate materials Equivalent to 2 mm thickness steel F.10.5.5 Teams must justify the Accumulator Container attachment using one of the two methods: - Corner Attachments and Analysis per F.10.5.6 and F.10.5.8 - Load Based Analysis per F.10.5.7 and F.10.5.8 F.10.5.6 Accumulator Attachment - Corner Attachments a. Eight or more attachments are required for any configuration" ;
+    ns2:isAbout <http://example.org/req/318#ObjSpec_0> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/318#DesignSpec_0> .
+
+<http://example.org/req/318#VE_req3_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 8e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/COUNT> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/318#NumAttachments_Req3> .
+
+<http://qudt.org/vocab/unit/COUNT> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Dimensionless> .
+
+<http://example.org/req/318#NumAttachments_Req3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/318#VE_req3_c0> .
+

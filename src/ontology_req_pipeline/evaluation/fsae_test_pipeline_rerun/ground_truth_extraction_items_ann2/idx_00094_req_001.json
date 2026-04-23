@@ -1,0 +1,24 @@
+{
+  "idx": 94,
+  "req_idx": 1,
+  "source_text": "3.2.8 Fasteners in the steering system are Critical Fasteners, see T.8.2 V.3.2.9 Spherical rod ends and spherical bearings in the steering must meet V.3.1.5 above V.3.2.10 Rear wheel steering may be used",
+  "requirement_text_pred": "Spherical rod ends and spherical bearings in the steering must meet V.3.1.5 above V.3.2.10",
+  "prediction": {
+    "subject": "Spherical rod ends and spherical bearings in the steering",
+    "modality": "must",
+    "condition": "",
+    "action": "meet",
+    "object": "V.3.1.5 above V.3.2.10"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct":  true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": false
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

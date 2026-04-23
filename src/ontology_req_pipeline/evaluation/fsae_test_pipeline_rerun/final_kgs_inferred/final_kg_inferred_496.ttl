@@ -1,0 +1,132 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/496#> a owl:Ontology .
+
+<http://example.org/req/496#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/496#PushDevice_0>,
+        <http://example.org/req/496#Tube_0>,
+        <http://example.org/req/496#Vehicle_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/496#Req_0> .
+
+<http://example.org/req/496#PushDeviceHandle_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasQuality <http://example.org/req/496#PushDevicePeopleCapacity_0> .
+
+<http://example.org/req/496#PushDevice_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    ns2:hasComponentPartAtSomeTime <http://example.org/req/496#PushDeviceHandle_0> .
+
+<http://example.org/req/496#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The height of the tube must allow 75 mm minimum clearance from the bottom of the tube to the ground i. When the vehicle is raised to where the bottom of the tube is 200 mm above ground, the wheels do not touch the ground when they are in full rebound # VE.2.2 Push Bar Each vehicle must have a removable device which attaches to the rear of the vehicle that: a. Allows two people, standing erect behind the vehicle, to push the vehicle around the competition site b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/496#DS_0> .
+
+<http://example.org/req/496#Tube_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasQuality <http://example.org/req/496#TubeHeight_0> .
+
+<http://example.org/req/496#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 1.905e-03 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/496#TubeHeight_0> .
+
+<http://example.org/req/496#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2e-01 ;
+    ns1:minInclusive 2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/496#VehicleRaisedHeight_0> .
+
+<http://example.org/req/496#VE_req3_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2e+00 ;
+    ns1:minInclusive 2e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/BEAT> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/496#PushDevicePeopleCapacity_0> .
+
+<http://example.org/req/496#Vehicle_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasQuality <http://example.org/req/496#VehicleRaisedHeight_0> .
+
+<http://qudt.org/vocab/unit/BEAT> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Dimensionless> .
+
+<http://example.org/req/496#PushDevicePeopleCapacity_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/496#VE_req3_c0> .
+
+<http://example.org/req/496#TubeHeight_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/496#VE_req0_c0> .
+
+<http://example.org/req/496#VehicleRaisedHeight_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/496#VE_req1_c0> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/AbsoluteTypographicMeasurement>,
+        <http://qudt.org/vocab/quantitykind/Height> .
+

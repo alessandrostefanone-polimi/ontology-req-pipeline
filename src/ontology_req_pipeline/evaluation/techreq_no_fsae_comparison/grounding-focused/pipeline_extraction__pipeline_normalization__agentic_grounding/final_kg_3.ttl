@@ -1,0 +1,44 @@
+@prefix : <http://example.org/req/3#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :Reach_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The reach of the manipulator arm is specified to 0,5 m + robot radius" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.763889e-04 ;
+    qudt:minInclusive 1.763889e-04 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :Reach_0 .
+
+qudtqk:Distance a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Distance .
+
+:ManipulatorArm_0 a iof:MaterialArtifact ;
+    iof:hasQuality :Reach_0 ;
+    iof:prescribedBy :Spec_0 .
+
+:Spec_0 a iof:DesignSpecification ;
+    iof:prescribes :ManipulatorArm_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Reach_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 ;
+    iof:qualityOf :ManipulatorArm_0 .
+

@@ -1,0 +1,61 @@
+@prefix : <http://example.org/req/15#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:ActionSpec_0 a iof:ActionSpecification ;
+    iof:prescribes :PlaceProcess_0 .
+
+:PlacementDiameter_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+
+:PlacementHeight_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The robot shall be able to place its tool within a circle with a diameter of 1 meter at a height of 0.2 meters over the ground." ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:Robot_0 a iof:EngineeredSystem .
+
+:Tool_0 a iof:MaterialArtifact .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:numericValue 1.0 ;
+    qudt:unit qudtu:M .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:numericValue 0.2 ;
+    qudt:unit qudtu:M .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :PlaceProcess_0 ;
+    iof:prescribes :PlacementDiameter_0,
+        :PlacementHeight_0 .
+
+:Spec_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ActionSpec_0,
+        :ObjSpec_0 ;
+    iof:prescribes :PlaceProcess_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:PlaceProcess_0 a iof:PlannedProcess ;
+    bfo:BFO_0000057 :Robot_0,
+        :Tool_0 ;
+    iof:prescribedBy :Spec_0 .
+

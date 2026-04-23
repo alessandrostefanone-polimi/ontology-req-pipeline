@@ -1,0 +1,98 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/206#> a owl:Ontology .
+
+<http://example.org/req/206#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "If the upper support member is further than 100 mm above the Upper Side Impact member, then properly Triangulated bracing is required to transfer load to the Main Hoop by one of: - the Upper Side Impact member - an additional member transmitting load from the junction of the Upper Support Member with the Front Hoop c" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/206#Spec_0> .
+
+<http://example.org/req/206#Req_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "If the upper support member is further than 100 mm above the Upper Side Impact member, then properly Triangulated bracing is required to transfer load to the Main Hoop by one of: an additional member transmitting load from the junction of the Upper Support Member with the Front Hoop." ;
+    ns1:requirementSatisfiedBy <http://example.org/req/206#Spec_1> .
+
+<http://example.org/req/206#Additional_Member_Transmitting_Load> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "an additional member transmitting load" .
+
+<http://example.org/req/206#Load_Transfer> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    rdfs:label "transfer load" .
+
+<http://example.org/req/206#Load_Transfer_2> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    rdfs:label "to transfer load" .
+
+<http://example.org/req/206#Properly_Triangulated_Bracing> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:InformationContentEntity ;
+    ns1:hasFeature <http://example.org/req/206#Load_Transfer>,
+        <http://example.org/req/206#Triangulated_Bracing>,
+        <http://example.org/req/206#Upper_Side_Impact_Member> .
+
+<http://example.org/req/206#Properly_Triangulated_Bracing_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:InformationContentEntity ;
+    ns1:hasFeature <http://example.org/req/206#Additional_Member_Transmitting_Load>,
+        <http://example.org/req/206#Load_Transfer_2>,
+        <http://example.org/req/206#Triangulated_Bracing_2> .
+
+<http://example.org/req/206#Spec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/206#Properly_Triangulated_Bracing> .
+
+<http://example.org/req/206#Spec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/206#Properly_Triangulated_Bracing_2> .
+
+<http://example.org/req/206#Triangulated_Bracing> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "Triangulated bracing" .
+
+<http://example.org/req/206#Triangulated_Bracing_2> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "Properly Triangulated bracing" .
+
+<http://example.org/req/206#Upper_Side_Impact_Member> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "Upper Side Impact member" .
+

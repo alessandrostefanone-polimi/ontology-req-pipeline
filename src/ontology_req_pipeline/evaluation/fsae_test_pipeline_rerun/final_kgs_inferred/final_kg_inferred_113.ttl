@@ -1,0 +1,218 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/113#> a owl:Ontology .
+
+<http://example.org/req/113#EquivalenceAssessment_Req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Equivalence of the Welded tube and reinforcement",
+        "Equivalence of the Welded tube and reinforcement"@en ;
+    ns1:isAbout <http://example.org/req/113#NonWeldedTube>,
+        <http://example.org/req/113#WeldedTubeAssembly> ;
+    ns1:prescribes <http://example.org/req/113#EquivalenceProcess_Req0> .
+
+<http://example.org/req/113#AltMaterialUseProcess> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Use of alternative materials",
+        "Use of alternative materials"@en ;
+    ns1:hasOutput <http://example.org/req/113#AlternativeMaterial> .
+
+<http://example.org/req/113#ApplicationContext_Req1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Applications shown as permitted in F.3.2.1",
+        "Applications shown as permitted in F.3.2.1"@en ;
+    ns1:isSubjectOf <http://example.org/req/113#SES_F3_2_1_Req1> .
+
+<http://example.org/req/113#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/113#NonWeldedTube>,
+        <http://example.org/req/113#WeldedTubeAssembly> ;
+    ns1:satisfiesRequirement <http://example.org/req/113#Req_0> .
+
+<http://example.org/req/113#DS_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/113#AlternativeMaterial>,
+        <http://example.org/req/113#ApplicationContext_Req1> ;
+    ns1:satisfiesRequirement <http://example.org/req/113#Req_0> .
+
+<http://example.org/req/113#DS_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/113#AltMaterialUseProcess>,
+        <http://example.org/req/113#SES_Document> ;
+    ns1:satisfiesRequirement <http://example.org/req/113#Req_0> .
+
+<http://example.org/req/113#EquivalenceEvidence_Req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Evidence showing equivalence of welded tube and reinforcement to original non-welded tube",
+        "Evidence showing equivalence of welded tube and reinforcement to original non-welded tube"@en ;
+    ns1:isSubjectOf <http://example.org/req/113#SES_F3_2_1_Req0>,
+        <http://example.org/req/113#SES_F3_5>,
+        <http://example.org/req/113#SES_F3_5_1> .
+
+<http://example.org/req/113#EquivalenceProcess_Req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Process demonstrating equivalence between welded and non-welded tube",
+        "Process demonstrating equivalence between welded and non-welded tube"@en ;
+    ns1:hasOutput <http://example.org/req/113#EquivalenceEvidence_Req0> .
+
+<http://example.org/req/113#MaterialEvidenceDocumentation> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Documentation evidence for material type (purchase receipt, shipping document or letter of donation)",
+        "Documentation evidence for material type (purchase receipt, shipping document or letter of donation)"@en ;
+    ns1:isAbout <http://example.org/req/113#AlternativeMaterial> .
+
+<http://example.org/req/113#MaterialPropertiesDocumentation> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Documentation of material properties",
+        "Documentation of material properties"@en ;
+    ns1:isAbout <http://example.org/req/113#AlternativeMaterial> .
+
+<http://example.org/req/113#MaterialTypeDocumentation> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Documentation of material type",
+        "Documentation of material type"@en ;
+    ns1:isAbout <http://example.org/req/113#AlternativeMaterial> .
+
+<http://example.org/req/113#SES_Document> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SES document",
+        "SES document"@en ;
+    ns1:hasContinuantPartAtAllTimes <http://example.org/req/113#MaterialEvidenceDocumentation>,
+        <http://example.org/req/113#MaterialPropertiesDocumentation>,
+        <http://example.org/req/113#MaterialTypeDocumentation> .
+
+<http://example.org/req/113#SES_F3_2_1_Req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SES section F.3.2.1 (referenced in requirement 0)",
+        "SES section F.3.2.1 (referenced in requirement 0)"@en .
+
+<http://example.org/req/113#SES_F3_2_1_Req1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SES section F.3.2.1 (referenced in requirement 1)",
+        "SES section F.3.2.1 (referenced in requirement 1)"@en .
+
+<http://example.org/req/113#SES_F3_5> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SES section F.3.5 Alternative Tubing Materials",
+        "SES section F.3.5 Alternative Tubing Materials"@en .
+
+<http://example.org/req/113#SES_F3_5_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SES section F.3.5.1",
+        "SES section F.3.5.1"@en .
+
+<http://example.org/req/113#NonWeldedTube> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Original non-welded tube",
+        "Original non-welded tube"@en .
+
+<http://example.org/req/113#WeldedTubeAssembly> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Welded tube with reinforcement",
+        "Welded tube with reinforcement"@en .
+
+<http://example.org/req/113#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Young's Modulus (E) $=200 \\mathrm{GPa}(29,000 \\mathrm{ksi})$ Yield Strength (Sy) $=305 \\mathrm{MPa}(44.2 \\mathrm{ksi})$ Ultimate Strength (Su) $=365 \\mathrm{MPa}(52.9 \\mathrm{ksi})$ b. Welded Properties for discontinuous material such as joint calculations: Yield Strength (Sy) $=180 \\mathrm{MPa}(26 \\mathrm{ksi})$ Ultimate Strength (Su) $=300 \\mathrm{MPa}(43.5 \\mathrm{ksi})$ F.3.4.3 Where Welded tubing reinforcements are required (such as inserts for bolt holes or material to support suspension cutouts), Equivalence of the Welded tube and reinforcement must be shown to the original Non Welded tube in the SES # F.3.5 Alternative Tubing Materials F.3.5.1 Alternative Materials may be used for applications shown as permitted in F.3.2.1 F.3.5.2 If any Alternative Materials are used, the SES must contain: a. Documentation of material type, (purchase receipt, shipping document or letter of donation) and the material properties" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/113#DS_0>,
+        <http://example.org/req/113#DS_1>,
+        <http://example.org/req/113#DS_2> .
+
+<http://example.org/req/113#AlternativeMaterial> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Alternative material",
+        "Alternative material"@en .
+

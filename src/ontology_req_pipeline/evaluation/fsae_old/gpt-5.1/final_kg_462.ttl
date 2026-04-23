@@ -1,0 +1,63 @@
+@prefix : <http://example.org/req/462#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    rdfs:label "Design specification for forward facing edges" ;
+    iof:prescribes :ForwardFacingEdgeHoriz,
+        :ForwardFacingEdgeVert ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ForwardFacingEdgeHoriz a bfo:BFO_0000040 ;
+    rdfs:label "forward facing horizontal edge that could contact a pedestrian" ;
+    iof:hasQuality :HorizEdgeRadiusQuality .
+
+:ForwardFacingEdgeVert a bfo:BFO_0000040 ;
+    rdfs:label "forward facing vertical edge that could contact a pedestrian" ;
+    iof:hasQuality :VertEdgeRadiusQuality .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for forward facing edges pedestrian contact safety" ;
+    iof:prescribes :HorizEdgeRadiusQuality,
+        :VertEdgeRadiusQuality .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Refer to IN.8.2 T.7.1.4 All forward facing edges that could contact a pedestrian (wings, end plates, and undertrays) must have a minimum radius of 5 mm for all horizontal edges and 3 mm for vertical edges" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "minimum radius of horizontal edges >= 5 mm" ;
+    qudt:minInclusive 5e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :HorizEdgeRadiusQuality .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "minimum radius of vertical edges >= 3 mm" ;
+    qudt:minInclusive 3e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :VertEdgeRadiusQuality .
+
+qudtqk:Radius a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Radius .
+
+:HorizEdgeRadiusQuality a bfo:BFO_0000019 ;
+    rdfs:label "radius of horizontal edges" ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 .
+
+:VertEdgeRadiusQuality a bfo:BFO_0000019 ;
+    rdfs:label "radius of vertical edges" ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c2 .
+

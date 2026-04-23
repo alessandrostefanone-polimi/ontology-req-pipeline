@@ -1,0 +1,80 @@
+@prefix : <http://example.org/req/355#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:ConductionIsolationMaterialThickness_0 a bfo:BFO_0000019 ;
+    rdfs:label "thickness of conduction isolation material"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c4 ;
+    iof:qualityOf :ConductionIsolationMaterial_0 .
+
+:ConductionIsolationMaterial_0 a bfo:BFO_0000040 ;
+    rdfs:label "heat resistant conduction isolation material"@en ;
+    iof:componentPartOfAtSomeTime :Design_0 .
+
+:ContactPanel_0 a bfo:BFO_0000040 ;
+    rdfs:label "panel that the driver could contact (seat or floor)"@en .
+
+:ConvectionAirGap_0 a bfo:BFO_0000019 ;
+    rdfs:label "air gap between heat source and panel (convection isolation)"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c5 ;
+    iof:qualityOf :Design_0 .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Design_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:HeatSource_0 a bfo:BFO_0000040 ;
+    rdfs:label "heat source (e.g., exhaust pipe, coolant hose/tube, accumulator container)"@en .
+
+:RadiationShieldThickness_0 a bfo:BFO_0000019 ;
+    rdfs:label "thickness of solid metal heat shield"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c8 ;
+    iof:qualityOf :RadiationShield_0 .
+
+:RadiationShield_0 a bfo:BFO_0000040 ;
+    rdfs:label "solid metal heat shield"@en ;
+    iof:componentPartOfAtSomeTime :Design_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The design must address all three types of heat transfer between the heat source (examples include but are not limited to: exhaust pipe, coolant hose/tube, Accumulator Container) and the panel that the driver could contact (seat or floor): a. Conduction Isolation by one of the following: - No direct contact between the heat source and the panel - A heat resistant, conduction isolation material with a minimum thickness of 8 mm between the heat source and the panel b. Convection Isolation by a minimum air gap of 25 mm between the heat source and the panel c. Radiation Isolation by one of the following: - A solid metal heat shield with a minimum thickness of 0.4 mm - $	$ Reflective foil or tape when combined with conduction insulation # T.1.7" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c4 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 8e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :ConductionIsolationMaterialThickness_0 .
+
+:VE_req0_c5 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.5e-02 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :ConvectionAirGap_0 .
+
+:VE_req0_c8 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 4e-04 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :RadiationShieldThickness_0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length,
+        qudtqk:Thickness .
+
+:Design_0 a bfo:BFO_0000002 ;
+    rdfs:label "vehicle thermal protection design"@en ;
+    iof:hasComponentPartAtSomeTime :ContactPanel_0,
+        :HeatSource_0 .
+

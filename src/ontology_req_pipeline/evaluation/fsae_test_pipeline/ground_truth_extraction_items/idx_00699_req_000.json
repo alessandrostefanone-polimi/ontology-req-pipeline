@@ -1,0 +1,46 @@
+{
+  "idx": 699,
+  "req_idx": 0,
+  "source_text": "This additional Overcurrent Protection must be: a. 150 mm or less from the source end of the reduced conductor b",
+  "requirement_text_pred": "This additional Overcurrent Protection must be: a. 150 mm or less from the source end of the reduced conductor",
+  "prediction": {
+    "subject": "This additional Overcurrent Protection",
+    "modality": "must",
+    "condition": "",
+    "action": "be:",
+    "object": "a. 150 mm or less from the source end of the reduced conductor"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "distance from the source end of the reduced conductor",
+      "operator_pred": "le",
+      "value_raw_pred": "150 mm or less",
+      "value_v1_pred": 150.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "MilliM",
+      "normalized_si_value_primary_pred": 150.0,
+      "normalized_si_unit_primary_pred": "MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

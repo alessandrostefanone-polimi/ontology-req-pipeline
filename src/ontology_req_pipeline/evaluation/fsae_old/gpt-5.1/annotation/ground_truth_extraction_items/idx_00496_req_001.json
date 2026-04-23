@@ -1,0 +1,45 @@
+{
+  "idx": 496,
+  "req_idx": 1,
+  "source_text": "The height of the tube must allow 75 mm minimum clearance from the bottom of the tube to the ground i. When the vehicle is raised to where the bottom of the tube is 200 mm above ground, the wheels do not touch the ground when they are in full rebound # VE.2.2 Push Bar Each vehicle must have a removable device which attaches to the rear of the vehicle that: a. Allows two people, standing erect behind the vehicle, to push the vehicle around the competition site b",
+  "requirement_text_pred": "When the vehicle is raised to where the bottom of the tube is 200 mm above ground, the wheels do not touch the ground when they are in full rebound # VE.2.2 Push Bar Each vehicle must have a removable device which attaches to the rear of the vehicle that: a. Allows two people, standing erect behind the vehicle, to push the vehicle around the competition site b",
+  "prediction": {
+    "subject": "the wheels",
+    "modality": "must",
+    "condition": "When the vehicle is raised to where the bottom of the tube is 200 mm above ground",
+    "action": "do not touch",
+    "object": "the ground when they are in full rebound # VE.2.2 Push Bar Each vehicle must have a removable device which attaches to the rear of the vehicle that: a. Allows two people, standing erect behind the vehicle, to push the vehicle around the competition site b"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": false
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "vehicle raise height",
+      "operator_pred": "eq",
+      "value_raw_pred": "200 mm",
+      "value_v1_pred": 200.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Height",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM",
+      "normalized_si_value_primary_pred": 200.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

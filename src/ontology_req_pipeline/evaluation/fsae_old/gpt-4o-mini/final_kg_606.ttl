@@ -1,0 +1,61 @@
+@prefix : <http://example.org/req/606#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Have a diameter of 24 mm minimum IC.9.4.2 Location - The Cockpit Main Switch must be: a" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "The Cockpit Main Switch must be:" ;
+    iof:requirementSatisfiedBy :DS_req1 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :Plan_req0 .
+
+:DS_req1 a iof:DesignSpecification ;
+    iof:prescribes :Plan_req1 .
+
+:Diameter_0 a bfo:BFO_0000001 ;
+    qudt:hasQuantityKind qudt:Diameter ;
+    qudt:hasUnit qudt:MilliM ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+
+:Diameter_1 a bfo:BFO_0000001 ;
+    qudt:hasQuantityKind qudt:Diameter ;
+    qudt:hasUnit qudt:MilliM ;
+    iof:hasValueExpressionAtAllTimes :VE_req1_c0 ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 .
+
+:Plan_req0 a iof:PlanSpecification ;
+    iof:prescribes :VE_req0_c0 .
+
+:Plan_req1 a iof:PlanSpecification ;
+    iof:prescribes :VE_req1_c0 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.4e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :Diameter_0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.4e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :Diameter_1 .
+

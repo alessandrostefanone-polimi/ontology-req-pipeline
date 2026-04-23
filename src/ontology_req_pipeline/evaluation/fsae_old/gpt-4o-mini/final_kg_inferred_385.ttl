@@ -1,0 +1,136 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/385#> a owl:Ontology .
+
+<http://example.org/req/385#BoltDiameter_SpecifiedBy_Manufacturer> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/385#BoltDiameter_SpecifiedBy_Manufacturer_Ref> .
+
+<http://example.org/req/385#MountingPointInLineWithDriver> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/385#MountingPointInLineWithDriver_Ref> .
+
+<http://example.org/req/385#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Any bolt used to attach a Shoulder Belt, directly to the chassis or to an intermediate bracket, is a Critical Fasteners, see T.8.2, with a minimum diameter that is the smaller of: - The bolt diameter specified by the manufacturer - 10 mm or $3 / 8^{\\prime \\prime}$ ## T.2.7 Anti-Submarine Belt Mounting T.2.7.1 The Anti-Submarine Belt of a 5 point harness must be mounted with the mounting point in line with or slightly forward of the driver's Chest to Groin Line with an Anti-Submarine Belt Side View Angle no more than $20^{\\circ}$" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/385#Spec_1> .
+
+<http://example.org/req/385#BoltDiameter_SpecifiedBy_Manufacturer_Ref> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/385#CriticalFastenerRole> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:AgentRole ;
+    rdfs:label "Critical Fasteners" .
+
+<http://example.org/req/385#Diameter_10mm> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    ns1:hasRole <http://example.org/req/385#CriticalFastenerRole> .
+
+<http://example.org/req/385#MountingPointInLineWithDriver_Ref> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/385#Spec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/385#VE_req1_c0> .
+
+<http://example.org/req/385#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 1e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/385#Diameter_10mm> .
+
+<http://example.org/req/385#VE_req2_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 2e+01,
+        20.0 ;
+    ns2:unit <http://qudt.org/vocab/unit/Degrees> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/385#AntiSubmarineBeltSideViewAngle> .
+
+<http://example.org/req/385#VE_req3_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 20.0,
+        2e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/Degrees> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/385#AntiSubmarineBeltSideViewAngle> .
+
+<http://example.org/req/385#VE_req4_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 2e+01,
+        20.0 ;
+    ns2:unit <http://qudt.org/vocab/unit/Degrees> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/385#AntiSubmarineBeltSideViewAngle> .
+
+<http://qudt.org/vocab/unit/MM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+
+<http://example.org/req/385#AntiSubmarineBeltSideViewAngle> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/385#VE_req2_c0>,
+        <http://example.org/req/385#VE_req3_c0>,
+        <http://example.org/req/385#VE_req4_c0> .
+
+<http://qudt.org/vocab/unit/Degrees> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Angle> .
+

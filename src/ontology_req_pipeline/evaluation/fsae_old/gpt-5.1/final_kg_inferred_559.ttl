@@ -1,0 +1,392 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/559#> a owl:Ontology .
+
+<http://example.org/req/559#IC_4_4> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.4.4" .
+
+<http://example.org/req/559#IC_4_8_4> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.4.8.4" .
+
+<http://example.org/req/559#IC_4_8_5> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.4.8.5" .
+
+<http://example.org/req/559#IC_4_8_6> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.4.8.6" .
+
+<http://example.org/req/559#IC_9_2_2> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.9.2.2" .
+
+<http://example.org/req/559#IC_9_3> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.9.3" .
+
+<http://example.org/req/559#PowerRemoval_Monitoring_Condition> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Condition: removal of power from BSPD circuit" ;
+    ns1:processCharacteristicOf <http://example.org/req/559#BSPD_Monitoring_Process> .
+
+<http://example.org/req/559#Throttle_Monitoring_Condition> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Condition: throttle opening above threshold" ;
+    ns1:processCharacteristicOf <http://example.org/req/559#BSPD_Monitoring_Process> .
+
+<http://example.org/req/559#VE_req1_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Duration > 1.0 (req 1, c0)" ;
+    ns2:minExclusive 1e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/M-PER-SEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#HardBraking_Monitoring_Condition> .
+
+<http://example.org/req/559#VE_req3_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Throttle opening > 10.0 percent (req 3, c0)" ;
+    ns2:minExclusive 1e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/PERCENT> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#ThrottleOpeningQuality> .
+
+<http://example.org/req/559#VE_req4_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Brake signal loss duration > 100.0 s (req 4, c1)" ;
+    ns2:minExclusive 1e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/SEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#BrakeSignalLoss_Monitoring_Condition> .
+
+<http://example.org/req/559#VE_req5_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Throttle signal loss duration > 100.0 s (req 5, c1)" ;
+    ns2:minExclusive 1e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/SEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#ThrottleSignalLoss_Monitoring_Condition> .
+
+<http://example.org/req/559#AboveConditions> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    rdfs:label "Any of the above BSPD fault conditions" ;
+    ns3:BFO_0000117 <http://example.org/req/559#HardBrakingDemand>,
+        <http://example.org/req/559#LossOfBrakeSignal>,
+        <http://example.org/req/559#LossOfThrottleSignal>,
+        <http://example.org/req/559#PowerRemovalFromBSPD> .
+
+<http://example.org/req/559#BSPD_Monitoring_Design> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "BSPD monitoring and reaction design" ;
+    ns1:prescribes <http://example.org/req/559#BSPD>,
+        <http://example.org/req/559#BSPD_Monitoring_Process>,
+        <http://example.org/req/559#BSPD_Reset_Process>,
+        <http://example.org/req/559#BSPD_Shutdown_Action> ;
+    ns1:satisfiesRequirement <http://example.org/req/559#Req_0> .
+
+<http://example.org/req/559#BSPD_Monitoring_Plan> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan: BSPD monitoring of conditions" ;
+    ns3:BFO_0000110 <http://example.org/req/559#Obj_Monitoring> ;
+    ns1:prescribes <http://example.org/req/559#BSPD_Monitoring_Process> .
+
+<http://example.org/req/559#BSPD_Reset_Plan> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan: BSPD reset by cycling Primary Master Switch" ;
+    ns3:BFO_0000110 <http://example.org/req/559#Obj_Monitoring> ;
+    ns1:prescribes <http://example.org/req/559#BSPD_Reset_Process> .
+
+<http://example.org/req/559#BSPD_Shutdown_Plan> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan: BSPD opens shutdown circuit on fault" ;
+    ns3:BFO_0000110 <http://example.org/req/559#Obj_Monitoring> ;
+    ns1:prescribes <http://example.org/req/559#BSPD_Shutdown_Action> .
+
+<http://example.org/req/559#BrakeSensor> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Braking sensor" .
+
+<http://example.org/req/559#BrakeSignalLoss_Monitoring_Condition> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Condition: loss of brake sensor signal" ;
+    ns1:processCharacteristicOf <http://example.org/req/559#BSPD_Monitoring_Process> .
+
+<http://example.org/req/559#HardBrakingDemand> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    rdfs:label "Demand for Hard Braking" ;
+    ns1:isSubjectOf <http://example.org/req/559#IC_4_6> .
+
+<http://example.org/req/559#HardBraking_Monitoring_Condition> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Condition: demand for hard braking present" ;
+    ns1:processCharacteristicOf <http://example.org/req/559#BSPD_Monitoring_Process> .
+
+<http://example.org/req/559#IC_4_6> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "IC.4.6" .
+
+<http://example.org/req/559#LossOfBrakeSignal> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    rdfs:label "Loss of signal from the braking sensor(s)" ;
+    ns3:BFO_0000057 <http://example.org/req/559#BrakeSensor> .
+
+<http://example.org/req/559#LossOfThrottleSignal> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    rdfs:label "Loss of signal from the throttle sensor(s)" ;
+    ns3:BFO_0000057 <http://example.org/req/559#ThrottleSensor> .
+
+<http://example.org/req/559#PowerRemovalFromBSPD> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    rdfs:label "Removal of power from the BSPD circuit" ;
+    ns3:BFO_0000057 <http://example.org/req/559#BSPD> .
+
+<http://example.org/req/559#PrimaryMasterSwitch> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Primary Master Switch" .
+
+<http://example.org/req/559#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6" ;
+    ns1:isAbout <http://example.org/req/559#Obj_Monitoring> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/559#BSPD_Monitoring_Design> .
+
+<http://example.org/req/559#ShutdownCircuit> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000027,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:System ;
+    rdfs:label "Shutdown Circuit" .
+
+<http://example.org/req/559#Throttle> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Throttle" .
+
+<http://example.org/req/559#ThrottleOpeningQuality> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Throttle opening" ;
+    ns1:qualityOf <http://example.org/req/559#Throttle> .
+
+<http://example.org/req/559#ThrottleSensor> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Throttle sensor" .
+
+<http://example.org/req/559#ThrottleSignalLoss_Monitoring_Condition> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Condition: loss of throttle sensor signal" ;
+    ns1:processCharacteristicOf <http://example.org/req/559#BSPD_Monitoring_Process> .
+
+<http://qudt.org/vocab/unit/M-PER-SEC> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/VehicleVelocity> .
+
+<http://qudt.org/vocab/unit/PERCENT> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/DutyCycle> .
+
+<http://qudt.org/vocab/unit/SEC> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Time> .
+
+<http://example.org/req/559#BSPD_Reset_Process> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Reset BSPD by cycling Primary Master Switch OFF and ON" ;
+    ns3:BFO_0000057 <http://example.org/req/559#BSPD>,
+        <http://example.org/req/559#PrimaryMasterSwitch> ;
+    ns1:prescribedBy <http://example.org/req/559#BSPD_Reset_Plan> .
+
+<http://example.org/req/559#BSPD_Shutdown_Action> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "BSPD opens Shutdown Circuit" ;
+    ns3:BFO_0000057 <http://example.org/req/559#BSPD>,
+        <http://example.org/req/559#ShutdownCircuit> ;
+    ns1:occursDuring <http://example.org/req/559#AboveConditions> ;
+    ns1:prescribedBy <http://example.org/req/559#BSPD_Shutdown_Plan> .
+
+<http://example.org/req/559#Obj_Monitoring> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: BSPD monitors and reacts to fault conditions" ;
+    ns1:prescribes <http://example.org/req/559#BSPD_Monitoring_Process>,
+        <http://example.org/req/559#BSPD_Reset_Process>,
+        <http://example.org/req/559#BSPD_Shutdown_Action> .
+
+<http://example.org/req/559#BSPD> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000027,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:EngineeredSystem,
+        ns1:System ;
+    rdfs:label "BSPD" .
+
+<http://example.org/req/559#BSPD_Monitoring_Process> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "BSPD monitoring process" ;
+    ns3:BFO_0000057 <http://example.org/req/559#BSPD> ;
+    ns1:prescribedBy <http://example.org/req/559#BSPD_Monitoring_Plan> .
+

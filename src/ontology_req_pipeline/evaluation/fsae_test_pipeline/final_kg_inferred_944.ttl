@@ -1,0 +1,86 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/944#> a owl:Ontology .
+
+<http://example.org/req/944#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The Endurance event will consist of multiple laps over a closed course to a total distance of approximately 22 km" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/944#PlanSpec_0> .
+
+<http://example.org/req/944#EnduranceEvent_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Endurance event (requirement 0)" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/944#Laps_0>,
+        <http://example.org/req/944#TotalDistance_0> .
+
+<http://example.org/req/944#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/944#EnduranceEvent_0> .
+
+<http://example.org/req/944#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "minimum number of laps (>= 2)" ;
+    ns2:minInclusive 2e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/COUNT> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/944#Laps_0> .
+
+<http://example.org/req/944#VE_req0_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "total distance (exactly 35405.568 m)" ;
+    ns2:maxInclusive 3.540557e+04 ;
+    ns2:minInclusive 3.540557e+04 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/944#TotalDistance_0> .
+
+<http://qudt.org/vocab/unit/COUNT> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Dimensionless> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Distance> .
+
+<http://example.org/req/944#Laps_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "number of laps in Endurance event" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/944#VE_req0_c0> .
+
+<http://example.org/req/944#TotalDistance_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "total distance of Endurance event" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/944#VE_req0_c2> .
+

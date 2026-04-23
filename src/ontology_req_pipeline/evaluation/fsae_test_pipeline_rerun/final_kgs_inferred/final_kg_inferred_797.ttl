@@ -1,0 +1,86 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix ns3: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/797#> a owl:Ontology .
+
+<http://example.org/req/797#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "All vehicles with a maximum nominal operation voltage below 500 V will be measured with the next available voltage level" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/797#PlanSpec_0> .
+
+<http://example.org/req/797#NominalOperationVoltage_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "maximum nominal operation voltage of vehicle",
+        "maximum nominal operation voltage of vehicle"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/797#VE_req0_c1> ;
+    ns1:qualityOf <http://example.org/req/797#Vehicle_0> .
+
+<http://example.org/req/797#PlanSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/797#VehicleMeasurementProcess_0> .
+
+<http://example.org/req/797#VE_req0_c1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "upper bound for nominal operation voltage < 500 V",
+        "upper bound for nominal operation voltage < 500 V"@en ;
+    ns3:maxExclusive 5e+02 ;
+    ns3:unit <http://qudt.org/vocab/unit/V> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/797#NominalOperationVoltage_0> .
+
+<http://example.org/req/797#VehicleMeasurementProcess_0> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "measurement of vehicles with next available voltage level",
+        "measurement of vehicles with next available voltage level"@en ;
+    ns2:BFO_0000057 <http://example.org/req/797#Vehicle_0> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/797#VoltageLevel_0> .
+
+<http://example.org/req/797#VoltageLevel_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "next available voltage level",
+        "next available voltage level"@en .
+
+<http://qudt.org/vocab/unit/V> ns3:hasQuantityKind <http://qudt.org/vocab/quantitykind/Voltage> .
+
+<http://example.org/req/797#Vehicle_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "vehicle (subject of requirement 0)",
+        "vehicle (subject of requirement 0)"@en .
+

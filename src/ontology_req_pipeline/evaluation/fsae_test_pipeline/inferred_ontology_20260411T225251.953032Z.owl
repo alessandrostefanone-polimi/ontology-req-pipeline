@@ -1,0 +1,573 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="file:/final_inferred.owl#"
+     xml:base="file:/final_inferred.owl"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Core="https://spec.industrialontologies.org/ontology/core/Core/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="file:/final_inferred.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000057 -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000057"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000110 -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000110"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasProcessCharacteristic -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasProcessCharacteristic"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/isAbout -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/isAbout"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/prescribedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/prescribedBy"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/prescribes -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/prescribes"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/recognizedByAtSomeTime -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/recognizedByAtSomeTime"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000001 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000001"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000002 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000002"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000003 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000003"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000004 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000015 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000029 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000029"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000031 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000031"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000040 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000141 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000141"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/Agent -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/Agent"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/Event -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/Event"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/ObjectiveSpecification -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/ObjectiveSpecification"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://example.org/req/965#ApplicabilityConstraint_Req0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#ApplicabilityConstraint_Req0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <Core:isAbout rdf:resource="http://example.org/req/965#Proc_VehicleContinuation"/>
+        <Core:prescribes rdf:resource="http://example.org/req/965#Rule_D_12_1_4"/>
+        <Core:prescribes rdf:resource="http://example.org/req/965#Rule_D_12_4"/>
+        <rdfs:label>Applicability of continuation to rules D.12.1.4 and D.12.4</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#BlackFlag -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#BlackFlag">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:label>Black Flag</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#DS_VehicleContinuation -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#DS_VehicleContinuation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <Core:prescribes rdf:resource="http://example.org/req/965#Vehicle_It"/>
+        <Core:satisfiesRequirement rdf:resource="http://example.org/req/965#Req_0"/>
+        <rdfs:label>Design specification for vehicle continuation after stall or cone ingestion</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#DesignatedLocation -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#DesignatedLocation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000141"/>
+        <rdfs:label>Designated location for Black Flag display</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Event_VehicleStallOrConeIngest -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Event_VehicleStallOrConeIngest">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/Event"/>
+        <Core:recognizedByAtSomeTime rdf:resource="http://example.org/req/965#RaceOfficial"/>
+        <rdfs:label>Vehicle stalls or ingests a cone event</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Obj_Req0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Obj_Req0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ObjectiveSpecification"/>
+        <Core:prescribes rdf:resource="http://example.org/req/965#Proc_VehicleContinuation"/>
+        <rdfs:label>Objective for vehicle continuation after stall or cone ingestion</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Obj_Req1 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Obj_Req1">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ObjectiveSpecification"/>
+        <Core:prescribes rdf:resource="http://example.org/req/965#Proc_BlackFlagDisplay"/>
+        <rdfs:label>Objective for Black Flag display at designated location</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#PC_BlackFlagShown -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#PC_BlackFlagShown">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic"/>
+        <rdfs:label>Display of Black Flag</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#PC_PermissionToContinue -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#PC_PermissionToContinue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic"/>
+        <rdfs:label>Permission for vehicle to continue</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#PS_BlackFlagDisplay -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#PS_BlackFlagDisplay">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification"/>
+        <obo:BFO_0000110 rdf:resource="http://example.org/req/965#Obj_Req1"/>
+        <Core:prescribes rdf:resource="http://example.org/req/965#Proc_BlackFlagDisplay"/>
+        <rdfs:label>Plan specification for Black Flag display</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#PS_VehicleContinuation -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#PS_VehicleContinuation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification"/>
+        <obo:BFO_0000110 rdf:resource="http://example.org/req/965#Obj_Req0"/>
+        <Core:prescribes rdf:resource="http://example.org/req/965#Proc_VehicleContinuation"/>
+        <rdfs:label>Plan specification for allowing vehicle to continue</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Proc_BlackFlagDisplay -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Proc_BlackFlagDisplay">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess"/>
+        <obo:BFO_0000057 rdf:resource="http://example.org/req/965#BlackFlag"/>
+        <obo:BFO_0000057 rdf:resource="http://example.org/req/965#DesignatedLocation"/>
+        <Core:hasProcessCharacteristic rdf:resource="http://example.org/req/965#PC_BlackFlagShown"/>
+        <Core:prescribedBy rdf:resource="http://example.org/req/965#PS_BlackFlagDisplay"/>
+        <rdfs:label>Process of showing Black Flag</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Proc_VehicleContinuation -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Proc_VehicleContinuation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess"/>
+        <obo:BFO_0000057 rdf:resource="http://example.org/req/965#Vehicle_It"/>
+        <Core:hasProcessCharacteristic rdf:resource="http://example.org/req/965#PC_PermissionToContinue"/>
+        <Core:prescribedBy rdf:resource="http://example.org/req/965#PS_VehicleContinuation"/>
+        <rdfs:label>Process of allowing vehicle to continue</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#RaceOfficial -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#RaceOfficial">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/Agent"/>
+        <rdfs:label>Race official</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Req_0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Req_0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification"/>
+        <Core:isAbout rdf:resource="http://example.org/req/965#Obj_Req0"/>
+        <Core:isAbout rdf:resource="http://example.org/req/965#Obj_Req1"/>
+        <Core:requirementSatisfiedBy rdf:resource="http://example.org/req/965#DS_VehicleContinuation"/>
+        <Core:requirementSatisfiedBy rdf:resource="http://example.org/req/965#PS_BlackFlagDisplay"/>
+        <rdfs:comment>If a vehicle stalls, or ingests a cone, etc., it may be allowed to continue, subject to D.12.1.4 and D.12.4 ## D.12.10 Endurance Event - Black Flags D.12.10.1 A Black Flag will be shown at the designated location D.12.10.2</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Rule_D_12_1_4 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Rule_D_12_1_4">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdfs:label>Rule D.12.1.4</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Rule_D_12_4 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Rule_D_12_4">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdfs:label>Rule D.12.4</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/965#Vehicle_It -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/965#Vehicle_It">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:label>Vehicle referred to as &apos;it&apos;</rdfs:label>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.9.2018-12-12T06:37:32Z) https://github.com/owlcs/owlapi/ -->
+
+

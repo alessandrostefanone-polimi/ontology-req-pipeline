@@ -1,0 +1,24 @@
+{
+  "idx": 312,
+  "req_idx": 1,
+  "source_text": "This mounting system design must withstand the following accelerations: 40 g in the longitudinal direction (forward/aft) 40 g in the lateral direction (left/right) 20 g in the vertical direction (up/down) c. Calculations and/or tests proving these requirements are met must be included in the SES. d",
+  "requirement_text_pred": "Calculations and/or tests proving these requirements are met must be included in the SES.",
+  "prediction": {
+    "subject": "Calculations and/or tests proving these requirements are met",
+    "modality": "must",
+    "condition": "",
+    "action": "be included",
+    "object": "in the SES"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

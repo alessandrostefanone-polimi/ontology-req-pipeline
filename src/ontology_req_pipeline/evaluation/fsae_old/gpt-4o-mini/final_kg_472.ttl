@@ -1,0 +1,37 @@
+@prefix : <http://example.org/req/472#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Forward of the centerline of the front wheel axles and outboard of two vertical planes parallel to the centerline of the chassis touching the inside of the front tires at the height of the hubs must be no higher than 250 mm above the ground T.7.7.2" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :VE_req0_c0 .
+
+:height_constraint0 a bfo:BFO_0000001 ;
+    iof:hasQuality :height_quality ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+:height_quality a bfo:BFO_0000019 ;
+    rdfs:label "height" .
+
+qudtqk:Height a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.5e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :height_constraint0 .
+

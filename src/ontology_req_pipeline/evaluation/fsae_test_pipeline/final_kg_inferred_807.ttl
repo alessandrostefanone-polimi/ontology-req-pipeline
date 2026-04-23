@@ -1,0 +1,93 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/807#> a owl:Ontology .
+
+<http://example.org/req/807#DriverAgent> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Agent ;
+    rdfs:label "driver(s)" ;
+    ns2:BFO_0000056 <http://example.org/req/807#DriverCockpitChecksProcess>,
+        <http://example.org/req/807#MechanicalInspectionProcess> ;
+    ns1:hasRole <http://example.org/req/807#DriverAgentRole> .
+
+<http://example.org/req/807#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Successfully complete the Egress Test IN.5.2 IN.5.3.2 A driver(s) must complete the Driver Cockpit Checks to pass Mechanical Inspection # IN" ;
+    ns1:isAbout <http://example.org/req/807#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/807#PlanSpec_0> .
+
+<http://example.org/req/807#DriverAgentRole> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000017,
+        ns2:BFO_0000020,
+        ns2:BFO_0000023,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:AgentRole ;
+    rdfs:label "driver role" .
+
+<http://example.org/req/807#ObjSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/807#DriverCockpitChecksProcess>,
+        <http://example.org/req/807#EgressTestProcess>,
+        <http://example.org/req/807#MechanicalInspectionProcess> .
+
+<http://example.org/req/807#EgressTestProcess> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Egress Test IN.5.2 IN.5.3.2" ;
+    ns1:prescribedBy <http://example.org/req/807#PlanSpec_0> .
+
+<http://example.org/req/807#DriverCockpitChecksProcess> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Driver Cockpit Checks" ;
+    ns1:prescribedBy <http://example.org/req/807#PlanSpec_0> .
+
+<http://example.org/req/807#MechanicalInspectionProcess> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Mechanical Inspection # IN" ;
+    ns1:prescribedBy <http://example.org/req/807#PlanSpec_0> .
+
+<http://example.org/req/807#PlanSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/807#DriverCockpitChecksProcess>,
+        <http://example.org/req/807#EgressTestProcess>,
+        <http://example.org/req/807#MechanicalInspectionProcess> .
+

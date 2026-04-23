@@ -1,0 +1,97 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix ns3: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/12#> a owl:Ontology .
+
+<http://example.org/req/12#ClearHeight_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns3:hasValueExpressionAtSomeTime <http://example.org/req/12#VE_req0_c0> ;
+    ns3:qualityOf <http://example.org/req/12#Cart_0> .
+
+<http://example.org/req/12#DesignSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:DesignSpecification,
+        ns3:DirectiveInformationContentEntity,
+        ns3:InformationContentEntity ;
+    ns3:prescribes <http://example.org/req/12#Cart_0> ;
+    ns3:satisfiesRequirement <http://example.org/req/12#Req_0> .
+
+<http://example.org/req/12#PlanSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:ActionSpecification,
+        ns3:DirectiveInformationContentEntity,
+        ns3:InformationContentEntity,
+        ns3:PlanSpecification ;
+    ns2:BFO_0000110 <http://example.org/req/12#Objective_0> ;
+    ns3:prescribes <http://example.org/req/12#PlannedProcess_0> .
+
+<http://example.org/req/12#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:RequirementSpecification ;
+    rdfs:comment "The cart shall have clear height of 1 to 1.4 meters over the ground to hold the robot, sensors and actuators that must work over the plants." ;
+    ns3:isAbout <http://example.org/req/12#Objective_0> ;
+    ns3:requirementSatisfiedBy <http://example.org/req/12#DesignSpec_0> .
+
+<http://example.org/req/12#VE_req0_c0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:ValueExpression ;
+    ns1:maxInclusive 1.4e+00,
+        1.4 ;
+    ns1:minInclusive 1.0,
+        1e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/12#Objective_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:DirectiveInformationContentEntity,
+        ns3:InformationContentEntity,
+        ns3:ObjectiveSpecification ;
+    ns3:isAchievedByAtSomeTime <http://example.org/req/12#PlannedProcess_0> ;
+    ns3:prescribes <http://example.org/req/12#Cart_0> .
+
+<http://example.org/req/12#PlannedProcess_0> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:PlannedProcess ;
+    ns3:prescribedBy <http://example.org/req/12#PlanSpec_0> .
+
+<http://example.org/req/12#Cart_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000030,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:MaterialArtifact ;
+    ns3:hasQuality <http://example.org/req/12#ClearHeight_0> .
+

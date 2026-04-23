@@ -1,0 +1,48 @@
+@prefix : <http://example.org/req/238#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:MechanicalAttachmentProcess a bfo:BFO_0000015 ;
+    bfo:BFO_0000057 :MainHoop,
+        :Monocoque .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "7.6 Main Hoop Attachment F.7.6.1 The Main Hoop must be mechanically attached to the monocoque a. Main Hoop mounting plates must be 2.0 mm minimum thickness steel b" ;
+    iof:requirementSatisfiedBy :DS_MainHoopAttachment .
+
+:DS_MainHoopAttachment a iof:DesignSpecification ;
+    iof:prescribes :MainHoop,
+        :MainHoopMountingPlate .
+
+:MainHoopMountingPlate a bfo:BFO_0000040 ;
+    iof:hasQuality :MainHoopMountingPlate_Material,
+        :MainHoopMountingPlate_Thickness .
+
+:MainHoopMountingPlate_Material a bfo:BFO_0000019 .
+
+:Monocoque a bfo:BFO_0000040 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :MainHoopMountingPlate_Thickness .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+:MainHoop a bfo:BFO_0000040 .
+
+:MainHoopMountingPlate_Thickness a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c0 .
+

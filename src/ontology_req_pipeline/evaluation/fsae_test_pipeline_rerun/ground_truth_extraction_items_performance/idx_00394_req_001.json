@@ -1,0 +1,46 @@
+{
+  "idx": 394,
+  "req_idx": 1,
+  "source_text": "Head Restraint Protection (if used) F.5.10 T.2.8.4 The Head Restraint, attachment and mounting must be strong enough to withstand a minimum force of: a. 900 N applied in a rearward direction b. 300 N applied in a lateral or vertical direction T.2.8.5 For all drivers, the Head Restraint must be located and adjusted where: a",
+  "requirement_text_pred": "The Head Restraint, attachment and mounting must be strong enough to withstand a minimum force of: b. 300 N applied in a lateral or vertical direction",
+  "prediction": {
+    "subject": "The Head Restraint, attachment and mounting",
+    "modality": "must",
+    "condition": "",
+    "action": "be strong enough to withstand",
+    "object": "a minimum force of: b. 300 N applied in a lateral or vertical direction"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "force",
+      "operator_pred": "ge",
+      "value_raw_pred": "minimum force of: b. 300 N",
+      "value_v1_pred": 300.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "N",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Force",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/N",
+      "normalized_si_value_primary_pred": 300.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/N",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

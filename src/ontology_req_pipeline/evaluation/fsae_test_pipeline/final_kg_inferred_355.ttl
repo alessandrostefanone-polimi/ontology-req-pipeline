@@ -1,0 +1,166 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/355#> a owl:Ontology .
+
+<http://example.org/req/355#AirGap_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "air gap between heat source and panel",
+        "air gap between heat source and panel"@en ;
+    ns1:componentPartOfAtSomeTime <http://example.org/req/355#Design_0> .
+
+<http://example.org/req/355#AirGap_0_Thickness> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "thickness of air gap between heat source and panel",
+        "thickness of air gap between heat source and panel"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/355#VE_req0_c5> ;
+    ns1:qualityOf <http://example.org/req/355#AirGap_0> .
+
+<http://example.org/req/355#ConductionIsolationMaterial_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "heat resistant conduction isolation material",
+        "heat resistant conduction isolation material"@en ;
+    ns1:componentPartOfAtSomeTime <http://example.org/req/355#Design_0> .
+
+<http://example.org/req/355#ConductionIsolationMaterial_0_Thickness> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "thickness of conduction isolation material",
+        "thickness of conduction isolation material"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/355#VE_req0_c4> ;
+    ns1:qualityOf <http://example.org/req/355#ConductionIsolationMaterial_0> .
+
+<http://example.org/req/355#ContactPanel_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "panel that the driver could contact (seat or floor)",
+        "panel that the driver could contact (seat or floor)"@en .
+
+<http://example.org/req/355#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/355#Design_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/355#Req_0> .
+
+<http://example.org/req/355#HeatSource_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "heat source (e.g., exhaust pipe, coolant hose/tube, accumulator container)",
+        "heat source (e.g., exhaust pipe, coolant hose/tube, accumulator container)"@en .
+
+<http://example.org/req/355#RadiationShield_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "solid metal heat shield",
+        "solid metal heat shield"@en ;
+    ns1:componentPartOfAtSomeTime <http://example.org/req/355#Design_0> .
+
+<http://example.org/req/355#RadiationShield_0_Thickness> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "thickness of solid metal heat shield",
+        "thickness of solid metal heat shield"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/355#VE_req0_c8> ;
+    ns1:qualityOf <http://example.org/req/355#RadiationShield_0> .
+
+<http://example.org/req/355#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The design must address all three types of heat transfer between the heat source (examples include but are not limited to: exhaust pipe, coolant hose/tube, Accumulator Container) and the panel that the driver could contact (seat or floor): a. Conduction Isolation by one of the following: - No direct contact between the heat source and the panel - A heat resistant, conduction isolation material with a minimum thickness of 8 mm between the heat source and the panel b. Convection Isolation by a minimum air gap of 25 mm between the heat source and the panel c. Radiation Isolation by one of the following: - A solid metal heat shield with a minimum thickness of 0.4 mm - $	$ Reflective foil or tape when combined with conduction insulation # T.1.7" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/355#DesignSpec_0> .
+
+<http://example.org/req/355#VE_req0_c4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "minimum thickness of conduction isolation material (>= 8 mm)",
+        "minimum thickness of conduction isolation material (>= 8 mm)"@en ;
+    ns2:minInclusive 8e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/355#ConductionIsolationMaterial_0_Thickness> .
+
+<http://example.org/req/355#VE_req0_c5> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "minimum air gap between heat source and panel (>= 25 mm)",
+        "minimum air gap between heat source and panel (>= 25 mm)"@en ;
+    ns2:minInclusive 2.5e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/355#AirGap_0_Thickness> .
+
+<http://example.org/req/355#VE_req0_c8> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "minimum thickness of solid metal heat shield (>= 0.4 mm)",
+        "minimum thickness of solid metal heat shield (>= 0.4 mm)"@en ;
+    ns2:minInclusive 4e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/355#RadiationShield_0_Thickness> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length>,
+        <http://qudt.org/vocab/quantitykind/Thickness> .
+
+<http://example.org/req/355#Design_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "vehicle interior thermal design",
+        "vehicle interior thermal design"@en ;
+    ns1:hasComponentPartAtSomeTime <http://example.org/req/355#ContactPanel_0>,
+        <http://example.org/req/355#HeatSource_0> .
+

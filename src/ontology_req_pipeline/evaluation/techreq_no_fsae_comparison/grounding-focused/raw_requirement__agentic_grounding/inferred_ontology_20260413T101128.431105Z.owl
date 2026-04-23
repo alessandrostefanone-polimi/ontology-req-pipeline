@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="file:/final_inferred.owl#"
+     xml:base="file:/final_inferred.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Core="https://spec.industrialontologies.org/ontology/core/Core/"
+     xmlns:qudt="http://qudt.org/schema/qudt/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="file:/final_inferred.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://qudt.org/schema/qudt/hasQuantityKind -->
+
+
+    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/hasQuantityKind"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/unit -->
+
+
+    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/unit"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasQuality -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasQuality"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtSomeTime -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtSomeTime"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/isAbout -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/isAbout"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/prescribes -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/prescribes"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/qualityOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/qualityOf"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement -->
+
+
+    <owl:ObjectProperty rdf:about="https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://qudt.org/schema/qudt/maxExclusive -->
+
+
+    <owl:DatatypeProperty rdf:about="http://qudt.org/schema/qudt/maxExclusive"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000001 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000001"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000002 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000002"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000004 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000019 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000020 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000030 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000030"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000031 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000031"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000040 -->
+
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000040"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/QuantityKind -->
+
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/QuantityKind"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/QuantityValue -->
+
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/QuantityValue"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/Unit -->
+
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/Unit"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/ObjectiveSpecification -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/ObjectiveSpecification"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification"/>
+    
+
+
+    <!-- https://spec.industrialontologies.org/ontology/core/Core/ValueExpression -->
+
+
+    <owl:Class rdf:about="https://spec.industrialontologies.org/ontology/core/Core/ValueExpression"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://example.org/req/23#CubeSat_0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/23#CubeSat_0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000030"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact"/>
+        <Core:hasQuality rdf:resource="http://example.org/req/23#VentableVolumeAreaRatio_0"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/23#DesignSpec_0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/23#DesignSpec_0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <Core:prescribes rdf:resource="http://example.org/req/23#CubeSat_0"/>
+        <Core:satisfiesRequirement rdf:resource="http://example.org/req/23#Req_0"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/23#Objective_0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/23#Objective_0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/DirectiveInformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ObjectiveSpecification"/>
+        <Core:prescribes rdf:resource="http://example.org/req/23#CubeSat_0"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/23#Req_0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/23#Req_0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification"/>
+        <Core:isAbout rdf:resource="http://example.org/req/23#Objective_0"/>
+        <Core:requirementSatisfiedBy rdf:resource="http://example.org/req/23#DesignSpec_0"/>
+        <rdfs:comment>The CubeSat shall be designed to accommodate ascent venting per ventable volume/area of less than 50.8 meters (2000 inches)</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/23#VE_req0_c0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/23#VE_req0_c0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+        <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity"/>
+        <rdf:type rdf:resource="https://spec.industrialontologies.org/ontology/core/Core/ValueExpression"/>
+        <qudt:unit rdf:resource="http://qudt.org/vocab/unit/M"/>
+        <qudt:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50.8</qudt:maxExclusive>
+    </owl:Thing>
+    
+
+
+    <!-- http://example.org/req/23#VentableVolumeAreaRatio_0 -->
+
+
+    <owl:Thing rdf:about="http://example.org/req/23#VentableVolumeAreaRatio_0">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <Core:hasValueExpressionAtSomeTime rdf:resource="http://example.org/req/23#VE_req0_c0"/>
+        <Core:qualityOf rdf:resource="http://example.org/req/23#CubeSat_0"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://qudt.org/vocab/quantitykind/Length -->
+
+
+    <owl:Thing rdf:about="http://qudt.org/vocab/quantitykind/Length">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityKind"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/M -->
+
+
+    <owl:Thing rdf:about="http://qudt.org/vocab/unit/M">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://qudt.org/schema/qudt/Unit"/>
+        <qudt:hasQuantityKind rdf:resource="http://qudt.org/vocab/quantitykind/Length"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.9.2018-12-12T06:37:32Z) https://github.com/owlcs/owlapi/ -->
+
+

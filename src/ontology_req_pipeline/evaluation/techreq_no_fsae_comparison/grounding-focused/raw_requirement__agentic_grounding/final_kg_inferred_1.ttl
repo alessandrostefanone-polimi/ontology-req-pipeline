@@ -1,0 +1,118 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/1#> a owl:Ontology .
+
+<http://example.org/req/1#CoolingCondition_None> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/1#NoExtraCooling_0> .
+
+<http://example.org/req/1#CoolingCondition_Water> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/1#WaterCooling_0> .
+
+<http://example.org/req/1#DesignSolution_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasQuality <http://example.org/req/1#TemperatureQuality_0> .
+
+<http://example.org/req/1#DesignSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns3:BFO_0000110 <http://example.org/req/1#Objective_0> ;
+    ns2:prescribes <http://example.org/req/1#DesignSolution_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/1#Req_0> .
+
+<http://example.org/req/1#NoExtraCooling_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/1#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "In design solutions the temperature range is from 0 °C up to 85 °C without any extra cooling of components, but with water cooling 125 °C." ;
+    ns2:isAbout <http://example.org/req/1#Objective_0> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/1#DesignSpec_0> .
+
+<http://example.org/req/1#VE_req0_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 85.0,
+        8.5e+01 ;
+    ns1:minInclusive 0.0,
+        0e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/DEG_C> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/1#TemperatureQuality_0> .
+
+<http://example.org/req/1#VE_req0_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:numericValue 125.0,
+        1.25e+02 ;
+    ns1:unit <http://qudt.org/vocab/unit/DEG_C> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/1#TemperatureQuality_0> .
+
+<http://example.org/req/1#WaterCooling_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/1#Objective_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    ns2:prescribes <http://example.org/req/1#TemperatureQuality_0> .
+
+<http://qudt.org/vocab/unit/DEG_C> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Temperature> .
+
+<http://example.org/req/1#TemperatureQuality_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/1#VE_req0_c0>,
+        <http://example.org/req/1#VE_req0_c1> .
+

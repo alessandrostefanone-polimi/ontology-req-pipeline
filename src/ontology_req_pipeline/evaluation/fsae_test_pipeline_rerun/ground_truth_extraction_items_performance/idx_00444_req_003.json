@@ -1,0 +1,24 @@
+{
+  "idx": 444,
+  "req_idx": 3,
+  "source_text": "The Motor Scatter Shield must be: - Made from aluminum alloy 6061-T6 or steel - Minimum thickness: 1.0 mm ## T.5.4 Coolant Fluid T.5.4.1 Water cooled engines must use only plain water with no additives of any kind T.5.4.2 Liquid coolant for electric motors, Accumulators or HV electronics must be one of: - plain water with no additives - oil T.5.4.3 (EV only)",
+  "requirement_text_pred": "T.5.4.2 Liquid coolant for electric motors, Accumulators or HV electronics must be one of: - plain water with no additives",
+  "prediction": {
+    "subject": "Liquid coolant for electric motors, Accumulators or HV electronics",
+    "modality": "must",
+    "condition": "",
+    "action": "be one of: - plain water with no additives",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": false,
+    "object_correct": false
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

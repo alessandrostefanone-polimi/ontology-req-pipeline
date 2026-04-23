@@ -1,0 +1,121 @@
+@prefix : <http://example.org/req/438#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum diameter 6 mm"@en ;
+    qudt:minInclusive 6e+00 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :FastenerDiameter_1 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum diameter 0.25 mm (normalized from 1/4\")"@en ;
+    qudt:minInclusive 2.5e-01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :FastenerDiameter_1 .
+
+:ActSpec_0 a iof:ActionSpecification ;
+    rdfs:label "Action specification: stay aligned with the belt"@en ;
+    iof:prescribes :AlignWithBeltProcess_0 .
+
+:ActSpec_2 a iof:ActionSpecification ;
+    rdfs:label "Action specification: cover drivetrain parts"@en ;
+    iof:prescribes :FingerGuardProcess_2 .
+
+:AlignmentProcessChar_0 a iof:ProcessCharacteristic ;
+    rdfs:label "Alignment with belt under all conditions"@en ;
+    iof:processCharacteristicOf :AlignWithBeltProcess_0 .
+
+:CoverageProcessChar_2 a iof:ProcessCharacteristic ;
+    rdfs:label "Coverage of spinning drivetrain parts while vehicle stationary with engine running"@en ;
+    iof:processCharacteristicOf :FingerGuardProcess_2 .
+
+:DS_0 a iof:DesignSpecification ;
+    rdfs:label "Design specification satisfying belt alignment requirement"@en ;
+    iof:prescribes :GuardOrShield_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DS_1 a iof:DesignSpecification ;
+    rdfs:label "Design specification for attachment fasteners"@en ;
+    bfo:BFO_0000110 :ObjSpec_1 ;
+    iof:prescribes :AttachmentFastener_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:EngineRunningProcess_2 a bfo:BFO_0000015 ;
+    rdfs:label "Engine running state"@en .
+
+:GuardOrShield_0 a bfo:BFO_0000040 ;
+    rdfs:label "Guard or shield assembly aligned with belt"@en .
+
+:PS_0 a iof:PlanSpecification ;
+    rdfs:label "Plan for alignment with belt"@en ;
+    bfo:BFO_0000110 :ActSpec_0,
+        :ObjSpec_0 ;
+    iof:prescribes :AlignWithBeltProcess_0 .
+
+:SpinProcess_2 a bfo:BFO_0000015 ;
+    rdfs:label "Spinning of drivetrain parts"@en .
+
+:VehicleStationaryProcess_2 a bfo:BFO_0000015 ;
+    rdfs:label "Vehicle stationary state"@en .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+:AttachmentFastener_1 a bfo:BFO_0000040 ;
+    rdfs:label "Fastener attaching scatter shields and guards"@en .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for belt alignment"@en ;
+    iof:prescribes :AlignmentProcessChar_0 .
+
+:ObjSpec_1 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for attachment fastener diameter"@en ;
+    iof:prescribes :FastenerDiameter_1 .
+
+:ObjSpec_2 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for finger guard coverage"@en ;
+    iof:prescribes :CoverageProcessChar_2 .
+
+:PS_2 a iof:PlanSpecification ;
+    rdfs:label "Plan for finger guards"@en ;
+    bfo:BFO_0000110 :ActSpec_2,
+        :ObjSpec_2 ;
+    iof:prescribes :FingerGuardProcess_2 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Stay aligned with the belt under all conditions T.5.2.9 Attachment Fasteners - All fasteners attaching scatter shields and guards must be 6 mm or 1/4\" minimum diameter Critical Fasteners, see T.8.2 T.5.2.10 Finger Guards a. Must cover any drivetrain parts that spin while the vehicle is stationary with the engine running" ;
+    iof:isAbout :ObjSpec_0,
+        :ObjSpec_1,
+        :ObjSpec_2 ;
+    iof:requirementSatisfiedBy :DS_0,
+        :DS_1,
+        :PS_2 .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:AlignWithBeltProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Process of staying aligned with the belt"@en ;
+    iof:prescribedBy :PS_0 .
+
+:FastenerDiameter_1 a bfo:BFO_0000019 ;
+    rdfs:label "Diameter of attachment fasteners"@en ;
+    iof:qualityOf :AttachmentFastener_1 .
+
+:FingerGuardProcess_2 a iof:PlannedProcess ;
+    rdfs:label "Process of finger guards covering drivetrain parts"@en ;
+    bfo:BFO_0000117 :EngineRunningProcess_2,
+        :SpinProcess_2,
+        :VehicleStationaryProcess_2 ;
+    iof:prescribedBy :PS_2 .
+

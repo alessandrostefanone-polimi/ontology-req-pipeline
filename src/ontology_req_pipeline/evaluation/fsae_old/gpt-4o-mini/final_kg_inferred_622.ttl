@@ -1,0 +1,88 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/622#> a owl:Ontology .
+
+<http://example.org/req/622#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Symbol specified in ISO 7010-W012 (triangle with black lightning bolt on yellow background) with triangle side length of 100 mm minimum c. Text \"Always Energized\" d. Text \"High Voltage\" if the voltage meets T.9.1.1 ## EV.4.4 Grounded Low Voltage System EV.4.4.1 The GLV System must be" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/622#DS_req0> .
+
+<http://example.org/req/622#voltage_condition> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "voltage condition" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/622#VE_req0_c0> ;
+    ns1:has_feature <http://example.org/req/622#GLV_System> .
+
+<http://example.org/req/622#voltage_meets_T9_1_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    rdfs:label "voltage meets T.9.1.1" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/622#VE_req0_c0> ;
+    ns1:has_feature <http://example.org/req/622#GLV_System> .
+
+<http://example.org/req/622#DS_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/622#VE_req0_c0> .
+
+<http://example.org/req/622#Text_Always_Energized> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "Text \"Always Energized\"" .
+
+<http://example.org/req/622#Text_High_Voltage> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "Text \"High Voltage\"" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/622#VE_req0_c0> ;
+    ns1:has_feature <http://example.org/req/622#GLV_System> .
+
+<http://example.org/req/622#triangle_side_length> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "triangle side length" .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/622#GLV_System> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "The GLV System" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/622#VE_req0_c0> ;
+    ns1:has_feature <http://example.org/req/622#Text_Always_Energized>,
+        <http://example.org/req/622#Text_High_Voltage> .
+
+<http://example.org/req/622#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:hasSimpleExpressionValue "100.0"^^xsd:float,
+        1e+02 ;
+    ns2:minInclusive 1e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/622#triangle_side_length> .
+

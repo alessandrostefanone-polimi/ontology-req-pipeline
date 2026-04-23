@@ -1,0 +1,243 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/403#> a owl:Ontology .
+
+<http://example.org/req/403#BrakePedalFabricatedSteelOrAl_2_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Brake Pedal fabricated from steel or aluminum",
+        "Brake Pedal fabricated from steel or aluminum"@en ;
+    ns1:prescribes <http://example.org/req/403#BrakePedal_2> .
+
+<http://example.org/req/403#BrakePedalMachinedSteelAlTi_2_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Brake Pedal machined from steel, aluminum or titanium",
+        "Brake Pedal machined from steel, aluminum or titanium"@en ;
+    ns1:prescribes <http://example.org/req/403#BrakePedal_2> .
+
+<http://example.org/req/403#BrakeSystem_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Brake System",
+        "Brake System"@en .
+
+<http://example.org/req/403#ChassisMounting_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Chassis mounting for brake pedal",
+        "Chassis mounting for brake pedal"@en .
+
+<http://example.org/req/403#CriticalFastenerClassification_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Brake fasteners classified as Critical Fasteners",
+        "Brake fasteners classified as Critical Fasteners"@en ;
+    ns1:prescribes <http://example.org/req/403#BrakeFastenerSet_1> .
+
+<http://example.org/req/403#FailureEvent_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Event ;
+    rdfs:label "Failure of Brake System, pedal box, chassis mounting, or pedal adjustment",
+        "Failure of Brake System, pedal box, chassis mounting, or pedal adjustment"@en ;
+    ns1:recognizedByAtSomeTime <http://example.org/req/403#FailureObserver_3> .
+
+<http://example.org/req/403#PedalAdjustment_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Pedal adjustment mechanism",
+        "Pedal adjustment mechanism"@en .
+
+<http://example.org/req/403#PedalBox_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Pedal box",
+        "Pedal box"@en .
+
+<http://example.org/req/403#Req3_Objective_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Brake Pedal design withstands minimum force without failure",
+        "Brake Pedal design withstands minimum force without failure"@en ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/403#WithstandForceProcess_3> ;
+    ns1:prescribes <http://example.org/req/403#WithstandForceProcess_3> .
+
+<http://example.org/req/403#VE_req3_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum withstand force 2000 N",
+        "Minimum withstand force 2000 N"@en ;
+    ns2:minInclusive 2e+03 ;
+    ns2:unit <http://qudt.org/vocab/unit/N> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/403#WithstandForceProcess_3> .
+
+<http://example.org/req/403#VehicleChassisLowerSurface_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Lower surface of chassis (side view reference)",
+        "Lower surface of chassis (side view reference)"@en .
+
+<http://example.org/req/403#BrakePedalDesign_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Brake Pedal and associated components design",
+        "Brake Pedal and associated components design"@en ;
+    ns1:prescribes <http://example.org/req/403#BrakePedalAssembly_3> .
+
+<http://example.org/req/403#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/403#BrakeFastenerSet_1>,
+        <http://example.org/req/403#BrakePedalDesign_3>,
+        <http://example.org/req/403#BrakePedal_2>,
+        <http://example.org/req/403#BrakeSystemPortion_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/403#Req_0> .
+
+<http://example.org/req/403#FailureObserver_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Agent ;
+    rdfs:label "Agent recognizing brake system failures",
+        "Agent recognizing brake system failures"@en .
+
+<http://example.org/req/403#Req0_Objective_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "No projection of sprung brake components below chassis in side view",
+        "No projection of sprung brake components below chassis in side view"@en ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/403#SideViewCondition_0> ;
+    ns1:prescribes <http://example.org/req/403#BrakeSystemPortion_0> .
+
+<http://example.org/req/403#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "In side view any portion of the Brake System that is mounted on the sprung part of the vehicle must not project below the lower surface of the chassis T.3.1.10 Fasteners in the Brake System are Critical Fasteners, see T.8.2 ## T.3.2 Brake Pedal, Pedal Box and Mounting T.3.2.1 The Brake Pedal must be one of: - Fabricated from steel or aluminum - Machined from steel, aluminum or titanium T.3.2.2 The Brake Pedal and associated components design must withstand a minimum force of 2000 N without any failure of the Brake System, pedal box, chassis mounting, or pedal adjustment" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/403#DesignSpec_0> .
+
+<http://example.org/req/403#SideViewCondition_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Side view observation condition",
+        "Side view observation condition"@en ;
+    ns1:achievesAtSomeTime <http://example.org/req/403#Req0_Objective_0> .
+
+<http://qudt.org/vocab/unit/N> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Force> .
+
+<http://example.org/req/403#BrakeFastenerSet_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Fasteners in the Brake System",
+        "Fasteners in the Brake System"@en .
+
+<http://example.org/req/403#BrakeSystemPortion_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Portion of Brake System on sprung part of vehicle",
+        "Portion of Brake System on sprung part of vehicle"@en .
+
+<http://example.org/req/403#BrakePedalAssembly_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Brake Pedal and associated components",
+        "Brake Pedal and associated components"@en .
+
+<http://example.org/req/403#BrakePedal_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Brake Pedal",
+        "Brake Pedal"@en .
+
+<http://example.org/req/403#WithstandForceProcess_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Application of force to brake pedal assembly",
+        "Application of force to brake pedal assembly"@en ;
+    ns1:hasInput <http://example.org/req/403#BrakePedalAssembly_3> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/403#BrakePedalAssembly_3> .
+

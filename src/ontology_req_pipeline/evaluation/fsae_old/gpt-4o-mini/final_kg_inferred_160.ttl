@@ -1,0 +1,112 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/160#> a owl:Ontology .
+
+<http://example.org/req/160#Chassis> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    ns2:hasComponentPartAtAllTimes <http://example.org/req/160#Front_Hoop>,
+        <http://example.org/req/160#Main_Hoop> .
+
+<http://example.org/req/160#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Document the adhesive choice, age and expiration date, substrate preparation, and the equivalency of the bonded joint in the SES F.5.5.3 The SES will reduce any referenced or tested adhesive values by $50 \\%$ ## F.5.6 Roll Hoops F.5.6.1 The Chassis must include both a Main Hoop and a Front Hoop. F.5.6.2" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/160#Spec_1> .
+
+<http://example.org/req/160#Front_Hoop> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialComponent ;
+    ns2:hasRole <http://example.org/req/160#Front_Hoop_Role> .
+
+<http://example.org/req/160#Front_Hoop_Role> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialComponentRole ;
+    rdfs:label "Front Hoop" .
+
+<http://example.org/req/160#Main_Hoop> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialComponent ;
+    ns2:hasRole <http://example.org/req/160#Main_Hoop_Role> .
+
+<http://example.org/req/160#Main_Hoop_Role> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialComponentRole ;
+    rdfs:label "Main Hoop" .
+
+<http://example.org/req/160#Process_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ManufacturingProcess,
+        ns2:PlannedProcess ;
+    ns2:hasInput <http://example.org/req/160#adhesive_values> ;
+    ns2:hasSpecifiedOutput <http://example.org/req/160#adhesive_values> .
+
+<http://example.org/req/160#Spec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/160#Process_1> .
+
+<http://qudt.org/vocab/unit/NUM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/ServiceFactor> .
+
+<http://example.org/req/160#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 5e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/160#adhesive_values> .
+
+<http://example.org/req/160#adhesive_values> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/160#VE_req1_c0> ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/160#VE_req1_c0> .
+

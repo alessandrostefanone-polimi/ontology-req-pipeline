@@ -1,0 +1,63 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/418#> a owl:Ontology .
+
+<http://example.org/req/418#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The circuit must have a pull-up or pull-down resistor to bring an open circuit input to $0 \\%$ Pedal Travel - An OEM pedal sensor with opposite slopes" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/418#PlanSpec_0> .
+
+<http://example.org/req/418#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/418#PlannedProcess_0> .
+
+<http://example.org/req/418#PlannedProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Circuit behavior with pull-up or pull-down resistor and pedal sensor" ;
+    ns2:hasSpecifiedOutput <http://example.org/req/418#PedalTravel_0> .
+
+<http://example.org/req/418#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "required resulting pedal travel = 0 % (duty cycle)" ;
+    ns1:maxInclusive 0e+00 ;
+    ns1:minInclusive 0e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/PERCENT> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/418#PedalTravel_0> .
+
+<http://qudt.org/vocab/unit/PERCENT> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/DutyCycle> .
+
+<http://example.org/req/418#PedalTravel_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "resulting pedal travel for open circuit input" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/418#VE_req0_c1> .
+

@@ -1,0 +1,64 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/937#> a owl:Ontology .
+
+<http://example.org/req/937#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Length of each run should be approximately 0.80 km D.11.1.2" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/937#RunLengthDesignSpec_0> .
+
+<http://example.org/req/937#RunLengthDesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/937#Run_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/937#Req_0> .
+
+<http://example.org/req/937#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 8e-01 ;
+    ns1:minInclusive 8e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/KiloM> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/937#RunLength_0> .
+
+<http://qudt.org/vocab/unit/KiloM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/PathLength> .
+
+<http://example.org/req/937#RunLength_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    rdfs:label "length of each run",
+        "length of each run"@en ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/937#VE_req0_c0> ;
+    ns2:processCharacteristicOf <http://example.org/req/937#Run_0> .
+
+<http://example.org/req/937#Run_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "run (process) constrained by requirement 0",
+        "run (process) constrained by requirement 0"@en ;
+    ns2:hasProcessCharacteristic <http://example.org/req/937#RunLength_0> .
+

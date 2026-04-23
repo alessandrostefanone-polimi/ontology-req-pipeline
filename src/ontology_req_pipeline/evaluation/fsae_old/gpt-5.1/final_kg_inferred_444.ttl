@@ -1,0 +1,218 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix ns3: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/444#> a owl:Ontology .
+
+<http://example.org/req/444#MotorScatterShield_MaterialChoice> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Motor Scatter Shield material (6061-T6 or steel)" ;
+    ns1:qualityOf <http://example.org/req/444#MotorScatterShield> .
+
+<http://example.org/req/444#VE_req1_c0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Required thickness of Motor Scatter Shield (1.0 mm)" ;
+    ns3:maxInclusive 1e+00 ;
+    ns3:minInclusive 1e+00 ;
+    ns3:unit <http://qudt.org/vocab/unit/MM> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/444#Thickness_MotorScatterShield> .
+
+<http://example.org/req/444#CoolantUseProcess_ElectricMotors> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Coolant use process for electric motors / accumulators / HV electronics" ;
+    ns2:BFO_0000057 <http://example.org/req/444#Coolant_Oil>,
+        <http://example.org/req/444#Coolant_Water_NoAdditives>,
+        <http://example.org/req/444#ElectricMotorOrHVSystem> ;
+    ns1:prescribedBy <http://example.org/req/444#PS_CoolantUse_ElectricMotors> .
+
+<http://example.org/req/444#CoolantUseProcess_Engines> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Coolant use process for water cooled engines" ;
+    ns2:BFO_0000057 <http://example.org/req/444#Coolant_Water_NoAdditives>,
+        <http://example.org/req/444#WaterCooledEngine> ;
+    ns1:prescribedBy <http://example.org/req/444#PS_CoolantUse_Engines> .
+
+<http://example.org/req/444#Coolant_Oil> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "oil coolant" .
+
+<http://example.org/req/444#DS_MotorScatterShield> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design specification – Motor Scatter Shield" ;
+    ns1:prescribes <http://example.org/req/444#Mat_Al6061T6>,
+        <http://example.org/req/444#Mat_Steel>,
+        <http://example.org/req/444#MotorScatterShield> ;
+    ns1:satisfiesRequirement <http://example.org/req/444#Req_0> .
+
+<http://example.org/req/444#Mat_Al6061T6> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "aluminum alloy 6061-T6" .
+
+<http://example.org/req/444#Mat_Steel> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "steel" .
+
+<http://example.org/req/444#ObjSpec_MotorScatterShield> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective – Motor Scatter Shield properties" ;
+    ns1:prescribes <http://example.org/req/444#MotorScatterShield> .
+
+<http://example.org/req/444#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The Motor Scatter Shield must be: - Made from aluminum alloy 6061-T6 or steel - Minimum thickness: 1.0 mm ## T.5.4 Coolant Fluid T.5.4.1 Water cooled engines must use only plain water with no additives of any kind T.5.4.2 Liquid coolant for electric motors, Accumulators or HV electronics must be one of: - plain water with no additives - oil T.5.4.3 (EV only)" ;
+    ns1:isAbout <http://example.org/req/444#ObjSpec_CoolantUse_ElectricMotors>,
+        <http://example.org/req/444#ObjSpec_CoolantUse_Engines>,
+        <http://example.org/req/444#ObjSpec_MotorScatterShield> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/444#DS_MotorScatterShield>,
+        <http://example.org/req/444#PS_CoolantUse_ElectricMotors>,
+        <http://example.org/req/444#PS_CoolantUse_Engines> .
+
+<http://example.org/req/444#Thickness_MotorScatterShield> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Motor Scatter Shield thickness" ;
+    ns1:qualityOf <http://example.org/req/444#MotorScatterShield> .
+
+<http://qudt.org/vocab/unit/MM> ns3:hasQuantityKind <http://qudt.org/vocab/quantitykind/Thickness> .
+
+<http://example.org/req/444#Coolant_Water_NoAdditives> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "plain water with no additives" .
+
+<http://example.org/req/444#ElectricMotorOrHVSystem> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000027,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:EngineeredSystem,
+        ns1:System ;
+    rdfs:label "electric motor / accumulator / HV electronics system" .
+
+<http://example.org/req/444#ObjSpec_CoolantUse_ElectricMotors> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective – liquid coolant for electric motors / accumulators / HV electronics" ;
+    ns1:prescribes <http://example.org/req/444#ElectricMotorOrHVSystem> .
+
+<http://example.org/req/444#ObjSpec_CoolantUse_Engines> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective – coolant for water cooled engines" ;
+    ns1:prescribes <http://example.org/req/444#WaterCooledEngine> .
+
+<http://example.org/req/444#PS_CoolantUse_ElectricMotors> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification – coolant use for electric motors / accumulators / HV electronics" ;
+    ns2:BFO_0000110 <http://example.org/req/444#ObjSpec_CoolantUse_ElectricMotors> ;
+    ns1:prescribes <http://example.org/req/444#CoolantUseProcess_ElectricMotors> .
+
+<http://example.org/req/444#PS_CoolantUse_Engines> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification – coolant use for water cooled engines" ;
+    ns2:BFO_0000110 <http://example.org/req/444#ObjSpec_CoolantUse_Engines> ;
+    ns1:prescribes <http://example.org/req/444#CoolantUseProcess_Engines> .
+
+<http://example.org/req/444#WaterCooledEngine> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000027,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:EngineeredSystem,
+        ns1:System ;
+    rdfs:label "water cooled engine" .
+
+<http://example.org/req/444#MotorScatterShield> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000030,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Motor Scatter Shield" .
+

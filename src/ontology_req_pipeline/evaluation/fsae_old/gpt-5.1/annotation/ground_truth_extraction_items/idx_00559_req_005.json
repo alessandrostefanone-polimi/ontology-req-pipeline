@@ -1,0 +1,45 @@
+{
+  "idx": 559,
+  "req_idx": 5,
+  "source_text": "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6",
+  "requirement_text_pred": "Loss of signal from the throttle sensor(s) for more than 100 msec",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "",
+    "object": "Loss of signal from the throttle sensor(s) for more than 100 msec"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "duration",
+      "operator_pred": "gt",
+      "value_raw_pred": "more than 100 msec",
+      "value_v1_pred": 100.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "msec",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Time",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/SEC",
+      "normalized_si_value_primary_pred": 100.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/SEC",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": true,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,23 @@
+{
+  "idx": 730,
+  "req_idx": 0,
+  "source_text": "The temperature sensor used must be in direct contact with one of: - The negative terminal itself - The negative terminal busbar less than 10 mm away from the cell terminal EV.7.5.5 For lithium based cells, a",
+  "requirement_text_pred": "The temperature sensor used must be in direct contact with one of the negative terminal itself",
+  "prediction": {
+    "subject": "The temperature sensor used",
+    "modality": "must",
+    "condition": "",
+    "action": "be in direct contact",
+    "object": "with one of the negative terminal itself"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,66 @@
+{
+  "idx": 728,
+  "req_idx": 0,
+  "source_text": "The voltage rating of the Overcurrent Protection must be equal to or higher than the maximum segment voltage EV.7.4.5 Overcurrent Protection is not required on a voltage sense wire if all three of the following conditions are met: - AMS is a distributed AMS system (one cell measurement per board) - $\\quad$ Sense wire length is less than 25 mm - AMS board has Overcurrent Protection # EV.7.5 Accumulator Temperature EV.7.5.1",
+  "requirement_text_pred": "The voltage rating of the Overcurrent Protection must be equal to or higher than the maximum segment voltage.",
+  "prediction": {
+    "subject": "The voltage rating of the Overcurrent Protection",
+    "modality": "must",
+    "condition": "",
+    "action": "be equal to or higher than",
+    "object": "the maximum segment voltage"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "maximum segment voltage",
+      "operator_pred": "ge",
+      "value_raw_pred": "the maximum segment voltage",
+      "value_v1_pred": null,
+      "value_v2_pred": null,
+      "unit_text_pred": null,
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    },
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "voltage rating",
+      "operator_pred": "eq",
+      "value_raw_pred": "equal to or higher than",
+      "value_v1_pred": null,
+      "value_v2_pred": null,
+      "unit_text_pred": null,
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

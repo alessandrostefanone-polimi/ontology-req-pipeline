@@ -1,0 +1,76 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/93#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req0_Constraint0 a owl:NamedIndividual ;
+    rdfs:comment "req_idx=0, constraint_idx=0; attachment type of steering rack to chassis is mechanical (relation/enum constraint)." ;
+    iof:isAbout :MechanicalAttachment_SR_to_Chassis ;
+    iof:isSubjectOf :Req_0 .
+
+:Req0_Constraint1 a owl:NamedIndividual ;
+    rdfs:comment "req_idx=0, constraint_idx=1; steering rack is attached to Chassis F.5.14 V.3.2.7 (relation/entity_ref constraint)." ;
+    iof:isAbout :Chassis_F_5_14_V_3_2_7,
+        :SteeringRack ;
+    iof:isSubjectOf :Req_0 .
+
+:Req1_Constraint0 a owl:NamedIndividual ;
+    rdfs:comment "req_idx=1, constraint_idx=0; all joints between components attaching steering wheel to rack are mechanical (enum constraint)." ;
+    iof:isAbout :JointChain_SW_to_SR ;
+    iof:isSubjectOf :Req_0 .
+
+:Req1_Constraint1 a owl:NamedIndividual ;
+    rdfs:comment "req_idx=1, constraint_idx=1; joints must be visible at Technical Inspection (boolean/textual constraint)." ;
+    iof:isAbout :JointChain_SW_to_SR,
+        :TechnicalInspection,
+        :VisibilityAtTechnicalInspection ;
+    iof:isSubjectOf :Req_0 .
+
+:DS_AttachmentSteeringRackToChassis a iof:DesignSpecification ;
+    iof:prescribes :Chassis_F_5_14_V_3_2_7,
+        :SteeringRack ;
+    iof:satisfiesRequirement :Req_0 .
+
+:MechanicalAttachment_SR_to_Chassis a bfo:BFO_0000015 ;
+    rdfs:label "mechanical attachment between steering rack and chassis"@en ;
+    bfo:BFO_0000057 :Chassis_F_5_14_V_3_2_7,
+        :SteeringRack .
+
+:PS_JointsSteeringWheelToRack a iof:PlanSpecification ;
+    iof:prescribes :JointChain_SW_to_SR,
+        :TechnicalInspection ;
+    iof:satisfiesRequirement :Req_0 .
+
+:SteeringWheel a bfo:BFO_0000040 ;
+    rdfs:label "steering wheel"@en .
+
+:VisibilityAtTechnicalInspection a iof:ProcessCharacteristic ;
+    rdfs:label "visibility of joints at Technical Inspection"@en ;
+    iof:processCharacteristicOf :TechnicalInspection .
+
+:Chassis_F_5_14_V_3_2_7 a bfo:BFO_0000040 ;
+    rdfs:label "Chassis F.5.14 V.3.2.7"@en .
+
+:JointChain_SW_to_SR a bfo:BFO_0000040 ;
+    rdfs:label "joints between all components attaching the steering wheel to the steering rack"@en ;
+    iof:hasComponentPartAtSomeTime :SteeringRack,
+        :SteeringWheel .
+
+:TechnicalInspection a bfo:BFO_0000015 ;
+    rdfs:label "Technical Inspection"@en .
+
+:SteeringRack a bfo:BFO_0000040 ;
+    rdfs:label "steering rack"@en .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The steering rack must be mechanically attached to the Chassis F.5.14 V.3.2.7 Joints between all components attaching the Steering Wheel to the steering rack must be mechanical and be visible at Technical Inspection" ;
+    iof:requirementSatisfiedBy :DS_AttachmentSteeringRackToChassis,
+        :PS_JointsSteeringWheelToRack .
+

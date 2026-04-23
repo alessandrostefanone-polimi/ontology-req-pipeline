@@ -1,0 +1,23 @@
+{
+  "idx": 658,
+  "req_idx": 1,
+  "source_text": "Available during charging of any Accumulator(s) EV.5.8.3 The TSMPs must be: a. 4 mm shrouded banana jacks rated to an appropriate voltage level b. Color",
+  "requirement_text_pred": "Color.",
+  "prediction": {
+    "subject": "The TSMPs",
+    "modality": "must",
+    "condition": "",
+    "action": "be",
+    "object": "Color"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

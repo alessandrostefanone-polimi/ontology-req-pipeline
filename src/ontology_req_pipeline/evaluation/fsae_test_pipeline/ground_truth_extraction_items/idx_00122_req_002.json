@@ -1,0 +1,24 @@
+{
+  "idx": 122,
+  "req_idx": 2,
+  "source_text": "Refer to F.4.3.4 a. Test panels must: - Measure one of the two options: $138 \\mathrm{~mm} \\times 500 \\mathrm{~mm}$ OR $275 \\mathrm{~mm} \\times 500 \\mathrm{~mm}$ - Be supported by a span distance of 400 mm - Have equal surface area for the top and bottom skin - Have bare edges, without skin material b",
+  "requirement_text_pred": "Test panels must: - Have equal surface area for the top and bottom skin",
+  "prediction": {
+    "subject": "Test panels",
+    "modality": "must",
+    "condition": "",
+    "action": "Have",
+    "object": "equal surface area for the top and bottom skin"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

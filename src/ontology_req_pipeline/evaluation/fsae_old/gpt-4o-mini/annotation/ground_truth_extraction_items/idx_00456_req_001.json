@@ -1,0 +1,23 @@
+{
+  "idx": 456,
+  "req_idx": 1,
+  "source_text": "Insulation - The gas cylinder/tank must be insulated from any heat sources T.6.1.6 Cylinder Material - gas cylinders/tanks in a position 150 mm or less from an exhaust system must meet one of the two: - Made from metal",
+  "requirement_text_pred": "Gas cylinders/tanks in a position 150 mm or less from an exhaust system must meet one of the two.",
+  "prediction": {
+    "subject": "Gas cylinders/tanks in a position 150 mm or less from an exhaust system",
+    "modality": "must",
+    "condition": "",
+    "action": "meet",
+    "object": "one of the two"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

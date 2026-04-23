@@ -1,0 +1,23 @@
+{
+  "idx": 318,
+  "req_idx": 0,
+  "source_text": "Alternate materials Equivalent to 2 mm thickness steel F.10.5.5 Teams must justify the Accumulator Container attachment using one of the two methods: - Corner Attachments and Analysis per F.10.5.6 and F.10.5.8 - Load Based Analysis per F.10.5.7 and F.10.5.8 F.10.5.6 Accumulator Attachment - Corner Attachments a. Eight or more attachments are required for any configuration",
+  "requirement_text_pred": "Teams must justify the Accumulator Container attachment using one of the two methods:",
+  "prediction": {
+    "subject": "Teams",
+    "modality": "must",
+    "condition": "",
+    "action": "justify",
+    "object": "the Accumulator Container attachment using one of the two methods:"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

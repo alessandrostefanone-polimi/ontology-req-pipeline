@@ -1,0 +1,46 @@
+{
+  "idx": 937,
+  "req_idx": 0,
+  "source_text": "Length of each run should be approximately 0.80 km D.11.1.2",
+  "requirement_text_pred": "Length of each run should be approximately 0.80 km D.11.1.2",
+  "prediction": {
+    "subject": "Length of each run",
+    "modality": "should",
+    "condition": "",
+    "action": "be approximately",
+    "object": "0.80 km D.11.1.2"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "length",
+      "operator_pred": "eq",
+      "value_raw_pred": "approximately 0.80 km",
+      "value_v1_pred": 0.8,
+      "value_v2_pred": null,
+      "unit_text_pred": "km",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/PathLength",
+      "normalized_unit_uri_pred": "KiloM",
+      "normalized_si_value_primary_pred": 0.8,
+      "normalized_si_unit_primary_pred": "KiloM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

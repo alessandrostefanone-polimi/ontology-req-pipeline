@@ -1,0 +1,72 @@
+@prefix : <http://example.org/req/10#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:ActionSpec_0 a iof:ActionSpecification ;
+    iof:prescribes :MoveProcess_0 .
+
+:CropRowHeight_0 a bfo:BFO_0000019 ;
+    iof:isValueExpressionOfAtSomeTime :VE_req0_c1 .
+
+:CropRowLength_0 a bfo:BFO_0000019 ;
+    iof:isValueExpressionOfAtSomeTime :VE_req0_c2 .
+
+:CropRowWidth_0 a bfo:BFO_0000019 ;
+    iof:isValueExpressionOfAtSomeTime :VE_req0_c0 .
+
+:CropRow_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :CropRowHeight_0,
+        :CropRowLength_0,
+        :CropRowWidth_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ActionSpec_0,
+        :ObjSpec_0 ;
+    iof:prescribes :MoveProcess_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The system shall move along crop rows with widths in the range of 1-1.4 meters, heights between 0.2 and 0.6 meters and lengths between 10 and 100 meters." ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:System_0 a iof:EngineeredSystem .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.4 ;
+    qudt:minInclusive 1.0 ;
+    qudt:unit qudtu:M .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 0.6 ;
+    qudt:minInclusive 0.2 ;
+    qudt:unit qudtu:M .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 100.0 ;
+    qudt:minInclusive 10.0 ;
+    qudt:unit qudtu:M .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :MoveProcess_0 .
+
+:MoveProcess_0 a iof:MaterialLocationChangeProcess ;
+    bfo:BFO_0000057 :CropRow_0 ;
+    iof:hasInput :System_0 .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+

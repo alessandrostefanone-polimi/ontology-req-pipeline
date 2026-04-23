@@ -1,0 +1,45 @@
+{
+  "idx": 856,
+  "req_idx": 0,
+  "source_text": "Removed items will be credited $75 \\%$ of the table cost: - ( $0.75 \\times$ Cost) ### 5.3.8 Cost Tables 5.3.8.1 All costs in the Cost Report must come from the standardized Cost Tables. 5.3.8.2",
+  "requirement_text_pred": "Removed items will be credited $75 \\%$ of the table cost.",
+  "prediction": {
+    "subject": "Removed items",
+    "modality": "will",
+    "condition": "",
+    "action": "be credited",
+    "object": "$75 \\%$ of the table cost"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "credit amount",
+      "operator_pred": "eq",
+      "value_raw_pred": "75 %",
+      "value_v1_pred": 75.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/ServiceFactor",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/PERCENT",
+      "normalized_si_value_primary_pred": 0.75,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/NUM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

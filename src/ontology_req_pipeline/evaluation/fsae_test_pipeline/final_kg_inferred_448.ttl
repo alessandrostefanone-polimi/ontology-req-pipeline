@@ -1,0 +1,156 @@
+@prefix ns1: <http://purl.obolibrary.org/obo/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns3: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/448#> a owl:Ontology .
+
+<http://example.org/req/448#BellyPan_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000030,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact .
+
+<http://example.org/req/448#Req_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "5.5.3 Flammable liquid and vapors or other leaks must not collect or contact the driver T.5.5.4 Two holes of minimum diameter 25 mm each must be provided in the structure or belly pan at the locations: a" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/448#DesignSpec_0>,
+        <http://example.org/req/448#PlanSpec_0> .
+
+<http://example.org/req/448#Structure_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000030,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact .
+
+<http://example.org/req/448#Driver_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000030,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:Person .
+
+<http://example.org/req/448#FlammableLeak_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/448#Hole_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasQuality <http://example.org/req/448#Hole_0_Diameter> .
+
+<http://example.org/req/448#Hole_1> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasQuality <http://example.org/req/448#Hole_1_Diameter> .
+
+<http://example.org/req/448#LeakProcess_0> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    ns1:BFO_0000057 <http://example.org/req/448#Driver_0>,
+        <http://example.org/req/448#FlammableLeak_0> .
+
+<http://example.org/req/448#PlanSpec_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/448#LeakProcess_0> .
+
+<http://example.org/req/448#VE_req1_c0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns3:maxInclusive 2e+00 ;
+    ns3:minInclusive 2e+00 ;
+    ns3:unit <http://qudt.org/vocab/unit/COUNT> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/448#HoleSet_0> .
+
+<http://example.org/req/448#VE_req1_c1> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns3:minInclusive 2.5e+01 ;
+    ns3:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/448#Hole_0_Diameter>,
+        <http://example.org/req/448#Hole_1_Diameter> .
+
+<http://qudt.org/vocab/unit/COUNT> ns3:hasQuantityKind <http://qudt.org/vocab/quantitykind/CharacteristicNumber> .
+
+<http://qudt.org/vocab/unit/MilliM> ns3:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+
+<http://example.org/req/448#DesignSpec_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/448#HoleSet_0> .
+
+<http://example.org/req/448#HoleSet_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasComponentPartAtSomeTime <http://example.org/req/448#Hole_0>,
+        <http://example.org/req/448#Hole_1> ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/448#VE_req1_c0>,
+        <http://example.org/req/448#VE_req1_c1> ;
+    ns2:prescribedBy <http://example.org/req/448#DesignSpec_0> .
+
+<http://example.org/req/448#Hole_0_Diameter> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000019,
+        ns1:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/448#Hole_1_Diameter> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000019,
+        ns1:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing .
+

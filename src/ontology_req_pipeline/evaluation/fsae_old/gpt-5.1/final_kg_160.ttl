@@ -1,0 +1,121 @@
+@prefix : <http://example.org/req/160#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Document the adhesive choice, age and expiration date, substrate preparation, and the equivalency of the bonded joint in the SES F.5.5.3 The SES will reduce any referenced or tested adhesive values by $50 \\%$ ## F.5.6 Roll Hoops F.5.6.1 The Chassis must include both a Main Hoop and a Front Hoop. F.5.6.2" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:SES_F553 a iof:InformationContentEntity ;
+    rdfs:label "SES F.5.5.3"@en .
+
+:ActSpec_Req0 a iof:ActionSpecification ;
+    iof:prescribes :PlanProc_Req0 .
+
+:ActSpec_Req1 a iof:ActionSpecification ;
+    iof:prescribes :PlanProc_Req1 .
+
+:ActSpec_Req3 a iof:ActionSpecification ;
+    iof:prescribes :PlanProc_Req3 .
+
+:AdhesiveAgeAndExpiration a bfo:BFO_0000019 ;
+    rdfs:label "adhesive age and expiration date"@en ;
+    iof:qualityOf :SES_Context .
+
+:AdhesiveChoice a bfo:BFO_0000019 ;
+    rdfs:label "adhesive choice"@en ;
+    iof:qualityOf :SES_Context .
+
+:Agent_Unknown a iof:Agent ;
+    rdfs:label "unspecified agent"@en .
+
+:BondedJointEquivalency a bfo:BFO_0000019 ;
+    rdfs:label "equivalency of bonded joint in SES F.5.5.3"@en ;
+    iof:qualityOf :SES_Context .
+
+:Doc_SES_F553 a iof:InformationContentEntity ;
+    rdfs:label "SES F.5.5.3 documentation"@en ;
+    iof:describes :AdhesiveAgeAndExpiration,
+        :AdhesiveChoice,
+        :BondedJointEquivalency,
+        :SubstratePreparation .
+
+:FrontHoop a bfo:BFO_0000040 ;
+    rdfs:label "Front Hoop"@en .
+
+:MainHoop a bfo:BFO_0000040 ;
+    rdfs:label "Main Hoop"@en .
+
+:SES_Document a iof:InformationContentEntity ;
+    rdfs:label "The SES"@en .
+
+:SubstratePreparation a bfo:BFO_0000019 ;
+    rdfs:label "substrate preparation"@en ;
+    iof:qualityOf :SES_Context .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 5e+01 ;
+    qudt:minInclusive 5e+01 ;
+    qudt:unit qudtu:PERCENT ;
+    iof:isValueExpressionOfAtAllTimes :ReductionFactor .
+
+qudtqk:ServiceFactor a qudt:QuantityKind .
+
+qudtu:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:ServiceFactor .
+
+:Chassis a bfo:BFO_0000040 ;
+    rdfs:label "Chassis"@en ;
+    iof:hasComponentPartAtSomeTime :FrontHoop,
+        :MainHoop .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :PlanProc_Req0,
+        :PlanProc_Req1,
+        :PlanProc_Req3 .
+
+:ReductionFactor a iof:ProcessCharacteristic ;
+    rdfs:label "reduction factor for adhesive values"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req1_c0 ;
+    iof:processCharacteristicOf :PlanProc_Req1 .
+
+:PlanProc_Req0 a iof:PlannedProcess ;
+    rdfs:label "Document SES adhesive information"@en ;
+    bfo:BFO_0000057 :Agent_Unknown ;
+    iof:hasSpecifiedOutput :Doc_SES_F553 ;
+    iof:prescribedBy :Spec_0 .
+
+:PlanProc_Req3 a iof:PlannedProcess ;
+    rdfs:label "Include main and front hoops in chassis"@en ;
+    bfo:BFO_0000057 :Chassis ;
+    iof:hasSpecifiedOutput :Chassis ;
+    iof:prescribedBy :Spec_0 .
+
+:PlanProc_Req1 a iof:PlannedProcess ;
+    rdfs:label "SES adhesive value reduction"@en ;
+    bfo:BFO_0000057 :SES_Document ;
+    iof:hasProcessCharacteristic :ReductionFactor ;
+    iof:prescribedBy :Spec_0 .
+
+:SES_Context a bfo:BFO_0000040 ;
+    rdfs:label "SES adhesive system context"@en .
+
+:Spec_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ActSpec_Req0,
+        :ActSpec_Req1,
+        :ActSpec_Req3,
+        :ObjSpec_0 ;
+    iof:prescribes :PlanProc_Req0,
+        :PlanProc_Req1,
+        :PlanProc_Req3 .
+

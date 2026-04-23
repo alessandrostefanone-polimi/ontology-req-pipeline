@@ -1,0 +1,69 @@
+@prefix : <http://example.org/req/456#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:ExhaustSystem_0 a bfo:BFO_0000040 .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :GasCylinderTank_0 .
+
+:DS_0_req0 a iof:DesignSpecification ;
+    iof:prescribes :GasCylinderTank_0 ;
+    iof:satisfiesRequirement :Req_0_req0 .
+
+:DS_0_req1 a iof:DesignSpecification ;
+    iof:prescribes :GasCylinderTank_0 ;
+    iof:satisfiesRequirement :Req_0_req1 .
+
+:DS_0_req2 a iof:DesignSpecification ;
+    iof:prescribes :GasCylinderTank_0 ;
+    iof:satisfiesRequirement :Req_0_req2 .
+
+:Distance_GasCylinder_Exhaust a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c1 ;
+    iof:qualityOf :GasCylinderTank_0 .
+
+:ObjSpec_req0 a iof:ObjectiveSpecification .
+
+:ObjSpec_req1 a iof:ObjectiveSpecification .
+
+:ObjSpec_req2 a iof:ObjectiveSpecification .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Insulation - The gas cylinder/tank must be insulated from any heat sources T.6.1.6 Cylinder Material - gas cylinders/tanks in a position 150 mm or less from an exhaust system must meet one of the two: - Made from metal" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:Req_0_req0 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_req0 ;
+    iof:requirementSatisfiedBy :DS_0_req0 .
+
+:Req_0_req1 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_req1 ;
+    iof:requirementSatisfiedBy :DS_0_req1 .
+
+:Req_0_req2 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_req2 ;
+    iof:requirementSatisfiedBy :DS_0_req2 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.5e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :Distance_GasCylinder_Exhaust .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:GasCylinderTank_0 a bfo:BFO_0000040 ;
+    iof:satisfiesRequirement :Req_0 .
+

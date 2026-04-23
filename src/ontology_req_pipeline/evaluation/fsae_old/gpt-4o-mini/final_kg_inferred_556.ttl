@@ -1,0 +1,72 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/556#> a owl:Ontology .
+
+<http://example.org/req/556#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Brake System Plausibility Device - BSPD IC.4.8.1 A standalone nonprogrammable circuit must be used to monitor the electronic throttle control" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/556#Spec_0> .
+
+<http://example.org/req/556#Action_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/556#Usage_0> .
+
+<http://example.org/req/556#Circuit_0> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "A standalone nonprogrammable circuit" .
+
+<http://example.org/req/556#MonitoringFunction_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    ns1:hasFeature <http://example.org/req/556#ThrottleControl_0> .
+
+<http://example.org/req/556#Objective_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:hasFeature <http://example.org/req/556#MonitoringFunction_0> .
+
+<http://example.org/req/556#Spec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/556#Action_0>,
+        <http://example.org/req/556#Objective_0> .
+
+<http://example.org/req/556#ThrottleControl_0> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "electronic throttle control" .
+
+<http://example.org/req/556#Usage_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    ns1:hasFeature <http://example.org/req/556#Circuit_0> .
+

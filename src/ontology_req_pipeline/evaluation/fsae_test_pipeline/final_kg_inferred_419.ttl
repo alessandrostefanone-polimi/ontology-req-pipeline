@@ -1,0 +1,119 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/419#> a owl:Ontology .
+
+<http://example.org/req/419#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The intent is that in a short circuit the APPSs will only agree at 0\\% Pedal Travel T.4.2.4 Implausibility is defined as a deviation of more than 10\\% Pedal Travel between the sensors or other failure as defined in this Section T.4.2" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/419#Plan_0> .
+
+<http://example.org/req/419#APPSs_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "APPSs (accelerator pedal position sensors system)",
+        "APPSs (accelerator pedal position sensors system)"@en .
+
+<http://example.org/req/419#Deviation_Quality_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "deviation between the sensors (Pedal Travel)",
+        "deviation between the sensors (Pedal Travel)"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/419#VE_req0_c3> ;
+    ns1:qualityOf <http://example.org/req/419#SensorSet_0> .
+
+<http://example.org/req/419#ImplausibilityProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "implausibility condition process (deviation between sensors)",
+        "implausibility condition process (deviation between sensors)"@en .
+
+<http://example.org/req/419#PedalTravel_Quality_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Pedal Travel",
+        "Pedal Travel"@en ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/419#VE_req0_c1> ;
+    ns1:qualityOf <http://example.org/req/419#APPSs_0> .
+
+<http://example.org/req/419#Plan_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/419#ImplausibilityProcess_0>,
+        <http://example.org/req/419#ShortCircuitProcess_0> .
+
+<http://example.org/req/419#SensorSet_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "set of sensors for pedal travel measurement",
+        "set of sensors for pedal travel measurement"@en .
+
+<http://example.org/req/419#ShortCircuitProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "short circuit process (context for APPS agreement requirement)",
+        "short circuit process (context for APPS agreement requirement)"@en .
+
+<http://example.org/req/419#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for 0% Pedal Travel (APPSs agreement point)",
+        "Value expression for 0% Pedal Travel (APPSs agreement point)"@en ;
+    ns2:maxInclusive 0e+00 ;
+    ns2:minInclusive 0e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/PERCENT> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/419#PedalTravel_Quality_0> .
+
+<http://example.org/req/419#VE_req0_c3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for deviation between sensors > 10% Pedal Travel",
+        "Value expression for deviation between sensors > 10% Pedal Travel"@en ;
+    ns2:minExclusive 1e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/PERCENT> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/419#Deviation_Quality_0> .
+
+<http://qudt.org/vocab/unit/PERCENT> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/DimensionlessRatio> .
+

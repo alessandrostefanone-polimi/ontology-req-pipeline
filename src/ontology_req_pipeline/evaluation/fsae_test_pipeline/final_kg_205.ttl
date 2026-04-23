@@ -1,0 +1,63 @@
+@prefix : <http://example.org/req/205#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:FrontBulkhead a bfo:BFO_0000040 ;
+    rdfs:label "Front Bulkhead"@en .
+
+:FrontHoop a bfo:BFO_0000040 ;
+    rdfs:label "Front Hoop"@en .
+
+:UpperSideImpactMember a bfo:BFO_0000040 ;
+    rdfs:label "Upper Side Impact member"@en .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "distance <= 50 mm from top surface of Front Bulkhead"@en ;
+    qudt:maxInclusive 5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :DistanceFromFrontBulkheadTop .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "attachment zone between -50 mm and +100 mm relative to Upper Side Impact member"@en ;
+    qudt:maxInclusive 1e-01 ;
+    qudt:minInclusive -5e-02 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :AttachmentZoneRelUpperSideImpact .
+
+:AttachmentZoneRelUpperSideImpact a bfo:BFO_0000019 ;
+    rdfs:label "attachment zone relative to the Upper Side Impact member"@en ;
+    iof:qualityOf :UpperSupportMember .
+
+:DS_UpperSupportAttachment a iof:DesignSpecification ;
+    iof:prescribes :UpperSupportMember ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DistanceFromFrontBulkheadTop a bfo:BFO_0000019 ;
+    rdfs:label "distance from the top surface of the Front Bulkhead"@en ;
+    iof:qualityOf :UpperSupportMember .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The upper support member must be attached 50 mm or less from the top surface of the Front Bulkhead, and attach to the Front Hoop inside a zone extending 100 mm above and 50 mm below the Upper Side Impact member" ;
+    iof:requirementSatisfiedBy :DS_UpperSupportAttachment .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:UpperSupportMember a bfo:BFO_0000040 ;
+    rdfs:label "upper support member"@en .
+

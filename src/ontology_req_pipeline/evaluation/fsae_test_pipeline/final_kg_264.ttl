@@ -1,0 +1,138 @@
+@prefix : <http://example.org/req/264#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Chassis a bfo:BFO_0000040 .
+
+:CompetitionYear a iof:InformationContentEntity .
+
+:CompositeAIP a bfo:BFO_0000040 .
+
+:Req0 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_VerificationMethod ;
+    iof:requirementSatisfiedBy :PlanSpec_VerificationMethod .
+
+:Req3 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_TestFixtureChassisEquiv ;
+    iof:requirementSatisfiedBy :DesignSpec_TestFixture .
+
+:Req4 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_TestDataValidity ;
+    iof:requirementSatisfiedBy :PlanSpec_TestDataValidity .
+
+:Req5 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_LaminateTestCalc ;
+    iof:requirementSatisfiedBy :PlanSpec_LaminateTestCalc .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods: a. Physical testing of the AIP attached to a structurally representative section of the intended chassis - The test fixture must have equivalent strength and stiffness to a baseline front bulkhead or must be the same as the first 50 mm of the Chassis - Test data is valid for only one Competition Year b. Laminate material testing under F.4.3.2 and F.4.3.5 and calculations of 3 point bending and perimeter shear" ;
+    iof:isAbout :ObjSpec_Overall ;
+    iof:requirementSatisfiedBy :PlanSpec_Overall .
+
+:TestData a iof:InformationContentEntity .
+
+:First50mmChassis a bfo:BFO_0000040 .
+
+:ObjSpec_TestFixtureChassisEquiv a iof:ObjectiveSpecification ;
+    iof:prescribes :First50mmChassis .
+
+:PlanSpec_TestDataValidity a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_TestDataValidity ;
+    iof:prescribes :TestDataValidityState .
+
+:PlanSpec_VerificationMethod a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_VerificationMethod ;
+    iof:prescribes :Proc_VerifyAIPStrength .
+
+:Proc_PhysicalTest a iof:PlannedProcess ;
+    iof:prescribedBy :PlanSpec_Overall .
+
+:Qual_BulkheadStiffness a bfo:BFO_0000019 ;
+    iof:qualityOf :BaselineFrontBulkhead .
+
+:Qual_BulkheadStrength a bfo:BFO_0000019 ;
+    iof:qualityOf :BaselineFrontBulkhead .
+
+:Req1 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_TestFixtureEquivalence ;
+    iof:requirementSatisfiedBy :DesignSpec_TestFixture .
+
+:Req2 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_TestFixtureEquivalence ;
+    iof:requirementSatisfiedBy :DesignSpec_TestFixture .
+
+:VE_req4_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 3.15576e+07 ;
+    qudt:minInclusive 3.15576e+07 ;
+    qudt:unit qudtu:SEC ;
+    iof:isValueExpressionOfAtAllTimes :TestDataValidityState .
+
+qudtqk:Time a qudt:QuantityKind .
+
+qudtu:SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Time .
+
+:BaselineFrontBulkhead a bfo:BFO_0000040 ;
+    iof:hasQuality :Qual_BulkheadStiffness,
+        :Qual_BulkheadStrength .
+
+:ObjSpec_LaminateTestCalc a iof:ObjectiveSpecification ;
+    iof:prescribes :Proc_LaminateTestCalc .
+
+:ObjSpec_Overall a iof:ObjectiveSpecification ;
+    iof:prescribes :Proc_VerifyAIPStrength .
+
+:ObjSpec_TestDataValidity a iof:ObjectiveSpecification ;
+    iof:prescribes :TestDataValidityState .
+
+:ObjSpec_TestFixtureEquivalence a iof:ObjectiveSpecification ;
+    iof:prescribes :Qual_TestFixtureStiffness,
+        :Qual_TestFixtureStrength .
+
+:ObjSpec_VerificationMethod a iof:ObjectiveSpecification ;
+    iof:prescribes :Proc_VerifyAIPStrength .
+
+:PlanSpec_LaminateTestCalc a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_LaminateTestCalc ;
+    iof:prescribes :Proc_LaminateTestCalc .
+
+:Qual_TestFixtureStiffness a bfo:BFO_0000019 ;
+    iof:qualityOf :TestFixture .
+
+:Qual_TestFixtureStrength a bfo:BFO_0000019 ;
+    iof:qualityOf :TestFixture .
+
+:DesignSpec_TestFixture a iof:DesignSpecification ;
+    iof:prescribes :TestFixture ;
+    iof:satisfiesRequirement :Req1,
+        :Req2 .
+
+:PlanSpec_Overall a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_Overall ;
+    iof:prescribes :Proc_VerifyAIPStrength .
+
+:Proc_LaminateTestCalc a iof:PlannedProcess ;
+    iof:prescribedBy :PlanSpec_LaminateTestCalc .
+
+:TestDataValidityState a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtAllTimes :VE_req4_c0 ;
+    iof:processCharacteristicOf :Proc_VerifyAIPStrength .
+
+:TestFixture a bfo:BFO_0000040 ;
+    iof:hasQuality :Qual_TestFixtureStiffness,
+        :Qual_TestFixtureStrength .
+
+:Proc_VerifyAIPStrength a iof:PlannedProcess ;
+    bfo:BFO_0000117 :Proc_LaminateTestCalc,
+        :Proc_PhysicalTest ;
+    iof:prescribedBy :PlanSpec_Overall .
+

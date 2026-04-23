@@ -1,0 +1,70 @@
+@prefix : <http://example.org/req/800#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:EV_9_5_Criteria_0 a iof:InformationContentEntity .
+
+:IN_2_6_Information_1 a iof:InformationContentEntity .
+
+:InstallationProcess_2 a bfo:BFO_0000015 .
+
+:Rules_2 a iof:InformationContentEntity .
+
+:SealingProcess_1 a bfo:BFO_0000015 .
+
+:Charger_1 a bfo:BFO_0000040 .
+
+:MeasurementProcess_0 a iof:PlannedProcess ;
+    bfo:BFO_0000057 :Microphone_0,
+        :Vehicle_0 ;
+    iof:hasProcessCharacteristic :MeasurementLocationRadius_0 ;
+    iof:prescribedBy :DS_0 .
+
+:Microphone_0 a iof:MaterialArtifact .
+
+:MonitoringSystem_2 a bfo:BFO_0000040 .
+
+:OtherComponents_1 a bfo:BFO_0000040 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "4.6 Ready to Drive Sound The sound level will be measured with a free field microphone placed free from obstructions in a radius of 2 m around the vehicle against the criteria in EV.9.5 ## IN.4.7 Electrical Inspection Completion IN.4.7.1 All or portions of the Tractive System, Charger and other components may be sealed IN.2.6 IN.4.7.2 Additional monitoring to verify conformance to rules may be installed" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:SoundLevel_0 a bfo:BFO_0000019 .
+
+:TractiveSystem_1 a bfo:BFO_0000040 .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2e+00 ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :MeasurementLocationRadius_0 .
+
+:Vehicle_0 a bfo:BFO_0000040 .
+
+qudtqk:Radius a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Radius .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :Charger_1,
+        :MonitoringSystem_2,
+        :OtherComponents_1,
+        :SoundLevel_0,
+        :TractiveSystem_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:MeasurementLocationRadius_0 a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c2 ;
+    iof:processCharacteristicOf :MeasurementProcess_0 .
+

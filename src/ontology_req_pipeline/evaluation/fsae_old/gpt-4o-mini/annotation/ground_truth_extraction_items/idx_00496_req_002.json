@@ -1,0 +1,23 @@
+{
+  "idx": 496,
+  "req_idx": 2,
+  "source_text": "The height of the tube must allow 75 mm minimum clearance from the bottom of the tube to the ground i. When the vehicle is raised to where the bottom of the tube is 200 mm above ground, the wheels do not touch the ground when they are in full rebound # VE.2.2 Push Bar Each vehicle must have a removable device which attaches to the rear of the vehicle that: a. Allows two people, standing erect behind the vehicle, to push the vehicle around the competition site b",
+  "requirement_text_pred": "Each vehicle must have a removable device which attaches to the rear of the vehicle.",
+  "prediction": {
+    "subject": "Each vehicle",
+    "modality": "must",
+    "condition": "",
+    "action": "have",
+    "object": "a removable device which attaches to the rear of the vehicle"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

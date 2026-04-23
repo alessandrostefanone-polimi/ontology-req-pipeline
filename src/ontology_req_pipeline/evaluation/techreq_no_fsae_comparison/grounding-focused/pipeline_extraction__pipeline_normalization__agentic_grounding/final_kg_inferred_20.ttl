@@ -1,0 +1,147 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/20#> a owl:Ontology .
+
+<http://example.org/req/20#ResolutionConstraint_1_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:describes <http://example.org/req/20#PictureSet_0> ;
+    ns1:isAbout <http://example.org/req/20#Cart_0> .
+
+<http://example.org/req/20#ActionSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/20#PictureTakingProcess_0> .
+
+<http://example.org/req/20#Cart_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/20#CoverageShapeSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:describes <http://example.org/req/20#CoverageRegion_0> .
+
+<http://example.org/req/20#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The prototype shall be able to take pictures of the crops in a circle with a diameter of 1 meter and below the cart with enough resolution to distinguish separate plants." ;
+    ns1:isAbout <http://example.org/req/20#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/20#PlanSpec_0> .
+
+<http://example.org/req/20#VE_req0_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 1e+00 ;
+    ns2:minInclusive 1e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/20#CoverageRegion_0> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+
+<http://example.org/req/20#CoverageRegion_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000029,
+        ns3:BFO_0000141,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/20#VE_req0_c1> ;
+    ns1:isSubjectOf <http://example.org/req/20#CoverageShapeSpec_0> .
+
+<http://example.org/req/20#PictureSet_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    ns1:isSpecifiedOutputOf <http://example.org/req/20#PictureTakingProcess_0> ;
+    ns1:prescribedBy <http://example.org/req/20#ObjSpec_0> .
+
+<http://example.org/req/20#PictureTakingCapability_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000016,
+        ns3:BFO_0000017,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Capability ;
+    ns1:capabilityOf <http://example.org/req/20#Prototype_0> ;
+    ns1:prescribedBy <http://example.org/req/20#ObjSpec_0> .
+
+<http://example.org/req/20#PlanSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns3:BFO_0000110 <http://example.org/req/20#ActionSpec_0>,
+        <http://example.org/req/20#ObjSpec_0> ;
+    ns1:prescribes <http://example.org/req/20#PictureTakingProcess_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/20#Req_0> .
+
+<http://example.org/req/20#Prototype_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000027,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:EngineeredSystem,
+        ns1:System ;
+    ns1:hasCapability <http://example.org/req/20#PictureTakingCapability_0> .
+
+<http://example.org/req/20#PictureTakingProcess_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns3:BFO_0000057 <http://example.org/req/20#Prototype_0> ;
+    ns1:achievesAtSomeTime <http://example.org/req/20#ObjSpec_0> ;
+    ns1:prescribedBy <http://example.org/req/20#PlanSpec_0> .
+
+<http://example.org/req/20#ObjSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/20#PictureSet_0>,
+        <http://example.org/req/20#PictureTakingCapability_0> .
+

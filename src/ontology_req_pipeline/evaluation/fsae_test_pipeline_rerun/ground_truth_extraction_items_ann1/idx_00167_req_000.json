@@ -1,0 +1,88 @@
+{
+  "idx": 167,
+  "req_idx": 0,
+  "source_text": "A straight line measuring 280 mm will connect the centers of the upper 200 mm circle and the 300 mm head circle",
+  "requirement_text_pred": "A straight line measuring 280 mm will connect the centers of the upper 200 mm circle and the 300 mm head circle",
+  "prediction": {
+    "subject": "A straight line measuring 280 mm",
+    "modality": "will",
+    "condition": "",
+    "action": "connect",
+    "object": "the centers of the upper 200 mm circle and the 300 mm head circle"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "length",
+      "operator_pred": "eq",
+      "value_raw_pred": "280 mm",
+      "value_v1_pred": 280.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.28,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    },
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "upper circle diameter",
+      "operator_pred": "eq",
+      "value_raw_pred": "200 mm",
+      "value_v1_pred": 200.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Diameter",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.2,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    },
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "head circle diameter",
+      "operator_pred": "eq",
+      "value_raw_pred": "300 mm",
+      "value_v1_pred": 300.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Diameter",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.3,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

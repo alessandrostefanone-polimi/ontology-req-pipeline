@@ -1,0 +1,90 @@
+@prefix : <http://example.org/req/168#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:PedalRearFace a bfo:BFO_0000040 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "5.6.5 Driver Template Position The Driver Template will be positioned as follows: - The seat will be adjusted to the rearmost position - The pedals will be placed in the most forward position - The bottom 200 mm circle will be placed on the seat bottom where the distance between the center of this circle and the rearmost face of the pedals is no less than 915 mm - The middle 200 mm circle, representing the shoulders, will be positioned on the seat back" ;
+    iof:requirementSatisfiedBy :Plan_0 .
+
+:Seat a bfo:BFO_0000040 .
+
+:BottomCircleDiameter a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtAllTimes :VE_req2_c0 ;
+    iof:qualityOf :BottomCircle .
+
+:Distance_BottomCircleCenter_to_PedalRearFace a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req2_c2 ;
+    iof:qualityOf :BottomCircle .
+
+:MiddleCircle a bfo:BFO_0000040 .
+
+:PedalPosition a iof:ProcessCharacteristic ;
+    iof:processCharacteristicOf :Proc_PedalAdjust .
+
+:Pedals a bfo:BFO_0000040 .
+
+:Proc_BottomCirclePlacement a iof:PlannedProcess ;
+    iof:hasInput :BottomCircle,
+        :Pedals,
+        :SeatBottom ;
+    iof:prescribedBy :Plan_0 .
+
+:Proc_MiddleCirclePlacement a iof:PlannedProcess ;
+    iof:hasInput :MiddleCircle,
+        :SeatBack ;
+    iof:prescribedBy :Plan_0 .
+
+:SeatBack a bfo:BFO_0000040 .
+
+:SeatBottom a bfo:BFO_0000040 .
+
+:SeatPosition a iof:ProcessCharacteristic ;
+    iof:processCharacteristicOf :Proc_SeatAdjust .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2e+02 ;
+    qudt:minInclusive 2e+02 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtAllTimes :BottomCircleDiameter .
+
+:VE_req2_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 9.15e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :Distance_BottomCircleCenter_to_PedalRearFace .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:Proc_PedalAdjust a iof:PlannedProcess ;
+    iof:hasProcessCharacteristic :PedalPosition ;
+    iof:prescribedBy :Plan_0 .
+
+:Proc_SeatAdjust a iof:PlannedProcess ;
+    iof:hasProcessCharacteristic :SeatPosition ;
+    iof:prescribedBy :Plan_0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:BottomCircle a bfo:BFO_0000040 .
+
+:Plan_0 a iof:PlanSpecification ;
+    iof:prescribes :Proc_BottomCirclePlacement,
+        :Proc_MiddleCirclePlacement,
+        :Proc_PedalAdjust,
+        :Proc_SeatAdjust .
+

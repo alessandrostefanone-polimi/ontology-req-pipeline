@@ -1,0 +1,61 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/264#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:CalculationsOf3PointBending_0 a iof:ActionSpecification ;
+    iof:prescribes "Calculations of 3 point bending" .
+
+:CalculationsOfPerimeterShear_0 a iof:ActionSpecification ;
+    iof:prescribes "Calculations of perimeter shear" .
+
+:CompetitionYear_0 a iof:InformationContentEntity .
+
+:LaminateMaterialTesting_0 a iof:ActionSpecification ;
+    iof:prescribes "Laminate material testing under F.4.3.2 and F.4.3.5" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods: a. Physical testing of the AIP attached to a structurally representative section of the intended chassis - The test fixture must have equivalent strength and stiffness to a baseline front bulkhead or must be the same as the first 50 mm of the Chassis - Test data is valid for only one Competition Year b. Laminate material testing under F.4.3.2 and F.4.3.5 and calculations of 3 point bending and perimeter shear" ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:TestFixture_0 a iof:MaterialArtifact ;
+    iof:hasComponentPartAtAllTimes :Chassis_0 ;
+    iof:hasRole :TestFixtureRole_0 .
+
+:ChassisRole_0 a iof:AgentRole ;
+    iof:prescribes "first 50 mm of the Chassis" .
+
+:Chassis_0 a iof:MaterialArtifact ;
+    iof:hasRole :ChassisRole_0 .
+
+:Spec_0 a iof:PlanSpecification ;
+    iof:prescribes :TestData_0,
+        :TestMethod_0,
+        :TestMethod_1,
+        :TestMethod_2,
+        :TestMethod_3 .
+
+:TestData_0 a iof:InformationContentEntity .
+
+:TestFixtureRole_0 a iof:AgentRole ;
+    iof:prescribes "equivalent strength and stiffness to a baseline front bulkhead" .
+
+:TestMethod_0 a iof:ActionSpecification ;
+    iof:prescribes "Physical testing" .
+
+:TestMethod_1 a iof:ActionSpecification ;
+    iof:prescribes "Laminate material testing" .
+
+:TestMethod_2 a iof:ActionSpecification ;
+    iof:prescribes "Calculations of 3 point bending" .
+
+:TestMethod_3 a iof:ActionSpecification ;
+    iof:prescribes "Calculations of perimeter shear" .
+

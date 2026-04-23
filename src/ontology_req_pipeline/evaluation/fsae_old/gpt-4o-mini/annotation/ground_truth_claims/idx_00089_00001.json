@@ -1,0 +1,212 @@
+{
+  "idx": 89,
+  "source_text": "3.1.4 Fasteners in the Suspension system are Critical Fasteners, see T.8.2 V.3.1.5 All spherical rod ends and spherical bearings on the suspension and steering must be one of: - Mounted in double shear - Captured by having a screw/bolt head or washer with an outside diameter that is larger than spherical bearing housing inside diameter. ## V.3.2 Steering V.3.2.1 The Steering Wheel must be mechanically connected to the front wheels",
+  "graph_path": "C:\\Users\\Alessandro Stefanone\\repos\\req-iof\\src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_89.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/89#ActionSpec_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#ActionSpec_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#ActionSpec_2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#ActionSpec_3",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#DesignSpec_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#DesignSpec_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/89#ActionSpec_0",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#DesignSpec_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/89#ActionSpec_1",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#DesignSpec_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#DesignSpec_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/89#ActionSpec_2",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#DesignSpec_2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#DesignSpec_2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/89#ActionSpec_3",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/89#DesignSpec_0",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#Req_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#Req_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/89#DesignSpec_1",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#Req_2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#Req_2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/89#DesignSpec_2",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#SteeringWheel",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialEntity",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#SteeringWheel",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/89#steeringWheelRole",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#frontWheels",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialEntity",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#frontWheels",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/89#frontWheelsRole",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#frontWheelsRole",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/AgentRole",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#screwBoltHeadOrWasher",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialEntity",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#screwBoltHeadOrWasher",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/89#screwBoltHeadOrWasherRole",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#screwBoltHeadOrWasherRole",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/AgentRole",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#sphericalRodEndsAndSphericalBearings",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialEntity",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#sphericalRodEndsAndSphericalBearings",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/89#sphericalRodEndsAndSphericalBearingsRole",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#sphericalRodEndsAndSphericalBearingsRole",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/AgentRole",
+      "supported_by_sentence": true,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/89#steeringWheelRole",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/AgentRole",
+      "supported_by_sentence": true,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

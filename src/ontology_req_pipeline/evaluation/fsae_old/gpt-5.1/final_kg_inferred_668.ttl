@@ -1,0 +1,185 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/668#> a owl:Ontology .
+
+<http://example.org/req/668#EV_5_10> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "EV.5.10",
+        "EV.5.10"@en .
+
+<http://example.org/req/668#EV_7_8> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "EV.7.8 (document reference)",
+        "EV.7.8 (document reference)"@en .
+
+<http://example.org/req/668#Interlock_EV_7_8> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Interlock EV.7.8",
+        "Interlock EV.7.8"@en .
+
+<http://example.org/req/668#Req0_Constraint0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Requirement 0, constraint 0: one-of-two options",
+        "Requirement 0, constraint 0: one-of-two options"@en ;
+    ns1:describes <http://example.org/req/668#TSConnectorOptionRole> ;
+    ns1:isSubjectOf <http://example.org/req/668#Req_0> .
+
+<http://example.org/req/668#Req1_Constraint0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Requirement 1, constraint 0: target circuit relation",
+        "Requirement 1, constraint 0: target circuit relation"@en ;
+    ns1:describes <http://example.org/req/668#Req1_Action_OpenShutdownCircuit> ;
+    ns1:isSubjectOf <http://example.org/req/668#Req_0> .
+
+<http://example.org/req/668#Req2_Constraint0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Requirement 2, constraint 0: sealed at Tech Inspection",
+        "Requirement 2, constraint 0: sealed at Tech Inspection"@en ;
+    ns1:describes <http://example.org/req/668#Req2_SealQuality> ;
+    ns1:isSubjectOf <http://example.org/req/668#Req_0> .
+
+<http://example.org/req/668#TSAL> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "TSAL",
+        "TSAL"@en .
+
+<http://example.org/req/668#TSAL_c> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "TSAL c",
+        "TSAL c"@en .
+
+<http://example.org/req/668#TechInspection_IN_4_7_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Tech Inspection IN.4.7.1",
+        "Tech Inspection IN.4.7.1"@en .
+
+<http://example.org/req/668#TractiveSystem> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Tractive System",
+        "Tractive System"@en .
+
+<http://example.org/req/668#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/668#TractiveSystemConnectorOutsideHousing> ;
+    ns1:satisfiesRequirement <http://example.org/req/668#Req_0> .
+
+<http://example.org/req/668#ObjSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/668#TractiveSystemConnectorOutsideHousing> .
+
+<http://example.org/req/668#Req1_Action_OpenShutdownCircuit> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Open the Shutdown Circuit EV.7.2.2",
+        "Open the Shutdown Circuit EV.7.2.2"@en ;
+    ns1:prescribes <http://example.org/req/668#ShutdownCircuit_EV_7_2_2> .
+
+<http://example.org/req/668#Req2_SealQuality> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "sealed quality",
+        "sealed quality"@en .
+
+<http://example.org/req/668#ShutdownCircuit_EV_7_2_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Shutdown Circuit EV.7.2.2",
+        "Shutdown Circuit EV.7.2.2"@en .
+
+<http://example.org/req/668#TSConnectorOptionRole> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "option role for TS connectors outside housing",
+        "option role for TS connectors outside housing"@en .
+
+<http://example.org/req/668#TractiveSystemConnectorOutsideHousing> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Tractive System connectors outside of a housing",
+        "Tractive System connectors outside of a housing"@en ;
+    ns1:hasRole <http://example.org/req/668#TSConnectorOptionRole> .
+
+<http://example.org/req/668#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "From a point 1.6 m vertically from ground level, inside a 3 m horizontal radius from the TSAL c. In direct sunlight # EV.5.10 Connectors Tractive System connectors outside of a housing must meet one of the two: - Contain an Interlock EV.7.8 which must Open the Shutdown Circuit EV.7.2.2 - Be sealed at Tech Inspection IN.4.7.1 ## EV" ;
+    ns1:isAbout <http://example.org/req/668#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/668#DS_0> .
+

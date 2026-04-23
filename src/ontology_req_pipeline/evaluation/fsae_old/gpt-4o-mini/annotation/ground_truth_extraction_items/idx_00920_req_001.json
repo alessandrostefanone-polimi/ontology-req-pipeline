@@ -1,0 +1,45 @@
+{
+  "idx": 920,
+  "req_idx": 1,
+  "source_text": "9 ACCELERATION EVENT The Acceleration event evaluates the vehicle acceleration in a straight line on flat pavement. ## D.9.1 Acceleration Layout D.9.1.1 Course length will be 75 m from starting line to finish line D.9.1.2",
+  "requirement_text_pred": "Course length will be 75 m from starting line to finish line.",
+  "prediction": {
+    "subject": "Course length",
+    "modality": "will",
+    "condition": "",
+    "action": "be 75 m from starting line to finish line",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "course length",
+      "operator_pred": "eq",
+      "value_raw_pred": "75 m",
+      "value_v1_pred": 75.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "m",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/M",
+      "normalized_si_value_primary_pred": 75.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

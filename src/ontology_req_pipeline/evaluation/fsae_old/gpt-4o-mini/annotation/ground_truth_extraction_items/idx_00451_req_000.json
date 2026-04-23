@@ -1,0 +1,66 @@
+{
+  "idx": 451,
+  "req_idx": 0,
+  "source_text": "Located rearwards of the Firewall below the driver's shoulder level c. Positively retained, using no tie wraps or tape T.5.6.3 Catch cans for the engine coolant system and engine lubrication system must have a minimum capacity of $10 \\%$ of the fluid being contained or 0.9 liter, whichever is higher T.5.6.4 Catch cans for any vent on other systems containing liquid lubricant or coolant, including a differential, gearbox, or electric motor, must have a minimum capacity of $10 \\%$ of the fluid being contained or 0.5 liter, whichever is higher T.5.6.5",
+  "requirement_text_pred": "Catch cans for the engine coolant system and engine lubrication system must have a minimum capacity of 10% of the fluid being contained or 0.9 liter, whichever is higher.",
+  "prediction": {
+    "subject": "Catch cans for the engine coolant system and engine lubrication system",
+    "modality": "must",
+    "condition": "",
+    "action": "have a minimum capacity",
+    "object": "10% of the fluid being contained or 0.9 liter, whichever is higher"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "capacity",
+      "operator_pred": "ge",
+      "value_raw_pred": "0.9 liter",
+      "value_v1_pred": 0.9,
+      "value_v2_pred": null,
+      "unit_text_pred": "liter",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/CartesianVolume",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/L",
+      "normalized_si_value_primary_pred": 0.0009000000000000001,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/KiloL",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    },
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "capacity",
+      "operator_pred": "ge",
+      "value_raw_pred": "10% of the fluid being contained",
+      "value_v1_pred": null,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

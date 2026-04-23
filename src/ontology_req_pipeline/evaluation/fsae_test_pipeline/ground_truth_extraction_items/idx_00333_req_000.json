@@ -1,0 +1,46 @@
+{
+  "idx": 333,
+  "req_idx": 0,
+  "source_text": "If used, the mounts or plate must be 25 mm or more larger at both the top and bottom of the upper and lower tubes F.11.2.3 All Non Crushable Items should have a minimum 25 mm clearance to the surface of the Accumulator Container",
+  "requirement_text_pred": "If used, the mounts or plate must be 25 mm or more larger at both the top and bottom of the upper and lower tubes",
+  "prediction": {
+    "subject": "the mounts or plate",
+    "modality": "must",
+    "condition": "If used",
+    "action": "be 25 mm or more larger",
+    "object": "at both the top and bottom of the upper and lower tubes"
+  },
+  "labels": {
+    "decomposition_error": null,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "mounts or plate size",
+      "operator_pred": "ge",
+      "value_raw_pred": "25 mm or more larger",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "MilliM",
+      "normalized_si_value_primary_pred": 25.0,
+      "normalized_si_unit_primary_pred": "MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

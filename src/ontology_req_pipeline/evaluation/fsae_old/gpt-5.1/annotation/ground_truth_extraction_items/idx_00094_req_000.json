@@ -1,0 +1,23 @@
+{
+  "idx": 94,
+  "req_idx": 0,
+  "source_text": "3.2.8 Fasteners in the steering system are Critical Fasteners, see T.8.2 V.3.2.9 Spherical rod ends and spherical bearings in the steering must meet V.3.1.5 above V.3.2.10 Rear wheel steering may be used",
+  "requirement_text_pred": "Fasteners in the steering system are Critical Fasteners, see T.8.2",
+  "prediction": {
+    "subject": "Fasteners in the steering system",
+    "modality": "is",
+    "condition": "",
+    "action": "are",
+    "object": "Critical Fasteners, see T.8.2"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": false,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": "Implementation issue: the structured extraction format does not allow for the modality to be 'are' instead of 'is', which is the correct modality for a plural subject. The modality was considered semantically correct in the evaluation. The action is not correctly extracted due to this issue."
+}

@@ -1,0 +1,45 @@
+{
+  "idx": 944,
+  "req_idx": 0,
+  "source_text": "The Endurance event will consist of multiple laps over a closed course to a total distance of approximately 22 km",
+  "requirement_text_pred": "The Endurance event will consist of multiple laps over a closed course to a total distance of approximately 22 km.",
+  "prediction": {
+    "subject": "The Endurance event",
+    "modality": "will",
+    "condition": "",
+    "action": "consist of multiple laps over a closed course to a total distance of approximately",
+    "object": "22 km"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "total distance",
+      "operator_pred": "eq",
+      "value_raw_pred": "22 km",
+      "value_v1_pred": 22.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "km",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Distance",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MI",
+      "normalized_si_value_primary_pred": 35405.568,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

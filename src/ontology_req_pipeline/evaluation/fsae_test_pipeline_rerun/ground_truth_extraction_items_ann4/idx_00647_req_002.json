@@ -1,0 +1,24 @@
+{
+  "idx": 647,
+  "req_idx": 2,
+  "source_text": "Clearly marked with \"HVD\" EV.5.5.2 An Interlock EV.7.8 must Open the Shutdown Circuit EV.7.2.2 when the HVD is removed EV.5.5.3 A dummy connector or similar may be used to restore isolation to meet EV.6.1.2 # EV.5.6 Precharge and Discharge Circuits EV.5.6.1 The Accumulator must contain a Precharge Circuit",
+  "requirement_text_pred": "EV.5.5.3 A dummy connector or similar may be used to restore isolation to meet EV.6.1.2",
+  "prediction": {
+    "subject": "A dummy connector or similar",
+    "modality": "may",
+    "condition": "",
+    "action": "be used to restore isolation to meet",
+    "object": "EV.6.1.2"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": false
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": "missing requirement text 'Precharge and Discharge Circuits'"
+}

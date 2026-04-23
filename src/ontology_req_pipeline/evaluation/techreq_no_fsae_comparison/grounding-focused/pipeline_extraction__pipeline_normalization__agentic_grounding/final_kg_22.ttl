@@ -1,0 +1,54 @@
+@prefix : <http://example.org/req/22#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:CubeSatStaticEnvelope_0 a iof:InformationContentEntity .
+
+:EarthMagneticField_0 a bfo:BFO_0000019 .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :PassiveMagnetMagneticField_0,
+        :PassiveMagnet_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :PassiveMagnetMagneticField_0 .
+
+:OutsideCubeSatStaticEnvelope_0 a iof:PlannedProcess ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:PassiveMagnet_0 a iof:MaterialArtifact ;
+    iof:hasQuality :PassiveMagnetMagneticField_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :OutsideCubeSatStaticEnvelope_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 5e-05 ;
+    qudt:minInclusive 5e-05 ;
+    qudt:unit qudtu:T ;
+    iof:isValueExpressionOfAtSomeTime :PassiveMagnetMagneticField_0 .
+
+qudtqk:MagneticFluxDensity a qudt:QuantityKind .
+
+qudtu:T a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:MagneticFluxDensity .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The magnetic field of any passive magnets shall be limited to 0.5 Gauss above Earth’s magnetic field, outside the CubeSat static envelope."^^xsd:string ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:PassiveMagnetMagneticField_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+

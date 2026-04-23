@@ -1,0 +1,115 @@
+@prefix : <http://example.org/req/122#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Ref_F_4_3_4_a a iof:InformationContentEntity ;
+    rdfs:label "Reference F.4.3.4 a" .
+
+:Req_0_0 a iof:RequirementSpecification ;
+    rdfs:label "Req 0.0 – reference to F.4.3.4 a" ;
+    iof:isAbout :ObjSpec_TestPanelRequirements ;
+    iof:requirementSatisfiedBy :DS_TestPanelDesign .
+
+:Req_0_1 a iof:RequirementSpecification ;
+    rdfs:label "Req 1 – panel dimensions options" ;
+    iof:isAbout :ObjSpec_TestPanelRequirements ;
+    iof:requirementSatisfiedBy :DS_TestPanelDesign .
+
+:Req_0_2 a iof:RequirementSpecification ;
+    rdfs:label "Req 2 – panel support span distance 400 mm" ;
+    iof:isAbout :ObjSpec_TestPanelRequirements ;
+    iof:requirementSatisfiedBy :DS_TestPanelDesign .
+
+:Req_0_3 a iof:RequirementSpecification ;
+    rdfs:label "Req 3 – equal surface area for top and bottom skin" ;
+    iof:isAbout :ObjSpec_TestPanelRequirements ;
+    iof:requirementSatisfiedBy :DS_TestPanelDesign .
+
+:Req_0_4 a iof:RequirementSpecification ;
+    rdfs:label "Req 4 – bare edges without skin material" ;
+    iof:isAbout :ObjSpec_TestPanelRequirements ;
+    iof:requirementSatisfiedBy :DS_TestPanelDesign .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression: panel area option 1 (138 mm x 500 mm)" ;
+    qudt:maxInclusive 1.38e+02 ;
+    qudt:minInclusive 1.38e+02 ;
+    qudt:unit qudtu:MILLIM2 ;
+    iof:isValueExpressionOfAtSomeTime :PanelPlanformArea .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression: panel area option 2 (275 mm x 500 mm)" ;
+    qudt:maxInclusive 2.75e+02 ;
+    qudt:minInclusive 2.75e+02 ;
+    qudt:unit qudtu:MILLIM2 ;
+    iof:isValueExpressionOfAtSomeTime :PanelPlanformArea .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression: span distance 400 mm" ;
+    qudt:maxInclusive 4e-01 ;
+    qudt:minInclusive 4e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :PanelSpanDistance .
+
+:BottomSkinArea a bfo:BFO_0000019 ;
+    rdfs:label "bottom skin surface area" ;
+    iof:qualityOf :TestPanelType .
+
+:PanelEdgeState a bfo:BFO_0000019 ;
+    rdfs:label "panel edge state (bare vs skinned)" ;
+    iof:qualityOf :TestPanelType .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Refer to F.4.3.4 a. Test panels must: - Measure one of the two options: $138 \\mathrm{~mm} \\times 500 \\mathrm{~mm}$ OR $275 \\mathrm{~mm} \\times 500 \\mathrm{~mm}$ - Be supported by a span distance of 400 mm - Have equal surface area for the top and bottom skin - Have bare edges, without skin material b" ;
+    iof:isAbout :ObjSpec_TestPanelRequirements ;
+    iof:requirementSatisfiedBy :DS_TestPanelDesign .
+
+:TopSkinArea a bfo:BFO_0000019 ;
+    rdfs:label "top skin surface area" ;
+    iof:qualityOf :TestPanelType .
+
+qudtqk:CartesianArea a qudt:QuantityKind .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:PanelSpanDistance a bfo:BFO_0000019 ;
+    rdfs:label "panel support span distance" ;
+    iof:qualityOf :TestPanelType .
+
+qudtu:MILLIM2 a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:CartesianArea .
+
+:PanelPlanformArea a bfo:BFO_0000019 ;
+    rdfs:label "panel planform area" ;
+    iof:qualityOf :TestPanelType .
+
+:DS_TestPanelDesign a iof:DesignSpecification ;
+    rdfs:label "Design specification for test panels" ;
+    iof:prescribes :TestPanelType ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ObjSpec_TestPanelRequirements a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: test panel geometric and support requirements" .
+
+:TestPanelType a bfo:BFO_0000040 ;
+    rdfs:label "Test panel (type)" ;
+    iof:hasQuality :BottomSkinArea,
+        :PanelEdgeState,
+        :PanelPlanformArea,
+        :PanelSpanDistance,
+        :TopSkinArea .
+

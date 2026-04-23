@@ -1,0 +1,41 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/467#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Any_part_of_any_Aerodynamic_Device_or_Bodywork a iof:MaterialEntity ;
+    iof:hasFeature :Aerodynamic_Device_or_Bodywork ;
+    iof:hasRole :Aerodynamic_Device_or_Bodywork_Role .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Without a driver in the vehicle The intent is to standardize the measurement, see GR.6.4.1 T.7.3.2 Head Restraint Plane A transverse vertical plane through the rearmost portion of the front face of the driver head restraint support, excluding any padding, set (if adjustable) in its fully rearward position T.7.3.3 Rear Aerodynamic Zone The volume that is: - Rearward of the Head Restraint Plane - Inboard of two vertical planes parallel to the centerline of the chassis touching the inside of the rear tires at the height of the hub centerline ## T.7.4 Location Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1 ## T.7.5" ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:Aerodynamic_Device_or_Bodywork a iof:MaterialEntity ;
+    iof:hasRole :Aerodynamic_Device_or_Bodywork_Role .
+
+:Spec_0 a iof:PlanSpecification ;
+    iof:prescribes :V1_1,
+        :V1_4_1 .
+
+:V1_1 a iof:InformationContentEntity ;
+    iof:designates "V.1.1" ;
+    iof:hasRole :V1_1_Role .
+
+:V1_4_1 a iof:InformationContentEntity ;
+    iof:designates "V.1.4.1" ;
+    iof:hasRole :V1_4_1_Role .
+
+:V1_1_Role a iof:SupplierRole ;
+    iof:hasRole :V1_1_Role .
+
+:V1_4_1_Role a iof:SupplierRole ;
+    iof:hasRole :V1_4_1_Role .
+

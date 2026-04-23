@@ -1,0 +1,23 @@
+{
+  "idx": 800,
+  "req_idx": 2,
+  "source_text": "4.6 Ready to Drive Sound The sound level will be measured with a free field microphone placed free from obstructions in a radius of 2 m around the vehicle against the criteria in EV.9.5 ## IN.4.7 Electrical Inspection Completion IN.4.7.1 All or portions of the Tractive System, Charger and other components may be sealed IN.2.6 IN.4.7.2 Additional monitoring to verify conformance to rules may be installed",
+  "requirement_text_pred": "Additional monitoring to verify conformance to rules may be installed.",
+  "prediction": {
+    "subject": "Additional monitoring",
+    "modality": "may",
+    "condition": "",
+    "action": "verify conformance",
+    "object": "to rules"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

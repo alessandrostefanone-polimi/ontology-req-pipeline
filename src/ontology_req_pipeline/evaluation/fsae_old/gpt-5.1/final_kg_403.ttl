@@ -1,0 +1,105 @@
+@prefix : <http://example.org/req/403#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:BrakeSystem_0 a bfo:BFO_0000040 ;
+    rdfs:label "Brake System" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "In side view any portion of the Brake System that is mounted on the sprung part of the vehicle must not project below the lower surface of the chassis T.3.1.10 Fasteners in the Brake System are Critical Fasteners, see T.8.2 ## T.3.2 Brake Pedal, Pedal Box and Mounting T.3.2.1 The Brake Pedal must be one of: - Fabricated from steel or aluminum - Machined from steel, aluminum or titanium T.3.2.2 The Brake Pedal and associated components design must withstand a minimum force of 2000 N without any failure of the Brake System, pedal box, chassis mounting, or pedal adjustment" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:VE_req5_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "minimum withstand force 2000 N" ;
+    qudt:minInclusive 2e+03 ;
+    qudt:unit qudtu:N ;
+    iof:isValueExpressionOfAtSomeTime :WithstandForceCharacteristic_0 .
+
+:VehicleSprungPart_0 a bfo:BFO_0000040 ;
+    rdfs:label "sprung part of the vehicle" .
+
+:BrakePedalDesign_0 a iof:DesignSpecification ;
+    rdfs:label "Brake Pedal and associated components design" ;
+    iof:prescribes :BrakePedalAssembly_0 .
+
+:BrakePedalMaterialOption_0 a iof:DesignSpecification ;
+    rdfs:label "Brake Pedal fabricated from steel or aluminum" ;
+    iof:prescribes :BrakePedal_0 .
+
+:BrakePedalMaterialOption_1 a iof:DesignSpecification ;
+    rdfs:label "Brake Pedal machined from steel, aluminum or titanium" ;
+    iof:prescribes :BrakePedal_0 .
+
+:ChassisLowerSurface_0 a bfo:BFO_0000040 ;
+    rdfs:label "lower surface of the chassis" .
+
+:CriticalFastenerClassification_0 a iof:InformationContentEntity ;
+    rdfs:label "Critical Fasteners classification" .
+
+:FastenerClassificationProcess_0 a iof:PlannedProcess ;
+    rdfs:label "classification of brake fasteners as critical" ;
+    bfo:BFO_0000057 :FastenerSet_0 ;
+    iof:hasSpecifiedOutput :CriticalFastenerClassification_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :BrakePedalAssembly_0,
+        :BrakePedalDesign_0,
+        :BrakePedalMaterialOption_0,
+        :BrakePedalMaterialOption_1,
+        :BrakePedal_0,
+        :BrakeSystemPortion_0,
+        :FastenerSet_0 .
+
+:SideViewInspection_0 a iof:PlannedProcess ;
+    rdfs:label "side view inspection of brake system projection" ;
+    bfo:BFO_0000057 :BrakeSystemPortion_0,
+        :ChassisLowerSurface_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:WithstandForceCharacteristic_0 a iof:ProcessCharacteristic ;
+    rdfs:label "withstand force of brake pedal design verification" ;
+    iof:processCharacteristicOf :BrakePedalDesignProcess_0 .
+
+qudtqk:Force a qudt:QuantityKind .
+
+qudtu:N a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Force .
+
+:BrakePedalDesignProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Brake Pedal design verification under load" ;
+    bfo:BFO_0000057 :BrakePedalAssembly_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:BrakeSystemPortion_0 a bfo:BFO_0000040 ;
+    rdfs:label "portion of Brake System on sprung part" ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:FastenerSet_0 a bfo:BFO_0000040 ;
+    rdfs:label "Fasteners in the Brake System" ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:BrakePedalAssembly_0 a bfo:BFO_0000040 ;
+    rdfs:label "Brake Pedal and associated components" ;
+    iof:hasComponentPartAtSomeTime :BrakePedal_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:BrakePedal_0 a bfo:BFO_0000040 ;
+    rdfs:label "Brake Pedal" ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :BrakePedalDesignProcess_0,
+        :FastenerClassificationProcess_0,
+        :SideViewInspection_0 .
+

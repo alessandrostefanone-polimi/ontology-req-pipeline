@@ -1,0 +1,45 @@
+{
+  "idx": 855,
+  "req_idx": 1,
+  "source_text": "3.7.6 Changes to the Cost Report in the Cost Addendum will incur additional cost: a. Added items will be cost at $125 \\%$ of the table cost: + (1.25 x Cost) b",
+  "requirement_text_pred": "Added items will be cost at $125 \\%$ of the table cost: + (1.25 x Cost)",
+  "prediction": {
+    "subject": "Added items",
+    "modality": "will",
+    "condition": "",
+    "action": "be cost",
+    "object": "at $125 \\%$ of the table cost: + (1.25 x Cost)"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "cost multiplier",
+      "operator_pred": "eq",
+      "value_raw_pred": "$125 \\%$",
+      "value_v1_pred": 125.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/ServiceFactor",
+      "normalized_unit_uri_pred": "PERCENT",
+      "normalized_si_value_primary_pred": 125.0,
+      "normalized_si_unit_primary_pred": "PERCENT",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": false,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

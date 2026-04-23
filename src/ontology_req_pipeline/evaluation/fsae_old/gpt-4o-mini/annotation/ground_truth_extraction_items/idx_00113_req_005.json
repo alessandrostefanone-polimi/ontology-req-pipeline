@@ -1,0 +1,23 @@
+{
+  "idx": 113,
+  "req_idx": 5,
+  "source_text": "Young's Modulus (E) $=200 \\mathrm{GPa}(29,000 \\mathrm{ksi})$ Yield Strength (Sy) $=305 \\mathrm{MPa}(44.2 \\mathrm{ksi})$ Ultimate Strength (Su) $=365 \\mathrm{MPa}(52.9 \\mathrm{ksi})$ b. Welded Properties for discontinuous material such as joint calculations: Yield Strength (Sy) $=180 \\mathrm{MPa}(26 \\mathrm{ksi})$ Ultimate Strength (Su) $=300 \\mathrm{MPa}(43.5 \\mathrm{ksi})$ F.3.4.3 Where Welded tubing reinforcements are required (such as inserts for bolt holes or material to support suspension cutouts), Equivalence of the Welded tube and reinforcement must be shown to the original Non Welded tube in the SES # F.3.5 Alternative Tubing Materials F.3.5.1 Alternative Materials may be used for applications shown as permitted in F.3.2.1 F.3.5.2 If any Alternative Materials are used, the SES must contain: a. Documentation of material type, (purchase receipt, shipping document or letter of donation) and the material properties",
+  "requirement_text_pred": "Equivalence of the Welded tube and reinforcement must be shown to the original Non Welded tube in the SES",
+  "prediction": {
+    "subject": "the Welded tube and reinforcement",
+    "modality": "must",
+    "condition": "",
+    "action": "be shown",
+    "object": "to the original Non Welded tube in the SES"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}
