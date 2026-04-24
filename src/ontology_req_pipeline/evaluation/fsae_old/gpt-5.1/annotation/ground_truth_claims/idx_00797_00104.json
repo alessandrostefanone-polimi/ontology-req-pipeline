@@ -1,0 +1,191 @@
+{
+  "idx": 797,
+  "source_text": "All vehicles with a maximum nominal operation voltage below 500 V will be measured with the next available voltage level",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_797.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/797#MeasurementResult_0",
+      "p": "http://purl.obolibrary.org/obo/BFO_0000110",
+      "o": "http://example.org/req/797#VE_req0_c0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasurementResult_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MeasurementInformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasurementResult_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/describes",
+      "o": "http://example.org/req/797#NominalOperationVoltage_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasurementResult_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isAbout",
+      "o": "http://example.org/req/797#VehicleClass_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasurementResult_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isOutputOf",
+      "o": "http://example.org/req/797#MeasuringProcess_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasurementVoltageLevel_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/qualityOf",
+      "o": "http://example.org/req/797#NextAvailableVoltageLevel_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasuringProcess_0",
+      "p": "http://purl.obolibrary.org/obo/BFO_0000057",
+      "o": "http://example.org/req/797#VehicleClass_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasuringProcess_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MeasurementProcess",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasuringProcess_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/797#VehicleClass_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasuringProcess_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasSpecifiedOutput",
+      "o": "http://example.org/req/797#MeasurementResult_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#MeasuringProcess_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/measuresAtSomeTime",
+      "o": "http://example.org/req/797#NominalOperationVoltage_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#NextAvailableVoltageLevel_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasQuality",
+      "o": "http://example.org/req/797#MeasurementVoltageLevel_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#NominalOperationVoltage_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtSomeTime",
+      "o": "http://example.org/req/797#VE_req0_c0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#NominalOperationVoltage_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/qualityOf",
+      "o": "http://example.org/req/797#VehicleClass_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#PlanSpec_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#PlanSpec_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/797#MeasuringProcess_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/797#PlanSpec_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#VE_req0_c0",
+      "p": "http://qudt.org/schema/qudt/maxExclusive",
+      "o": "\"500.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#VE_req0_c0",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/V",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#VE_req0_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#VE_req0_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/797#VE_req0_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/797#NominalOperationVoltage_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/quantitykind/Voltage",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityKind",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/V",
+      "p": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "o": "http://qudt.org/vocab/quantitykind/Voltage",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/V",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/Unit",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

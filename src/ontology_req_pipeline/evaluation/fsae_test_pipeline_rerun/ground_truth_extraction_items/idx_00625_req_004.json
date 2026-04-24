@@ -1,0 +1,24 @@
+{
+  "idx": 625,
+  "req_idx": 4,
+  "source_text": "4.6 Brake System Encoder - BSE Refer to T.4.3 for specific requirements of the BSE ## EV.4.7 APPS / Brake Pedal Plausibility Check EV.4.7.1 Must monitor for the two conditions: - The mechanical brakes are engaged EV.4.6, T.3.2.4 - The APPS signals more than 25\\% Pedal Travel EV.4.5 EV.4.7.2 If the two conditions in EV.4.7.1 occur at the same time: a. Power to the Motor(s) must be immediately and completely shut down b",
+  "requirement_text_pred": "EV.4.7.2 If the two conditions in EV.4.7.1 occur at the same time: a. Power to the Motor(s) must be immediately and completely shut down",
+  "prediction": {
+    "subject": "Power to the Motor(s)",
+    "modality": "must",
+    "condition": "If the two conditions in EV.4.7.1 occur at the same time",
+    "action": "be immediately and completely shut down",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

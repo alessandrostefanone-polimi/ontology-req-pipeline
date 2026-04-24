@@ -1,0 +1,53 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/572#> a owl:Ontology .
+
+<http://example.org/req/572#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "A permanent, non movable fuel level line must be located between 12 mm and 25 mm below the top of the visible portion of the sight tube" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/572#DS_req0> .
+
+<http://example.org/req/572#DS_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/572#VE_req0_c0> .
+
+<http://example.org/req/572#fuel_level_line_position> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/572#VE_req0_c0> ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/572#VE_req0_c0> .
+
+<http://qudt.org/vocab/unit/MM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/572#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:hasSimpleExpressionValue 1.2e+01,
+        "12.0"^^xsd:float,
+        2.5e+01,
+        "25.0"^^xsd:float ;
+    ns1:maxInclusive 2.5e+01 ;
+    ns1:minInclusive 1.2e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MM> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/572#fuel_level_line_position> .
+

@@ -1,0 +1,67 @@
+{
+  "idx": 550,
+  "req_idx": 0,
+  "source_text": "The power to the electronic throttle must be immediately shut down, if throttle position differs by more than $10 \\%$ from the expected target TPS position for more than one second",
+  "requirement_text_pred": "The power to the electronic throttle must be immediately shut down, if throttle position differs by more than $10 \\%$ from the expected target TPS position for more than one second",
+  "prediction": {
+    "subject": "The power to the electronic throttle",
+    "modality": "must",
+    "condition": "if throttle position differs by more than $10 \\%$ from the expected target TPS position for more than one second",
+    "action": "be immediately shut down",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "throttle position deviation",
+      "operator_pred": "gt",
+      "value_raw_pred": "$10 \\%$",
+      "value_v1_pred": 10.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/DimensionlessRatio",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/PERCENT",
+      "normalized_si_value_primary_pred": 0.1,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/NUM",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    },
+    {
+      "constraint_idx": 3,
+      "attribute_name_pred": "duration of deviation",
+      "operator_pred": "gt",
+      "value_raw_pred": "more than one second",
+      "value_v1_pred": 1.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "second",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Time",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/SEC",
+      "normalized_si_value_primary_pred": 1.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/SEC",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

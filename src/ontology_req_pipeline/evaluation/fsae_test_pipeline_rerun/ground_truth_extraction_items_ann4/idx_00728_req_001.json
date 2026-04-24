@@ -1,0 +1,46 @@
+{
+  "idx": 728,
+  "req_idx": 1,
+  "source_text": "The voltage rating of the Overcurrent Protection must be equal to or higher than the maximum segment voltage EV.7.4.5 Overcurrent Protection is not required on a voltage sense wire if all three of the following conditions are met: - AMS is a distributed AMS system (one cell measurement per board) - $\\quad$ Sense wire length is less than 25 mm - AMS board has Overcurrent Protection # EV.7.5 Accumulator Temperature EV.7.5.1",
+  "requirement_text_pred": "Overcurrent Protection is not required on a voltage sense wire if all three of the following conditions are met:",
+  "prediction": {
+    "subject": "Overcurrent Protection",
+    "modality": "is",
+    "condition": "if all three of the following conditions are met",
+    "action": "not required on",
+    "object": "a voltage sense wire"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": false,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "conditions count",
+      "operator_pred": "eq",
+      "value_raw_pred": "all three",
+      "value_v1_pred": 3.0,
+      "value_v2_pred": null,
+      "unit_text_pred": null,
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

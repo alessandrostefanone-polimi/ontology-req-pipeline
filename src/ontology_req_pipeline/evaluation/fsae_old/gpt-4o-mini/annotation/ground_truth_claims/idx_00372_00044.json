@@ -1,0 +1,436 @@
+{
+  "idx": 372,
+  "source_text": "Attachment of tabs or brackets must meet the following: a. Where brackets are fastened to the chassis, no less than two 6 mm or $1 / 4^{\\prime \\prime}$ minimum diameter Critical Fasteners, see T.8.2 or stronger must be used to attach the bracket to the chassis",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_372.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/372#Bracket",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponent",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#Bracket",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/372#BracketRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#BracketRole",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponentRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#C0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#C1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#Chassis",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifact",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#Chassis",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/372#ChassisRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#ChassisRole",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialArtifactRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#CriticalFasteners",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponent",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#CriticalFasteners",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/372#CriticalFastenersRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#CriticalFastenersRole",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponentRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#DS_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#DS_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/372#P_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#DS_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#DS_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/372#P_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#FastenerDiameter",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#FastenerDiameter",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/372#DS_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#FastenerRequirement",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#FastenerRequirement",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/372#DS_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#P_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#P_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/372#C0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#P_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#P_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/372#C1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/372#DS_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#Req_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#Req_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/372#DS_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c0",
+      "p": "http://qudt.org/schema/qudt/hasSimpleExpressionValue",
+      "o": "\"2\"^^<http://www.w3.org/2001/XMLSchema#integer>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c0",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"2.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c0",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/BEAT",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes",
+      "o": "http://example.org/req/372#C0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/372#C0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c1",
+      "p": "http://qudt.org/schema/qudt/hasSimpleExpressionValue",
+      "o": "\"0.25\"^^<http://www.w3.org/2001/XMLSchema#decimal>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c1",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"0.25\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c1",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/MM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes",
+      "o": "http://example.org/req/372#C0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req0_c1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/372#C0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c0",
+      "p": "http://qudt.org/schema/qudt/hasSimpleExpressionValue",
+      "o": "\"2\"^^<http://www.w3.org/2001/XMLSchema#integer>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c0",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"2.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c0",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/MM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes",
+      "o": "http://example.org/req/372#C1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/372#C1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c1",
+      "p": "http://qudt.org/schema/qudt/hasSimpleExpressionValue",
+      "o": "\"6.0\"^^<http://www.w3.org/2001/XMLSchema#decimal>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c1",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"6.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c1",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/MM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes",
+      "o": "http://example.org/req/372#C1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/372#VE_req1_c1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/372#C1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/quantitykind/Diameter",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityKind",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/quantitykind/Dimensionless",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityKind",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/BEAT",
+      "p": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "o": "http://qudt.org/vocab/quantitykind/Dimensionless",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/BEAT",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/Unit",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/MM",
+      "p": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "o": "http://qudt.org/vocab/quantitykind/Diameter",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/MM",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/Unit",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

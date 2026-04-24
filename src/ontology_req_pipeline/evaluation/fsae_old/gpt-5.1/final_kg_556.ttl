@@ -1,0 +1,48 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/556#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:BSPD_0 a bfo:BFO_0000040 ;
+    rdfs:label "Brake System Plausibility Device - BSPD"@en .
+
+:IC_4_8_1 a iof:InformationContentEntity ;
+    rdfs:label "IC.4.8.1"@en ;
+    iof:isAbout :Req_0 .
+
+:CircuitRole_0 a bfo:BFO_0000023 ;
+    rdfs:label "monitoring circuit role"@en ;
+    iof:roleOf :Circuit_0 .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Circuit_0 .
+
+:MonitoringProcess_0 a iof:PlannedProcess ;
+    rdfs:label "monitoring of electronic throttle control by standalone nonprogrammable circuit"@en ;
+    iof:hasParticipantAtSomeTime :Circuit_0,
+        :ThrottleControl_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    rdfs:label "plan for using standalone nonprogrammable circuit to monitor electronic throttle control"@en ;
+    iof:prescribes :MonitoringProcess_0 .
+
+:ThrottleControl_0 a bfo:BFO_0000040 ;
+    rdfs:label "electronic throttle control"@en .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Brake System Plausibility Device - BSPD IC.4.8.1 A standalone nonprogrammable circuit must be used to monitor the electronic throttle control" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Circuit_0 a bfo:BFO_0000040 ;
+    rdfs:label "standalone nonprogrammable circuit"@en ;
+    iof:hasRole :CircuitRole_0 ;
+    iof:satisfiesRequirement :Req_0 .
+

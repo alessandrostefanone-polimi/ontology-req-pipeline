@@ -1,0 +1,226 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/93#> a owl:Ontology .
+
+<http://example.org/req/93#Req0_C0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:comment "req_idx 0, constraint_idx 0: The steering rack must be mechanically attached to the Chassis" ;
+    ns1:prescribes <http://example.org/req/93#AttachmentProcess> .
+
+<http://example.org/req/93#Req0_C1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:comment "req_idx 0, constraint_idx 1: Joints between all components attaching the Steering Wheel to the steering rack" ;
+    ns1:prescribes <http://example.org/req/93#JointAssembly> .
+
+<http://example.org/req/93#Req0_C2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:comment "req_idx 0, constraint_idx 2: joint type must be mechanical" ;
+    ns1:prescribes <http://example.org/req/93#JointAssembly> .
+
+<http://example.org/req/93#Req0_C3> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:comment "req_idx 0, constraint_idx 3: joints must be visible at Technical Inspection" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/93#TechnicalInspection> ;
+    ns1:prescribes <http://example.org/req/93#JointAssembly> .
+
+<http://example.org/req/93#Req1_C0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:comment "req_idx 1, constraint_idx 0: be visible at Technical Inspection" ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/93#TechnicalInspection> ;
+    ns1:prescribes <http://example.org/req/93#JointAssembly> .
+
+<http://example.org/req/93#DS_Attachment> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/93#Chassis>,
+        <http://example.org/req/93#SteeringRack> ;
+    ns1:satisfiesRequirement <http://example.org/req/93#Req_0> .
+
+<http://example.org/req/93#DS_JointMechanical> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/93#JointAssembly> ;
+    ns1:satisfiesRequirement <http://example.org/req/93#Req_0> .
+
+<http://example.org/req/93#DS_JointVisible> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/93#JointAssembly> ;
+    ns1:satisfiesRequirement <http://example.org/req/93#Req_0> .
+
+<http://example.org/req/93#ObjSpec_Attachment> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/93#AttachmentProcess> ;
+    ns1:prescribes <http://example.org/req/93#AttachmentProcess> .
+
+<http://example.org/req/93#ObjSpec_JointMechanical> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/93#JointAssembly> .
+
+<http://example.org/req/93#ObjSpec_JointVisible> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/93#TechnicalInspection> ;
+    ns1:prescribes <http://example.org/req/93#JointAssembly> .
+
+<http://example.org/req/93#Plan_Attachment> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/93#AttachmentProcess> .
+
+<http://example.org/req/93#Plan_TechnicalInspection> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/93#TechnicalInspection> .
+
+<http://example.org/req/93#SteeringWheel> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000030,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact .
+
+<http://example.org/req/93#Chassis> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000030,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact .
+
+<http://example.org/req/93#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The steering rack must be mechanically attached to the Chassis F.5.14 V.3.2.7 Joints between all components attaching the Steering Wheel to the steering rack must be mechanical and be visible at Technical Inspection" ;
+    ns1:isAbout <http://example.org/req/93#ObjSpec_Attachment>,
+        <http://example.org/req/93#ObjSpec_JointMechanical>,
+        <http://example.org/req/93#ObjSpec_JointVisible> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/93#DS_Attachment>,
+        <http://example.org/req/93#DS_JointMechanical>,
+        <http://example.org/req/93#DS_JointVisible> .
+
+<http://example.org/req/93#SteeringRack> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000030,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact .
+
+<http://example.org/req/93#AttachmentProcess> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns2:BFO_0000057 <http://example.org/req/93#Chassis>,
+        <http://example.org/req/93#SteeringRack> ;
+    ns1:prescribedBy <http://example.org/req/93#Plan_Attachment> .
+
+<http://example.org/req/93#TechnicalInspection> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns2:BFO_0000057 <http://example.org/req/93#JointAssembly> ;
+    ns1:prescribedBy <http://example.org/req/93#Plan_TechnicalInspection> .
+
+<http://example.org/req/93#JointAssembly> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000030,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    ns1:hasComponentPartAtSomeTime <http://example.org/req/93#SteeringRack>,
+        <http://example.org/req/93#SteeringWheel> .
+

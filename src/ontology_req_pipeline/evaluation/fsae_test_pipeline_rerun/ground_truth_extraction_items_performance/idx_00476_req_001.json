@@ -1,0 +1,46 @@
+{
+  "idx": 476,
+  "req_idx": 1,
+  "source_text": "Any voltage more than 60 V DC or 25 V AC RMS T.9.1.2 Low Voltage - LV Any voltage less than and including 60 V DC or 25 V AC RMS T.9.1.3 Normally Open A type of electrical relay or contactor that allows current flow only in the energized state ## T.9.2 Low Voltage Batteries T.9.2.1 All Low Voltage Batteries and onboard power supplies must be securely mounted inside the Chassis below the height of the Shoulder Belt Mount T.2.6 T.9.2.2 All Low Voltage batteries must have Overcurrent Protection that trips at or below the maximum specified discharge current of the cells T.9.2.3 The hot (ungrounded) terminal must be insulated",
+  "requirement_text_pred": "T.9.2.2 All Low Voltage batteries must have Overcurrent Protection that trips at or below the maximum specified discharge current of the cells",
+  "prediction": {
+    "subject": "All Low Voltage batteries",
+    "modality": "must",
+    "condition": "",
+    "action": "have",
+    "object": "Overcurrent Protection that trips at or below the maximum specified discharge current of the cells"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "trip current threshold",
+      "operator_pred": "le",
+      "value_raw_pred": "at or below the maximum specified discharge current of the cells",
+      "value_v1_pred": null,
+      "value_v2_pred": null,
+      "unit_text_pred": null,
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

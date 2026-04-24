@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="https://spec.industrialontologies.org/ontology/202401/core/Core/" uri="Core.rdf"/>
+    <uri id="iof-core" name="https://spec.industrialontologies.org/ontology/core/Core/" uri="Core.rdf"/>
+    <uri id="iof-av" name="https://spec.industrialontologies.org/ontology/core/meta/AnnotationVocabulary/" uri="AnnotationVocabulary.rdf"/>
+    <uri id="iof-av-202401" name="https://spec.industrialontologies.org/ontology/202401/core/meta/AnnotationVocabulary/" uri="AnnotationVocabulary.rdf"/>
+    <uri id="bfo-2020" name="http://purl.obolibrary.org/obo/bfo/2020/bfo.owl" uri="bfo-core.owl"/>
+    <uri id="qudt-light" name="https://example.org/ontology/qudt-light" uri="qudt-light.ttl"/>
+    <uri id="iof-qudt-bridge" name="https://example.org/ontology/iof-qudt-bridge" uri="iof-qudt-bridge.ttl"/>
+</catalog>

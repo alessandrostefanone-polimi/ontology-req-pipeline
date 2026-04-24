@@ -1,0 +1,23 @@
+{
+  "idx": 394,
+  "req_idx": 2,
+  "source_text": "Head Restraint Protection (if used) F.5.10 T.2.8.4 The Head Restraint, attachment and mounting must be strong enough to withstand a minimum force of: a. 900 N applied in a rearward direction b. 300 N applied in a lateral or vertical direction T.2.8.5 For all drivers, the Head Restraint must be located and adjusted where: a",
+  "requirement_text_pred": "For all drivers, the Head Restraint must be located and adjusted where: a",
+  "prediction": {
+    "subject": "the Head Restraint",
+    "modality": "must",
+    "condition": "For all drivers",
+    "action": "be located and adjusted",
+    "object": "where: a"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": "true for how the requirement was extracted by the upstream steps"
+}

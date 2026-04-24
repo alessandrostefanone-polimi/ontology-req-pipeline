@@ -1,0 +1,233 @@
+{
+  "idx": 625,
+  "source_text": "4.6 Brake System Encoder - BSE Refer to T.4.3 for specific requirements of the BSE ## EV.4.7 APPS / Brake Pedal Plausibility Check EV.4.7.1 Must monitor for the two conditions: - The mechanical brakes are engaged EV.4.6, T.3.2.4 - The APPS signals more than 25\\% Pedal Travel EV.4.5 EV.4.7.2 If the two conditions in EV.4.7.1 occur at the same time: a. Power to the Motor(s) must be immediately and completely shut down b",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_625.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/625#DS_Req0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#DS_Req0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/625#BSE_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#DS_Req0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement",
+      "o": "http://example.org/req/625#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#MonitoringProcess_Req1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#MonitoringProcess_Req1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasProcessCharacteristic",
+      "o": "http://example.org/req/625#PC_APPSPedalTravel_Req1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#MonitoringProcess_Req1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasProcessCharacteristic",
+      "o": "http://example.org/req/625#PC_MechanicalBrakesState_Req1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#MonitoringProcess_Req1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribedBy",
+      "o": "http://example.org/req/625#PS_Req1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PC_APPSPedalTravel_Req1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PC_MechanicalBrakesState_Req1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PS_Req1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PS_Req1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/625#MonitoringProcess_Req1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PS_Req1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement",
+      "o": "http://example.org/req/625#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PS_Req2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PS_Req2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/625#PowerShutdownProcess_Req2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PS_Req2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement",
+      "o": "http://example.org/req/625#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PowerShutdownProcess_Req2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PowerShutdownProcess_Req2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/625#MotorPowerSupply_Req2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#PowerShutdownProcess_Req2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribedBy",
+      "o": "http://example.org/req/625#PS_Req2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/625#DS_Req0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/625#PS_Req1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/625#PS_Req2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#T_4_3",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#T_4_3",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/625#DS_Req0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#VE_req1_c2",
+      "p": "http://qudt.org/schema/qudt/minExclusive",
+      "o": "\"25.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#VE_req1_c2",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/PERCENT",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#VE_req1_c2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#VE_req1_c2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/625#VE_req1_c2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/625#PC_APPSPedalTravel_Req1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/quantitykind/DutyCycle",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityKind",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/PERCENT",
+      "p": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "o": "http://qudt.org/vocab/quantitykind/DutyCycle",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/PERCENT",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/Unit",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

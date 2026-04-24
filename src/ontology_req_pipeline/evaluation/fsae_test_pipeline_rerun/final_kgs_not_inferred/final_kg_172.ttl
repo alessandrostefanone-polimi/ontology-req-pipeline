@@ -1,0 +1,43 @@
+@prefix : <http://example.org/req/172#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:SteeringWheel_0 a iof:MaterialArtifact ;
+    rdfs:label "steering wheel" .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :FrontHoop_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "See figure following F.5.9.6 below F.5.7.5 The Front Hoop must be no more than 250 mm forward of the steering wheel" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.5e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :FrontHoop_0_DistanceForwardOfSteeringWheel .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:FrontHoop_0 a iof:MaterialArtifact ;
+    rdfs:label "Front Hoop" ;
+    iof:hasQuality :FrontHoop_0_DistanceForwardOfSteeringWheel .
+
+:FrontHoop_0_DistanceForwardOfSteeringWheel a bfo:BFO_0000019 ;
+    rdfs:label "distance forward of the steering wheel" ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 ;
+    iof:qualityOf :FrontHoop_0 .
+

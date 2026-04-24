@@ -1,0 +1,397 @@
+{
+  "generated_at_utc": "2026-04-13T10:22:18.319460+00:00",
+  "evaluation_dir": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__zero_shot_llm_grounding",
+  "run_id": "20260413T101912.660513Z",
+  "dataset_name": "techreq_no_fsae.jsonl",
+  "extraction_provider": "openai",
+  "extraction_model": "gpt-5.4",
+  "normalization_provider": "openai",
+  "normalization_model": "gpt-5.4",
+  "grounding_provider": "openai",
+  "grounding_model": "gpt-5.4",
+  "run_metadata": {
+    "run_id": "20260413T101912.660513Z",
+    "started_at_utc": "2026-04-13T10:19:12.660513+00:00",
+    "completed_at_utc": "2026-04-13T10:22:16.944496+00:00",
+    "status": "completed",
+    "input_path": "datasets\\techreq_no_fsae.jsonl",
+    "dataset_name": "techreq_no_fsae.jsonl",
+    "output_dir": "src\\ontology_req_pipeline\\evaluation\\techreq_no_fsae_comparison\\grounding-focused\\raw_requirement__zero_shot_llm_grounding",
+    "input_records_expected": 20,
+    "processed_records": 20,
+    "normalized_ok": 0,
+    "grounded_ok": 20,
+    "grounding_failed": 0,
+    "inferred_ok": 11,
+    "limit": 20,
+    "reasoner": "Pellet",
+    "extraction_provider": "openai",
+    "extraction_local": false,
+    "extraction_model": "gpt-5.4",
+    "extraction_method": "raw-requirement",
+    "normalization_provider": "openai",
+    "normalization_local": false,
+    "normalization_model": "gpt-5.4",
+    "normalization_method": "skipped",
+    "grounding_provider": "openai",
+    "grounding_local": false,
+    "grounding_model": "gpt-5.4",
+    "grounding_method": "zero-shot-llm",
+    "raw_grounding_input": true,
+    "provider": "openai",
+    "local": false,
+    "model": "gpt-5.4",
+    "run_duration_seconds": 184.28413720000026
+  },
+  "counts": {
+    "records_extraction": 20,
+    "records_normalization": 20,
+    "records_grounding": 20,
+    "requirements_extracted": 0,
+    "constraints_extracted": 0,
+    "quantity_constraints_extracted": 0,
+    "normalized_quantities_total": 0,
+    "normalized_quantities_with_unit": 0,
+    "invalid_normalized_constraint_idx": 0
+  },
+  "status": {
+    "extraction": {
+      "skipped": 20
+    },
+    "normalization": {
+      "skipped": 20
+    },
+    "grounding": {
+      "ok": 20
+    },
+    "inference": {
+      "failed": 9,
+      "ok": 11
+    }
+  },
+  "completion_metrics": {
+    "observed_input_records": 20,
+    "expected_input_records": 20,
+    "extraction_success_rate_vs_input": 0.0,
+    "normalization_success_rate_vs_extraction_ok": null,
+    "grounding_success_rate_vs_normalization_ok": null,
+    "end_to_end_success_count": 20,
+    "end_to_end_success_rate_vs_input": 1.0,
+    "end_to_end_success_rate_vs_expected_input": 1.0
+  },
+  "quantitative_fidelity": {
+    "quantity_coverage": null,
+    "constraint_index_integrity": null,
+    "unit_completeness": null,
+    "quantity_hallucination_rate": 0.95,
+    "quantity_hallucination_count": 19,
+    "quantity_hallucination_indices": [
+      0,
+      1,
+      2,
+      3,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  "inference_utility": {
+    "inferred_file_count": 20,
+    "inferred_unique_hash_count": 20,
+    "inferred_uniqueness_ratio": 1.0,
+    "inferred_files_with_requirement_markers": 20,
+    "inferred_marker_presence_rate": 1.0,
+    "grounded_with_requirement_linkage": 20,
+    "requirement_linkage_completeness": 1.0,
+    "asserted_triple_stats": {
+      "count": 19,
+      "mean": 29.68421052631579,
+      "stdev": 11.77442648767121,
+      "min": 21.0,
+      "max": 71.0,
+      "p50": 25.0,
+      "p95": 71.0
+    },
+    "inferred_triple_stats": {
+      "count": 19,
+      "mean": 59.78947368421053,
+      "stdev": 29.740242004056284,
+      "min": 21.0,
+      "max": 114.0,
+      "p50": 62.0,
+      "p95": 114.0
+    },
+    "inference_delta_triples_stats": {
+      "count": 19,
+      "mean": 30.105263157894736,
+      "stdev": 27.59651911085909,
+      "min": 0.0,
+      "max": 74.0,
+      "p50": 38.0,
+      "p95": 74.0
+    }
+  },
+  "latency_metrics": {
+    "run_duration_seconds": 184.28413720000026,
+    "throughput_records_per_minute": 6.511683632854745,
+    "extraction_seconds": {
+      "count": 20,
+      "mean": 0.0,
+      "stdev": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "p50": 0.0,
+      "p95": 0.0
+    },
+    "normalization_seconds": {
+      "count": 20,
+      "mean": 0.0,
+      "stdev": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "p50": 0.0,
+      "p95": 0.0
+    },
+    "grounding_seconds": {
+      "count": 20,
+      "mean": 7.495000514999992,
+      "stdev": 2.0966573926023635,
+      "min": 3.9818978999992396,
+      "max": 12.636629800001174,
+      "p50": 6.74100080000062,
+      "p95": 11.621252000000823
+    },
+    "inference_seconds": {
+      "count": 20,
+      "mean": 1.7140178149998975,
+      "stdev": 1.4658922503378329,
+      "min": 0.078807500000039,
+      "max": 4.349486799999795,
+      "p50": 2.1087915999996767,
+      "p95": 3.4075477000005776
+    },
+    "end_to_end_seconds": {
+      "count": 20,
+      "mean": 9.213328265000019,
+      "stdev": 2.5101439890182684,
+      "min": 4.124320100001569,
+      "max": 14.633855099998982,
+      "p50": 9.380526500000997,
+      "p95": 12.846196799999234
+    }
+  },
+  "call_and_cost": {
+    "extraction_invocations": 20,
+    "normalization_invocations": 20,
+    "grounding_invocations": 20,
+    "inference_invocations": 20,
+    "token_usage_available": false,
+    "cost_usage_available": false
+  },
+  "failure_metrics": {
+    "grounding_failed_count": 0,
+    "grounding_failed_rate": 0.0,
+    "external_dependency_failure_count": 0,
+    "external_dependency_failure_rate": 0.0
+  },
+  "robustness_metrics": {
+    "runs_in_history": 1,
+    "end_to_end_success_rate_vs_input": {
+      "count": 1,
+      "mean": 1.0,
+      "stdev": 0.0,
+      "min": 1.0,
+      "max": 1.0,
+      "p50": 1.0,
+      "p95": 1.0
+    },
+    "quantity_coverage": {
+      "count": 0,
+      "mean": null,
+      "stdev": null,
+      "min": null,
+      "max": null,
+      "p50": null,
+      "p95": null
+    },
+    "quantity_hallucination_rate": {
+      "count": 1,
+      "mean": 0.95,
+      "stdev": 0.0,
+      "min": 0.95,
+      "max": 0.95,
+      "p50": 0.95,
+      "p95": 0.95
+    },
+    "external_dependency_failure_rate": {
+      "count": 1,
+      "mean": 0.0,
+      "stdev": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "p50": 0.0,
+      "p95": 0.0
+    },
+    "inferred_uniqueness_ratio": {
+      "count": 1,
+      "mean": 1.0,
+      "stdev": 0.0,
+      "min": 1.0,
+      "max": 1.0,
+      "p50": 1.0,
+      "p95": 1.0
+    },
+    "run_duration_seconds": {
+      "count": 1,
+      "mean": 184.28413720000026,
+      "stdev": 0.0,
+      "min": 184.28413720000026,
+      "max": 184.28413720000026,
+      "p50": 184.28413720000026,
+      "p95": 184.28413720000026
+    }
+  },
+  "quality": {
+    "quantity_coverage": null,
+    "quantity_hallucination_count": 19,
+    "quantity_hallucination_indices": [
+      0,
+      1,
+      2,
+      3,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "inferred_file_count": 20,
+    "inferred_unique_hash_count": 20,
+    "inferred_files_with_requirement_markers": 20,
+    "inferred_files_without_requirement_markers": 0
+  },
+  "per_record_quantity_coverage": [
+    {
+      "idx": 0,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 1,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 2,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 3,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 7,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 9,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 10,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 11,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 12,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 13,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 14,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 15,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 16,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 17,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 18,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 19,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 20,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 21,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 22,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 23,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    }
+  ]
+}

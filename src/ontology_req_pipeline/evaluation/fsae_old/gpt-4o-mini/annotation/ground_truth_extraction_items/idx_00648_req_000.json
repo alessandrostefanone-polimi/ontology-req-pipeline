@@ -1,0 +1,45 @@
+{
+  "idx": 648,
+  "req_idx": 0,
+  "source_text": "The Precharge Circuit must: a. Be able to charge the Intermediate Circuit to minimum $90 \\%$ of the Accumulator voltage before closing the second AIR b",
+  "requirement_text_pred": "The Precharge Circuit must be able to charge the Intermediate Circuit to minimum $90 \\%$ of the Accumulator voltage before closing the second AIR.",
+  "prediction": {
+    "subject": "The Precharge Circuit",
+    "modality": "must",
+    "condition": "",
+    "action": "be able to charge",
+    "object": "the Intermediate Circuit to minimum $90 \\%$ of the Accumulator voltage before closing the second AIR"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "Accumulator voltage",
+      "operator_pred": "ge",
+      "value_raw_pred": "$90 \\%$ of the Accumulator voltage",
+      "value_v1_pred": 90.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/StateOfCharge",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/PERCENT",
+      "normalized_si_value_primary_pred": 0.9,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/NUM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

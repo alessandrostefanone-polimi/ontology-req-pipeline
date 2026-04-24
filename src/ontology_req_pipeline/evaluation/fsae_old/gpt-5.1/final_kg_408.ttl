@@ -1,0 +1,71 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/408#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:EV_7_2_2 a iof:InformationContentEntity ;
+    rdfs:label "EV.7.2.2" .
+
+:IC_9_2_2 a iof:InformationContentEntity ;
+    rdfs:label "IC.9.2.2" .
+
+:OFF_Position a bfo:BFO_0000019 ;
+    rdfs:label "OFF position" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "3.3.3 Operation of the BOTS to the OFF position must Open the Shutdown Circuit IC.9.2.2 / EV.7.2.2 T.3.3.4 Repeated operation of the switch must not reset or restore power T.3.3.5" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:T_3_3_4 a iof:InformationContentEntity ;
+    rdfs:label "T.3.3.4" .
+
+:T_3_3_5 a iof:InformationContentEntity ;
+    rdfs:label "T.3.3.5" .
+
+:BOTS a bfo:BFO_0000040 ;
+    rdfs:label "BOTS" .
+
+:ShutdownCircuit a bfo:BFO_0000040 ;
+    rdfs:label "Shutdown Circuit" .
+
+:ShutdownCircuit_Open_Process a iof:ProcessCharacteristic ;
+    rdfs:label "Opening of the Shutdown Circuit" ;
+    iof:processCharacteristicOf :BOTS_Operation_Off .
+
+:ShutdownCircuit_Open_State a bfo:BFO_0000019 ;
+    rdfs:label "Shutdown Circuit open state" ;
+    iof:qualityOf :ShutdownCircuit .
+
+:No_Reset_Event a iof:ProcessCharacteristic ;
+    rdfs:label "No reset on repeated operation" ;
+    iof:processCharacteristicOf :BOTS_Operation_Off .
+
+:No_RestorePower_Event a iof:ProcessCharacteristic ;
+    rdfs:label "No restore power on repeated operation" ;
+    iof:processCharacteristicOf :BOTS_Operation_Off .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :No_Reset_Event,
+        :No_RestorePower_Event,
+        :ShutdownCircuit_Open_Process .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_0 ;
+    iof:prescribes :BOTS_Operation_Off .
+
+:BOTS_Operation_Off a iof:PlannedProcess ;
+    rdfs:label "Operation of the BOTS to the OFF position" ;
+    bfo:BFO_0000057 :BOTS ;
+    iof:hasProcessCharacteristic :No_Reset_Event,
+        :No_RestorePower_Event ;
+    iof:hasSpecifiedOutput :ShutdownCircuit_Open_State ;
+    iof:prescribedBy :PlanSpec_0 .
+

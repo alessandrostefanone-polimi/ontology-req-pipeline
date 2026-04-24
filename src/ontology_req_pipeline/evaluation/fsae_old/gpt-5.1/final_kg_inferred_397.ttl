@@ -1,0 +1,233 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/397#> a owl:Ontology .
+
+<http://example.org/req/397#CoverMaterial_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Thin flexible cover material",
+        "Thin flexible cover material"@en ;
+    ns1:hasComponentPartAtSomeTime <http://example.org/req/397#InspectionHole_2> .
+
+<http://example.org/req/397#CoveredPadding_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Assembly,
+        ns1:MaterialArtifact ;
+    rdfs:label "Padding assembly covered with thin flexible material",
+        "Padding assembly covered with thin flexible material"@en ;
+    ns1:hasComponentPartAtSomeTime <http://example.org/req/397#CoverMaterial_2> .
+
+<http://example.org/req/397#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/397#PaddingAssembly_0>,
+        <http://example.org/req/397#PaddingCoveringProcess_2>,
+        <http://example.org/req/397#RollBarPadding_3> ;
+    ns1:satisfiesRequirement <http://example.org/req/397#Req_0> .
+
+<http://example.org/req/397#InspectionHole_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Inspection hole in cover material",
+        "Inspection hole in cover material"@en ;
+    ns1:hasQuality <http://example.org/req/397#InspectionHoleDiameter_2> .
+
+<http://example.org/req/397#PaddingAssembly_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Assembly,
+        ns1:MaterialArtifact ;
+    rdfs:label "Padding assembly for quantitative geometry requirements",
+        "Padding assembly for quantitative geometry requirements"@en ;
+    ns1:hasQuality <http://example.org/req/397#Area_0>,
+        <http://example.org/req/397#Height_1>,
+        <http://example.org/req/397#TotalHeightAdjustment_0> .
+
+<http://example.org/req/397#PaddingCoveringProcess_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process of covering with thin flexible material with inspection hole",
+        "Process of covering with thin flexible material with inspection hole"@en ;
+    ns1:hasSpecifiedOutput <http://example.org/req/397#CoveredPadding_2> .
+
+<http://example.org/req/397#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Meet one of the following: - minimum area of $235 \\mathrm{~cm}^{2}$ AND minimum total height adjustment of 17.5 cm - minimum height of 28 cm e. Be covered with a thin, flexible material that contains a $\\sim 20 \\mathrm{~mm}$ diameter inspection hole in a surface other than the front surface ## T.2.9 Roll Bar Padding Any portion of the roll bar, roll bar bracing or Chassis which might be contacted by the driver's helmet must be covered with a minimum thickness of 12 mm of padding which meets SFI Spec 45.1 or FIA 8857-2001" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/397#DS_0> .
+
+<http://example.org/req/397#RollBarPadding_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Assembly,
+        ns1:MaterialArtifact ;
+    rdfs:label "Roll bar padding assembly",
+        "Roll bar padding assembly"@en ;
+    ns1:hasQuality <http://example.org/req/397#PaddingThickness_3> .
+
+<http://example.org/req/397#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for minimum area 235 cm^2",
+        "Value expression for minimum area 235 cm^2"@en ;
+    ns2:minInclusive 2.35e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/CentiM2> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/397#Area_0> .
+
+<http://example.org/req/397#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for minimum total height adjustment 17.5 mm",
+        "Value expression for minimum total height adjustment 17.5 mm"@en ;
+    ns2:minInclusive 1.75e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/397#TotalHeightAdjustment_0> .
+
+<http://example.org/req/397#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for minimum height 28 mm",
+        "Value expression for minimum height 28 mm"@en ;
+    ns2:minInclusive 2.8e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/397#Height_1> .
+
+<http://example.org/req/397#VE_req2_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for inspection hole diameter 20 mm",
+        "Value expression for inspection hole diameter 20 mm"@en ;
+    ns2:maxInclusive 2e+01 ;
+    ns2:minInclusive 2e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/CentiM> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/397#InspectionHoleDiameter_2> .
+
+<http://example.org/req/397#VE_req3_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for minimum padding thickness 12 mm",
+        "Value expression for minimum padding thickness 12 mm"@en ;
+    ns2:minInclusive 1.2e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/CentiM> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/397#PaddingThickness_3> .
+
+<http://qudt.org/vocab/unit/CentiM2> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/CartesianArea> .
+
+<http://example.org/req/397#Area_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Area of padding assembly",
+        "Area of padding assembly"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/397#VE_req0_c0> .
+
+<http://example.org/req/397#Height_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Height of padding assembly",
+        "Height of padding assembly"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/397#VE_req1_c0> .
+
+<http://example.org/req/397#InspectionHoleDiameter_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Diameter of inspection hole",
+        "Diameter of inspection hole"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/397#VE_req2_c1> .
+
+<http://example.org/req/397#PaddingThickness_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Thickness of roll bar padding",
+        "Thickness of roll bar padding"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/397#VE_req3_c1> .
+
+<http://example.org/req/397#TotalHeightAdjustment_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Total height adjustment of padding assembly",
+        "Total height adjustment of padding assembly"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/397#VE_req0_c1> .
+
+<http://qudt.org/vocab/unit/CentiM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/MigrationLength>,
+        <http://qudt.org/vocab/quantitykind/Thickness> .
+

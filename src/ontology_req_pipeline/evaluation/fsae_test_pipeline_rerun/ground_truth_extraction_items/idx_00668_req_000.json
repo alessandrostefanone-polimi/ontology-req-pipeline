@@ -1,0 +1,67 @@
+{
+  "idx": 668,
+  "req_idx": 0,
+  "source_text": "From a point 1.6 m vertically from ground level, inside a 3 m horizontal radius from the TSAL c. In direct sunlight # EV.5.10 Connectors Tractive System connectors outside of a housing must meet one of the two: - Contain an Interlock EV.7.8 which must Open the Shutdown Circuit EV.7.2.2 - Be sealed at Tech Inspection IN.4.7.1 ## EV",
+  "requirement_text_pred": "From a point 1.6 m vertically from ground level, inside a 3 m horizontal radius from the TSAL c. In direct sunlight",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "observation point height",
+      "operator_pred": "eq",
+      "value_raw_pred": "1.6 m",
+      "value_v1_pred": 1.6,
+      "value_v2_pred": null,
+      "unit_text_pred": "m",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Height",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/M",
+      "normalized_si_value_primary_pred": 1.6,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    },
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "horizontal radius from TSAL c",
+      "operator_pred": "le",
+      "value_raw_pred": "3 m",
+      "value_v1_pred": 3.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "m",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Radius",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/M",
+      "normalized_si_value_primary_pred": 3.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

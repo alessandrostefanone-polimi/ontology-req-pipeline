@@ -1,0 +1,136 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/167#> a owl:Ontology .
+
+<http://example.org/req/167#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/167#HeadCircle_0>,
+        <http://example.org/req/167#Line_0>,
+        <http://example.org/req/167#UpperCircle_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/167#Req_0> .
+
+<http://example.org/req/167#HeadCircle_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "head circle",
+        "head circle"@en ;
+    ns2:hasQuality <http://example.org/req/167#HeadCircleDiameter_0> .
+
+<http://example.org/req/167#Line_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "straight line connecting circle centers",
+        "straight line connecting circle centers"@en ;
+    ns2:hasQuality <http://example.org/req/167#LineLength_0> .
+
+<http://example.org/req/167#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "A straight line measuring 280 mm will connect the centers of the upper 200 mm circle and the 300 mm head circle" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/167#DS_0> .
+
+<http://example.org/req/167#UpperCircle_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "upper circle",
+        "upper circle"@en ;
+    ns2:hasQuality <http://example.org/req/167#UpperCircleDiameter_0> .
+
+<http://example.org/req/167#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2.8e-01 ;
+    ns1:minInclusive 2.8e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/167#LineLength_0> .
+
+<http://example.org/req/167#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2e-01 ;
+    ns1:minInclusive 2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/167#UpperCircleDiameter_0> .
+
+<http://example.org/req/167#VE_req0_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 3e-01 ;
+    ns1:minInclusive 3e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/167#HeadCircleDiameter_0> .
+
+<http://example.org/req/167#HeadCircleDiameter_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "diameter of head circle",
+        "diameter of head circle"@en ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/167#VE_req0_c2> .
+
+<http://example.org/req/167#LineLength_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "length of straight line",
+        "length of straight line"@en ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/167#VE_req0_c0> .
+
+<http://example.org/req/167#UpperCircleDiameter_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "diameter of upper circle",
+        "diameter of upper circle"@en ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/167#VE_req0_c1> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter>,
+        <http://qudt.org/vocab/quantitykind/Length> .
+

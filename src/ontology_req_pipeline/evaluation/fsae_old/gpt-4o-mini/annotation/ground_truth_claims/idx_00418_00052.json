@@ -1,0 +1,289 @@
+{
+  "idx": 418,
+  "source_text": "The circuit must have a pull-up or pull-down resistor to bring an open circuit input to $0 \\%$ Pedal Travel - An OEM pedal sensor with opposite slopes",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_418.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/418#DS_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#DS_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/418#P_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#DS_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#DS_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/418#P_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#P_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#P_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/418#R1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#P_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/418#R2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#P_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/418#VE_req0_c2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#P_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#P_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/418#VE_req1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#R1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponent",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#R1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/418#pull_up_resistor_role",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#R2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponent",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#R2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/418#pull_down_resistor_role",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/418#DS_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#Req_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#Req_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/418#DS_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req0_c2",
+      "p": "http://qudt.org/schema/qudt/hasUnit",
+      "o": "http://qudt.org/vocab/unit/NUM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req0_c2",
+      "p": "http://qudt.org/schema/qudt/maxInclusive",
+      "o": "\"0.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req0_c2",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"0.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req0_c2",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/NUM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req0_c2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req0_c2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req0_c2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes",
+      "o": "http://example.org/req/418#open_circuit_input",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req1",
+      "p": "http://qudt.org/schema/qudt/hasUnit",
+      "o": "http://qudt.org/vocab/unit/NUM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req1",
+      "p": "http://qudt.org/schema/qudt/maxInclusive",
+      "o": "\"0.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req1",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"0.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#VE_req1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/418#pull_up_or_pull_down_resistor",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#open_circuit_input",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#open_circuit_input",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtSomeTime",
+      "o": "http://example.org/req/418#VE_req0_c2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#pull_down_resistor_role",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponentRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#pull_up_or_pull_down_resistor",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#pull_up_or_pull_down_resistor",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtSomeTime",
+      "o": "http://example.org/req/418#VE_req1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/418#pull_up_resistor_role",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponentRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/quantitykind/DutyCycle",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityKind",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/NUM",
+      "p": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "o": "http://qudt.org/vocab/quantitykind/DutyCycle",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/NUM",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/Unit",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

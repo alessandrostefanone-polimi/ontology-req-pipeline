@@ -1,0 +1,64 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/165#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Constraint_0 a iof:RequirementSpecification ;
+    iof:hasInput :C_0 ;
+    iof:hasOutput :C_1 ;
+    iof:prescribes :Condition_0 .
+
+:Event_0 a iof:Event ;
+    iof:recognizedByAtSomeTime :Agent_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "A circle of diameter 300 mm will represent the head (with helmet)" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:Agent_0 a iof:Agent ;
+    rdfs:label "Agent responsible for the representation" .
+
+:Condition_0 a iof:ObjectiveSpecification ;
+    iof:hasContinuantPartAtAllTimes :C_1 ;
+    iof:prescribes :C_0 .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :P_0 .
+
+:P_0 a iof:PlanSpecification ;
+    iof:hasInput :C_1 ;
+    iof:prescribes :C_0 .
+
+:R_0 a iof:MaterialComponentRole ;
+    rdfs:label "diameter role" .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:MeasuredValueExpression,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue 300.0 ;
+    qudt:hasUnit qudt:MilliM ;
+    qudt:maxInclusive 3e+02 ;
+    qudt:minInclusive 3e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :C_0 .
+
+:C_0 a iof:MaterialProduct ;
+    iof:hasSpecifiedOutput :C_1 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+:C_1 a iof:MaterialComponent ;
+    iof:hasRole :R_0 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+

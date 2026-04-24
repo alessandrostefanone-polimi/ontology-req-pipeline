@@ -1,0 +1,177 @@
+{
+  "idx": 281,
+  "source_text": "Standard Honeycomb must be mounted 200mm width x 100mm height c",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_281.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/281#DS_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#DS_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/281#StandardHoneycomb_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#DS_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement",
+      "o": "http://example.org/req/281#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#Height_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtSomeTime",
+      "o": "http://example.org/req/281#VE_req0_c1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/281#DS_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#StandardHoneycomb_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasQuality",
+      "o": "http://example.org/req/281#Height_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#StandardHoneycomb_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasQuality",
+      "o": "http://example.org/req/281#Width_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c0",
+      "p": "http://qudt.org/schema/qudt/maxInclusive",
+      "o": "\"200.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c0",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"200.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c0",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/MilliM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/281#Width_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c1",
+      "p": "http://qudt.org/schema/qudt/maxInclusive",
+      "o": "\"100.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c1",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"100.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c1",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/MilliM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#VE_req0_c1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/281#Height_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/281#Width_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtSomeTime",
+      "o": "http://example.org/req/281#VE_req0_c0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/quantitykind/Breadth",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityKind",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/MilliM",
+      "p": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "o": "http://qudt.org/vocab/quantitykind/Breadth",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/MilliM",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/Unit",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

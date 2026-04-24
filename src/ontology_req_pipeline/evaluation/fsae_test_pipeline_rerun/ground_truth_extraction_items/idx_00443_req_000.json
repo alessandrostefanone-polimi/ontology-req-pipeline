@@ -1,0 +1,24 @@
+{
+  "idx": 443,
+  "req_idx": 0,
+  "source_text": "Minimum thickness for steel: 2.0 mm T.5.3.2 A Scatter Shield must be included around the Motor(s) when one or both: - The motor casing rotates around the stator - The motor case is perforated T.5.3.3",
+  "requirement_text_pred": "A Scatter Shield must be included around the Motor(s) when one or both: - The motor casing rotates around the stator",
+  "prediction": {
+    "subject": "A Scatter Shield",
+    "modality": "must",
+    "condition": "when one or both: - The motor casing rotates around the stator",
+    "action": "be included",
+    "object": "around the Motor(s)"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": "The upstream requirement contains two conditions, however the model separated the two conditions in two different individual requirements related via an OR relation. This is the reason why the decomposition error is marked as false and all the other labels are marked as true."
+}

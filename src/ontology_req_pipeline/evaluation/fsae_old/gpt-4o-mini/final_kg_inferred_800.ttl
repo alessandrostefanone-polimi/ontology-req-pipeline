@@ -1,0 +1,90 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/800#> a owl:Ontology .
+
+<http://example.org/req/800#AdditionalMonitoring> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "Additional monitoring" .
+
+<http://example.org/req/800#Charger> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "Charger" .
+
+<http://example.org/req/800#FreeFieldMicrophone> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "free field microphone" .
+
+<http://example.org/req/800#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "4.6 Ready to Drive Sound The sound level will be measured with a free field microphone placed free from obstructions in a radius of 2 m around the vehicle against the criteria in EV.9.5 ## IN.4.7 Electrical Inspection Completion IN.4.7.1 All or portions of the Tractive System, Charger and other components may be sealed IN.2.6 IN.4.7.2 Additional monitoring to verify conformance to rules may be installed" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/800#SoundLevelMeasurementSpec> .
+
+<http://example.org/req/800#Rules> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "rules" .
+
+<http://example.org/req/800#TractiveSystem> a owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    rdfs:label "Tractive System" .
+
+<http://example.org/req/800#SoundLevelMeasurementAction> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/800#SoundLevelMeasurementObjective> .
+
+<http://example.org/req/800#SoundLevelMeasurementObjective> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/800#SoundLevelMeasurementOutput> .
+
+<http://example.org/req/800#SoundLevelMeasurementOutput> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    ns1:hasQuality <http://example.org/req/800#SoundLevelQuality> .
+
+<http://example.org/req/800#SoundLevelMeasurementSpec> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/800#SoundLevelMeasurementAction> .
+
+<http://example.org/req/800#SoundLevelQuality> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Quality ;
+    rdfs:label "sound level" .
+

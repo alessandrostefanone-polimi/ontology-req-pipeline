@@ -1,0 +1,23 @@
+{
+  "idx": 419,
+  "req_idx": 2,
+  "source_text": "The intent is that in a short circuit the APPSs will only agree at 0\\% Pedal Travel T.4.2.4 Implausibility is defined as a deviation of more than 10\\% Pedal Travel between the sensors or other failure as defined in this Section T.4.2",
+  "requirement_text_pred": "Other failure as defined in this Section T.4.2.",
+  "prediction": {
+    "subject": "Other failure",
+    "modality": "is",
+    "condition": "",
+    "action": "as defined",
+    "object": "in this Section T.4.2"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

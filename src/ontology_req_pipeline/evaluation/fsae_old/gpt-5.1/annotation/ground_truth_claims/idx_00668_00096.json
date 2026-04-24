@@ -1,0 +1,163 @@
+{
+  "idx": 668,
+  "source_text": "From a point 1.6 m vertically from ground level, inside a 3 m horizontal radius from the TSAL c. In direct sunlight # EV.5.10 Connectors Tractive System connectors outside of a housing must meet one of the two: - Contain an Interlock EV.7.8 which must Open the Shutdown Circuit EV.7.2.2 - Be sealed at Tech Inspection IN.4.7.1 ## EV",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_668.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/668#DS_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/DesignSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#DS_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/668#TractiveSystemConnectorOutsideHousing",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#DS_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/satisfiesRequirement",
+      "o": "http://example.org/req/668#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#EV_5_10",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#EV_7_8",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#ObjSpec_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ObjectiveSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#ObjSpec_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/668#TractiveSystemConnectorOutsideHousing",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req0_Constraint0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req0_Constraint0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/describes",
+      "o": "http://example.org/req/668#TSConnectorOptionRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req0_Constraint0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/668#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req1_Action_OpenShutdownCircuit",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ActionSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req1_Action_OpenShutdownCircuit",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/668#ShutdownCircuit_EV_7_2_2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req1_Constraint0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req1_Constraint0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/describes",
+      "o": "http://example.org/req/668#Req1_Action_OpenShutdownCircuit",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req1_Constraint0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/668#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req2_Constraint0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req2_Constraint0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/describes",
+      "o": "http://example.org/req/668#Req2_SealQuality",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req2_Constraint0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/668#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isAbout",
+      "o": "http://example.org/req/668#ObjSpec_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/668#DS_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/668#TractiveSystemConnectorOutsideHousing",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/668#TSConnectorOptionRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

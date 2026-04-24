@@ -1,0 +1,62 @@
+@prefix : <http://example.org/req/225#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "An inspection hole approximately 4 mm in diameter must be drilled through a low stress location of every monocoque section regulated by the Structural Equivalency Spreadsheet This inspection hole is not required in the Vertical Side Impact Structure F.7.5.3.b" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    iof:isAbout :ObjSpec_1 ;
+    iof:requirementSatisfiedBy :DesignSpec_VSIS .
+
+:StructuralEquivalencySpreadsheet a iof:InformationContentEntity ;
+    rdfs:label "Structural Equivalency Spreadsheet" .
+
+:DesignSpec_VSIS a iof:PlanSpecification ;
+    iof:prescribes :VerticalSideImpactStructure .
+
+:DrillingProcess_0 a iof:PlannedProcess ;
+    bfo:BFO_0000057 :MonocoqueSection_0 ;
+    iof:hasSpecifiedOutput :InspectionHole_0 .
+
+:InspectionHole_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :Diameter_InspectionHole_0 .
+
+:MonocoqueSection_0 a bfo:BFO_0000040 .
+
+:ObjSpec_1 a iof:ObjectiveSpecification .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_0 ;
+    iof:prescribes :DrillingProcess_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 4e-03 ;
+    qudt:minInclusive 4e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :Diameter_InspectionHole_0 .
+
+:VerticalSideImpactStructure a bfo:BFO_0000015 ;
+    rdfs:label "Vertical Side Impact Structure" .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:Diameter_InspectionHole_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification .
+

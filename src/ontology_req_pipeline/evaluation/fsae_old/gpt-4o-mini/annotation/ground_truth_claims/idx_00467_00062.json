@@ -1,0 +1,149 @@
+{
+  "idx": 467,
+  "source_text": "Without a driver in the vehicle The intent is to standardize the measurement, see GR.6.4.1 T.7.3.2 Head Restraint Plane A transverse vertical plane through the rearmost portion of the front face of the driver head restraint support, excluding any padding, set (if adjustable) in its fully rearward position T.7.3.3 Rear Aerodynamic Zone The volume that is: - Rearward of the Head Restraint Plane - Inboard of two vertical planes parallel to the centerline of the chassis touching the inside of the rear tires at the height of the hub centerline ## T.7.4 Location Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1 ## T.7.5",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-4o-mini\\final_kg_467.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/467#Aerodynamic_Device_or_Bodywork",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Aerodynamic_Device_or_Bodywork",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/467#Aerodynamic_Device_or_Bodywork_Role",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Any_part_of_any_Aerodynamic_Device_or_Bodywork",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Any_part_of_any_Aerodynamic_Device_or_Bodywork",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasFeature",
+      "o": "http://example.org/req/467#Aerodynamic_Device_or_Bodywork",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Any_part_of_any_Aerodynamic_Device_or_Bodywork",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/467#Aerodynamic_Device_or_Bodywork_Role",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/467#Spec_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Spec_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Spec_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/467#V1_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Spec_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/467#V1_4_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/designates",
+      "o": "\"V.1.1\"",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/467#V1_1_Role",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_1_Role",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/SupplierRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_1_Role",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/467#V1_1_Role",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_4_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_4_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/designates",
+      "o": "\"V.1.4.1\"",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_4_1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/467#V1_4_1_Role",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_4_1_Role",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/SupplierRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#V1_4_1_Role",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/467#V1_4_1_Role",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

@@ -1,0 +1,83 @@
+@prefix ns1: <http://purl.obolibrary.org/obo/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/443#> a owl:Ontology .
+
+<http://example.org/req/443#Req_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Minimum thickness for steel: 2.0 mm T.5.3.2 A Scatter Shield must be included around the Motor(s) when one or both: - The motor casing rotates around the stator - The motor case is perforated T.5.3.3" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/443#PlanSpec_0> .
+
+<http://example.org/req/443#MotorCasePerforated_0> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "motor case is perforated" .
+
+<http://example.org/req/443#MotorCasingRotation_0> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "motor casing rotates around the stator" .
+
+<http://example.org/req/443#ScatterShieldInclusionProcess_0> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Include Scatter Shield around Motor(s) when motor casing rotates around stator" ;
+    ns1:BFO_0000057 <http://example.org/req/443#Motor_0>,
+        <http://example.org/req/443#ScatterShield_0> ;
+    ns1:BFO_0000117 <http://example.org/req/443#MotorCasingRotation_0> ;
+    ns2:prescribedBy <http://example.org/req/443#PlanSpec_0> .
+
+<http://example.org/req/443#ScatterShieldInclusionProcess_1> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Include Scatter Shield around Motor(s) when motor case is perforated" ;
+    ns1:BFO_0000057 <http://example.org/req/443#Motor_0>,
+        <http://example.org/req/443#ScatterShield_0> ;
+    ns1:BFO_0000117 <http://example.org/req/443#MotorCasePerforated_0> ;
+    ns2:prescribedBy <http://example.org/req/443#PlanSpec_0> .
+
+<http://example.org/req/443#Motor_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Motor(s)" .
+
+<http://example.org/req/443#ScatterShield_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Scatter Shield" .
+
+<http://example.org/req/443#PlanSpec_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/443#ScatterShieldInclusionProcess_0>,
+        <http://example.org/req/443#ScatterShieldInclusionProcess_1> .
+

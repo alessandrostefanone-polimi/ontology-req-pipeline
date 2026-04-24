@@ -1,0 +1,24 @@
+{
+  "idx": 476,
+  "req_idx": 0,
+  "source_text": "Any voltage more than 60 V DC or 25 V AC RMS T.9.1.2 Low Voltage - LV Any voltage less than and including 60 V DC or 25 V AC RMS T.9.1.3 Normally Open A type of electrical relay or contactor that allows current flow only in the energized state ## T.9.2 Low Voltage Batteries T.9.2.1 All Low Voltage Batteries and onboard power supplies must be securely mounted inside the Chassis below the height of the Shoulder Belt Mount T.2.6 T.9.2.2 All Low Voltage batteries must have Overcurrent Protection that trips at or below the maximum specified discharge current of the cells T.9.2.3 The hot (ungrounded) terminal must be insulated",
+  "requirement_text_pred": "T.9.2.1 All Low Voltage Batteries and onboard power supplies must be securely mounted inside the Chassis below the height of the Shoulder Belt Mount T.2.6",
+  "prediction": {
+    "subject": "All Low Voltage Batteries and onboard power supplies",
+    "modality": "must",
+    "condition": "",
+    "action": "be securely mounted inside the Chassis below the height of the Shoulder Belt Mount",
+    "object": ""
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": false,
+    "object_correct": false
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

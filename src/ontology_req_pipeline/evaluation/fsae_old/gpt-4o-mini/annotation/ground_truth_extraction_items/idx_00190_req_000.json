@@ -1,0 +1,45 @@
+{
+  "idx": 190,
+  "req_idx": 0,
+  "source_text": "Any item which meets all three of: - Located outside the Component Envelope F.1.15 - Located above 350 mm from the ground - Could load the Main Hoop, Main Hoop Brace, or Shoulder Harness Mounting during a rollover F.5.11.2 External Items must meet one of the two conditions: a. Be attached at a Hoop to Brace node or a fully Triangulated structural node without the ability to create a moment at the node b",
+  "requirement_text_pred": "Any item which meets all three of: - Located outside the Component Envelope F.1.15",
+  "prediction": {
+    "subject": "Any item",
+    "modality": "shall",
+    "condition": "",
+    "action": "meets",
+    "object": "all three of: - Located outside the Component Envelope F.1.15"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "ground clearance",
+      "operator_pred": "ge",
+      "value_raw_pred": "350 mm",
+      "value_v1_pred": 350.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Height",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM",
+      "normalized_si_value_primary_pred": 350.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM",
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": false,
+        "quantity_value_correct": false,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": "not a requirement"
+}

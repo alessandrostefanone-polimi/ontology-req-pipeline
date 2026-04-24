@@ -1,0 +1,20 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/699#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "This additional Overcurrent Protection must be: a. 150 mm or less from the source end of the reduced conductor" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:distance_from_source_end a iof:ProcessCharacteristic .
+
+:DS_req0 a iof:DesignSpecification .
+

@@ -1,0 +1,246 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/89#> a owl:Ontology .
+
+<http://example.org/req/89#Req0_Requirement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    ns1:isAbout <http://example.org/req/89#Req0_Objective> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/89#DesignSpec_0> .
+
+<http://example.org/req/89#Req0_Subject> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "All spherical rod ends and spherical bearings on the suspension and steering" .
+
+<http://example.org/req/89#Req1_Object> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Mounted in double shear configuration" .
+
+<http://example.org/req/89#Req1_Requirement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    ns1:isAbout <http://example.org/req/89#Req1_Objective> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/89#DesignSpec_0> .
+
+<http://example.org/req/89#Req2_Action> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Captured by having a screw/bolt head or washer" .
+
+<http://example.org/req/89#Req2_Object> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "screw/bolt head or washer with outside diameter" .
+
+<http://example.org/req/89#Req2_Ref_SphericalBearingHousingInsideDiameter> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "spherical bearing housing inside diameter" .
+
+<http://example.org/req/89#Req2_Requirement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    ns1:isAbout <http://example.org/req/89#Req2_Objective> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/89#DesignSpec_0> .
+
+<http://example.org/req/89#Req3_Object> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "front wheels" .
+
+<http://example.org/req/89#Req3_Requirement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    ns1:isAbout <http://example.org/req/89#Req3_Objective> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/89#DesignSpec_0> .
+
+<http://example.org/req/89#Req3_Subject> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "The Steering Wheel" .
+
+<http://example.org/req/89#FrontWheels_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "front wheels (design-level)" .
+
+<http://example.org/req/89#Req0_ConfigOption_Enum> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "configuration option for spherical rod ends and spherical bearings on the suspension and steering" .
+
+<http://example.org/req/89#Req0_Objective> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/89#Req0_ConfigOption_Enum> .
+
+<http://example.org/req/89#Req1_MountingConfiguration_Enum> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "mounting configuration: in double shear" .
+
+<http://example.org/req/89#Req1_Objective> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/89#Req1_MountingConfiguration_Enum> .
+
+<http://example.org/req/89#Req2_CaptureMethod> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "capture method: having a screw/bolt head or washer" .
+
+<http://example.org/req/89#Req2_Objective> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/89#Req2_CaptureMethod>,
+        <http://example.org/req/89#Req2_OutsideDiameterRelation> .
+
+<http://example.org/req/89#Req2_OutsideDiameterRelation> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "outside diameter larger than spherical bearing housing inside diameter" .
+
+<http://example.org/req/89#Req3_MechanicalConnection_Process> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "mechanically connected to the front wheels" .
+
+<http://example.org/req/89#Req3_Objective> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:prescribes <http://example.org/req/89#Req3_MechanicalConnection_Process> .
+
+<http://example.org/req/89#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "3.1.4 Fasteners in the Suspension system are Critical Fasteners, see T.8.2 V.3.1.5 All spherical rod ends and spherical bearings on the suspension and steering must be one of: - Mounted in double shear - Captured by having a screw/bolt head or washer with an outside diameter that is larger than spherical bearing housing inside diameter. ## V.3.2 Steering V.3.2.1 The Steering Wheel must be mechanically connected to the front wheels" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/89#DesignSpec_0> .
+
+<http://example.org/req/89#SphericalBearing_Assembly_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "spherical bearing assembly (design-level)" .
+
+<http://example.org/req/89#SphericalRodEnd_Assembly_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "spherical rod end assembly (design-level)" .
+
+<http://example.org/req/89#SteeringWheel_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "steering wheel (design-level)" .
+
+<http://example.org/req/89#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/89#FrontWheels_0>,
+        <http://example.org/req/89#SphericalBearing_Assembly_0>,
+        <http://example.org/req/89#SphericalRodEnd_Assembly_0>,
+        <http://example.org/req/89#SteeringWheel_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/89#Req_0> .
+

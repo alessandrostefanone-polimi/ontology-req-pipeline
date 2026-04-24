@@ -1,0 +1,30 @@
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@base <https://example.org/ontology/iof-qudt-bridge> .
+
+<https://example.org/ontology/iof-qudt-bridge> a owl:Ontology ;
+    rdfs:comment "Bridges IOF ValueExpression with lightweight QUDT quantities without importing full QUDT axioms." ;
+    owl:imports <https://example.org/ontology/qudt-light> .
+
+# Alignment (non-identity): QUDT quantity values can be treated as IOF value expressions
+qudt:QuantityValue rdfs:subClassOf iof:ValueExpression .
+
+# Convenience typing for measured values (IOF side)
+iof:MeasuredValueExpression rdfs:subClassOf qudt:QuantityValue .
+
+# Minimal domain/range hints to help DL checks while remaining lightweight
+qudt:unit rdfs:domain qudt:QuantityValue ;
+    rdfs:range qudt:Unit .
+
+qudt:hasUnit rdfs:subPropertyOf qudt:unit ;
+    rdfs:domain qudt:QuantityValue ;
+    rdfs:range qudt:Unit .
+
+qudt:numericValue rdfs:domain qudt:QuantityValue .
+
+qudt:upperBound rdfs:domain qudt:QuantityValue .
+
+qudt:lowerBound rdfs:domain qudt:QuantityValue .

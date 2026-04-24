@@ -1,0 +1,46 @@
+{
+  "idx": 444,
+  "req_idx": 2,
+  "source_text": "The Motor Scatter Shield must be: - Made from aluminum alloy 6061-T6 or steel - Minimum thickness: 1.0 mm ## T.5.4 Coolant Fluid T.5.4.1 Water cooled engines must use only plain water with no additives of any kind T.5.4.2 Liquid coolant for electric motors, Accumulators or HV electronics must be one of: - plain water with no additives - oil T.5.4.3 (EV only)",
+  "requirement_text_pred": "T.5.4.1 Water cooled engines must use only plain water with no additives of any kind",
+  "prediction": {
+    "subject": "Water cooled engines",
+    "modality": "must",
+    "condition": "",
+    "action": "use",
+    "object": "only plain water with no additives of any kind"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "additives",
+      "operator_pred": "eq",
+      "value_raw_pred": "no additives of any kind",
+      "value_v1_pred": 0.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "DimensionlessUnit",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Dimensionless",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/COUNT",
+      "normalized_si_value_primary_pred": 0.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/BEAT",
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

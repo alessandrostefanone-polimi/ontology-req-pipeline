@@ -1,0 +1,61 @@
+@prefix : <http://example.org/req/259#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The accepted methods of attachment are: a. Welding - All weld lengths must be 25 mm or longer - If interrupted, the weld/space ratio must be 1:1 or higher b" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudt:MilliM ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :weld_lengths .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :P_req1 .
+
+:P_req1 a iof:PlanSpecification ;
+    iof:prescribes :VE_req1_c0,
+        :VE_req1_c1 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudt:DimensionlessUnit ;
+    qudt:minInclusive 1e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :weld_space_ratio .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudt:DimensionlessUnit ;
+    qudt:minInclusive 1e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :weld_space_ratio .
+
+:weld_lengths a bfo:BFO_0000001 ;
+    rdfs:label "All weld lengths" .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtqk:PathLength a qudt:QuantityKind .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+:weld_space_ratio a bfo:BFO_0000001 ;
+    rdfs:label "weld/space ratio" .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length,
+        qudtqk:PathLength,
+        qudtqk:Thickness .
+

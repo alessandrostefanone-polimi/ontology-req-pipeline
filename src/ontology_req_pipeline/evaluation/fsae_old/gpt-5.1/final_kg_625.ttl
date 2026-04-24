@@ -1,0 +1,71 @@
+@prefix : <http://example.org/req/625#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:T_4_3 a iof:InformationContentEntity ;
+    rdfs:label "T.4.3"@en ;
+    iof:isSubjectOf :DS_Req0 .
+
+:VE_req1_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "APPS pedal travel > 25% (duty cycle)"@en ;
+    qudt:minExclusive 2.5e+01 ;
+    qudt:unit qudtu:PERCENT ;
+    iof:isValueExpressionOfAtSomeTime :PC_APPSPedalTravel_Req1 .
+
+:BSE_1 a bfo:BFO_0000040 ;
+    rdfs:label "Brake System Encoder - BSE"@en .
+
+:MonitoringProcess_Req1 a iof:PlannedProcess ;
+    rdfs:label "Monitoring of brake and APPS conditions"@en ;
+    iof:hasProcessCharacteristic :PC_APPSPedalTravel_Req1,
+        :PC_MechanicalBrakesState_Req1 ;
+    iof:prescribedBy :PS_Req1 .
+
+:MotorPowerSupply_Req2 a bfo:BFO_0000002 ;
+    rdfs:label "Power to the Motor(s)"@en .
+
+:PC_MechanicalBrakesState_Req1 a iof:ProcessCharacteristic ;
+    rdfs:label "mechanical brakes state during monitoring"@en .
+
+:PowerShutdownProcess_Req2 a iof:PlannedProcess ;
+    rdfs:label "Immediate and complete shutdown of power to the motor(s)"@en ;
+    iof:hasInput :MotorPowerSupply_Req2 ;
+    iof:prescribedBy :PS_Req2 .
+
+qudtqk:DutyCycle a qudt:QuantityKind .
+
+qudtu:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DutyCycle .
+
+:DS_Req0 a iof:DesignSpecification ;
+    iof:prescribes :BSE_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:PC_APPSPedalTravel_Req1 a iof:ProcessCharacteristic ;
+    rdfs:label "APPS pedal travel during monitoring"@en .
+
+:PS_Req1 a iof:PlanSpecification ;
+    rdfs:label "EV.4.7.1 monitoring plan"@en ;
+    iof:prescribes :MonitoringProcess_Req1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:PS_Req2 a iof:PlanSpecification ;
+    rdfs:label "EV.4.7.2 power shutdown plan"@en ;
+    iof:prescribes :PowerShutdownProcess_Req2 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "4.6 Brake System Encoder - BSE Refer to T.4.3 for specific requirements of the BSE ## EV.4.7 APPS / Brake Pedal Plausibility Check EV.4.7.1 Must monitor for the two conditions: - The mechanical brakes are engaged EV.4.6, T.3.2.4 - The APPS signals more than 25\\% Pedal Travel EV.4.5 EV.4.7.2 If the two conditions in EV.4.7.1 occur at the same time: a. Power to the Motor(s) must be immediately and completely shut down b" ;
+    iof:requirementSatisfiedBy :DS_Req0,
+        :PS_Req1,
+        :PS_Req2 .
+

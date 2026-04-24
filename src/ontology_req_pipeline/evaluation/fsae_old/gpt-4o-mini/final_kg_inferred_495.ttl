@@ -1,0 +1,62 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/495#> a owl:Ontology .
+
+<http://example.org/req/495#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Exposed around the lower $180^{\\circ}$ of its circumference over a minimum length of 280 mm g. Access from the rear of the tube must be unobstructed for 300 mm or more of its length h" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/495#DS_0> .
+
+<http://example.org/req/495#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/495#Plan_0> .
+
+<http://example.org/req/495#Plan_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/495#VE_req0_c0> .
+
+<http://example.org/req/495#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:hasUnit ns1:MilliM ;
+    ns1:minInclusive 3e+02 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/495#tube> .
+
+<http://example.org/req/495#tube> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+

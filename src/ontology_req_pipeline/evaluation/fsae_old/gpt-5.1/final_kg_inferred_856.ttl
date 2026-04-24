@@ -1,0 +1,89 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/856#> a owl:Ontology .
+
+<http://example.org/req/856#CostReport_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Cost Report" .
+
+<http://example.org/req/856#CostReportingProcess_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Cost reporting process using standardized Cost Tables" ;
+    ns1:hasInput <http://example.org/req/856#CostReport_1>,
+        <http://example.org/req/856#StandardizedCostTables_1> .
+
+<http://example.org/req/856#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/856#RemovedItemCredit_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/856#Req_0> .
+
+<http://example.org/req/856#PlanSpec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/856#CostReportingProcess_1> .
+
+<http://example.org/req/856#RemovedItemCredit_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Credit for removed items (table cost based)" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/856#VE_req0_c0> .
+
+<http://example.org/req/856#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Removed items will be credited $75 \\%$ of the table cost: - ( $0.75 \\times$ Cost) ### 5.3.8 Cost Tables 5.3.8.1 All costs in the Cost Report must come from the standardized Cost Tables. 5.3.8.2" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/856#DesignSpec_0>,
+        <http://example.org/req/856#PlanSpec_1> .
+
+<http://example.org/req/856#StandardizedCostTables_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Standardized Cost Tables" .
+
+<http://example.org/req/856#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Required credit amount factor for removed items (75 percent of table cost)" ;
+    ns2:maxInclusive 7.5e+01 ;
+    ns2:minInclusive 7.5e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/PERCENT> .
+
+<http://qudt.org/vocab/unit/PERCENT> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/ServiceFactor> .
+

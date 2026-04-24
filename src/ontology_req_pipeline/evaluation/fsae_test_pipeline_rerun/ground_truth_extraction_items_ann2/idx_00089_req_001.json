@@ -1,0 +1,24 @@
+{
+  "idx": 89,
+  "req_idx": 1,
+  "source_text": "3.1.4 Fasteners in the Suspension system are Critical Fasteners, see T.8.2 V.3.1.5 All spherical rod ends and spherical bearings on the suspension and steering must be one of: - Mounted in double shear - Captured by having a screw/bolt head or washer with an outside diameter that is larger than spherical bearing housing inside diameter. ## V.3.2 Steering V.3.2.1 The Steering Wheel must be mechanically connected to the front wheels",
+  "requirement_text_pred": "All spherical rod ends and spherical bearings on the suspension and steering must be one of:",
+  "prediction": {
+    "subject": "All spherical rod ends and spherical bearings on the suspension and steering",
+    "modality": "must",
+    "condition": "",
+    "action": "be",
+    "object": "one of:"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": false,
+    "condition_correct": true,
+    "action_correct": false,
+    "object_correct": false
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

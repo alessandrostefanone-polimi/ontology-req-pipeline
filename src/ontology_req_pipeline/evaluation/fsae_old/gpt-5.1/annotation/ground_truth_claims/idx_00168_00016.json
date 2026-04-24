@@ -1,0 +1,331 @@
+{
+  "idx": 168,
+  "source_text": "5.6.5 Driver Template Position The Driver Template will be positioned as follows: - The seat will be adjusted to the rearmost position - The pedals will be placed in the most forward position - The bottom 200 mm circle will be placed on the seat bottom where the distance between the center of this circle and the rearmost face of the pedals is no less than 915 mm - The middle 200 mm circle, representing the shoulders, will be positioned on the seat back",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_168.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/168#BottomCircleDiameter",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtAllTimes",
+      "o": "http://example.org/req/168#VE_req2_c0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#BottomCircleDiameter",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/qualityOf",
+      "o": "http://example.org/req/168#BottomCircle",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Distance_BottomCircleCenter_to_PedalRearFace",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasValueExpressionAtSomeTime",
+      "o": "http://example.org/req/168#VE_req2_c2",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Distance_BottomCircleCenter_to_PedalRearFace",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/qualityOf",
+      "o": "http://example.org/req/168#BottomCircle",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#PedalPosition",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#PedalPosition",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/processCharacteristicOf",
+      "o": "http://example.org/req/168#Proc_PedalAdjust",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Plan_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Plan_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/168#Proc_BottomCirclePlacement",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Plan_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/168#Proc_MiddleCirclePlacement",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Plan_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/168#Proc_PedalAdjust",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Plan_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/168#Proc_SeatAdjust",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_BottomCirclePlacement",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_BottomCirclePlacement",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/168#BottomCircle",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_BottomCirclePlacement",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/168#Pedals",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_BottomCirclePlacement",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/168#SeatBottom",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_BottomCirclePlacement",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribedBy",
+      "o": "http://example.org/req/168#Plan_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_MiddleCirclePlacement",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_MiddleCirclePlacement",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/168#MiddleCircle",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_MiddleCirclePlacement",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasInput",
+      "o": "http://example.org/req/168#SeatBack",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_MiddleCirclePlacement",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribedBy",
+      "o": "http://example.org/req/168#Plan_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_PedalAdjust",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_PedalAdjust",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasProcessCharacteristic",
+      "o": "http://example.org/req/168#PedalPosition",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_PedalAdjust",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribedBy",
+      "o": "http://example.org/req/168#Plan_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_SeatAdjust",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_SeatAdjust",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasProcessCharacteristic",
+      "o": "http://example.org/req/168#SeatPosition",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Proc_SeatAdjust",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribedBy",
+      "o": "http://example.org/req/168#Plan_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/requirementSatisfiedBy",
+      "o": "http://example.org/req/168#Plan_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#SeatPosition",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ProcessCharacteristic",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#SeatPosition",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/processCharacteristicOf",
+      "o": "http://example.org/req/168#Proc_SeatAdjust",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c0",
+      "p": "http://qudt.org/schema/qudt/maxInclusive",
+      "o": "\"200.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c0",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"200.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c0",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/MM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtAllTimes",
+      "o": "http://example.org/req/168#BottomCircleDiameter",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c2",
+      "p": "http://qudt.org/schema/qudt/minInclusive",
+      "o": "\"915.0\"^^<http://www.w3.org/2001/XMLSchema#double>",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c2",
+      "p": "http://qudt.org/schema/qudt/unit",
+      "o": "http://qudt.org/vocab/unit/MilliM",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityValue",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c2",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/ValueExpression",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/168#VE_req2_c2",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isValueExpressionOfAtSomeTime",
+      "o": "http://example.org/req/168#Distance_BottomCircleCenter_to_PedalRearFace",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/quantitykind/Length",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/QuantityKind",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/MM",
+      "p": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "o": "http://qudt.org/vocab/quantitykind/Length",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/MM",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/Unit",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/MilliM",
+      "p": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "o": "http://qudt.org/vocab/quantitykind/Length",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://qudt.org/vocab/unit/MilliM",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "http://qudt.org/schema/qudt/Unit",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

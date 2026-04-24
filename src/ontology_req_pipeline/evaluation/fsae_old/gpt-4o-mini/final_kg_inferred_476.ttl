@@ -1,0 +1,252 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/476#> a owl:Ontology .
+
+<http://example.org/req/476#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Any voltage more than 60 V DC or 25 V AC RMS T.9.1.2 Low Voltage - LV Any voltage less than and including 60 V DC or 25 V AC RMS T.9.1.3 Normally Open A type of electrical relay or contactor that allows current flow only in the energized state ## T.9.2 Low Voltage Batteries T.9.2.1 All Low Voltage Batteries and onboard power supplies must be securely mounted inside the Chassis below the height of the Shoulder Belt Mount T.2.6 T.9.2.2 All Low Voltage batteries must have Overcurrent Protection that trips at or below the maximum specified discharge current of the cells T.9.2.3 The hot (ungrounded) terminal must be insulated" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/476#Spec_0> .
+
+<http://example.org/req/476#Req_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Any voltage less than and including 60 V DC or 25 V AC RMS." ;
+    ns1:requirementSatisfiedBy <http://example.org/req/476#Spec_1> .
+
+<http://example.org/req/476#Req_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "All Low Voltage Batteries and onboard power supplies must be securely mounted inside the Chassis below the height of the Shoulder Belt Mount." ;
+    ns1:requirementSatisfiedBy <http://example.org/req/476#Spec_2> .
+
+<http://example.org/req/476#Req_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "All Low Voltage batteries must have Overcurrent Protection that trips at or below the maximum specified discharge current of the cells." ;
+    ns1:requirementSatisfiedBy <http://example.org/req/476#Spec_3> .
+
+<http://example.org/req/476#Req_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The hot (ungrounded) terminal must be insulated." ;
+    ns1:requirementSatisfiedBy <http://example.org/req/476#Spec_4> .
+
+<http://example.org/req/476#Output_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialProduct .
+
+<http://example.org/req/476#Output_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialProduct .
+
+<http://example.org/req/476#Output_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialProduct .
+
+<http://example.org/req/476#Process_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ManufacturingProcess,
+        ns1:PlannedProcess ;
+    ns1:hasSpecifiedOutput <http://example.org/req/476#Output_0> .
+
+<http://example.org/req/476#Process_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ManufacturingProcess,
+        ns1:PlannedProcess ;
+    ns1:hasSpecifiedOutput <http://example.org/req/476#Output_1> .
+
+<http://example.org/req/476#Process_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ManufacturingProcess,
+        ns1:PlannedProcess ;
+    ns1:hasSpecifiedOutput <http://example.org/req/476#Output_2> .
+
+<http://example.org/req/476#Process_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ManufacturingProcess,
+        ns1:PlannedProcess ;
+    ns1:hasSpecifiedOutput <http://example.org/req/476#Output_3> .
+
+<http://example.org/req/476#Process_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ManufacturingProcess,
+        ns1:PlannedProcess ;
+    ns1:hasSpecifiedOutput <http://example.org/req/476#Output_4> .
+
+<http://example.org/req/476#Spec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/476#Process_0> .
+
+<http://example.org/req/476#Spec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/476#Process_1> .
+
+<http://example.org/req/476#Spec_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/476#Process_2> .
+
+<http://example.org/req/476#Spec_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/476#Process_3> .
+
+<http://example.org/req/476#Spec_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/476#Process_4> .
+
+<http://example.org/req/476#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 6e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/V> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/476#Output_0> .
+
+<http://example.org/req/476#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 2.5e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/V> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/476#Output_0> .
+
+<http://example.org/req/476#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 6e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/V> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/476#Output_1> .
+
+<http://example.org/req/476#VE_req1_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 2.5e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/V> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/476#Output_1> .
+
+<http://example.org/req/476#Output_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialProduct ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/476#VE_req0_c0>,
+        <http://example.org/req/476#VE_req0_c1> .
+
+<http://example.org/req/476#Output_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialProduct ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/476#VE_req1_c0>,
+        <http://example.org/req/476#VE_req1_c1> .
+
+<http://qudt.org/vocab/unit/V> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Voltage> .
+

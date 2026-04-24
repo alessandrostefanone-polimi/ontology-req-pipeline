@@ -1,0 +1,23 @@
+{
+  "idx": 384,
+  "req_idx": 5,
+  "source_text": "The Shoulder Belt Mount Spacing must be between 175 mm and 235 mm , center to center T.2.6.3 The Shoulder Belts must attach by one of the four: a. Wrap around the Shoulder Harness Mounting bar b. Bolt through a welded tube insert or tested monocoque attachment F.7.9 c. Bolt or clip to a tab or bracket (T.2.4.3 ) on the Shoulder Harness Mounting bar d. Wrap around physically tested hardware attached to a monocoque T.2.6.4",
+  "requirement_text_pred": "d. Wrap around physically tested hardware attached to a monocoque.",
+  "prediction": {
+    "subject": "physically tested hardware",
+    "modality": "must",
+    "condition": "",
+    "action": "Wrap around",
+    "object": "physically tested hardware attached to a monocoque"
+  },
+  "labels": {
+    "subject_correct": false,
+    "modality_correct": false,
+    "condition_correct": false,
+    "action_correct": false,
+    "object_correct": false
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,55 @@
+@prefix : <http://example.org/req/658#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Available during charging of any Accumulator(s) EV.5.8.3 The TSMPs must be: a. 4 mm shrouded banana jacks rated to an appropriate voltage level b. Color" ;
+    iof:requirementSatisfiedBy :TSMP_DesignSpec_0 .
+
+:TSMP_ComponentRole_0 a iof:MaterialComponentRole ;
+    iof:roleOf :TSMP_0 .
+
+:TSMP_DesignSpec_0 a iof:DesignSpecification ;
+    iof:isAbout :TSMP_Objective_0 ;
+    iof:prescribes :TSMP_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:TSMP_Use_Plan_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :TSMP_Objective_0 .
+
+:TSMP_Use_Process_0 a iof:PlannedProcess ;
+    bfo:BFO_0000057 :TSMP_0 ;
+    iof:prescribedBy :TSMP_Use_Plan_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 4e-03 ;
+    qudt:minInclusive 4e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtAllTimes :TSMP_Diameter_0 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:TSMP_Diameter_0 a bfo:BFO_0000019 ;
+    rdfs:label "TSMP connector diameter"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 .
+
+:TSMP_Objective_0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :TSMP_Use_Process_0 .
+
+:TSMP_0 a bfo:BFO_0000040 ;
+    rdfs:label "TSMPs"@en ;
+    iof:hasQuality :TSMP_Diameter_0 ;
+    iof:hasRole :TSMP_ComponentRole_0 .
+

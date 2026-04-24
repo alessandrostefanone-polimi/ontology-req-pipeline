@@ -1,0 +1,1560 @@
+{
+  "generated_at": "2026-04-19T19:20:44.298728+00:00",
+  "annotation_parent_dir": "src\\ontology_req_pipeline\\evaluation\\fsae_test_pipeline_rerun",
+  "annotators": [
+    "ground_truth_extraction_items",
+    "ground_truth_extraction_items_ann1",
+    "ground_truth_extraction_items_ann2",
+    "ground_truth_extraction_items_ann3",
+    "ground_truth_extraction_items_ann4"
+  ],
+  "invalid_files": [],
+  "requirement_level": {
+    "aggregate": {
+      "label_count": 6,
+      "total_individual_ratings": 1746,
+      "total_items_with_2plus_raters": 387,
+      "macro_pairwise_agreement": 0.804471,
+      "macro_krippendorff_alpha_nominal": 0.128264,
+      "macro_weighted_mean_cohen_kappa": 0.18522
+    },
+    "labels": {
+      "decomposition_error": {
+        "label": "decomposition_error",
+        "individual_ratings": {
+          "total": 371,
+          "true": 125,
+          "false": 246
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 251,
+          "items_with_2plus_raters": 77,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 117,
+          "total_pairs": 174,
+          "agreement": 0.672414
+        },
+        "krippendorff_alpha_nominal": 0.196927,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.221695,
+          "min_kappa": -0.086957,
+          "max_kappa": 0.590164,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 30,
+              "agreement": 0.8,
+              "kappa": 0.454545
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 30,
+              "agreement": 0.5,
+              "kappa": -0.086957
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 30,
+              "agreement": 0.733333,
+              "kappa": 0.189189
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 30,
+              "agreement": 0.833333,
+              "kappa": 0.590164
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 0.666667,
+              "kappa": -0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 10,
+              "agreement": 0.5,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.6,
+              "kappa": 0.166667
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 11,
+              "agreement": 0.363636,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.4,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 20,
+              "agreement": 0.75,
+              "kappa": 0.166667
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 251,
+            "true": 91,
+            "false": 160
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 30,
+            "true": 9,
+            "false": 21
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 30,
+            "true": 12,
+            "false": 18
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 30,
+            "true": 4,
+            "false": 26
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 30,
+            "true": 9,
+            "false": 21
+          }
+        ]
+      },
+      "subject_correct": {
+        "label": "subject_correct",
+        "individual_ratings": {
+          "total": 275,
+          "true": 250,
+          "false": 25
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 181,
+          "items_with_2plus_raters": 62,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 108,
+          "total_pairs": 136,
+          "agreement": 0.794118
+        },
+        "krippendorff_alpha_nominal": 0.105609,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.188295,
+          "min_kappa": 0.0,
+          "max_kappa": 1.0,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 25,
+              "agreement": 0.96,
+              "kappa": 0.647887
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 21,
+              "agreement": 0.714286,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 19,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 0.772727,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 0.666667,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 0.875,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 1.0,
+              "kappa": 1.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 10,
+              "agreement": 0.5,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.6,
+              "kappa": 0.166667
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 18,
+              "agreement": 0.611111,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 161,
+            "true": 158,
+            "false": 3
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 29,
+            "true": 25,
+            "false": 4
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 30,
+            "true": 21,
+            "false": 9
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 25,
+            "true": 25,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 30,
+            "true": 21,
+            "false": 9
+          }
+        ]
+      },
+      "modality_correct": {
+        "label": "modality_correct",
+        "individual_ratings": {
+          "total": 275,
+          "true": 268,
+          "false": 7
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 181,
+          "items_with_2plus_raters": 62,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 132,
+          "total_pairs": 136,
+          "agreement": 0.970588
+        },
+        "krippendorff_alpha_nominal": -0.013072,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.0,
+          "min_kappa": 0.0,
+          "max_kappa": 0.0,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 25,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 21,
+              "agreement": 0.952381,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 19,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.8,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 10,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 18,
+              "agreement": 0.888889,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 161,
+            "true": 160,
+            "false": 1
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 29,
+            "true": 28,
+            "false": 1
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 30,
+            "true": 28,
+            "false": 2
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 25,
+            "true": 25,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 30,
+            "true": 27,
+            "false": 3
+          }
+        ]
+      },
+      "condition_correct": {
+        "label": "condition_correct",
+        "individual_ratings": {
+          "total": 275,
+          "true": 245,
+          "false": 30
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 181,
+          "items_with_2plus_raters": 62,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 104,
+          "total_pairs": 136,
+          "agreement": 0.764706
+        },
+        "krippendorff_alpha_nominal": -0.025735,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.094999,
+          "min_kappa": -0.084507,
+          "max_kappa": 0.615385,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 25,
+              "agreement": 0.92,
+              "kappa": 0.468085
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 21,
+              "agreement": 0.571429,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 19,
+              "agreement": 0.947368,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 0.681818,
+              "kappa": -0.084507
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 0.666667,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 0.875,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.8,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 10,
+              "agreement": 0.5,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.8,
+              "kappa": 0.615385
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 18,
+              "agreement": 0.777778,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 161,
+            "true": 156,
+            "false": 5
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 29,
+            "true": 25,
+            "false": 4
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 30,
+            "true": 18,
+            "false": 12
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 25,
+            "true": 25,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 30,
+            "true": 21,
+            "false": 9
+          }
+        ]
+      },
+      "action_correct": {
+        "label": "action_correct",
+        "individual_ratings": {
+          "total": 275,
+          "true": 233,
+          "false": 42
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 181,
+          "items_with_2plus_raters": 62,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 116,
+          "total_pairs": 136,
+          "agreement": 0.852941
+        },
+        "krippendorff_alpha_nominal": 0.28544,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.342977,
+          "min_kappa": 0.0,
+          "max_kappa": 0.644068,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 25,
+              "agreement": 0.84,
+              "kappa": 0.519231
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 21,
+              "agreement": 0.952381,
+              "kappa": 0.644068
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 19,
+              "agreement": 0.842105,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 0.909091,
+              "kappa": 0.62069
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 0.75,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.8,
+              "kappa": 0.545455
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 10,
+              "agreement": 0.9,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.8,
+              "kappa": 0.545455
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 18,
+              "agreement": 0.722222,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 161,
+            "true": 140,
+            "false": 21
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 29,
+            "true": 20,
+            "false": 9
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 30,
+            "true": 26,
+            "false": 4
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 25,
+            "true": 25,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 30,
+            "true": 22,
+            "false": 8
+          }
+        ]
+      },
+      "object_correct": {
+        "label": "object_correct",
+        "individual_ratings": {
+          "total": 275,
+          "true": 225,
+          "false": 50
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 181,
+          "items_with_2plus_raters": 62,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 105,
+          "total_pairs": 136,
+          "agreement": 0.772059
+        },
+        "krippendorff_alpha_nominal": 0.220414,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.263352,
+          "min_kappa": 0.0,
+          "max_kappa": 0.545455,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 25,
+              "agreement": 0.84,
+              "kappa": 0.519231
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 21,
+              "agreement": 0.857143,
+              "kappa": 0.350515
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 19,
+              "agreement": 0.842105,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 0.818182,
+              "kappa": 0.505618
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 0.625,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.8,
+              "kappa": 0.545455
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 10,
+              "agreement": 0.6,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.6,
+              "kappa": 0.166667
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 18,
+              "agreement": 0.611111,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 161,
+            "true": 142,
+            "false": 19
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 29,
+            "true": 19,
+            "false": 10
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 30,
+            "true": 20,
+            "false": 10
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 25,
+            "true": 25,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 30,
+            "true": 19,
+            "false": 11
+          }
+        ]
+      }
+    }
+  },
+  "quantity_level": {
+    "aggregate": {
+      "label_count": 6,
+      "total_individual_ratings": 1378,
+      "total_items_with_2plus_raters": 331,
+      "macro_pairwise_agreement": 0.946178,
+      "macro_krippendorff_alpha_nominal": 0.205702,
+      "macro_weighted_mean_cohen_kappa": 0.239426
+    },
+    "labels": {
+      "is_true_quantitative_constraint": {
+        "label": "is_true_quantitative_constraint",
+        "individual_ratings": {
+          "total": 233,
+          "true": 228,
+          "false": 5
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 138,
+          "items_with_2plus_raters": 56,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 139,
+          "total_pairs": 143,
+          "agreement": 0.972028
+        },
+        "krippendorff_alpha_nominal": -0.006711,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.0,
+          "min_kappa": 0.0,
+          "max_kappa": 0.0,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 21,
+              "agreement": 0.952381,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 16,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 27,
+              "agreement": 0.962963,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 12,
+              "agreement": 0.916667,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 4,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 25,
+              "agreement": 0.96,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 127,
+            "true": 124,
+            "false": 3
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 23,
+            "true": 23,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 18,
+            "true": 18,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 34,
+            "true": 33,
+            "false": 1
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 31,
+            "true": 30,
+            "false": 1
+          }
+        ]
+      },
+      "operator_correct": {
+        "label": "operator_correct",
+        "individual_ratings": {
+          "total": 229,
+          "true": 221,
+          "false": 8
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 136,
+          "items_with_2plus_raters": 55,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 131,
+          "total_pairs": 139,
+          "agreement": 0.942446
+        },
+        "krippendorff_alpha_nominal": 0.255319,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.174006,
+          "min_kappa": -0.052632,
+          "max_kappa": 0.77551,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 20,
+              "agreement": 0.9,
+              "kappa": -0.052632
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 16,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 26,
+              "agreement": 0.923077,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 0.954545,
+              "kappa": 0.77551
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 11,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 4,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 24,
+              "agreement": 0.875,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 124,
+            "true": 120,
+            "false": 4
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 23,
+            "true": 22,
+            "false": 1
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 18,
+            "true": 18,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 33,
+            "true": 33,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 31,
+            "true": 28,
+            "false": 3
+          }
+        ]
+      },
+      "quantity_value_correct": {
+        "label": "quantity_value_correct",
+        "individual_ratings": {
+          "total": 229,
+          "true": 226,
+          "false": 3
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 136,
+          "items_with_2plus_raters": 55,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 137,
+          "total_pairs": 139,
+          "agreement": 0.985612
+        },
+        "krippendorff_alpha_nominal": 0.0,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.0,
+          "min_kappa": 0.0,
+          "max_kappa": 0.0,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 20,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 16,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 26,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 0.954545,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 11,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 4,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 24,
+              "agreement": 0.958333,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 124,
+            "true": 122,
+            "false": 2
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 23,
+            "true": 23,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 18,
+            "true": 18,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 33,
+            "true": 33,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 31,
+            "true": 30,
+            "false": 1
+          }
+        ]
+      },
+      "unit_correct": {
+        "label": "unit_correct",
+        "individual_ratings": {
+          "total": 229,
+          "true": 216,
+          "false": 13
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 136,
+          "items_with_2plus_raters": 55,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 137,
+          "total_pairs": 139,
+          "agreement": 0.985612
+        },
+        "krippendorff_alpha_nominal": 0.588811,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.818182,
+          "min_kappa": 0.0,
+          "max_kappa": 1.0,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 20,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 16,
+              "agreement": 0.875,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 26,
+              "agreement": 1.0,
+              "kappa": 1.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 1.0,
+              "kappa": 1.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 11,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 4,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 24,
+              "agreement": 1.0,
+              "kappa": 1.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 124,
+            "true": 114,
+            "false": 10
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 23,
+            "true": 23,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 18,
+            "true": 18,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 33,
+            "true": 32,
+            "false": 1
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 31,
+            "true": 29,
+            "false": 2
+          }
+        ]
+      },
+      "quantity_kind_correct": {
+        "label": "quantity_kind_correct",
+        "individual_ratings": {
+          "total": 229,
+          "true": 210,
+          "false": 19
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 136,
+          "items_with_2plus_raters": 55,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 127,
+          "total_pairs": 139,
+          "agreement": 0.913669
+        },
+        "krippendorff_alpha_nominal": 0.059952,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.080907,
+          "min_kappa": -0.052632,
+          "max_kappa": 0.463415,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 20,
+              "agreement": 0.9,
+              "kappa": -0.052632
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 16,
+              "agreement": 0.8125,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 26,
+              "agreement": 0.961538,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 0.909091,
+              "kappa": 0.463415
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 11,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.8,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 4,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 24,
+              "agreement": 0.875,
+              "kappa": 0.0
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 124,
+            "true": 110,
+            "false": 14
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 23,
+            "true": 22,
+            "false": 1
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 18,
+            "true": 18,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 33,
+            "true": 33,
+            "false": 0
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 31,
+            "true": 27,
+            "false": 4
+          }
+        ]
+      },
+      "equivalence_correct": {
+        "label": "equivalence_correct",
+        "individual_ratings": {
+          "total": 229,
+          "true": 202,
+          "false": 27
+        },
+        "pooled_pairwise_agreement": {
+          "rated_items": 136,
+          "items_with_2plus_raters": 55,
+          "max_raters_on_single_item": 4,
+          "agreeing_pairs": 122,
+          "total_pairs": 139,
+          "agreement": 0.877698
+        },
+        "krippendorff_alpha_nominal": 0.336842,
+        "pairwise_cohen_kappa": {
+          "weighted_mean_kappa": 0.363459,
+          "min_kappa": -0.078431,
+          "max_kappa": 1.0,
+          "pairs_compared": 10,
+          "pair_details": [
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann1",
+              "overlap": 20,
+              "agreement": 0.95,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 16,
+              "agreement": 0.875,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 26,
+              "agreement": 1.0,
+              "kappa": 1.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 22,
+              "agreement": 0.772727,
+              "kappa": -0.078431
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann2",
+              "overlap": 3,
+              "agreement": 1.0,
+              "kappa": null
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 11,
+              "agreement": 1.0,
+              "kappa": 1.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann1",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 5,
+              "agreement": 0.8,
+              "kappa": 0.545455
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann3",
+              "overlap": 8,
+              "agreement": 1.0,
+              "kappa": 1.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann2",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 4,
+              "agreement": 0.5,
+              "kappa": 0.0
+            },
+            {
+              "annotator_a": "ground_truth_extraction_items_ann3",
+              "annotator_b": "ground_truth_extraction_items_ann4",
+              "overlap": 24,
+              "agreement": 0.75,
+              "kappa": 0.142857
+            }
+          ]
+        },
+        "annotator_rating_counts": [
+          {
+            "annotator": "ground_truth_extraction_items",
+            "rated": 124,
+            "true": 111,
+            "false": 13
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann1",
+            "rated": 23,
+            "true": 20,
+            "false": 3
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann2",
+            "rated": 18,
+            "true": 17,
+            "false": 1
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann3",
+            "rated": 33,
+            "true": 30,
+            "false": 3
+          },
+          {
+            "annotator": "ground_truth_extraction_items_ann4",
+            "rated": 31,
+            "true": 24,
+            "false": 7
+          }
+        ]
+      }
+    }
+  }
+}

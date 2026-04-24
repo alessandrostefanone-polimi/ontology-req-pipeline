@@ -1,0 +1,71 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/97#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req0_Constraint0 a owl:NamedIndividual ;
+    rdfs:label "Req 0, constraint 0 – behavior in any angular position" ;
+    iof:isSubjectOf :PS_SteeringWheelAngularBehavior .
+
+:Req0_Constraint1 a owl:NamedIndividual ;
+    rdfs:label "Req 0, constraint 1 – compliance with T.1.4.4" ;
+    iof:isSubjectOf :T_1_4_4 .
+
+:Req1_Constraint0 a owl:NamedIndividual ;
+    rdfs:label "Req 1, constraint 0 – steering wheel attached to column" ;
+    iof:isSubjectOf :DS_SteeringWheelAttachment .
+
+:Req1_Constraint1 a owl:NamedIndividual ;
+    rdfs:label "Req 1, constraint 1 – quick disconnect between steering wheel and column" ;
+    iof:isSubjectOf :DS_SteeringWheelAttachment .
+
+:V_3_3_2 a iof:InformationContentEntity ;
+    rdfs:label "Standard / clause V.3.3.2" .
+
+:AngularPositionCharacteristic_1 a iof:ProcessCharacteristic ;
+    rdfs:label "Angular position of steering wheel during operation" .
+
+:SteeringWheelAngularProcess_1 a iof:PlannedProcess ;
+    rdfs:label "Process of operating steering wheel over angular positions" ;
+    bfo:BFO_0000057 :SteeringWheel_1 ;
+    iof:hasProcessCharacteristic :AngularPositionCharacteristic_1 .
+
+:T_1_4_4 a iof:InformationContentEntity ;
+    rdfs:label "Standard / clause T.1.4.4" .
+
+:Column_1 a bfo:BFO_0000040 ;
+    rdfs:label "Steering column" .
+
+:PS_SteeringWheelAngularBehavior a iof:PlanSpecification ;
+    rdfs:label "Plan specification for steering wheel behavior in any angular position and compliance with T.1.4.4 / V.3.3.2" ;
+    iof:prescribes :SteeringWheelAngularProcess_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:QuickDisconnect_1 a bfo:BFO_0000040 ;
+    rdfs:label "Quick disconnect coupling between steering wheel and column" ;
+    iof:componentPartOfAtSomeTime :Column_1,
+        :SteeringWheel_1 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "In any angular position, the Steering Wheel must meet T.1.4.4 V.3.3.2 The Steering Wheel must be attached to the column with a quick disconnect" ;
+    iof:requirementSatisfiedBy :DS_SteeringWheelAttachment,
+        :PS_SteeringWheelAngularBehavior .
+
+:DS_SteeringWheelAttachment a iof:DesignSpecification ;
+    rdfs:label "Design specification for steering wheel attachment to column with quick disconnect" ;
+    iof:prescribes :Column_1,
+        :QuickDisconnect_1,
+        :SteeringWheel_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:SteeringWheel_1 a bfo:BFO_0000040 ;
+    rdfs:label "Steering wheel" ;
+    iof:hasComponentPartAtSomeTime :QuickDisconnect_1 .
+

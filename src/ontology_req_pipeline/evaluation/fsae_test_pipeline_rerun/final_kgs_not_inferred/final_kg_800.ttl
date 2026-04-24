@@ -1,0 +1,112 @@
+@prefix : <http://example.org/req/800#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:EV_9_5 a iof:InformationContentEntity ;
+    rdfs:label "EV.9.5 criteria" .
+
+:IN_2_6 a iof:InformationContentEntity ;
+    rdfs:label "IN.2.6 reference" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "4.6 Ready to Drive Sound The sound level will be measured with a free field microphone placed free from obstructions in a radius of 2 m around the vehicle against the criteria in EV.9.5 ## IN.4.7 Electrical Inspection Completion IN.4.7.1 All or portions of the Tractive System, Charger and other components may be sealed IN.2.6 IN.4.7.2 Additional monitoring to verify conformance to rules may be installed" ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:AdditionalMonitoring_2 a bfo:BFO_0000040 ;
+    rdfs:label "additional monitoring system" .
+
+:Charger_1 a bfo:BFO_0000040 ;
+    rdfs:label "charger" .
+
+:MicrophoneDistanceFromVehicle_0 a bfo:BFO_0000019 ;
+    rdfs:label "microphone radial distance from vehicle" ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c3 .
+
+:MicrophoneFreeFieldQuality_0 a bfo:BFO_0000019 ;
+    rdfs:label "free field microphone type" .
+
+:MicrophoneUnobstructedPlacement_0 a bfo:BFO_0000019 ;
+    rdfs:label "microphone placed free from obstructions" .
+
+:Microphone_0 a iof:MaterialArtifact ;
+    rdfs:label "free field microphone" ;
+    iof:hasQuality :MicrophoneDistanceFromVehicle_0,
+        :MicrophoneFreeFieldQuality_0,
+        :MicrophoneUnobstructedPlacement_0 .
+
+:MonitoringInstallationProcess_2 a iof:PlannedProcess ;
+    rdfs:label "installation of additional monitoring to verify conformance to rules" ;
+    iof:hasSpecifiedOutput :AdditionalMonitoring_2 .
+
+:OtherComponents_1 a bfo:BFO_0000040 ;
+    rdfs:label "other components" .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :MonitoringInstallationProcess_2,
+        :SealingProcess_1,
+        :SoundMeasurementProcess_0 .
+
+:SealedCharger_1 a bfo:BFO_0000040 ;
+    rdfs:label "sealed charger" ;
+    iof:hasQuality :SealedQuality_1 .
+
+:SealedOtherComponents_1 a bfo:BFO_0000040 ;
+    rdfs:label "sealed other components" ;
+    iof:hasQuality :SealedQuality_1 .
+
+:SealedTractiveSystem_1 a bfo:BFO_0000040 ;
+    rdfs:label "sealed tractive system" ;
+    iof:hasQuality :SealedQuality_1 .
+
+:SealingProcess_1 a iof:PlannedProcess ;
+    rdfs:label "sealing of tractive system, charger and other components" ;
+    iof:hasInput :Charger_1,
+        :OtherComponents_1,
+        :TractiveSystem_1 ;
+    iof:hasSpecifiedOutput :SealedCharger_1,
+        :SealedOtherComponents_1,
+        :SealedTractiveSystem_1 .
+
+:SoundLevel_0 a iof:ProcessCharacteristic ;
+    rdfs:label "sound level during ready to drive test" .
+
+:SoundMeasurementResult_0 a iof:InformationContentEntity ;
+    rdfs:label "sound level measurement result" ;
+    iof:isAbout :SoundMeasurementProcess_0 .
+
+:TractiveSystem_1 a bfo:BFO_0000040 ;
+    rdfs:label "tractive system" .
+
+:VE_req0_c3 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "microphone distance from vehicle = 2 m" ;
+    qudt:maxInclusive 2e+00 ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:M .
+
+:Vehicle_0 a bfo:BFO_0000040 ;
+    rdfs:label "vehicle under test" .
+
+qudtqk:RadialDistance a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:RadialDistance .
+
+:SoundMeasurementProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Ready to Drive sound level measurement process" ;
+    iof:hasInput :Microphone_0,
+        :Vehicle_0 ;
+    iof:hasProcessCharacteristic :SoundLevel_0 ;
+    iof:hasSpecifiedOutput :SoundMeasurementResult_0 .
+
+:SealedQuality_1 a bfo:BFO_0000019 ;
+    rdfs:label "sealed quality" .
+

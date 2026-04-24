@@ -1,0 +1,74 @@
+@prefix : <http://example.org/req/855#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "3.7.6 Changes to the Cost Report in the Cost Addendum will incur additional cost: a. Added items will be cost at $125 \\%$ of the table cost: + (1.25 x Cost) b" ;
+    iof:isAbout :ObjSpec_0,
+        :ObjSpec_1 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.25e+02 ;
+    qudt:minInclusive 1.25e+02 ;
+    qudt:quantityKind qudtqk:ServiceFactor ;
+    qudt:unit qudtu:PERCENT ;
+    iof:isValueExpressionOfAtSomeTime :CostMultiplier_0 .
+
+:AdditionalCost_0 a bfo:BFO_0000019 ;
+    rdfs:label "Additional cost" ;
+    iof:qualityOf :ChangeToCostReportProcess_0 .
+
+:CostAddendum_0 a iof:InformationContentEntity ;
+    rdfs:label "Cost Addendum" .
+
+qudtu:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:ServiceFactor .
+
+:CostMultiplier_0 a bfo:BFO_0000019 ;
+    rdfs:label "Cost multiplier for added items" ;
+    iof:qualityOf :AddedItem_0 .
+
+:CostReport_0 a iof:InformationContentEntity ;
+    rdfs:label "Cost Report" .
+
+:CostingProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Costing of added items" ;
+    iof:achievesAtSomeTime :ObjSpec_1 ;
+    iof:hasInput :AddedItem_0 ;
+    iof:hasOutput :AddedItem_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :ChangeToCostReportProcess_0 ;
+    iof:prescribes :AdditionalCost_0 .
+
+:ObjSpec_1 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :CostingProcess_0 ;
+    iof:prescribes :CostMultiplier_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :ChangeToCostReportProcess_0,
+        :CostingProcess_0 .
+
+qudtqk:ServiceFactor a qudt:QuantityKind .
+
+:AddedItem_0 a bfo:BFO_0000040 ;
+    rdfs:label "Added item" .
+
+:ChangeToCostReportProcess_0 a iof:PlannedProcess ;
+    rdfs:label "Change to the Cost Report in the Cost Addendum" ;
+    iof:achievesAtSomeTime :ObjSpec_0 ;
+    iof:hasInput :CostAddendum_0,
+        :CostReport_0 ;
+    iof:hasOutput :CostReport_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+

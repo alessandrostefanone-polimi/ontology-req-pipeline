@@ -1,0 +1,38 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/556#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Brake System Plausibility Device - BSPD IC.4.8.1 A standalone nonprogrammable circuit must be used to monitor the electronic throttle control" ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:Action_0 a iof:ActionSpecification ;
+    iof:prescribes :Usage_0 .
+
+:Circuit_0 a iof:MaterialEntity ;
+    rdfs:label "A standalone nonprogrammable circuit" .
+
+:MonitoringFunction_0 a iof:InformationContentEntity ;
+    iof:hasFeature :ThrottleControl_0 .
+
+:Objective_0 a iof:ObjectiveSpecification ;
+    iof:hasFeature :MonitoringFunction_0 .
+
+:Spec_0 a iof:PlanSpecification ;
+    iof:prescribes :Action_0,
+        :Objective_0 .
+
+:ThrottleControl_0 a iof:MaterialEntity ;
+    rdfs:label "electronic throttle control" .
+
+:Usage_0 a iof:InformationContentEntity ;
+    iof:hasFeature :Circuit_0 .
+

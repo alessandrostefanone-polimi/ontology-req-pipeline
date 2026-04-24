@@ -1,0 +1,207 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/122#> a owl:Ontology .
+
+<http://example.org/req/122#Ref_F_4_3_4_a> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Reference F.4.3.4 a" .
+
+<http://example.org/req/122#Req_0_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:label "Req 0.0 – reference to F.4.3.4 a" ;
+    ns1:isAbout <http://example.org/req/122#ObjSpec_TestPanelRequirements> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/122#DS_TestPanelDesign> .
+
+<http://example.org/req/122#Req_0_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:label "Req 1 – panel dimensions options" ;
+    ns1:isAbout <http://example.org/req/122#ObjSpec_TestPanelRequirements> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/122#DS_TestPanelDesign> .
+
+<http://example.org/req/122#Req_0_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:label "Req 2 – panel support span distance 400 mm" ;
+    ns1:isAbout <http://example.org/req/122#ObjSpec_TestPanelRequirements> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/122#DS_TestPanelDesign> .
+
+<http://example.org/req/122#Req_0_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:label "Req 3 – equal surface area for top and bottom skin" ;
+    ns1:isAbout <http://example.org/req/122#ObjSpec_TestPanelRequirements> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/122#DS_TestPanelDesign> .
+
+<http://example.org/req/122#Req_0_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:label "Req 4 – bare edges without skin material" ;
+    ns1:isAbout <http://example.org/req/122#ObjSpec_TestPanelRequirements> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/122#DS_TestPanelDesign> .
+
+<http://example.org/req/122#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression: panel area option 1 (138 mm x 500 mm)" ;
+    ns2:maxInclusive 1.38e+02 ;
+    ns2:minInclusive 1.38e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/MILLIM2> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/122#PanelPlanformArea> .
+
+<http://example.org/req/122#VE_req1_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression: panel area option 2 (275 mm x 500 mm)" ;
+    ns2:maxInclusive 2.75e+02 ;
+    ns2:minInclusive 2.75e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/MILLIM2> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/122#PanelPlanformArea> .
+
+<http://example.org/req/122#VE_req2_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression: span distance 400 mm" ;
+    ns2:maxInclusive 4e-01 ;
+    ns2:minInclusive 4e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/122#PanelSpanDistance> .
+
+<http://example.org/req/122#BottomSkinArea> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "bottom skin surface area" ;
+    ns1:qualityOf <http://example.org/req/122#TestPanelType> .
+
+<http://example.org/req/122#PanelEdgeState> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "panel edge state (bare vs skinned)" ;
+    ns1:qualityOf <http://example.org/req/122#TestPanelType> .
+
+<http://example.org/req/122#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Refer to F.4.3.4 a. Test panels must: - Measure one of the two options: $138 \\mathrm{~mm} \\times 500 \\mathrm{~mm}$ OR $275 \\mathrm{~mm} \\times 500 \\mathrm{~mm}$ - Be supported by a span distance of 400 mm - Have equal surface area for the top and bottom skin - Have bare edges, without skin material b" ;
+    ns1:isAbout <http://example.org/req/122#ObjSpec_TestPanelRequirements> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/122#DS_TestPanelDesign> .
+
+<http://example.org/req/122#TopSkinArea> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "top skin surface area" ;
+    ns1:qualityOf <http://example.org/req/122#TestPanelType> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/122#PanelSpanDistance> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "panel support span distance" ;
+    ns1:qualityOf <http://example.org/req/122#TestPanelType> .
+
+<http://qudt.org/vocab/unit/MILLIM2> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/CartesianArea> .
+
+<http://example.org/req/122#PanelPlanformArea> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "panel planform area" ;
+    ns1:qualityOf <http://example.org/req/122#TestPanelType> .
+
+<http://example.org/req/122#DS_TestPanelDesign> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design specification for test panels" ;
+    ns1:prescribes <http://example.org/req/122#TestPanelType> ;
+    ns1:satisfiesRequirement <http://example.org/req/122#Req_0> .
+
+<http://example.org/req/122#ObjSpec_TestPanelRequirements> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: test panel geometric and support requirements" .
+
+<http://example.org/req/122#TestPanelType> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Test panel (type)" ;
+    ns1:hasQuality <http://example.org/req/122#BottomSkinArea>,
+        <http://example.org/req/122#PanelEdgeState>,
+        <http://example.org/req/122#PanelPlanformArea>,
+        <http://example.org/req/122#PanelSpanDistance>,
+        <http://example.org/req/122#TopSkinArea> .
+

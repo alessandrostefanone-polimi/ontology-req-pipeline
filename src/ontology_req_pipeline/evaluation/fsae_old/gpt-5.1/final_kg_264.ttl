@@ -1,0 +1,164 @@
+@prefix : <http://example.org/req/264#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:GeometricLength_TestFixtureSegment a bfo:BFO_0000019 ;
+    rdfs:label "Length of test fixture reference segment" ;
+    iof:qualityOf :TestFixture .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods: a. Physical testing of the AIP attached to a structurally representative section of the intended chassis - The test fixture must have equivalent strength and stiffness to a baseline front bulkhead or must be the same as the first 50 mm of the Chassis - Test data is valid for only one Competition Year b. Laminate material testing under F.4.3.2 and F.4.3.5 and calculations of 3 point bending and perimeter shear" ;
+    iof:requirementSatisfiedBy :DS_TestData,
+        :DS_TestFixture,
+        :PS_TestVerification .
+
+:Stiffness_BaselineBulkhead a bfo:BFO_0000019 ;
+    rdfs:label "Stiffness of baseline front bulkhead" ;
+    iof:qualityOf :BaselineFrontBulkhead .
+
+:Strength_AIP a bfo:BFO_0000019 ;
+    rdfs:label "Strength of Composite AIP" ;
+    iof:qualityOf :AIP .
+
+:Strength_BaselineBulkhead a bfo:BFO_0000019 ;
+    rdfs:label "Strength of baseline front bulkhead" ;
+    iof:qualityOf :BaselineFrontBulkhead .
+
+:VE_req2_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Required length 50 mm for chassis front segment equivalence" ;
+    qudt:maxInclusive 5e+01 ;
+    qudt:minInclusive 5e+01 ;
+    qudt:quantityKind qudtqk:Thickness ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :GeometricLength_ChassisFrontSegment .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Required validity period 1 Competition Year for test data" ;
+    qudt:maxInclusive 1e+00 ;
+    qudt:minInclusive 1e+00 ;
+    qudt:quantityKind qudtqk:Time ;
+    qudt:unit qudtu:SEC ;
+    iof:isValueExpressionOfAtSomeTime :ValidityPeriod_TestData .
+
+:Chassis a iof:MaterialArtifact ;
+    rdfs:label "Chassis" .
+
+:ChassisFrontSegment_50mm a bfo:BFO_0000040 ;
+    rdfs:label "First 50 mm of the Chassis" ;
+    iof:componentPartOfAtSomeTime :Chassis .
+
+:DS_TestData a iof:DesignSpecification ;
+    rdfs:label "Test data specification" ;
+    iof:prescribes :TestData .
+
+:DS_TestFixture a iof:DesignSpecification ;
+    rdfs:label "Test fixture design specification" ;
+    iof:prescribes :TestFixture .
+
+:GeometricLength_ChassisFrontSegment a bfo:BFO_0000019 ;
+    rdfs:label "Length of first 50 mm chassis segment" ;
+    iof:qualityOf :ChassisFrontSegment_50mm .
+
+:PP_AIPStrengthVerification a iof:PlannedProcess ;
+    rdfs:label "AIP strength verification process" ;
+    iof:hasSpecifiedOutput :TestData ;
+    iof:prescribedBy :PS_TestVerification .
+
+:PP_LaminateTestAndCalc a iof:PlannedProcess ;
+    rdfs:label "Laminate material testing and calculations (3-point bending, perimeter shear)" ;
+    iof:hasSpecifiedOutput :TestData ;
+    iof:prescribedBy :PS_Method_LaminateCalc .
+
+:PP_PhysicalAIPTest a iof:PlannedProcess ;
+    rdfs:label "Physical test of AIP attached to representative chassis section" ;
+    iof:hasInput :AIP,
+        :TestFixture ;
+    iof:hasSpecifiedOutput :TestData ;
+    iof:prescribedBy :PS_Method_PhysicalTest .
+
+:PP_TestDataLifecycle a iof:PlannedProcess ;
+    rdfs:label "Lifecycle of AIP test data (validity over competition year)" ;
+    iof:hasSpecifiedOutput :TestData ;
+    iof:prescribedBy :PS_TestDataValidity .
+
+:PP_TestFixtureQualification a iof:PlannedProcess ;
+    rdfs:label "Test fixture qualification process" ;
+    iof:hasInput :BaselineFrontBulkhead,
+        :TestFixture ;
+    iof:prescribedBy :PS_TestFixturePerformance .
+
+:PS_Method_LaminateCalc a iof:PlanSpecification ;
+    rdfs:label "Laminate material testing and calculation method for AIP strength" ;
+    iof:prescribes :PP_LaminateTestAndCalc .
+
+:PS_Method_PhysicalTest a iof:PlanSpecification ;
+    rdfs:label "Physical testing method for AIP strength" ;
+    iof:prescribes :PP_PhysicalAIPTest .
+
+:PS_TestDataValidity a iof:PlanSpecification ;
+    rdfs:label "Test data validity specification" ;
+    bfo:BFO_0000110 :ValidityObjective_TestData ;
+    iof:prescribes :PP_TestDataLifecycle .
+
+:PS_TestFixturePerformance a iof:PlanSpecification ;
+    rdfs:label "Test fixture performance specification" ;
+    bfo:BFO_0000110 :StrengthEquivalence_Constraint ;
+    iof:prescribes :PP_TestFixtureQualification .
+
+:Stiffness_TestFixture a bfo:BFO_0000019 ;
+    rdfs:label "Stiffness of test fixture" ;
+    iof:qualityOf :TestFixture .
+
+:StrengthEquivalence_Constraint a iof:ObjectiveSpecification ;
+    rdfs:label "Test fixture strength and stiffness equivalence objective" ;
+    iof:prescribes :Stiffness_TestFixture,
+        :Strength_TestFixture .
+
+:Strength_TestFixture a bfo:BFO_0000019 ;
+    rdfs:label "Strength of test fixture" ;
+    iof:qualityOf :TestFixture .
+
+:ValidityObjective_TestData a iof:ObjectiveSpecification ;
+    rdfs:label "Test data validity period objective" ;
+    iof:prescribes :ValidityPeriod_TestData .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+qudtu:SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Time .
+
+:AIP a iof:MaterialArtifact ;
+    rdfs:label "Composite Anti Intrusion Plate" .
+
+:PS_TestVerification a iof:PlanSpecification ;
+    rdfs:label "Verification of Composite Anti Intrusion Plate strength" ;
+    iof:prescribes :PP_AIPStrengthVerification .
+
+:ValidityPeriod_TestData a bfo:BFO_0000019 ;
+    rdfs:label "Validity period of test data" ;
+    iof:qualityOf :TestData .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtqk:Time a qudt:QuantityKind .
+
+:BaselineFrontBulkhead a iof:MaterialArtifact ;
+    rdfs:label "Baseline front bulkhead" .
+
+:TestData a iof:InformationContentEntity ;
+    rdfs:label "AIP strength test data" .
+
+:TestFixture a iof:MaterialArtifact ;
+    rdfs:label "Test fixture for AIP verification" .
+

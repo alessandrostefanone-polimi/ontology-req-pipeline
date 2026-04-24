@@ -1,0 +1,33 @@
+﻿[
+  {
+    "original_text": "The valve shall withstand a flow rate of 2 +-0.2 LPM.",
+    "reasoning": "1) Identify system_agent: The phrase 'The valve' is the entity; per instructions, remove the article, leaving 'valve'. 2) Modal verb: 'shall' is the explicit modal verb. 3) System response: Remove modal verb from the remaining predicate: 'withstand a flow rate of 2 +-0.2 LPM'. There is no explicit precondition, so precondition = null. 4) Constraint: The quantitative expression is '2 +-0.2 LPM'. This specifies a nominal flow rate with a symmetric tolerance. The operator is best represented as '==', primary_value is 2, tolerance is 0.2, unit is 'LPM' (liters per minute). No range bounds are given explicitly, so secondary_value = null. Target attribute is meaningfully described as 'Flow Rate'. The text_span should match exactly the numeric/tolerance portion from the original text: '2 +-0.2 LPM'.",
+    "structure": {
+      "system_agent": "valve",
+      "modal_verb": "shall",
+      "precondition": null,
+      "system_response": "withstand a flow rate of 2 +-0.2 LPM"
+    },
+    "constraints": [
+      {
+        "text_span": "2 +-0.2 LPM",
+        "target_attribute": "Flow Rate",
+        "normalization": {
+          "quantity_kind_uri": "http://qudt.org/vocab/quantitykind/VolumeFlowRate",
+          "best_unit_uri": "http://qudt.org/vocab/unit/L-PER-MIN",
+          "si_value_primary": 2.0,
+          "si_value_secondary": null,
+          "lower_bound": 1.8,
+          "upper_bound": 2.2,
+          "lower_bound_included": true,
+          "upper_bound_included": true,
+          "operator": "==",
+          "primary_value": 2.0,
+          "secondary_value": null,
+          "tolerance": 0.2,
+          "unit": "LPM"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,214 @@
+@prefix ns1: <http://purl.obolibrary.org/obo/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/113#> a owl:Ontology .
+
+<http://example.org/req/113#Req_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Young's Modulus (E) $=200 \\mathrm{GPa}(29,000 \\mathrm{ksi})$ Yield Strength (Sy) $=305 \\mathrm{MPa}(44.2 \\mathrm{ksi})$ Ultimate Strength (Su) $=365 \\mathrm{MPa}(52.9 \\mathrm{ksi})$ b. Welded Properties for discontinuous material such as joint calculations: Yield Strength (Sy) $=180 \\mathrm{MPa}(26 \\mathrm{ksi})$ Ultimate Strength (Su) $=300 \\mathrm{MPa}(43.5 \\mathrm{ksi})$ F.3.4.3 Where Welded tubing reinforcements are required (such as inserts for bolt holes or material to support suspension cutouts), Equivalence of the Welded tube and reinforcement must be shown to the original Non Welded tube in the SES # F.3.5 Alternative Tubing Materials F.3.5.1 Alternative Materials may be used for applications shown as permitted in F.3.2.1 F.3.5.2 If any Alternative Materials are used, the SES must contain: a. Documentation of material type, (purchase receipt, shipping document or letter of donation) and the material properties" ;
+    ns2:isAbout <http://example.org/req/113#Req0_Objective>,
+        <http://example.org/req/113#Req1_Objective>,
+        <http://example.org/req/113#Req2_Objective> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/113#Spec_0> .
+
+<http://example.org/req/113#AltMatDocumentation> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity ;
+    rdfs:label "Documentation of material type (receipt, shipping document, letter of donation)",
+        "Documentation of material type (receipt, shipping document, letter of donation)"@en ;
+    ns2:isSubjectOf <http://example.org/req/113#SES_Document> .
+
+<http://example.org/req/113#AltMatProperties> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity ;
+    rdfs:label "Material properties of alternative materials",
+        "Material properties of alternative materials"@en ;
+    ns2:isSubjectOf <http://example.org/req/113#SES_Document> .
+
+<http://example.org/req/113#Clause_F_3_2_1> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity ;
+    rdfs:label "Clause F.3.2.1",
+        "Clause F.3.2.1"@en .
+
+<http://example.org/req/113#Equivalence_ICE> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity ;
+    rdfs:label "Equivalence of the Welded tube and reinforcement",
+        "Equivalence of the Welded tube and reinforcement"@en ;
+    ns2:isAbout <http://example.org/req/113#OriginalNonWeldedTube>,
+        <http://example.org/req/113#Reinforcement>,
+        <http://example.org/req/113#WeldedTube> ;
+    ns2:isSubjectOf <http://example.org/req/113#SES_Document> .
+
+<http://example.org/req/113#OriginalNonWeldedTube> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Original non-welded tube",
+        "Original non-welded tube"@en .
+
+<http://example.org/req/113#Process_DocumentAlternativeMaterials> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Document alternative materials in SES",
+        "Document alternative materials in SES"@en ;
+    ns1:BFO_0000063 <http://example.org/req/113#UseAlternativeMaterials_Event> ;
+    ns2:achievesAtSomeTime <http://example.org/req/113#Req2_Objective> ;
+    ns2:hasInput <http://example.org/req/113#AlternativeMaterial> ;
+    ns2:hasSpecifiedOutput <http://example.org/req/113#AltMatDocumentation>,
+        <http://example.org/req/113#AltMatProperties> ;
+    ns2:prescribedBy <http://example.org/req/113#Spec_0> .
+
+<http://example.org/req/113#Process_UseAlternativeMaterials> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Use of alternative tubing materials",
+        "Use of alternative tubing materials"@en ;
+    ns2:achievesAtSomeTime <http://example.org/req/113#Req1_Objective> ;
+    ns2:hasInput <http://example.org/req/113#AlternativeMaterial> ;
+    ns2:hasProcessCharacteristic <http://example.org/req/113#UseAltMat_Applicability> ;
+    ns2:prescribedBy <http://example.org/req/113#Spec_0> .
+
+<http://example.org/req/113#Reinforcement> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Reinforcement for welded tube",
+        "Reinforcement for welded tube"@en .
+
+<http://example.org/req/113#UseAltMat_Applicability> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    rdfs:label "Applicability limited to applications permitted in F.3.2.1",
+        "Applicability limited to applications permitted in F.3.2.1"@en ;
+    ns2:isSubjectOf <http://example.org/req/113#Clause_F_3_2_1> .
+
+<http://example.org/req/113#UseAlternativeMaterials_Event> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Event: alternative materials are used",
+        "Event: alternative materials are used"@en ;
+    ns2:hasParticipantAtSomeTime <http://example.org/req/113#AlternativeMaterial> .
+
+<http://example.org/req/113#WeldedTube> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Welded tube",
+        "Welded tube"@en .
+
+<http://example.org/req/113#Process_ShowEquivalence> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "Process to show equivalence of welded tube and reinforcement",
+        "Process to show equivalence of welded tube and reinforcement"@en ;
+    ns2:achievesAtSomeTime <http://example.org/req/113#Req0_Objective> ;
+    ns2:prescribedBy <http://example.org/req/113#Spec_0> .
+
+<http://example.org/req/113#Req0_Objective> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    rdfs:label "Objective: show equivalence of welded tube + reinforcement to original non-welded tube",
+        "Objective: show equivalence of welded tube + reinforcement to original non-welded tube"@en ;
+    ns2:prescribes <http://example.org/req/113#Equivalence_ICE> .
+
+<http://example.org/req/113#Req1_Objective> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    rdfs:label "Objective: allow use of alternative materials where permitted",
+        "Objective: allow use of alternative materials where permitted"@en .
+
+<http://example.org/req/113#Req2_Objective> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    rdfs:label "Objective: SES contains documentation and material properties for any alternative materials used",
+        "Objective: SES contains documentation and material properties for any alternative materials used"@en .
+
+<http://example.org/req/113#AlternativeMaterial> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Alternative tubing material",
+        "Alternative tubing material"@en .
+
+<http://example.org/req/113#SES_Document> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    rdfs:label "SES document",
+        "SES document"@en ;
+    ns2:prescribes <http://example.org/req/113#Process_ShowEquivalence> .
+
+<http://example.org/req/113#Spec_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    rdfs:label "Specification satisfying SES tubing material requirements",
+        "Specification satisfying SES tubing material requirements"@en ;
+    ns2:prescribes <http://example.org/req/113#Process_DocumentAlternativeMaterials>,
+        <http://example.org/req/113#Process_ShowEquivalence>,
+        <http://example.org/req/113#Process_UseAlternativeMaterials> .
+

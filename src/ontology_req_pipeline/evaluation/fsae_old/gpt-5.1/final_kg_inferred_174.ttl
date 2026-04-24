@@ -1,0 +1,93 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/174#> a owl:Ontology .
+
+<http://example.org/req/174#AccessLocation_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000029>,
+        <http://purl.obolibrary.org/obo/BFO_0000141>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Location accessible during Technical Inspection",
+        "Location accessible during Technical Inspection"@en .
+
+<http://example.org/req/174#TechInspection_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Technical Inspection",
+        "Technical Inspection"@en .
+
+<http://example.org/req/174#FrontHoop_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Front Hoop (non-steel)",
+        "Front Hoop (non-steel)"@en ;
+    ns1:hasComponentPartAtSomeTime <http://example.org/req/174#Hole_0> .
+
+<http://example.org/req/174#FrontHoop_0_DesignSpec> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/174#FrontHoop_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/174#Req_0> .
+
+<http://example.org/req/174#Hole_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "4 mm access hole in Front Hoop",
+        "4 mm access hole in Front Hoop"@en ;
+    ns1:hasQuality <http://example.org/req/174#Hole_0_Diameter> .
+
+<http://example.org/req/174#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "5.7.7 A Front Hoop that is not steel must have a 4 mm hole drilled in a location to access during Technical Inspection" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/174#FrontHoop_0_DesignSpec> .
+
+<http://example.org/req/174#VE_req0_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 4e+00 ;
+    ns2:minInclusive 4e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/174#Hole_0_Diameter> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+
+<http://example.org/req/174#Hole_0_Diameter> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Diameter of access hole",
+        "Diameter of access hole"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/174#VE_req0_c2> .
+

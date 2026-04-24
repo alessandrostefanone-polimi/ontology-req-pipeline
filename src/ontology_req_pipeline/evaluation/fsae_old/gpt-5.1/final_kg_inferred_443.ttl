@@ -1,0 +1,161 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/443#> a owl:Ontology .
+
+<http://example.org/req/443#MotorCasePerforated_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Event ;
+    rdfs:label "Motor case is perforated" ;
+    ns1:recognizedByAtSomeTime <http://example.org/req/443#Agent_ReqAuthor> .
+
+<http://example.org/req/443#MotorCasingRotates_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Event ;
+    rdfs:label "Motor casing rotates around stator" ;
+    ns1:recognizedByAtSomeTime <http://example.org/req/443#Agent_ReqAuthor> .
+
+<http://example.org/req/443#DS_Thickness_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design specification for minimum steel thickness" ;
+    ns1:isAbout <http://example.org/req/443#ObjSpec_Thickness_0> ;
+    ns1:prescribes <http://example.org/req/443#SteelSection_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/443#Req_0> .
+
+<http://example.org/req/443#ObjSpec_ScatterShield_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: include scatter shield around motor under specified conditions" ;
+    ns1:prescribes <http://example.org/req/443#Motor_1>,
+        <http://example.org/req/443#ScatterShield_1> .
+
+<http://example.org/req/443#ObjSpec_Thickness_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: steel thickness 2.0 mm" ;
+    ns1:prescribes <http://example.org/req/443#Thickness_Quality_0> .
+
+<http://example.org/req/443#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Required steel thickness value expression (2.0 mm)" ;
+    ns2:maxInclusive 2e+00 ;
+    ns2:minInclusive 2e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/443#Thickness_Quality_0> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Thickness> .
+
+<http://example.org/req/443#Agent_ReqAuthor> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Agent ;
+    rdfs:label "Implicit requirement author/analyst agent" .
+
+<http://example.org/req/443#Motor_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Motor" .
+
+<http://example.org/req/443#PS_ScatterShield_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification for scatter shield inclusion around motor" ;
+    ns1:isAbout <http://example.org/req/443#ObjSpec_ScatterShield_1> ;
+    ns1:prescribes <http://example.org/req/443#ScatterShieldInclusionProcess_1> ;
+    ns1:satisfiesRequirement <http://example.org/req/443#Req_0> .
+
+<http://example.org/req/443#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Minimum thickness for steel: 2.0 mm T.5.3.2 A Scatter Shield must be included around the Motor(s) when one or both: - The motor casing rotates around the stator - The motor case is perforated T.5.3.3" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/443#DS_Thickness_0>,
+        <http://example.org/req/443#PS_ScatterShield_1> .
+
+<http://example.org/req/443#ScatterShieldInclusionProcess_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process of including scatter shield around motor" ;
+    ns1:hasInput <http://example.org/req/443#Motor_1> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/443#ScatterShield_1> ;
+    ns1:prescribedBy <http://example.org/req/443#PS_ScatterShield_1> .
+
+<http://example.org/req/443#ScatterShield_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Scatter Shield" ;
+    ns1:isSpecifiedOutputOf <http://example.org/req/443#ScatterShieldInclusionProcess_1> .
+
+<http://example.org/req/443#SteelSection_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Steel section with specified minimum thickness" ;
+    ns1:hasQuality <http://example.org/req/443#Thickness_Quality_0> .
+
+<http://example.org/req/443#Thickness_Quality_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Thickness of steel section" ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/443#VE_req0_c0> ;
+    ns1:qualityOf <http://example.org/req/443#SteelSection_0> .
+

@@ -1,0 +1,46 @@
+{
+  "idx": 264,
+  "req_idx": 2,
+  "source_text": "Strength of the Composite Anti Intrusion Plate must be verified by one of the two methods: a. Physical testing of the AIP attached to a structurally representative section of the intended chassis - The test fixture must have equivalent strength and stiffness to a baseline front bulkhead or must be the same as the first 50 mm of the Chassis - Test data is valid for only one Competition Year b. Laminate material testing under F.4.3.2 and F.4.3.5 and calculations of 3 point bending and perimeter shear",
+  "requirement_text_pred": "must be the same as the first 50 mm of the Chassis",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "be the same as",
+    "object": "the first 50 mm of the Chassis"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "length",
+      "operator_pred": "eq",
+      "value_raw_pred": "50 mm",
+      "value_v1_pred": 50.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.05,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

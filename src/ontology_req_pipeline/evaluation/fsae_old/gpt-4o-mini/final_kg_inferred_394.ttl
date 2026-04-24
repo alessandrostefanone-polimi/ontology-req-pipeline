@@ -1,0 +1,129 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/394#> a owl:Ontology .
+
+<http://example.org/req/394#Driver> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Agent ;
+    rdfs:label "Driver" .
+
+<http://example.org/req/394#Head_Restraint> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    ns1:hasRole <http://example.org/req/394#Head_Restraint_Role> .
+
+<http://example.org/req/394#Head_Restraint_Condition> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/394#Head_Restraint_Location_Adjustment> .
+
+<http://example.org/req/394#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Head Restraint Protection (if used) F.5.10 T.2.8.4 The Head Restraint, attachment and mounting must be strong enough to withstand a minimum force of: a. 900 N applied in a rearward direction b. 300 N applied in a lateral or vertical direction T.2.8.5 For all drivers, the Head Restraint must be located and adjusted where: a" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/394#DS_req0> .
+
+<http://example.org/req/394#DS_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/394#Plan_req0> .
+
+<http://example.org/req/394#Force_300_N> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        ns2:Force,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasUnit ns2:N ;
+    ns2:hasValue 3e+02,
+        300.0 .
+
+<http://example.org/req/394#Force_900_N> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        ns2:Force,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasUnit ns2:N ;
+    ns2:hasValue 9e+02,
+        900.0 .
+
+<http://example.org/req/394#Head_Restraint_Location_Adjustment> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:InformationContentEntity ;
+    rdfs:comment "The Head Restraint must be located and adjusted where: a" .
+
+<http://example.org/req/394#Head_Restraint_Role> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:AgentRole ;
+    rdfs:label "Head Restraint Role" .
+
+<http://example.org/req/394#Plan_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/394#VE_req0_c0>,
+        <http://example.org/req/394#VE_req1_c0> .
+
+<http://example.org/req/394#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minInclusive 9e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/N> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/394#Force_900_N> .
+
+<http://example.org/req/394#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minInclusive 3e+02 ;
+    ns2:unit <http://qudt.org/vocab/unit/N> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/394#Force_300_N> .
+
+<http://qudt.org/vocab/unit/N> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Force> .
+

@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+
+# Pytest
+.pytest_cache/
+
+# IDE / editor
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+notebooks/.env
+src/ontology_req_pipeline/.env
+.env
+.env.*
+!.env.example
+
+# dev folders
+notebooks
+
+# Public-safe defaults
+artifacts/
+datasets/all_rules_extracted.csv
+datasets/all_rules_extracted.jsonl
+datasets/extracted_reqs/
+src/ontology_req_pipeline/outputs/*.html
+src/ontology_req_pipeline/outputs/*.owl
+src/ontology_req_pipeline/outputs/*.png
+src/ontology_req_pipeline/outputs/*.ttl

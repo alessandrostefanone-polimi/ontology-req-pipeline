@@ -1,0 +1,122 @@
+@prefix : <http://example.org/req/397#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:CoverMaterial_2 a iof:MaterialArtifact ;
+    rdfs:label "Thin flexible cover material"@en ;
+    iof:hasComponentPartAtSomeTime :InspectionHole_2 .
+
+:CoveredPadding_2 a iof:Assembly ;
+    rdfs:label "Padding assembly covered with thin flexible material"@en ;
+    iof:hasComponentPartAtSomeTime :CoverMaterial_2 .
+
+:DS_0 a iof:PlanSpecification ;
+    iof:prescribes :PaddingAssembly_0,
+        :PaddingCoveringProcess_2,
+        :RollBarPadding_3 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:InspectionHole_2 a bfo:BFO_0000040 ;
+    rdfs:label "Inspection hole in cover material"@en ;
+    iof:hasQuality :InspectionHoleDiameter_2 .
+
+:PaddingAssembly_0 a iof:Assembly ;
+    rdfs:label "Padding assembly for quantitative geometry requirements"@en ;
+    iof:hasQuality :Area_0,
+        :Height_1,
+        :TotalHeightAdjustment_0 .
+
+:PaddingCoveringProcess_2 a iof:PlannedProcess ;
+    rdfs:label "Process of covering with thin flexible material with inspection hole"@en ;
+    iof:hasSpecifiedOutput :CoveredPadding_2 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Meet one of the following: - minimum area of $235 \\mathrm{~cm}^{2}$ AND minimum total height adjustment of 17.5 cm - minimum height of 28 cm e. Be covered with a thin, flexible material that contains a $\\sim 20 \\mathrm{~mm}$ diameter inspection hole in a surface other than the front surface ## T.2.9 Roll Bar Padding Any portion of the roll bar, roll bar bracing or Chassis which might be contacted by the driver's helmet must be covered with a minimum thickness of 12 mm of padding which meets SFI Spec 45.1 or FIA 8857-2001" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:RollBarPadding_3 a iof:Assembly ;
+    rdfs:label "Roll bar padding assembly"@en ;
+    iof:hasQuality :PaddingThickness_3 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression for minimum area 235 cm^2"@en ;
+    qudt:minInclusive 2.35e+02 ;
+    qudt:unit qudtu:CentiM2 ;
+    iof:isValueExpressionOfAtAllTimes :Area_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression for minimum total height adjustment 17.5 mm"@en ;
+    qudt:minInclusive 1.75e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :TotalHeightAdjustment_0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression for minimum height 28 mm"@en ;
+    qudt:minInclusive 2.8e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :Height_1 .
+
+:VE_req2_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression for inspection hole diameter 20 mm"@en ;
+    qudt:maxInclusive 2e+01 ;
+    qudt:minInclusive 2e+01 ;
+    qudt:unit qudtu:CentiM ;
+    iof:isValueExpressionOfAtAllTimes :InspectionHoleDiameter_2 .
+
+:VE_req3_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression for minimum padding thickness 12 mm"@en ;
+    qudt:minInclusive 1.2e+01 ;
+    qudt:unit qudtu:CentiM ;
+    iof:isValueExpressionOfAtAllTimes :PaddingThickness_3 .
+
+qudtqk:CartesianArea a qudt:QuantityKind .
+
+qudtqk:Height a qudt:QuantityKind .
+
+qudtqk:MigrationLength a qudt:QuantityKind .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:CentiM2 a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:CartesianArea .
+
+:Area_0 a bfo:BFO_0000019 ;
+    rdfs:label "Area of padding assembly"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+:Height_1 a bfo:BFO_0000019 ;
+    rdfs:label "Height of padding assembly"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req1_c0 .
+
+:InspectionHoleDiameter_2 a bfo:BFO_0000019 ;
+    rdfs:label "Diameter of inspection hole"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req2_c1 .
+
+:PaddingThickness_3 a bfo:BFO_0000019 ;
+    rdfs:label "Thickness of roll bar padding"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req3_c1 .
+
+:TotalHeightAdjustment_0 a bfo:BFO_0000019 ;
+    rdfs:label "Total height adjustment of padding assembly"@en ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 .
+
+qudtu:CentiM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:MigrationLength,
+        qudtqk:Thickness .
+

@@ -1,0 +1,121 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/333#> a owl:Ontology .
+
+<http://example.org/req/333#AccumulatorContainer_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Accumulator Container" .
+
+<http://example.org/req/333#NonCrushableItem_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Non Crushable Item" .
+
+<http://example.org/req/333#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "If used, the mounts or plate must be 25 mm or more larger at both the top and bottom of the upper and lower tubes F.11.2.3 All Non Crushable Items should have a minimum 25 mm clearance to the surface of the Accumulator Container" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/333#DS_0>,
+        <http://example.org/req/333#PS_1> .
+
+<http://example.org/req/333#Clearance_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    rdfs:label "clearance between Non Crushable Items and Accumulator Container" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/333#VE_req1_c1> ;
+    ns2:processCharacteristicOf <http://example.org/req/333#ClearanceProcess_1> .
+
+<http://example.org/req/333#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    rdfs:label "Design specification for mounts or plate size relative to tubes" ;
+    ns2:prescribes <http://example.org/req/333#MountsOrPlate_0> .
+
+<http://example.org/req/333#MountsOrPlate_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "mounts or plate (upper/lower tubes interface)" ;
+    ns2:hasQuality <http://example.org/req/333#SizeDiff_0> .
+
+<http://example.org/req/333#PS_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    rdfs:label "Plan specification for clearance of Non Crushable Items to Accumulator Container" ;
+    ns2:prescribes <http://example.org/req/333#ClearanceProcess_1> .
+
+<http://example.org/req/333#SizeDiff_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "size difference of mounts or plate vs tubes" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/333#VE_req0_c1> .
+
+<http://example.org/req/333#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "value expression for minimum size difference (req 0, constraint 1)" ;
+    ns1:minInclusive 2.5e-02 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> .
+
+<http://example.org/req/333#VE_req1_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "value expression for minimum clearance (req 1, constraint 1)" ;
+    ns1:minInclusive 2.5e-02 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> .
+
+<http://example.org/req/333#ClearanceProcess_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "process ensuring clearance between Non Crushable Items and Accumulator Container" ;
+    ns2:hasProcessCharacteristic <http://example.org/req/333#Clearance_1> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length>,
+        <http://qudt.org/vocab/quantitykind/NonNegativeLength> .
+

@@ -1,0 +1,69 @@
+@prefix : <http://example.org/req/206#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:AdditionalLoadPathMember a bfo:BFO_0000040 ;
+    rdfs:label "additional member transmitting load from the junction of the Upper Support Member with the Front Hoop c"@en .
+
+:FrontHoop a bfo:BFO_0000040 ;
+    rdfs:label "Front Hoop c"@en .
+
+:MainHoop a bfo:BFO_0000040 ;
+    rdfs:label "Main Hoop"@en .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "If the upper support member is further than 100 mm above the Upper Side Impact member, then properly Triangulated bracing is required to transfer load to the Main Hoop by one of: - the Upper Side Impact member - an additional member transmitting load from the junction of the Upper Support Member with the Front Hoop c" ;
+    iof:requirementSatisfiedBy :DS_BracingPath_0 .
+
+:UpperSideImpactMember a bfo:BFO_0000040 ;
+    rdfs:label "Upper Side Impact member"@en .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 1e+02 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :RelVertPos_USM_USI_0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 1e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :VertDistance_USM_USI_1 .
+
+:BracingRole_0 a bfo:BFO_0000023 ;
+    rdfs:label "bracing role in load path"@en .
+
+:Bracing_0 a bfo:BFO_0000040 ;
+    rdfs:label "properly Triangulated bracing"@en ;
+    iof:hasRole :BracingRole_0 .
+
+:DS_BracingPath_0 a iof:DesignSpecification ;
+    iof:prescribes :Bracing_0 .
+
+:RelVertPos_USM_USI_0 a bfo:BFO_0000019 ;
+    rdfs:label "relative vertical position of upper support member above Upper Side Impact member (req 0)"@en ;
+    iof:qualityOf :UpperSupportMember .
+
+:VertDistance_USM_USI_1 a bfo:BFO_0000019 ;
+    rdfs:label "vertical distance between upper support member and Upper Side Impact member (req 1)"@en ;
+    iof:qualityOf :UpperSupportMember .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:UpperSupportMember a bfo:BFO_0000040 ;
+    rdfs:label "upper support member"@en .
+
+qudtqk:Length a qudt:QuantityKind .
+

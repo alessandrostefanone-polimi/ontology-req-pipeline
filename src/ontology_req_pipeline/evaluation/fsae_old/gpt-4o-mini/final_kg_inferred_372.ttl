@@ -1,0 +1,105 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/372#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Bracket a iof:MaterialComponent ;
+    iof:hasRole :BracketRole .
+
+:Chassis a iof:MaterialArtifact ;
+    iof:hasRole :ChassisRole .
+
+:CriticalFasteners a iof:MaterialComponent ;
+    iof:hasRole :CriticalFastenersRole .
+
+:FastenerDiameter a iof:RequirementSpecification ;
+    rdfs:comment "The diameter of Critical Fasteners must be no less than 6 mm." ;
+    iof:requirementSatisfiedBy :DS_1 .
+
+:FastenerRequirement a iof:RequirementSpecification ;
+    rdfs:comment "No less than two 6 mm or $1 / 4^{	ext{''}}$ minimum diameter Critical Fasteners must be used to attach the bracket to the chassis.",
+        "No less than two 6 mm or $1 / 4^{\\prime \\prime}$ minimum diameter Critical Fasteners must be used to attach the bracket to the chassis." ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Attachment of tabs or brackets must meet the following: a. Where brackets are fastened to the chassis, no less than two 6 mm or $1 / 4^{\\prime \\prime}$ minimum diameter Critical Fasteners, see T.8.2 or stronger must be used to attach the bracket to the chassis" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "Where brackets are fastened to the chassis, no less than two 6 mm or $1 / 4^{	ext{''}}$ minimum diameter Critical Fasteners, see T.8.2 or stronger must be used to attach the bracket to the chassis." ;
+    iof:requirementSatisfiedBy :DS_1 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue 2 ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:BEAT ;
+    iof:hasValueExpressionAtAllTimes :C0 ;
+    iof:isValueExpressionOfAtSomeTime :C0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue 0.25 ;
+    qudt:minInclusive 2.5e-01 ;
+    qudt:unit qudtu:MM ;
+    iof:hasValueExpressionAtAllTimes :C0 ;
+    iof:isValueExpressionOfAtSomeTime :C0 .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue 2 ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:MM ;
+    iof:hasValueExpressionAtAllTimes :C1 ;
+    iof:isValueExpressionOfAtSomeTime :C1 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue 6.0 ;
+    qudt:minInclusive 6e+00 ;
+    qudt:unit qudtu:MM ;
+    iof:hasValueExpressionAtAllTimes :C1 ;
+    iof:isValueExpressionOfAtSomeTime :C1 .
+
+:BracketRole a iof:MaterialComponentRole ;
+    rdfs:label "Bracket" .
+
+:ChassisRole a iof:MaterialArtifactRole ;
+    rdfs:label "Chassis" .
+
+:CriticalFastenersRole a iof:MaterialComponentRole ;
+    rdfs:label "Critical Fasteners" .
+
+:P_0 a iof:PlanSpecification ;
+    iof:prescribes :C0 .
+
+:P_1 a iof:PlanSpecification ;
+    iof:prescribes :C1 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtqk:Dimensionless a qudt:QuantityKind .
+
+qudtu:BEAT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Dimensionless .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :P_0 .
+
+:DS_1 a iof:DesignSpecification ;
+    iof:prescribes :P_1 .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:C0 a iof:MaterialArtifact .
+
+:C1 a iof:MaterialArtifact .
+

@@ -1,0 +1,260 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/306#> a owl:Ontology .
+
+<http://example.org/req/306#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "External Structure F.10.2.1 The Floor or Bottom must be made from one of the three: a. Steel 1.25 mm minimum thickness b. Aluminum 3.2 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.2 Vertical Walls, Covers and Lids must be made from one of the three: a. Steel 0.9 mm minimum thickness b. Aluminum 2.3 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.3 The accepted methods of joining walls to walls and walls to floor are: a. Welding - Welds may be continuous or interrupted. - If interrupted, the weld/space ratio must be 1:1 or higher - All weld lengths must be more than 25 mm b. Fasteners Combined strength of the fasteners must be Equivalent to the strength of the welded joint ( F.10.2.3.a above)" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/306#DS_FastenerStrength>,
+        <http://example.org/req/306#DS_FloorBottom>,
+        <http://example.org/req/306#DS_VerticalWalls>,
+        <http://example.org/req/306#PS_WeldPattern>,
+        <http://example.org/req/306#PS_WeldedJoint> .
+
+<http://example.org/req/306#DS_FastenerStrength> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Fastener strength design specification" ;
+    ns1:prescribes <http://example.org/req/306#FastenerAssembly> .
+
+<http://example.org/req/306#DS_FloorBottom> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Floor or Bottom design specification" ;
+    ns1:prescribes <http://example.org/req/306#FloorBottom> .
+
+<http://example.org/req/306#DS_VerticalWalls> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Vertical walls, covers and lids design specification" ;
+    ns1:prescribes <http://example.org/req/306#VerticalWalls> .
+
+<http://example.org/req/306#FastenerAssembly> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Fastener assembly" .
+
+<http://example.org/req/306#FloorBottom> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Floor or Bottom" ;
+    ns1:hasQuality <http://example.org/req/306#FloorBottom_Thickness_Aluminum>,
+        <http://example.org/req/306#FloorBottom_Thickness_Steel> .
+
+<http://example.org/req/306#PS_WeldPattern> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Weld/space pattern plan specification" ;
+    ns1:prescribes <http://example.org/req/306#WeldPatternProcess> .
+
+<http://example.org/req/306#PS_WeldedJoint> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Welded joint plan specification" ;
+    ns1:prescribes <http://example.org/req/306#WeldedJointProcess> .
+
+<http://example.org/req/306#VE_req0_c3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum thickness 1.25 mm (floor/bottom steel)" ;
+    ns2:minInclusive 1.25e-03 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/306#FloorBottom_Thickness_Steel> .
+
+<http://example.org/req/306#VE_req0_c4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum thickness 3.2 mm (floor/bottom aluminum)" ;
+    ns2:minInclusive 3.2e-03 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/306#FloorBottom_Thickness_Aluminum> .
+
+<http://example.org/req/306#VE_req1_c3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum thickness 0.9 mm (vertical walls steel)" ;
+    ns2:minInclusive 9e-04 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/306#VerticalWalls_Thickness_Steel> .
+
+<http://example.org/req/306#VE_req1_c4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum thickness 2.3 mm (vertical walls aluminum)" ;
+    ns2:minInclusive 2.3e-03 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/306#VerticalWalls_Thickness_Aluminum> .
+
+<http://example.org/req/306#VE_req2_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum weld/space ratio 1:1" ;
+    ns2:minInclusive 1e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/UNITLESS> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/306#WeldSpaceRatio> .
+
+<http://example.org/req/306#VE_req3_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Minimum weld length greater than 25 mm" ;
+    ns2:minExclusive 2.5e-02 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/306#WeldLength> .
+
+<http://example.org/req/306#VerticalWalls> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Vertical Walls, Covers and Lids" ;
+    ns1:hasQuality <http://example.org/req/306#VerticalWalls_Thickness_Aluminum>,
+        <http://example.org/req/306#VerticalWalls_Thickness_Steel> .
+
+<http://example.org/req/306#WeldPatternProcess> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Weld pattern process" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/306#WeldSpaceRatio> .
+
+<http://example.org/req/306#WeldedJointProcess> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Welded joint process" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/306#WeldLength> .
+
+<http://qudt.org/vocab/unit/UNITLESS> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Dimensionless> .
+
+<http://example.org/req/306#FloorBottom_Thickness_Aluminum> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Floor/Bottom thickness when made of aluminum" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/306#VE_req0_c4> .
+
+<http://example.org/req/306#FloorBottom_Thickness_Steel> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Floor/Bottom thickness when made of steel" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/306#VE_req0_c3> .
+
+<http://example.org/req/306#VerticalWalls_Thickness_Aluminum> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Vertical walls thickness when made of aluminum" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/306#VE_req1_c4> .
+
+<http://example.org/req/306#VerticalWalls_Thickness_Steel> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Vertical walls thickness when made of steel" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/306#VE_req1_c3> .
+
+<http://example.org/req/306#WeldLength> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "weld length" ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/306#VE_req3_c0> .
+
+<http://example.org/req/306#WeldSpaceRatio> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "weld/space ratio" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/306#VE_req2_c0> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length>,
+        <http://qudt.org/vocab/quantitykind/Thickness> .
+

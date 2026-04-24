@@ -1,0 +1,43 @@
+@prefix : <http://example.org/req/13#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Cart_0 a iof:MaterialArtifact ;
+    iof:hasQuality :Wheelbase_0 .
+
+:DataCollectionCapability_0 a iof:Capability ;
+    iof:prescribedBy :Objective_0 .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Cart_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The cart shall have a wheelbase of at least 1 meter to be able to collect data of the plants in a circle with a diameter of 1 meter." ;
+    iof:isAbout :Objective_0 ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.0 ;
+    qudt:unit qudtu:M .
+
+:Wheelbase_0 a bfo:BFO_0000019 ;
+    iof:isValueExpressionOfAtSomeTime :VE_req0_c0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:Objective_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :DataCollectionCapability_0 .
+

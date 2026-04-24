@@ -1,0 +1,95 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/690#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req0 a iof:RequirementSpecification ;
+    rdfs:comment "Teams must be prepared to show spacing on team built equipment" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:Req1 a iof:RequirementSpecification ;
+    rdfs:comment "spare boards or appropriate photographs must be available for inspection" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:ActSpec_ProvideInspectionArtifacts a iof:ActionSpecification ;
+    rdfs:label "Action spec: provide spare boards or photographs for inspection" ;
+    iof:prescribes :Proc_ProvideInspectionArtifacts .
+
+:ActSpec_ShowSpacing a iof:ActionSpecification ;
+    rdfs:label "Action spec: show spacing on team built equipment" ;
+    iof:prescribes :Proc_ShowSpacing .
+
+:Info_Spacing a iof:InformationContentEntity ;
+    rdfs:label "spacing on team built equipment" ;
+    iof:isAbout :Equip_TeamBuilt .
+
+:Proc_Inspection a bfo:BFO_0000015 ;
+    rdfs:label "inspection process" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "mm 4 mm EV.6.5.8 Teams must be prepared to show spacing on team built equipment For inaccessible circuitry, spare boards or appropriate photographs must be available for inspection" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:Team_Collection a iof:GroupOfAgents ;
+    rdfs:label "Teams (unspecified group of agents)" .
+
+:Plan_0 a iof:PlanSpecification ;
+    rdfs:label "Plan: provide inspection evidence for spacing on team built equipment" ;
+    bfo:BFO_0000110 :ActSpec_ProvideInspectionArtifacts,
+        :ActSpec_ShowSpacing,
+        :ObjSpec_0 ;
+    iof:prescribes :Proc_ProvideInspectionArtifacts,
+        :Proc_ShowSpacing .
+
+:Quality_Available a bfo:BFO_0000019 ;
+    rdfs:label "availability quality (available)" .
+
+:Artifact_Photograph a iof:InformationContentEntity ;
+    rdfs:label "appropriate photograph" ;
+    iof:hasQuality :Quality_Available .
+
+:Artifact_SpareBoard a bfo:BFO_0000040 ;
+    rdfs:label "spare board" ;
+    iof:hasQuality :Quality_Available .
+
+:DS_0 a iof:DesignSpecification ;
+    rdfs:label "Design spec: team built equipment and inspection artifacts" ;
+    iof:prescribes :Artifact_Photograph,
+        :Artifact_SpareBoard,
+        :Equip_TeamBuilt ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Equip_TeamBuilt a bfo:BFO_0000040 ;
+    rdfs:label "team built equipment" .
+
+:Proc_ProvideInspectionArtifacts a iof:PlannedProcess ;
+    rdfs:label "Process: provide artifacts for inspection" ;
+    bfo:BFO_0000057 :Artifact_Photograph,
+        :Artifact_SpareBoard,
+        :Proc_Inspection ;
+    iof:prescribedBy :Plan_0 .
+
+:Proc_ShowSpacing a iof:PlannedProcess ;
+    rdfs:label "Process: show spacing on team built equipment" ;
+    bfo:BFO_0000057 :Equip_TeamBuilt,
+        :Team_Collection ;
+    iof:prescribedBy :Plan_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: inspection evidence for spacing on team built equipment" ;
+    iof:isAchievedByAtSomeTime :Proc_ProvideInspectionArtifacts,
+        :Proc_ShowSpacing ;
+    iof:prescribes :Artifact_Photograph,
+        :Artifact_SpareBoard,
+        :Info_Spacing .
+

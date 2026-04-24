@@ -1,0 +1,45 @@
+{
+  "idx": 471,
+  "req_idx": 0,
+  "source_text": "Outside of the Rear Aerodynamic Zone must be no higher than 500 mm above the ground",
+  "requirement_text_pred": "Outside of the Rear Aerodynamic Zone must be no higher than 500 mm above the ground.",
+  "prediction": {
+    "subject": "Outside of the Rear Aerodynamic Zone",
+    "modality": "must",
+    "condition": "",
+    "action": "be no higher than",
+    "object": "500 mm above the ground"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "height",
+      "operator_pred": "le",
+      "value_raw_pred": "500 mm",
+      "value_v1_pred": 500.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Height",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM",
+      "normalized_si_value_primary_pred": 500.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

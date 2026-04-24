@@ -1,0 +1,105 @@
+@prefix : <http://example.org/req/444#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:MotorScatterShield_MaterialChoice a bfo:BFO_0000019 ;
+    rdfs:label "Motor Scatter Shield material (6061-T6 or steel)" ;
+    iof:qualityOf :MotorScatterShield .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Required thickness of Motor Scatter Shield (1.0 mm)" ;
+    qudt:maxInclusive 1e+00 ;
+    qudt:minInclusive 1e+00 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtAllTimes :Thickness_MotorScatterShield .
+
+:CoolantUseProcess_ElectricMotors a iof:PlannedProcess ;
+    rdfs:label "Coolant use process for electric motors / accumulators / HV electronics" ;
+    bfo:BFO_0000057 :Coolant_Oil,
+        :Coolant_Water_NoAdditives,
+        :ElectricMotorOrHVSystem ;
+    iof:prescribedBy :PS_CoolantUse_ElectricMotors .
+
+:CoolantUseProcess_Engines a iof:PlannedProcess ;
+    rdfs:label "Coolant use process for water cooled engines" ;
+    bfo:BFO_0000057 :Coolant_Water_NoAdditives,
+        :WaterCooledEngine ;
+    iof:prescribedBy :PS_CoolantUse_Engines .
+
+:Coolant_Oil a bfo:BFO_0000040 ;
+    rdfs:label "oil coolant" .
+
+:DS_MotorScatterShield a iof:DesignSpecification ;
+    rdfs:label "Design specification – Motor Scatter Shield" ;
+    iof:prescribes :Mat_Al6061T6,
+        :Mat_Steel,
+        :MotorScatterShield ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Mat_Al6061T6 a bfo:BFO_0000040 ;
+    rdfs:label "aluminum alloy 6061-T6" .
+
+:Mat_Steel a bfo:BFO_0000040 ;
+    rdfs:label "steel" .
+
+:ObjSpec_MotorScatterShield a iof:ObjectiveSpecification ;
+    rdfs:label "Objective – Motor Scatter Shield properties" ;
+    iof:prescribes :MotorScatterShield .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The Motor Scatter Shield must be: - Made from aluminum alloy 6061-T6 or steel - Minimum thickness: 1.0 mm ## T.5.4 Coolant Fluid T.5.4.1 Water cooled engines must use only plain water with no additives of any kind T.5.4.2 Liquid coolant for electric motors, Accumulators or HV electronics must be one of: - plain water with no additives - oil T.5.4.3 (EV only)" ;
+    iof:isAbout :ObjSpec_CoolantUse_ElectricMotors,
+        :ObjSpec_CoolantUse_Engines,
+        :ObjSpec_MotorScatterShield ;
+    iof:requirementSatisfiedBy :DS_MotorScatterShield,
+        :PS_CoolantUse_ElectricMotors,
+        :PS_CoolantUse_Engines .
+
+:Thickness_MotorScatterShield a bfo:BFO_0000019 ;
+    rdfs:label "Motor Scatter Shield thickness" ;
+    iof:qualityOf :MotorScatterShield .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+:Coolant_Water_NoAdditives a bfo:BFO_0000040 ;
+    rdfs:label "plain water with no additives" .
+
+:ElectricMotorOrHVSystem a iof:EngineeredSystem ;
+    rdfs:label "electric motor / accumulator / HV electronics system" .
+
+:ObjSpec_CoolantUse_ElectricMotors a iof:ObjectiveSpecification ;
+    rdfs:label "Objective – liquid coolant for electric motors / accumulators / HV electronics" ;
+    iof:prescribes :ElectricMotorOrHVSystem .
+
+:ObjSpec_CoolantUse_Engines a iof:ObjectiveSpecification ;
+    rdfs:label "Objective – coolant for water cooled engines" ;
+    iof:prescribes :WaterCooledEngine .
+
+:PS_CoolantUse_ElectricMotors a iof:PlanSpecification ;
+    rdfs:label "Plan specification – coolant use for electric motors / accumulators / HV electronics" ;
+    bfo:BFO_0000110 :ObjSpec_CoolantUse_ElectricMotors ;
+    iof:prescribes :CoolantUseProcess_ElectricMotors .
+
+:PS_CoolantUse_Engines a iof:PlanSpecification ;
+    rdfs:label "Plan specification – coolant use for water cooled engines" ;
+    bfo:BFO_0000110 :ObjSpec_CoolantUse_Engines ;
+    iof:prescribes :CoolantUseProcess_Engines .
+
+:WaterCooledEngine a iof:EngineeredSystem ;
+    rdfs:label "water cooled engine" .
+
+:MotorScatterShield a iof:MaterialArtifact ;
+    rdfs:label "Motor Scatter Shield" .
+

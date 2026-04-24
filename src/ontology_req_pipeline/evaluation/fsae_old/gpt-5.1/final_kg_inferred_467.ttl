@@ -1,0 +1,119 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/467#> a owl:Ontology .
+
+<http://example.org/req/467#Ref_req0_AerodynamicDevice> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Aerodynamic Device" .
+
+<http://example.org/req/467#Ref_req0_Bodywork> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Bodywork" .
+
+<http://example.org/req/467#Constraint_req0_c0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Constraint 0: subject is a material component part of an aerodynamic device or bodywork" ;
+    ns1:isAbout <http://example.org/req/467#Subject_req0_partOfAeroOrBodywork> ;
+    ns1:isSubjectOf <http://example.org/req/467#Req_0> .
+
+<http://example.org/req/467#Constraint_req0_c1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Constraint 1: compliance with V.1.1 and V.1.4.1" ;
+    ns1:isAbout <http://example.org/req/467#Ref_req0_V_1_1>,
+        <http://example.org/req/467#Ref_req0_V_1_4_1> ;
+    ns1:isSubjectOf <http://example.org/req/467#Req_0> .
+
+<http://example.org/req/467#PlanSpec_req0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification for aerodynamic device/bodywork compliance with V.1.1 and V.1.4.1" ;
+    ns1:isSubjectOf <http://example.org/req/467#Req_0> ;
+    ns1:prescribes <http://example.org/req/467#Process_req0_meetCompliance> .
+
+<http://example.org/req/467#Process_req0_meetCompliance> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process in which aerodynamic device/bodywork parts are checked to meet V.1.1 and V.1.4.1" ;
+    ns2:BFO_0000057 <http://example.org/req/467#Subject_req0_partOfAeroOrBodywork> ;
+    ns1:isSubjectOf <http://example.org/req/467#Constraint_req0_c1> ;
+    ns1:prescribedBy <http://example.org/req/467#PlanSpec_req0> .
+
+<http://example.org/req/467#Role_req0_materialComponent> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000017,
+        ns2:BFO_0000020,
+        ns2:BFO_0000023,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialComponentRole ;
+    rdfs:label "Material component role of aerodynamic device or bodywork part" ;
+    ns1:roleOf <http://example.org/req/467#Subject_req0_partOfAeroOrBodywork> .
+
+<http://example.org/req/467#Ref_req0_V_1_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "V.1.1" .
+
+<http://example.org/req/467#Ref_req0_V_1_4_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "V.1.4.1" .
+
+<http://example.org/req/467#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:label "Req 467-0: Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1." ;
+    rdfs:comment "Source text: Without a driver in the vehicle The intent is to standardize the measurement, see GR.6.4.1 T.7.3.2 Head Restraint Plane ... T.7.4 Location Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1 ## T.7.5" ;
+    ns1:isAbout <http://example.org/req/467#Ref_req0_V_1_1>,
+        <http://example.org/req/467#Ref_req0_V_1_4_1>,
+        <http://example.org/req/467#Subject_req0_partOfAeroOrBodywork> .
+
+<http://example.org/req/467#Subject_req0_partOfAeroOrBodywork> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialComponent ;
+    rdfs:label "Any part of any Aerodynamic Device or Bodywork" ;
+    ns1:hasRole <http://example.org/req/467#Role_req0_materialComponent> ;
+    ns1:isSubjectOf <http://example.org/req/467#Constraint_req0_c0> .
+

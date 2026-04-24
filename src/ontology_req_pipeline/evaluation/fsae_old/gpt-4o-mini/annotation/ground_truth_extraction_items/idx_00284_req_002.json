@@ -1,0 +1,45 @@
+{
+  "idx": 284,
+  "req_idx": 2,
+  "source_text": "The attachment points for the front wing and bodywork mounts should be aft of the Anti Intrusion Plate c. Tabs for wing and bodywork attachment must not extend more than 25 mm forward of the Anti Intrusion Plate F.8.6.3 Pedal assembly at full travel and adjustment must have a minimum 25 mm clearance to the: a. Rear face of the Anti Intrusion Plate b",
+  "requirement_text_pred": "Pedal assembly at full travel and adjustment must have a minimum 25 mm clearance to the rear face of the Anti Intrusion Plate.",
+  "prediction": {
+    "subject": "Pedal assembly",
+    "modality": "must",
+    "condition": "",
+    "action": "have",
+    "object": "a minimum 25 mm clearance to the rear face of the Anti Intrusion Plate"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "clearance",
+      "operator_pred": "ge",
+      "value_raw_pred": "25 mm",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 25.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

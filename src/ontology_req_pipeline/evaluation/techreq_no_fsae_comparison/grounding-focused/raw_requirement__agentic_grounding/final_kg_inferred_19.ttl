@@ -1,0 +1,75 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/19#> a owl:Ontology .
+
+<http://example.org/req/19#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/19#Robot_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/19#Req_0> .
+
+<http://example.org/req/19#Objective_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    ns2:prescribes <http://example.org/req/19#LoadCapacity_0> .
+
+<http://example.org/req/19#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The robot shall have a load capacity of 1.5 kilograms in operation positions to carry out sensing and actuation elements." ;
+    ns2:isAbout <http://example.org/req/19#Objective_0> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/19#DesignSpec_0> .
+
+<http://example.org/req/19#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:numericValue 1.5e+00,
+        1.5 ;
+    ns1:unit <http://qudt.org/vocab/unit/KiloGM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/19#LoadCapacity_0> .
+
+<http://qudt.org/vocab/unit/KiloGM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Mass> .
+
+<http://example.org/req/19#Robot_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasDisposition <http://example.org/req/19#LoadCapacity_0> .
+
+<http://example.org/req/19#LoadCapacity_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000016>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:Capability ;
+    ns2:capabilityOf <http://example.org/req/19#Robot_0> ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/19#VE_req0_c0> .
+

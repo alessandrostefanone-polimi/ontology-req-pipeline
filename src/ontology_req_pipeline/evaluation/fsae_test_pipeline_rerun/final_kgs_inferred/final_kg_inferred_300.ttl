@@ -1,0 +1,148 @@
+@prefix ns1: <http://purl.obolibrary.org/obo/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/300#> a owl:Ontology .
+
+<http://example.org/req/300#Ref_F_1_10> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity ;
+    rdfs:label "(F.1.10)" ;
+    ns3:isAbout <http://example.org/req/300#Req_0> .
+
+<http://example.org/req/300#VE_loc_inside_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:ValueExpression ;
+    ns3:isValueExpressionOfAtSomeTime <http://example.org/req/300#InsidePrimaryStructure_0> .
+
+<http://example.org/req/300#VE_req0_c1> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:ValueExpression ;
+    ns2:maxExclusive 3.5e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns3:isValueExpressionOfAtSomeTime <http://example.org/req/300#HeightAboveGround_0> .
+
+<http://example.org/req/300#FuelSystem_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/300#FuelTank_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/300#PlanSpec_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:ActionSpecification,
+        ns3:DirectiveInformationContentEntity,
+        ns3:InformationContentEntity,
+        ns3:PlanSpecification ;
+    ns3:hasContinuantPartAtAllTimes <http://example.org/req/300#ObjSpec_0> ;
+    ns3:prescribes <http://example.org/req/300#PlannedProc_0> .
+
+<http://example.org/req/300#PlannedProc_0> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:PlannedProcess ;
+    ns1:BFO_0000057 <http://example.org/req/300#FuelSystemPortion_0>,
+        <http://example.org/req/300#FuelTankPart_0>,
+        <http://example.org/req/300#PrimaryStructure_0> ;
+    ns3:hasProcessCharacteristic <http://example.org/req/300#InsidePrimaryStructure_0> ;
+    ns3:prescribedBy <http://example.org/req/300#PlanSpec_0> .
+
+<http://example.org/req/300#Req_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:InformationContentEntity,
+        ns3:RequirementSpecification ;
+    rdfs:comment "Any portion of the Fuel System that is less than 350 mm above the ground, and all parts of the Fuel Tank, must be inside the Primary Structure (F.1.10)" ;
+    ns3:isAbout <http://example.org/req/300#ObjSpec_0> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://example.org/req/300#FuelTankPart_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:BFO_0000110 <http://example.org/req/300#FuelTank_0> .
+
+<http://example.org/req/300#HeightAboveGround_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000019,
+        ns1:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns3:qualityOf <http://example.org/req/300#FuelSystemPortion_0> .
+
+<http://example.org/req/300#InsidePrimaryStructure_0> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:ProcessCharacteristic ;
+    ns3:processCharacteristicOf <http://example.org/req/300#LocRel_0> .
+
+<http://example.org/req/300#LocRel_0> a ns1:BFO_0000001,
+        ns1:BFO_0000003,
+        ns1:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:BFO_0000057 <http://example.org/req/300#FuelSystemPortion_0>,
+        <http://example.org/req/300#FuelTankPart_0>,
+        <http://example.org/req/300#PrimaryStructure_0> .
+
+<http://example.org/req/300#ObjSpec_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns3:ActionSpecification,
+        ns3:DirectiveInformationContentEntity,
+        ns3:InformationContentEntity,
+        ns3:ObjectiveSpecification ;
+    ns3:prescribes <http://example.org/req/300#LocRel_0> .
+
+<http://example.org/req/300#PrimaryStructure_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/300#FuelSystemPortion_0> a ns1:BFO_0000001,
+        ns1:BFO_0000002,
+        ns1:BFO_0000004,
+        ns1:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:BFO_0000110 <http://example.org/req/300#FuelSystem_0> ;
+    ns3:hasQuality <http://example.org/req/300#HeightAboveGround_0> .
+

@@ -1,0 +1,85 @@
+@prefix : <http://example.org/req/728#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:MaxSegmentVoltage a bfo:BFO_0000019 .
+
+:Req0_DesignSpec a iof:DesignSpecification ;
+    iof:prescribes :OvercurrentProtection ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req0_Obj_OvercurrentVoltage a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :Proc_OvercurrentOptionality ;
+    iof:prescribes :OvercurrentVoltageRating .
+
+:Req1_DesignSpec a iof:DesignSpecification ;
+    iof:prescribes :OvercurrentProtection ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req1_Obj_OvercurrentOptional a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :Proc_OvercurrentOptionality ;
+    iof:prescribes :OvercurrentProtection .
+
+:Req2_DesignSpec a iof:DesignSpecification ;
+    iof:prescribes :AMS ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req2_Obj_AMSArchitecture a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :Proc_OvercurrentOptionality ;
+    iof:prescribes :AMS .
+
+:Req3_DesignSpec a iof:DesignSpecification ;
+    iof:prescribes :VoltageSenseWire ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req3_Obj_SenseWireLength a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :Proc_OvercurrentOptionality ;
+    iof:prescribes :VoltageSenseWire .
+
+:Req4_DesignSpec a iof:DesignSpecification ;
+    iof:prescribes :AMSBoard ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req4_Obj_AMSBoardOCP a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :Proc_OvercurrentOptionality ;
+    iof:prescribes :AMSBoard .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxExclusive 2.5e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :VoltageSenseWire .
+
+:OvercurrentVoltageRating a bfo:BFO_0000019 ;
+    iof:qualityOf :OvercurrentProtection .
+
+:Plan_0 a iof:PlanSpecification ;
+    iof:prescribes :Proc_OvercurrentOptionality .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:AMS a iof:EngineeredSystem .
+
+:AMSBoard a iof:MaterialArtifact .
+
+:VoltageSenseWire a bfo:BFO_0000040 .
+
+:OvercurrentProtection a iof:MaterialArtifact .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The voltage rating of the Overcurrent Protection must be equal to or higher than the maximum segment voltage EV.7.4.5 Overcurrent Protection is not required on a voltage sense wire if all three of the following conditions are met: - AMS is a distributed AMS system (one cell measurement per board) - $\\quad$ Sense wire length is less than 25 mm - AMS board has Overcurrent Protection # EV.7.5 Accumulator Temperature EV.7.5.1" ;
+    iof:requirementSatisfiedBy :Plan_0 .
+
+:Proc_OvercurrentOptionality a iof:PlannedProcess .
+

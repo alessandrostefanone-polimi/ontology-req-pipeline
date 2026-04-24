@@ -1,0 +1,45 @@
+{
+  "idx": 731,
+  "req_idx": 0,
+  "source_text": "The temperature of a minimum of $20 \\%$ of the cells must be monitored by the AMS b",
+  "requirement_text_pred": "The temperature of a minimum of $20 \\%$ of the cells must be monitored by the AMS b",
+  "prediction": {
+    "subject": "The temperature of a minimum of $20 \\%$ of the cells",
+    "modality": "must",
+    "condition": "",
+    "action": "be monitored",
+    "object": "by the AMS b"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "cells coverage",
+      "operator_pred": "ge",
+      "value_raw_pred": "$20 \\%$",
+      "value_v1_pred": 20.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "PERCENT",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/StateOfCharge",
+      "normalized_unit_uri_pred": "PERCENT",
+      "normalized_si_value_primary_pred": 20.0,
+      "normalized_si_unit_primary_pred": "PERCENT",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": false,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

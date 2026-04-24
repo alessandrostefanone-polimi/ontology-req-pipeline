@@ -1,0 +1,46 @@
+{
+  "idx": 315,
+  "req_idx": 0,
+  "source_text": "Should be maximum 10 mm diameter",
+  "requirement_text_pred": "Should be maximum 10 mm diameter",
+  "prediction": {
+    "subject": "",
+    "modality": "should",
+    "condition": "",
+    "action": "be",
+    "object": "maximum 10 mm diameter"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": false,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "diameter",
+      "operator_pred": "le",
+      "value_raw_pred": "10 mm",
+      "value_v1_pred": 10.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Diameter",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.01,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

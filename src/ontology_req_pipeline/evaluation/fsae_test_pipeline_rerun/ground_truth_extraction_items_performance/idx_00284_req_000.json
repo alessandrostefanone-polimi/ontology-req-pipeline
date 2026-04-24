@@ -1,0 +1,24 @@
+{
+  "idx": 284,
+  "req_idx": 0,
+  "source_text": "The attachment points for the front wing and bodywork mounts should be aft of the Anti Intrusion Plate c. Tabs for wing and bodywork attachment must not extend more than 25 mm forward of the Anti Intrusion Plate F.8.6.3 Pedal assembly at full travel and adjustment must have a minimum 25 mm clearance to the: a. Rear face of the Anti Intrusion Plate b",
+  "requirement_text_pred": "The attachment points for the front wing and bodywork mounts should be aft of the Anti Intrusion Plate",
+  "prediction": {
+    "subject": "The attachment points for the front wing and bodywork mounts",
+    "modality": "should",
+    "condition": "",
+    "action": "be",
+    "object": "aft of the Anti Intrusion Plate"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

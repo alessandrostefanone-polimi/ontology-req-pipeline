@@ -1,0 +1,140 @@
+@prefix : <http://example.org/req/306#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "External Structure F.10.2.1 The Floor or Bottom must be made from one of the three: a. Steel 1.25 mm minimum thickness b. Aluminum 3.2 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.2 Vertical Walls, Covers and Lids must be made from one of the three: a. Steel 0.9 mm minimum thickness b. Aluminum 2.3 mm minimum thickness c. Equivalent Alternate / Composite materials ( F.4.1, F.4.3) F.10.2.3 The accepted methods of joining walls to walls and walls to floor are: a. Welding - Welds may be continuous or interrupted. - If interrupted, the weld/space ratio must be 1:1 or higher - All weld lengths must be more than 25 mm b. Fasteners Combined strength of the fasteners must be Equivalent to the strength of the welded joint ( F.10.2.3.a above)" ;
+    iof:requirementSatisfiedBy :DS_FastenerStrength,
+        :DS_FloorBottom,
+        :DS_VerticalWalls,
+        :PS_WeldPattern,
+        :PS_WeldedJoint .
+
+:DS_FastenerStrength a iof:DesignSpecification ;
+    rdfs:label "Fastener strength design specification" ;
+    iof:prescribes :FastenerAssembly .
+
+:DS_FloorBottom a iof:DesignSpecification ;
+    rdfs:label "Floor or Bottom design specification" ;
+    iof:prescribes :FloorBottom .
+
+:DS_VerticalWalls a iof:DesignSpecification ;
+    rdfs:label "Vertical walls, covers and lids design specification" ;
+    iof:prescribes :VerticalWalls .
+
+:FastenerAssembly a bfo:BFO_0000040 ;
+    rdfs:label "Fastener assembly" .
+
+:FloorBottom a bfo:BFO_0000040 ;
+    rdfs:label "Floor or Bottom" ;
+    iof:hasQuality :FloorBottom_Thickness_Aluminum,
+        :FloorBottom_Thickness_Steel .
+
+:PS_WeldPattern a iof:PlanSpecification ;
+    rdfs:label "Weld/space pattern plan specification" ;
+    iof:prescribes :WeldPatternProcess .
+
+:PS_WeldedJoint a iof:PlanSpecification ;
+    rdfs:label "Welded joint plan specification" ;
+    iof:prescribes :WeldedJointProcess .
+
+:VE_req0_c3 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum thickness 1.25 mm (floor/bottom steel)" ;
+    qudt:minInclusive 1.25e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :FloorBottom_Thickness_Steel .
+
+:VE_req0_c4 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum thickness 3.2 mm (floor/bottom aluminum)" ;
+    qudt:minInclusive 3.2e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :FloorBottom_Thickness_Aluminum .
+
+:VE_req1_c3 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum thickness 0.9 mm (vertical walls steel)" ;
+    qudt:minInclusive 9e-04 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :VerticalWalls_Thickness_Steel .
+
+:VE_req1_c4 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum thickness 2.3 mm (vertical walls aluminum)" ;
+    qudt:minInclusive 2.3e-03 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :VerticalWalls_Thickness_Aluminum .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum weld/space ratio 1:1" ;
+    qudt:minInclusive 1e+00 ;
+    qudt:unit qudtu:UNITLESS ;
+    iof:isValueExpressionOfAtSomeTime :WeldSpaceRatio .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Minimum weld length greater than 25 mm" ;
+    qudt:minExclusive 2.5e-02 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtAllTimes :WeldLength .
+
+:VerticalWalls a bfo:BFO_0000040 ;
+    rdfs:label "Vertical Walls, Covers and Lids" ;
+    iof:hasQuality :VerticalWalls_Thickness_Aluminum,
+        :VerticalWalls_Thickness_Steel .
+
+:WeldPatternProcess a iof:PlannedProcess ;
+    rdfs:label "Weld pattern process" ;
+    iof:hasProcessCharacteristic :WeldSpaceRatio .
+
+:WeldedJointProcess a iof:PlannedProcess ;
+    rdfs:label "Welded joint process" ;
+    iof:hasProcessCharacteristic :WeldLength .
+
+qudtqk:Dimensionless a qudt:QuantityKind .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:UNITLESS a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Dimensionless .
+
+:FloorBottom_Thickness_Aluminum a bfo:BFO_0000019 ;
+    rdfs:label "Floor/Bottom thickness when made of aluminum" ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c4 .
+
+:FloorBottom_Thickness_Steel a bfo:BFO_0000019 ;
+    rdfs:label "Floor/Bottom thickness when made of steel" ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c3 .
+
+:VerticalWalls_Thickness_Aluminum a bfo:BFO_0000019 ;
+    rdfs:label "Vertical walls thickness when made of aluminum" ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c4 .
+
+:VerticalWalls_Thickness_Steel a bfo:BFO_0000019 ;
+    rdfs:label "Vertical walls thickness when made of steel" ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c3 .
+
+:WeldLength a iof:ProcessCharacteristic ;
+    rdfs:label "weld length" ;
+    iof:hasValueExpressionAtAllTimes :VE_req3_c0 .
+
+:WeldSpaceRatio a iof:ProcessCharacteristic ;
+    rdfs:label "weld/space ratio" ;
+    iof:hasValueExpressionAtSomeTime :VE_req2_c0 .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length,
+        qudtqk:Thickness .
+

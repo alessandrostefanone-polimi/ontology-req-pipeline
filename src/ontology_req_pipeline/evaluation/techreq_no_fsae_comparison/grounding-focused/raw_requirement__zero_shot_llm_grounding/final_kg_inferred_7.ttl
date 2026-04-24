@@ -1,0 +1,19 @@
+@base <http://example.org/req/7#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <http://example.org/req/7#> .
+:Req_0 a iof:RequirementSpecification ;
+rdfs:comment "Diameter shall be 0,8 m (cross-section area of the tunnel 0,5 m2)" ;
+iof:requirementSatisfiedBy :DesignSpec_0 ;
+iof:isAbout :Objective_0 .
+:DesignSpec_0 a iof:DesignSpecification ;
+iof:satisfiesRequirement :Req_0 ;
+iof:prescribes :Tunnel_0 .
+:Object ive_0 a iof:ObjectiveSpecification .
+<http://example.org/req/7#> a owl:Ontology .

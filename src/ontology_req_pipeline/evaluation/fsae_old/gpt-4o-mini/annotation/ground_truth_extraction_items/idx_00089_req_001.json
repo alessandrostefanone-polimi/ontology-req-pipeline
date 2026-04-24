@@ -1,0 +1,45 @@
+{
+  "idx": 89,
+  "req_idx": 1,
+  "source_text": "3.1.4 Fasteners in the Suspension system are Critical Fasteners, see T.8.2 V.3.1.5 All spherical rod ends and spherical bearings on the suspension and steering must be one of: - Mounted in double shear - Captured by having a screw/bolt head or washer with an outside diameter that is larger than spherical bearing housing inside diameter. ## V.3.2 Steering V.3.2.1 The Steering Wheel must be mechanically connected to the front wheels",
+  "requirement_text_pred": "Captured by having a screw/bolt head or washer with an outside diameter that is larger than spherical bearing housing inside diameter.",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "Captured by having",
+    "object": "a screw/bolt head or washer with an outside diameter that is larger than spherical bearing housing inside diameter"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "screw/bolt head or washer outside diameter",
+      "operator_pred": "gt",
+      "value_raw_pred": "spherical bearing housing inside diameter",
+      "value_v1_pred": null,
+      "value_v2_pred": null,
+      "unit_text_pred": null,
+      "normalized_quantity_kind_uri_pred": null,
+      "normalized_unit_uri_pred": null,
+      "normalized_si_value_primary_pred": null,
+      "normalized_si_unit_primary_pred": null,
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": false,
+        "quantity_value_correct": false,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": "not a requirement"
+}

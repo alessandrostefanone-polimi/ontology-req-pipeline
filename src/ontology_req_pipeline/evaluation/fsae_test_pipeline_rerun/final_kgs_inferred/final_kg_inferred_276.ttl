@@ -1,0 +1,134 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/276#> a owl:Ontology .
+
+<http://example.org/req/276#CriticalFastener_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Critical Fastener" .
+
+<http://example.org/req/276#ImpactAttenuator_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Impact Attenuator" .
+
+<http://example.org/req/276#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "All weld lengths must be more than 25 mm F.8.5.5 If the Impact Attenuator is attached by bolting: a. Must have no less than eight 8 mm or $5 / 16^{\\prime \\prime}$ minimum diameter Critical Fasteners, T.8.2 b" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/276#DS_0>,
+        <http://example.org/req/276#PS_1> .
+
+<http://example.org/req/276#BoltedAttachmentProcess_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process of attaching Impact Attenuator by bolting" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/276#FastenerDiameter_1>,
+        <http://example.org/req/276#NumCriticalFasteners_1> .
+
+<http://example.org/req/276#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design specification for weld lengths" ;
+    ns1:prescribes <http://example.org/req/276#WeldLengthQuality_0> .
+
+<http://example.org/req/276#FastenerDiameter_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "fastener diameter" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/276#VE_req1_c2> .
+
+<http://example.org/req/276#NumCriticalFasteners_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "number of Critical Fasteners" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/276#VE_req1_c1> .
+
+<http://example.org/req/276#PS_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification for bolted Impact Attenuator attachment" ;
+    ns1:prescribes <http://example.org/req/276#BoltedAttachmentProcess_1> .
+
+<http://example.org/req/276#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for minimum weld length > 25 mm" ;
+    ns2:minExclusive 2.5e-02 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> .
+
+<http://example.org/req/276#VE_req1_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for minimum number of Critical Fasteners ≥ 8" ;
+    ns2:minInclusive 8e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/BEAT> .
+
+<http://example.org/req/276#VE_req1_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for minimum fastener diameter ≥ 8 mm" ;
+    ns2:minInclusive 8e-03 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> .
+
+<http://example.org/req/276#WeldLengthQuality_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "weld length quality" ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/276#VE_req0_c0> .
+
+<http://qudt.org/vocab/unit/BEAT> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Dimensionless> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter>,
+        <http://qudt.org/vocab/quantitykind/Length> .
+

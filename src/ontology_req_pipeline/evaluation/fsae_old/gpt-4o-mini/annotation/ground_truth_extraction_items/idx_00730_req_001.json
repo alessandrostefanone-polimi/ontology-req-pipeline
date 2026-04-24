@@ -1,0 +1,45 @@
+{
+  "idx": 730,
+  "req_idx": 1,
+  "source_text": "The temperature sensor used must be in direct contact with one of: - The negative terminal itself - The negative terminal busbar less than 10 mm away from the cell terminal EV.7.5.5 For lithium based cells, a",
+  "requirement_text_pred": "must be in direct contact with one of the negative terminal busbar less than 10 mm away from the cell terminal EV.7.5.5",
+  "prediction": {
+    "subject": "The temperature sensor",
+    "modality": "must",
+    "condition": "",
+    "action": "be in direct contact",
+    "object": "with one of the negative terminal busbar less than 10 mm away from the cell terminal EV.7.5.5"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "negative terminal busbar distance",
+      "operator_pred": "lt",
+      "value_raw_pred": "10 mm",
+      "value_v1_pred": 10.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM",
+      "normalized_si_value_primary_pred": 10.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

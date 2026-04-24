@@ -1,0 +1,23 @@
+{
+  "idx": 467,
+  "req_idx": 0,
+  "source_text": "Without a driver in the vehicle The intent is to standardize the measurement, see GR.6.4.1 T.7.3.2 Head Restraint Plane A transverse vertical plane through the rearmost portion of the front face of the driver head restraint support, excluding any padding, set (if adjustable) in its fully rearward position T.7.3.3 Rear Aerodynamic Zone The volume that is: - Rearward of the Head Restraint Plane - Inboard of two vertical planes parallel to the centerline of the chassis touching the inside of the rear tires at the height of the hub centerline ## T.7.4 Location Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1 ## T.7.5",
+  "requirement_text_pred": "Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1.",
+  "prediction": {
+    "subject": "Any part of any Aerodynamic Device or Bodywork",
+    "modality": "must",
+    "condition": "",
+    "action": "meet",
+    "object": "V.1.1 and V.1.4.1"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,104 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/205#> a owl:Ontology .
+
+<http://example.org/req/205#FrontBulkhead> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/205#FrontHoop> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/205#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The upper support member must be attached 50 mm or less from the top surface of the Front Bulkhead, and attach to the Front Hoop inside a zone extending 100 mm above and 50 mm below the Upper Side Impact member" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/205#DS_UpperSupportMemberAttachment> .
+
+<http://example.org/req/205#UpperSideImpactMember> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/205#DS_UpperSupportMemberAttachment> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/205#UpperSupportMember> .
+
+<http://example.org/req/205#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 5e-02 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/205#Q_DistanceFromFrontBulkheadTopSurface> .
+
+<http://example.org/req/205#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 1e-01 ;
+    ns2:minInclusive -5e-02 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/205#Q_AttachmentVerticalPositionToFrontHoop> .
+
+<http://example.org/req/205#Q_AttachmentVerticalPositionToFrontHoop> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/205#VE_req0_c1> ;
+    ns1:qualityOf <http://example.org/req/205#UpperSupportMember> .
+
+<http://example.org/req/205#Q_DistanceFromFrontBulkheadTopSurface> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/205#VE_req0_c0> ;
+    ns1:qualityOf <http://example.org/req/205#UpperSupportMember> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height>,
+        <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/205#UpperSupportMember> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasQuality <http://example.org/req/205#Q_AttachmentVerticalPositionToFrontHoop>,
+        <http://example.org/req/205#Q_DistanceFromFrontBulkheadTopSurface> .
+

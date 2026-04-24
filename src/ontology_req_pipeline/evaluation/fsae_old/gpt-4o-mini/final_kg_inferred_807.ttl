@@ -1,0 +1,58 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/807#> a owl:Ontology .
+
+<http://example.org/req/807#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Successfully complete the Egress Test IN.5.2 IN.5.3.2 A driver(s) must complete the Driver Cockpit Checks to pass Mechanical Inspection # IN" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/807#DS_0> .
+
+<http://example.org/req/807#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/807#Driver_Cockpit_Checks> .
+
+<http://example.org/req/807#Driver> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    ns1:hasFeature <http://example.org/req/807#Driver_Feature> .
+
+<http://example.org/req/807#Driver_Cockpit_Checks_Feature> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/807#Driver_Cockpit_Checks> .
+
+<http://example.org/req/807#Driver_Feature> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/807#Driver> .
+
+<http://example.org/req/807#Driver_Cockpit_Checks> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    ns1:hasFeature <http://example.org/req/807#Driver_Cockpit_Checks_Feature> .
+

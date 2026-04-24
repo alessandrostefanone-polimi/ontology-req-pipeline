@@ -1,0 +1,67 @@
+{
+  "idx": 503,
+  "req_idx": 0,
+  "source_text": "2.5.4 The body of a camera or recording unit that weighs more than 0.25 kg must be secured at a minimum of two points on different sides of the camera body",
+  "requirement_text_pred": "2.5.4 The body of a camera or recording unit that weighs more than 0.25 kg must be secured at a minimum of two points on different sides of the camera body",
+  "prediction": {
+    "subject": "The body of a camera or recording unit that weighs more than 0.25 kg",
+    "modality": "must",
+    "condition": "",
+    "action": "be secured",
+    "object": "at a minimum of two points on different sides of the camera body"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "weight",
+      "operator_pred": "gt",
+      "value_raw_pred": "more than 0.25 kg",
+      "value_v1_pred": 0.25,
+      "value_v2_pred": null,
+      "unit_text_pred": "kg",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Mass",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/KiloGM",
+      "normalized_si_value_primary_pred": 0.25,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/KiloGM",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    },
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "number of securing points",
+      "operator_pred": "ge",
+      "value_raw_pred": "a minimum of two points",
+      "value_v1_pred": 2.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "points",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/HoleDensity",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/NUM-PER-M3",
+      "normalized_si_value_primary_pred": 2.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/NUM-PER-M3",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

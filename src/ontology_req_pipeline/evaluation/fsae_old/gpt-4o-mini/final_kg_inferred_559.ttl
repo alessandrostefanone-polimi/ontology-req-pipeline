@@ -1,0 +1,370 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/559#> a owl:Ontology .
+
+<http://example.org/req/559#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/559#Spec_0> .
+
+<http://example.org/req/559#Req_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/559#Spec_1> .
+
+<http://example.org/req/559#Req_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/559#Spec_2> .
+
+<http://example.org/req/559#Req_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/559#Spec_3> .
+
+<http://example.org/req/559#Req_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/559#Spec_4> .
+
+<http://example.org/req/559#Action_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/559#Condition_0> .
+
+<http://example.org/req/559#Action_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/559#Condition_1> .
+
+<http://example.org/req/559#Action_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/559#Condition_2> .
+
+<http://example.org/req/559#Action_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/559#Condition_3> .
+
+<http://example.org/req/559#Action_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/559#Condition_4> .
+
+<http://example.org/req/559#Output_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/559#Output_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/559#Output_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/559#Output_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/559#Output_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/559#Spec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/559#Action_0>,
+        <http://example.org/req/559#Output_0> .
+
+<http://example.org/req/559#Spec_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/559#Action_1>,
+        <http://example.org/req/559#Output_1> .
+
+<http://example.org/req/559#Spec_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/559#Action_2>,
+        <http://example.org/req/559#Output_2> .
+
+<http://example.org/req/559#Spec_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/559#Action_3>,
+        <http://example.org/req/559#Output_3> .
+
+<http://example.org/req/559#Spec_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns1:prescribes <http://example.org/req/559#Action_4>,
+        <http://example.org/req/559#Output_4> .
+
+<http://example.org/req/559#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_0> .
+
+<http://example.org/req/559#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_0> .
+
+<http://example.org/req/559#VE_req0_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_0> .
+
+<http://example.org/req/559#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_1> .
+
+<http://example.org/req/559#VE_req1_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_1> .
+
+<http://example.org/req/559#VE_req1_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_1> .
+
+<http://example.org/req/559#VE_req1_c3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_1> .
+
+<http://example.org/req/559#VE_req2_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_2> .
+
+<http://example.org/req/559#VE_req2_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_2> .
+
+<http://example.org/req/559#VE_req3_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_3> .
+
+<http://example.org/req/559#VE_req4_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minExclusive 1e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/559#Condition_4> .
+
+<http://example.org/req/559#Condition_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/559#VE_req3_c1> .
+
+<http://example.org/req/559#Condition_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/559#VE_req4_c0> .
+
+<http://example.org/req/559#Condition_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/559#VE_req2_c0>,
+        <http://example.org/req/559#VE_req2_c1> .
+
+<http://qudt.org/vocab/unit/NUM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/DutyCycle> .
+
+<http://example.org/req/559#Condition_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/559#VE_req0_c0>,
+        <http://example.org/req/559#VE_req0_c1>,
+        <http://example.org/req/559#VE_req0_c2> .
+
+<http://example.org/req/559#Condition_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/559#VE_req1_c0>,
+        <http://example.org/req/559#VE_req1_c1>,
+        <http://example.org/req/559#VE_req1_c2>,
+        <http://example.org/req/559#VE_req1_c3> .
+
+<http://qudt.org/vocab/unit/MilliSEC> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Time> .
+

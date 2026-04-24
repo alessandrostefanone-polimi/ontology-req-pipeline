@@ -1,0 +1,159 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/80#> a owl:Ontology .
+
+<http://example.org/req/80#DS_GroundClearance> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec: vehicle ground clearance" ;
+    ns1:prescribes <http://example.org/req/80#Vehicle> ;
+    ns1:satisfiesRequirement <http://example.org/req/80#Req_0> .
+
+<http://example.org/req/80#DS_LSIS_Clearance> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec: LSIS ground clearance" ;
+    ns1:prescribes <http://example.org/req/80#LSIS> ;
+    ns1:satisfiesRequirement <http://example.org/req/80#Req_0> .
+
+<http://example.org/req/80#Obj_GroundClearance> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: sufficient ground clearance during dynamic events" ;
+    ns1:prescribes <http://example.org/req/80#PC_NoGroundContact> .
+
+<http://example.org/req/80#Obj_GroundContactPenalty> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: penalize intentional or excessive ground contact" ;
+    ns1:prescribes <http://example.org/req/80#PP_GroundContactPenalty> .
+
+<http://example.org/req/80#Obj_LSIS_Clearance> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: LSIS distance to ground at lowest point ≤ 75 mm" ;
+    ns1:prescribes <http://example.org/req/80#Q_LSIS_DistanceToGround> .
+
+<http://example.org/req/80#PC_NoGroundContact> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "No non-tire ground contact during dynamic events" ;
+    ns1:processCharacteristicOf <http://example.org/req/80#PP_DynamicEvent> .
+
+<http://example.org/req/80#PP_DynamicEvent> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Dynamic event process" .
+
+<http://example.org/req/80#PS_GroundContactPenalty> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan spec: ground contact penalty rules" ;
+    ns1:prescribes <http://example.org/req/80#PP_GroundContactPenalty> ;
+    ns1:satisfiesRequirement <http://example.org/req/80#Req_0> .
+
+<http://example.org/req/80#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression: LSIS distance to ground ≤ 0.075 m" ;
+    ns2:maxInclusive 7.5e-02 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/80#Q_LSIS_DistanceToGround> .
+
+<http://example.org/req/80#Vehicle> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Vehicle" .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://example.org/req/80#LSIS> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Lower Side Impact Structure" .
+
+<http://example.org/req/80#PP_GroundContactPenalty> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process: forfeit run or event on excessive ground contact" .
+
+<http://example.org/req/80#Q_LSIS_DistanceToGround> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Distance to ground below LSIS at lowest point" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/80#VE_req1_c0> ;
+    ns1:qualityOf <http://example.org/req/80#LSIS> .
+
+<http://example.org/req/80#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Ground Clearance V.1.4.1 Ground clearance must be sufficient to prevent any portion of the vehicle except the tires from touching the ground during dynamic events V.1.4.2 The distance to the ground below the Lower Side Impact Structure ( F.6.4.5, F.7.5.1 ) at its lowest point should be 75 mm or less V.1.4.3 Intentional or excessive ground contact of any portion of the vehicle other than the tires will forfeit a run or an entire dynamic event" ;
+    ns1:isAbout <http://example.org/req/80#Obj_GroundClearance>,
+        <http://example.org/req/80#Obj_GroundContactPenalty>,
+        <http://example.org/req/80#Obj_LSIS_Clearance> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/80#DS_GroundClearance>,
+        <http://example.org/req/80#DS_LSIS_Clearance>,
+        <http://example.org/req/80#PS_GroundContactPenalty> .
+

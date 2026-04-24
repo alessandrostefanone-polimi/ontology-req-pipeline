@@ -1,0 +1,73 @@
+@prefix : <http://example.org/req/372#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:BracketFastenedToChassis_0 a bfo:BFO_0000015 ;
+    bfo:BFO_0000057 :Bracket_0,
+        :Chassis_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Attachment of tabs or brackets must meet the following: a. Where brackets are fastened to the chassis, no less than two 6 mm or $1 / 4^{\\prime \\prime}$ minimum diameter Critical Fasteners, see T.8.2 or stronger must be used to attach the bracket to the chassis" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:COUNT ;
+    iof:isValueExpressionOfAtSomeTime :FastenerSet_0 .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 6e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :Fastener_0 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtqk:Dimensionless a qudt:QuantityKind .
+
+qudtu:COUNT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Dimensionless .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:BracketAttachment_0 a bfo:BFO_0000002 ;
+    iof:isOutputOf :FastenerAttachmentProcess_0 .
+
+:Fastener_0 a bfo:BFO_0000040 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :FastenerAttachmentProcess_0 ;
+    iof:prescribes :BracketAttachment_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_0 ;
+    iof:prescribes :FastenerAttachmentProcess_0 .
+
+:Bracket_0 a bfo:BFO_0000040 .
+
+:Chassis_0 a bfo:BFO_0000040 .
+
+:FastenerAttachmentProcess_0 a iof:PlannedProcess ;
+    bfo:BFO_0000057 :Bracket_0,
+        :Chassis_0,
+        :FastenerSet_0 ;
+    iof:hasInput :Bracket_0,
+        :Chassis_0,
+        :FastenerSet_0 ;
+    iof:hasSpecifiedOutput :BracketAttachment_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:FastenerSet_0 a bfo:BFO_0000040 ;
+    iof:hasComponentPartAtSomeTime :Fastener_0 .
+

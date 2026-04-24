@@ -1,0 +1,45 @@
+{
+  "idx": 443,
+  "req_idx": 0,
+  "source_text": "Minimum thickness for steel: 2.0 mm T.5.3.2 A Scatter Shield must be included around the Motor(s) when one or both: - The motor casing rotates around the stator - The motor case is perforated T.5.3.3",
+  "requirement_text_pred": "Minimum thickness for steel: 2.0 mm",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "thickness",
+      "operator_pred": "ge",
+      "value_raw_pred": "2.0 mm",
+      "value_v1_pred": 2.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 2.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

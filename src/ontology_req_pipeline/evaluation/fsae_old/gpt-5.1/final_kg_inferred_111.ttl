@@ -1,0 +1,126 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/111#> a owl:Ontology .
+
+<http://example.org/req/111#NonStructuralTubing_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Non Structural Tubing",
+        "Non Structural Tubing"@en .
+
+<http://example.org/req/111#SizeInfo_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity ;
+    rdfs:label "Size specification",
+        "Size specification"@en ;
+    ns2:isAbout <http://example.org/req/111#Tube_0> .
+
+<http://example.org/req/111#VE_req1_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "number of minimum requirements = 4",
+        "number of minimum requirements = 4"@en ;
+    ns1:maxInclusive 4e+00 ;
+    ns1:minInclusive 4e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/COUNT> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/111#MinRequirements_0> .
+
+<http://example.org/req/111#ComplianceAssessment_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "assessing compliance to any rule",
+        "assessing compliance to any rule"@en .
+
+<http://example.org/req/111#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/111#Tube_0> .
+
+<http://example.org/req/111#MinRequirements_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity ;
+    rdfs:label "minimum requirements for tube",
+        "minimum requirements for tube"@en ;
+    ns2:isAbout <http://example.org/req/111#Tube_0> .
+
+<http://example.org/req/111#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/111#ComplianceAssessment_0>,
+        <http://example.org/req/111#SizeSpecificationProcess_0> .
+
+<http://example.org/req/111#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Definition Any tubing which does NOT meet F.3.2.1.o Structural Tubing F.3.3.2 Applicability Non Structural Tubing is ignored when assessing compliance to any rule ## F.3.4 Steel Tubing and Material F.3.4.1 Minimum Requirements for Steel Tubing A tube must meet all four minimum requirements for each Size specified: Tube Minimum Area Moment of Inertia Minimum Cross Sectional Area Minimum Outside Diameter or Square Width Minimum Wall Thickness Example Sizes of Round Tube :--: :--: :--: :--: :--: :--: :--: a. Size A $11320 \\mathrm{~mm}^{4}$ $173 \\mathrm{~mm}^{2}$ 25.0 mm 2.0 mm $\\begin{aligned} & 1.0^{\\prime \\prime} \\times 0.095^{\\prime \\prime} \\\\ & 25 \\times 2.5 \\mathrm{~mm} \\end{aligned}$ b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/111#DesignSpec_0>,
+        <http://example.org/req/111#PlanSpec_0> .
+
+<http://example.org/req/111#SizeSpecificationProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "each Size specified",
+        "each Size specified"@en .
+
+<http://example.org/req/111#TubeRole_MinReq_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "tube role with minimum requirements",
+        "tube role with minimum requirements"@en .
+
+<http://qudt.org/vocab/unit/COUNT> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Dimensionless> .
+
+<http://example.org/req/111#Tube_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "tube",
+        "tube"@en ;
+    ns2:hasRole <http://example.org/req/111#TubeRole_MinReq_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/111#Req_0> .
+

@@ -1,0 +1,215 @@
+@prefix : <http://example.org/req/330#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Doc_F_11_2_2 a iof:InformationContentEntity ;
+    rdfs:label "F.11.2.2 Rear Impact Protection a." .
+
+:Doc_F_5_16 a iof:InformationContentEntity ;
+    rdfs:label "F.5.16 Component Protection" .
+
+:Doc_F_6_4 a iof:InformationContentEntity ;
+    rdfs:label "F.6.4" .
+
+:Doc_F_7_5 a iof:InformationContentEntity ;
+    rdfs:label "F.7.5" .
+
+:ObjSpec_Req1 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for Req1 (rear impact protection of all Accumulator Containers)" ;
+    iof:isAchievedByAtSomeTime :Proc_RearImpactProtection_Overall .
+
+:ObjSpec_Req4 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for Req4 (Accumulator Container not part of Equivalent structure)" ;
+    iof:isAchievedByAtSomeTime :Proc_RearImpactProtection_Le100 .
+
+:RearImpactStructure a iof:MaterialArtifact ;
+    rdfs:label "rear impact structure" .
+
+:Role_MemberOfEquivalentStructure a bfo:BFO_0000023 ;
+    rdfs:label "member of Equivalent structure role" ;
+    iof:roleOf :EquivalentStructure .
+
+:SideImpactStructure a iof:MaterialArtifact ;
+    rdfs:label "Side Impact Structure (F.6.4, F.7.5)" .
+
+:AccumulatorContainer a iof:MaterialArtifact ;
+    rdfs:label "Accumulator Container" ;
+    iof:hasRole :Role_RearImpactProtected_Req1 .
+
+:ObjSpec_Req2 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for Req2 (<=100 mm: structure equivalent to Side Impact Structure)" ;
+    iof:isAchievedByAtSomeTime :Proc_RearImpactProtection_Le100 ;
+    iof:prescribes :PC_Distance_RearImpact_Le100,
+        :PC_StructuralEquivalence_Req2 .
+
+:ObjSpec_Req3 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for Req3 (>100 mm: structure meets F.5.16 Component Protection)" ;
+    iof:isAchievedByAtSomeTime :Proc_RearImpactProtection_Gt100 ;
+    iof:prescribes :PC_Distance_RearImpact_Gt100,
+        :PC_RequirementCompliance_Req3 .
+
+:Proc_RearImpactProtection_Overall a iof:PlannedProcess ;
+    rdfs:label "Overall rear impact protection process for Accumulator Containers" ;
+    iof:hasProcessCharacteristic :PC_Distance_RearImpact_Gt100,
+        :PC_Distance_RearImpact_Le100,
+        :PC_RequirementCompliance_Req3,
+        :PC_StructuralEquivalence_Req2 ;
+    iof:prescribedBy :Req2_PlanSpec,
+        :Req3_PlanSpec .
+
+:RearImpactProtectiveStructure a iof:MaterialArtifact ;
+    rdfs:label "Rear-impact protective structure for Accumulator Container" .
+
+:Req0_DesignSpec a iof:DesignSpecification ;
+    rdfs:comment "Req0: Tractive System components (excluding Accumulator Containers) below 350 mm from the ground must be protected from side impact by structure that meets F.5.16 Component Protection and F.11.2.2 Rear Impact Protection a." ;
+    iof:prescribes :SideImpactProtectiveStructure,
+        :TS_Component_LowPos ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req1_DesignSpec a iof:DesignSpecification ;
+    rdfs:comment "Req1: All Accumulator Containers must be protected from rear impact." ;
+    iof:prescribes :RearImpactProtectiveStructure ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req4_DesignSpec a iof:DesignSpecification ;
+    rdfs:comment "Req4: The Accumulator Container must not be part of the Equivalent structure." ;
+    iof:prescribes :EquivalentStructure ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Role_RearImpactProtected_Req1 a bfo:BFO_0000023 ;
+    rdfs:label "rear impact protected role (Accumulator Container)" ;
+    iof:roleOf :AccumulatorContainer .
+
+:Role_SideImpactProtection_Req0 a bfo:BFO_0000023 ;
+    rdfs:label "side impact protective structure role" ;
+    iof:roleOf :SideImpactProtectiveStructure .
+
+:TS_Component_LowPos a bfo:BFO_0000040 ;
+    rdfs:label "Tractive System component below 350 mm (non-Accumulator)" ;
+    iof:hasQuality :Qual_PositionFromGround_Req0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "height < 350 mm (Req0)" ;
+    qudt:maxExclusive 3.5e+02 ;
+    qudt:quantityKind qudtqk:Height ;
+    qudt:unit qudtu:MilliM ;
+    qudt:upperBoundIncluded false ;
+    iof:isValueExpressionOfAtSomeTime :Qual_PositionFromGround_Req0 .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "distance <= 100 mm (Req2)" ;
+    qudt:maxInclusive 1e+02 ;
+    qudt:quantityKind qudtqk:Height ;
+    qudt:unit qudtu:MilliM ;
+    qudt:upperBoundIncluded true ;
+    iof:isValueExpressionOfAtSomeTime :PC_Distance_RearImpact_Le100 .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "distance > 100 mm (Req3)" ;
+    qudt:lowerBoundIncluded false ;
+    qudt:minExclusive 1e+02 ;
+    qudt:quantityKind qudtqk:Height ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :PC_Distance_RearImpact_Gt100 .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:EquivalentStructure a iof:MaterialArtifact ;
+    rdfs:label "Equivalent rear impact structure" .
+
+:ObjSpec_Req0 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective for Req0 (side impact protection of low TS components)" ;
+    iof:isAchievedByAtSomeTime :Proc_TractiveProtection ;
+    iof:prescribes :PC_TractiveProtectionOutcome .
+
+:PC_TractiveProtectionOutcome a iof:ProcessCharacteristic ;
+    rdfs:label "overall tractive system protection outcome" ;
+    iof:processCharacteristicOf :Proc_TractiveProtection .
+
+:PlanSpec_Overall a iof:PlanSpecification ;
+    rdfs:label "Overall plan for tractive system impact protection" ;
+    bfo:BFO_0000110 :ObjSpec_Req0 ;
+    iof:prescribes :Proc_TractiveProtection .
+
+:Qual_PositionFromGround_Req0 a bfo:BFO_0000019 ;
+    rdfs:label "position from ground of TS component (Req0)" ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+
+:SideImpactProtectiveStructure a iof:MaterialArtifact ;
+    rdfs:label "Side-impact protective structure for low TS components" ;
+    iof:hasRole :Role_SideImpactProtection_Req0 .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:PC_RequirementCompliance_Req3 a iof:ProcessCharacteristic ;
+    rdfs:label "compliance with F.5.16 Component Protection (Req3)" ;
+    iof:processCharacteristicOf :Proc_RearImpactProtection_Gt100 .
+
+:PC_StructuralEquivalence_Req2 a iof:ProcessCharacteristic ;
+    rdfs:label "structural equivalence to Side Impact Structure (Req2)" ;
+    iof:processCharacteristicOf :Proc_RearImpactProtection_Le100 .
+
+:Proc_TractiveProtection a iof:PlannedProcess ;
+    rdfs:label "Tractive system protection process (side and rear impact)" ;
+    iof:hasProcessCharacteristic :PC_TractiveProtectionOutcome ;
+    iof:prescribedBy :PlanSpec_Overall .
+
+:Req2_PlanSpec a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_Req2 ;
+    rdfs:comment "Req2: When the rear impact structure is 100 mm or less from an Accumulator Container, the structure must be equivalent to Side Impact Structure (F.6.4, F.7.5)." ;
+    iof:prescribes :Proc_RearImpactProtection_Le100 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req3_PlanSpec a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ObjSpec_Req3 ;
+    rdfs:comment "Req3: When the rear impact structure is more than 100 mm from an Accumulator Container, the structure must meet F.5.16 Component Protection." ;
+    iof:prescribes :Proc_RearImpactProtection_Gt100 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:PC_Distance_RearImpact_Gt100 a iof:ProcessCharacteristic ;
+    rdfs:label "distance between rear impact structure and Accumulator Container (>100 mm)" ;
+    iof:hasValueExpressionAtSomeTime :VE_req3_c0 ;
+    iof:processCharacteristicOf :Proc_RearImpactProtection_Gt100 .
+
+:PC_Distance_RearImpact_Le100 a iof:ProcessCharacteristic ;
+    rdfs:label "distance between rear impact structure and Accumulator Container (<=100 mm)" ;
+    iof:hasValueExpressionAtSomeTime :VE_req2_c0 ;
+    iof:processCharacteristicOf :Proc_RearImpactProtection_Le100 .
+
+:Proc_RearImpactProtection_Gt100 a iof:PlannedProcess ;
+    rdfs:label "Rear impact protection when distance > 100 mm" ;
+    iof:hasProcessCharacteristic :PC_Distance_RearImpact_Gt100,
+        :PC_RequirementCompliance_Req3 ;
+    iof:prescribedBy :Req3_PlanSpec .
+
+:Proc_RearImpactProtection_Le100 a iof:PlannedProcess ;
+    rdfs:label "Rear impact protection when distance <= 100 mm" ;
+    iof:hasProcessCharacteristic :PC_Distance_RearImpact_Le100,
+        :PC_StructuralEquivalence_Req2 ;
+    iof:prescribedBy :Req2_PlanSpec .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Tractive System components other than Accumulator Containers in a position below 350 mm from the ground must be protected from side impact by structure that meets F.5.16 Component Protection F.11.2.2 Rear Impact Protection a. All Accumulator Containers must be protected from rear impact: - When the rear impact structure is 100 mm or less from an Accumulator Container, the structure must be Equivalent to Side Impact Structure (F.6.4, F.7.5) - When the rear impact structure is more than 100 mm from an Accumulator Container, the structure must meet F.5.16 Component Protection - The Accumulator Container must not be part of the Equivalent structure. b" ;
+    iof:isAbout :ObjSpec_Req0 ;
+    iof:requirementSatisfiedBy :PlanSpec_Overall,
+        :Req0_DesignSpec,
+        :Req1_DesignSpec,
+        :Req2_PlanSpec,
+        :Req3_PlanSpec,
+        :Req4_DesignSpec .
+
+qudtqk:Height a qudt:QuantityKind .
+

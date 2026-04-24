@@ -1,0 +1,67 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/495#> a owl:Ontology .
+
+<http://example.org/req/495#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Exposed around the lower $180^{\\circ}$ of its circumference over a minimum length of 280 mm g. Access from the rear of the tube must be unobstructed for 300 mm or more of its length h" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/495#PlanSpec_0> .
+
+<http://example.org/req/495#AccessProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "access from the rear of the tube" ;
+    ns2:hasProcessCharacteristic <http://example.org/req/495#PC_obstruction_0> ;
+    ns2:hasSpecifiedOutput <http://example.org/req/495#AccessRegion_0> .
+
+<http://example.org/req/495#PC_obstruction_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    rdfs:label "obstruction state of access process" .
+
+<http://example.org/req/495#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/495#AccessProcess_0> .
+
+<http://example.org/req/495#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 3e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/495#AccessRegion_0> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/495#AccessRegion_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "accessible length region of tube" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/495#VE_req0_c1> .
+

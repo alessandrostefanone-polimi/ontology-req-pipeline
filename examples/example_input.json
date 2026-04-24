@@ -1,0 +1,32 @@
+{
+  "original_text": "Fastened connections between vertical walls around sections containing between 8 kg and 12 kg must have a minimum of three fasteners",
+  "structure": {
+    "system_agent": "Fastened connections between vertical walls around sections containing between 8 kg and 12 kg",
+    "precondition": null,
+    "system_response": "must have a minimum of three fasteners"
+  },
+  "constraints": [
+    {
+      "text_span": "between 8 kg and 12 kg",
+      "target_attribute": "Section Mass (Scope Definition)",
+      "normalization": {
+        "operator": "Range",
+        "primary_value": 8,
+        "secondary_value": 12,
+        "tolerance": null,
+        "unit": "kg"
+      }
+    },
+    {
+      "text_span": "minimum of three fasteners",
+      "target_attribute": "Fastener Count",
+      "normalization": {
+        "operator": ">=",
+        "primary_value": 3,
+        "secondary_value": null,
+        "tolerance": null,
+        "unit": null
+      }
+    }
+  ]
+}

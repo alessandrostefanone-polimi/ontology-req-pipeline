@@ -1,0 +1,49 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/136#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Constraint_req0_c0 a owl:NamedIndividual ;
+    rdfs:comment "Constraint 0 (supported area): support the entire sample." ;
+    iof:isSubjectOf :Req_0 .
+
+:Constraint_req0_c1 a owl:NamedIndividual ;
+    rdfs:comment "Constraint 1 (unsupported region): except for a 32 mm hole aligned coaxially with the punch." ;
+    iof:isSubjectOf :Req_0 .
+
+:Hole_0 a bfo:BFO_0000040 .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:prescribes :Fixture_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :SupportProcessChar_0 .
+
+:Punch_0 a bfo:BFO_0000040 .
+
+:Sample_0 a bfo:BFO_0000040 .
+
+:SupportProcess_0 a iof:PlannedProcess ;
+    bfo:BFO_0000057 :Fixture_0,
+        :Punch_0,
+        :Sample_0 ;
+    iof:hasProcessCharacteristic :SupportProcessChar_0 .
+
+:Fixture_0 a bfo:BFO_0000030 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The fixture must support the entire sample, except for a 32 mm hole aligned coaxially with the punch" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:SupportProcessChar_0 a iof:ProcessCharacteristic ;
+    rdfs:comment "Process characteristic that the fixture supports the entire sample except for a coaxial hole region aligned with the punch." ;
+    iof:processCharacteristicOf :SupportProcess_0 .
+

@@ -1,0 +1,102 @@
+@prefix : <http://example.org/req/318#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:CornerAttachmentAnalysis a iof:PlannedProcess ;
+    rdfs:label "Corner Attachments and Analysis per F.10.5.6 and F.10.5.8" ;
+    bfo:BFO_0000057 :AccumulatorAttachment ;
+    iof:prescribedBy :PS_JustificationPlan .
+
+:DS_AccumulatorAttachment a iof:DesignSpecification ;
+    rdfs:label "Accumulator Container attachment design specification" ;
+    iof:prescribes :AccumulatorAttachment ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Alternate materials Equivalent to 2 mm thickness steel F.10.5.5 Teams must justify the Accumulator Container attachment using one of the two methods: - Corner Attachments and Analysis per F.10.5.6 and F.10.5.8 - Load Based Analysis per F.10.5.7 and F.10.5.8 F.10.5.6 Accumulator Attachment - Corner Attachments a. Eight or more attachments are required for any configuration" ;
+    iof:isAbout :ObjSpec_AttachmentCount,
+        :ObjSpec_JustificationMethod,
+        :ObjSpec_LoadBasedAnalysis ;
+    iof:requirementSatisfiedBy :DS_AccumulatorAttachment,
+        :PS_AttachmentConfigPlan,
+        :PS_JustificationPlan,
+        :PS_LoadBasedAnalysisPlan .
+
+:Team a iof:Agent ;
+    rdfs:label "Team" .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression: number of attachments ≥ 8" ;
+    qudt:minInclusive 8e+00 ;
+    qudt:unit qudtu:BEAT ;
+    iof:isValueExpressionOfAtSomeTime :AttachmentCountCharacteristic .
+
+qudtqk:Dimensionless a qudt:QuantityKind .
+
+qudtu:BEAT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Dimensionless .
+
+:JustificationProcess a iof:PlannedProcess ;
+    rdfs:label "Justification of Accumulator Container attachment" ;
+    bfo:BFO_0000057 :Team ;
+    iof:hasInput :AccumulatorAttachment ;
+    iof:prescribedBy :PS_JustificationPlan .
+
+:ObjSpec_AttachmentCount a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: use eight or more attachments for any configuration" ;
+    iof:isAchievedByAtSomeTime :AttachmentConfigurationProcess ;
+    iof:prescribes :AttachmentCountCharacteristic .
+
+:ObjSpec_JustificationMethod a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: justify attachment using one of two methods" ;
+    iof:isAchievedByAtSomeTime :JustificationProcess ;
+    iof:prescribes :CornerAttachmentAnalysis,
+        :LoadBasedAnalysis .
+
+:ObjSpec_LoadBasedAnalysis a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: perform Load Based Analysis per F.10.5.7 and F.10.5.8" ;
+    iof:isAchievedByAtSomeTime :LoadBasedAnalysis .
+
+:PS_AttachmentConfigPlan a iof:PlanSpecification ;
+    rdfs:label "Plan for Accumulator attachment configuration" ;
+    bfo:BFO_0000110 :ObjSpec_AttachmentCount ;
+    iof:prescribes :AttachmentConfigurationProcess .
+
+:PS_LoadBasedAnalysisPlan a iof:PlanSpecification ;
+    rdfs:label "Plan for Load Based Analysis" ;
+    bfo:BFO_0000110 :ObjSpec_LoadBasedAnalysis ;
+    iof:prescribes :LoadBasedAnalysis .
+
+:AttachmentConfigurationProcess a iof:PlannedProcess ;
+    rdfs:label "Configuring attachments for any configuration" ;
+    bfo:BFO_0000057 :AccumulatorAttachment ;
+    iof:hasProcessCharacteristic :AttachmentCountCharacteristic ;
+    iof:prescribedBy :PS_AttachmentConfigPlan .
+
+:AttachmentCountCharacteristic a iof:ProcessCharacteristic ;
+    rdfs:label "Number of attachments used in configuration" ;
+    iof:hasValueExpressionAtSomeTime :VE_req3_c0 ;
+    iof:processCharacteristicOf :AttachmentConfigurationProcess .
+
+:LoadBasedAnalysis a iof:PlannedProcess ;
+    rdfs:label "Load Based Analysis per F.10.5.7 and F.10.5.8" ;
+    bfo:BFO_0000057 :AccumulatorAttachment ;
+    iof:prescribedBy :PS_LoadBasedAnalysisPlan .
+
+:PS_JustificationPlan a iof:PlanSpecification ;
+    rdfs:label "Plan for justifying Accumulator Container attachment" ;
+    bfo:BFO_0000110 :ObjSpec_JustificationMethod ;
+    iof:prescribes :JustificationProcess .
+
+:AccumulatorAttachment a bfo:BFO_0000040 ;
+    rdfs:label "Accumulator Container attachment" .
+

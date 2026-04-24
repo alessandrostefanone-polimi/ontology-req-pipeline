@@ -1,0 +1,23 @@
+{
+  "idx": 559,
+  "req_idx": 7,
+  "source_text": "4.8.3 The BSPD must monitor for the following conditions: a. Both of the following for more than one second: - Demand for Hard Braking IC.4.6 - Throttle more than $10 \\%$ open IC.4.4 b. Loss of signal from the braking sensor(s) for more than 100 msec c. Loss of signal from the throttle sensor(s) for more than 100 msec d. Removal of power from the BSPD circuit IC.4.8.4 When any of the above conditions exist, the BSPD must Open the Shutdown Circuit IC.9.2.2 IC.4.8.5 The BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON IC.4.8.6",
+  "requirement_text_pred": "BSPD must only be reset by cycling the Primary Master Switch IC.9.3 OFF and ON",
+  "prediction": {
+    "subject": "BSPD",
+    "modality": "must",
+    "condition": "",
+    "action": "reset",
+    "object": "by cycling the Primary Master Switch IC.9.3 OFF and ON"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

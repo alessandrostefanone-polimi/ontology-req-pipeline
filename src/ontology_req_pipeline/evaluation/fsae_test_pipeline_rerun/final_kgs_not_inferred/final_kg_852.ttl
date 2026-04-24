@@ -1,0 +1,53 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/852#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:CostReportSupplement a iof:InformationContentEntity ;
+    rdfs:label "Supplement to the Cost Report reflecting post-submission changes or corrections" ;
+    iof:isAbout :CostReport .
+
+:DR_DocumentRequirements a iof:InformationContentEntity ;
+    rdfs:label "Section DR Document Requirements" .
+
+:Q_PenaltyApplicability a bfo:BFO_0000019 ;
+    rdfs:label "Applicability of late submission penalties as given in DR Document Requirements" ;
+    iof:isSubjectOf :DR_DocumentRequirements ;
+    iof:qualityOf :LateSubmissionPenalties .
+
+:SubmitCostReportSupplement a iof:PlannedProcess ;
+    rdfs:label "Submission of supplement to the Cost Report" ;
+    iof:hasInput :CostReport ;
+    iof:hasSpecifiedOutput :CostReportSupplement ;
+    iof:prescribedBy :PS_CostReportSupplement .
+
+:CostReport a iof:InformationContentEntity ;
+    rdfs:label "Cost Report" .
+
+:DS_Penalties a iof:DesignSpecification ;
+    rdfs:label "Design specification for late submission penalties for Cost Report" ;
+    iof:prescribes :LateSubmissionPenalties ;
+    iof:satisfiesRequirement :Req_0 .
+
+:LateSubmissionPenalties a bfo:BFO_0000002 ;
+    rdfs:label "Late Submission Penalties for Late Submission of Cost Report" ;
+    iof:hasQuality :Q_PenaltyApplicability ;
+    iof:prescribedBy :DS_Penalties .
+
+:PS_CostReportSupplement a iof:PlanSpecification ;
+    rdfs:label "Plan specification for submission of cost report supplement" ;
+    iof:prescribes :SubmitCostReportSupplement ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Late Submission Penalties for Late Submission of Cost Report will be imposed as given in section DR Document Requirements. ### 5.3.7 Cost Addendum 5.3.7.1 A supplement to the Cost Report that reflects any changes or corrections made after the submission of the Cost Report may be submitted" ;
+    iof:requirementSatisfiedBy :DS_Penalties,
+        :PS_CostReportSupplement .
+

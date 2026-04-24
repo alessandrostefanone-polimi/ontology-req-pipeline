@@ -1,0 +1,63 @@
+@prefix : <http://example.org/req/503#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The body of a camera or recording unit that weighs more than 0.25 kg must be secured at a minimum of two points on different sides of the camera body" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :P_req0 .
+
+:P_req0 a iof:PlanSpecification ;
+    iof:prescribes :VE_req0_c0,
+        :VE_req0_c1 .
+
+:action_secured a iof:ActionSpecification ;
+    iof:hasQuality :securing_points_quality .
+
+:body_camera a iof:MaterialArtifact ;
+    iof:hasQuality :weight_quality .
+
+:securing_points_quality a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 .
+
+:weight_quality a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+
+qudtqk:Mass a qudt:QuantityKind .
+
+qudtqk:PathLength a qudt:QuantityKind .
+
+qudtu:KiloGM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Mass .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:PathLength .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue 0.25 ;
+    qudt:hasUnit qudtu:KiloGM ;
+    qudt:minExclusive 2.5e-01 ;
+    qudt:unit qudtu:KiloGM ;
+    iof:isValueExpressionOfAtSomeTime :body_camera .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue 2.0 ;
+    qudt:hasUnit qudtu:M ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :action_secured .
+

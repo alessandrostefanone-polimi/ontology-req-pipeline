@@ -1,0 +1,71 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/80#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Ground Clearance V.1.4.1 Ground clearance must be sufficient to prevent any portion of the vehicle except the tires from touching the ground during dynamic events V.1.4.2 The distance to the ground below the Lower Side Impact Structure ( F.6.4.5, F.7.5.1 ) at its lowest point should be 75 mm or less V.1.4.3 Intentional or excessive ground contact of any portion of the vehicle other than the tires will forfeit a run or an entire dynamic event" ;
+    iof:requirementSatisfiedBy :Spec_1 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "The distance to the ground below the Lower Side Impact Structure at its lowest point should be 75 mm or less." ;
+    iof:requirementSatisfiedBy :Spec_2 .
+
+:Req_2 a iof:RequirementSpecification ;
+    rdfs:comment "Intentional or excessive ground contact of any portion of the vehicle other than the tires will forfeit a run or an entire dynamic event." ;
+    iof:requirementSatisfiedBy :Spec_3 .
+
+:DistanceToGround a iof:MaterialArtifact ;
+    rdfs:label "The distance to the ground below the Lower Side Impact Structure at its lowest point" .
+
+:GroundClearance a iof:Quality ;
+    rdfs:label "Ground clearance" ;
+    iof:hasQuality :GroundClearance .
+
+:GroundContact a iof:Quality ;
+    rdfs:label "Ground contact" ;
+    iof:hasQuality :GroundContact .
+
+:IntentionalGroundContact a iof:Event ;
+    rdfs:label "Intentional or excessive ground contact of any portion of the vehicle other than the tires" ;
+    iof:hasQuality :IntentionalGroundContact .
+
+:Output_1 a iof:MaterialProduct ;
+    rdfs:label "A run or an entire dynamic event" .
+
+:Output_2 a iof:MaterialProduct ;
+    rdfs:label "75 mm or less" .
+
+:Spec_1 a iof:PlanSpecification ;
+    iof:prescribes :Output_1,
+        :VE_req1_c0 .
+
+:Spec_2 a iof:PlanSpecification ;
+    iof:prescribes :Output_2 .
+
+:Spec_3 a iof:PlanSpecification ;
+    iof:prescribes :ForfeitEvent .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue "75.0"^^xsd:float ;
+    qudt:maxInclusive 7.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :DistanceToGround .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:ForfeitEvent a iof:Event ;
+    rdfs:label "Forfeit a run or an entire dynamic event" ;
+    iof:hasQuality :ForfeitEvent .
+

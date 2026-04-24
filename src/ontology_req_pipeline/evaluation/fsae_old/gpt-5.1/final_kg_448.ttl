@@ -1,0 +1,86 @@
+@prefix : <http://example.org/req/448#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:StructureOrBellyPan a iof:MaterialArtifact ;
+    rdfs:label "structure or belly pan" ;
+    iof:hasComponentPartAtSomeTime :HoleAssembly .
+
+:VE_req1_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression: exactly 2 holes" ;
+    qudt:maxInclusive 2e+00 ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:COUNT ;
+    iof:isValueExpressionOfAtSomeTime :HoleCountQuality .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Value expression: minimum diameter 25 mm" ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :HoleDiameterQuality .
+
+:DS_0 a iof:DesignSpecification ;
+    rdfs:label "Design specification for holes in structure or belly pan" ;
+    iof:prescribes :HoleAssembly ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Driver a bfo:BFO_0000040 ;
+    rdfs:label "driver" .
+
+:HoleCountQuality a bfo:BFO_0000019 ;
+    rdfs:label "number of holes" ;
+    iof:qualityOf :HoleAssembly .
+
+:HoleDiameterQuality a bfo:BFO_0000019 ;
+    rdfs:label "hole diameter" ;
+    iof:qualityOf :HoleAssembly .
+
+:LeakMaterial a bfo:BFO_0000040 ;
+    rdfs:label "Flammable liquid and vapors or other leaks" .
+
+:NoCollectContactProcess a bfo:BFO_0000015 ;
+    rdfs:label "Process in which leaks do not collect or contact driver" ;
+    bfo:BFO_0000057 :Driver,
+        :LeakMaterial .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: prevent leaks from collecting or contacting driver" ;
+    iof:prescribes :NoCollectContactProcess .
+
+:PS_0 a iof:PlanSpecification ;
+    rdfs:label "Plan specification for providing holes" ;
+    iof:prescribes :ProvideHolesProcess .
+
+:ProvideHolesProcess a iof:PlannedProcess ;
+    rdfs:label "process providing holes in structure or belly pan" ;
+    iof:hasSpecifiedOutput :HoleAssembly .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "5.5.3 Flammable liquid and vapors or other leaks must not collect or contact the driver T.5.5.4 Two holes of minimum diameter 25 mm each must be provided in the structure or belly pan at the locations: a" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DS_0,
+        :PS_0 .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtqk:Dimensionless a qudt:QuantityKind .
+
+qudtu:COUNT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Dimensionless .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:HoleAssembly a iof:MaterialArtifact ;
+    rdfs:label "set of holes in structure or belly pan" .
+

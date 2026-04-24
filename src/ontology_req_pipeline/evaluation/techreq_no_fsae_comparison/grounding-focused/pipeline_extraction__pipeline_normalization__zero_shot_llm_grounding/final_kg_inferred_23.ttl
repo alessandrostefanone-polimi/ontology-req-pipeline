@@ -1,0 +1,74 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/23#> a owl:Ontology .
+
+<http://example.org/req/23#AscentVenting_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/23#VE_req0_c1> ;
+    ns2:prescribedBy <http://example.org/req/23#ObjSpec_0> .
+
+<http://example.org/req/23#CubeSat_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000027>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:EngineeredSystem,
+        ns2:System ;
+    ns2:prescribedBy <http://example.org/req/23#DS_0> .
+
+<http://example.org/req/23#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The CubeSat shall be designed to accommodate ascent venting per ventable volume/area of less than 50.8 meters (2000 inches)" ;
+    ns2:isAbout <http://example.org/req/23#ObjSpec_0> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/23#DS_0> .
+
+<http://example.org/req/23#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxExclusive 5.08e+01,
+        50.8 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/23#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/23#CubeSat_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/23#Req_0> .
+
+<http://example.org/req/23#ObjSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    ns2:prescribes <http://example.org/req/23#AscentVenting_0> .
+

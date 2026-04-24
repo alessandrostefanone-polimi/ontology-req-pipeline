@@ -1,0 +1,45 @@
+{
+  "idx": 355,
+  "req_idx": 3,
+  "source_text": "The design must address all three types of heat transfer between the heat source (examples include but are not limited to: exhaust pipe, coolant hose/tube, Accumulator Container) and the panel that the driver could contact (seat or floor): a. Conduction Isolation by one of the following: - No direct contact between the heat source and the panel - A heat resistant, conduction isolation material with a minimum thickness of 8 mm between the heat source and the panel b. Convection Isolation by a minimum air gap of 25 mm between the heat source and the panel c. Radiation Isolation by one of the following: - A solid metal heat shield with a minimum thickness of 0.4 mm - $\\quad$ Reflective foil or tape when combined with conduction insulation # T.1.7",
+  "requirement_text_pred": "- A heat resistant, conduction isolation material with a minimum thickness of 8 mm between the heat source and the panel.",
+  "prediction": {
+    "subject": "A heat resistant, conduction isolation material",
+    "modality": "must",
+    "condition": "",
+    "action": "address",
+    "object": "between the heat source and the panel"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "thickness",
+      "operator_pred": "ge",
+      "value_raw_pred": "8 mm",
+      "value_v1_pred": 8.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 8.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MilliM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": "incomplete requirement"
+}

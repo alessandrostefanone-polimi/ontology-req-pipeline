@@ -1,0 +1,23 @@
+{
+  "idx": 418,
+  "req_idx": 1,
+  "source_text": "The circuit must have a pull-up or pull-down resistor to bring an open circuit input to $0 \\%$ Pedal Travel - An OEM pedal sensor with opposite slopes",
+  "requirement_text_pred": "An OEM pedal sensor with opposite slopes.",
+  "prediction": {
+    "subject": "An OEM pedal sensor with opposite slopes",
+    "modality": "must",
+    "condition": "",
+    "action": "",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

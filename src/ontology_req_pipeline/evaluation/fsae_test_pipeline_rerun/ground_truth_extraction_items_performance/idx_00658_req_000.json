@@ -1,0 +1,46 @@
+{
+  "idx": 658,
+  "req_idx": 0,
+  "source_text": "Available during charging of any Accumulator(s) EV.5.8.3 The TSMPs must be: a. 4 mm shrouded banana jacks rated to an appropriate voltage level b. Color",
+  "requirement_text_pred": "Available during charging of any Accumulator(s) EV.5.8.3 The TSMPs must be: a. 4 mm shrouded banana jacks rated to an appropriate voltage level",
+  "prediction": {
+    "subject": "The TSMPs",
+    "modality": "must",
+    "condition": "Available during charging of any Accumulator(s)",
+    "action": "be",
+    "object": "a. 4 mm shrouded banana jacks rated to an appropriate voltage level"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "diameter",
+      "operator_pred": "eq",
+      "value_raw_pred": "4 mm",
+      "value_v1_pred": 4.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Diameter",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.004,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

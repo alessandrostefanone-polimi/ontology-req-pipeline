@@ -1,0 +1,246 @@
+Your job is to take a single natural-language technical requirement and convert it into a structured JSON object that conforms EXACTLY to a given schema. This JSON will be consumed by a downstream ontology-based pipeline (normalization, RDF instantiation, SHACL validation, etc.), so it must be syntactically valid and structurally consistent.
+
+You MUST:
+- Carefully analyze the requirement text.
+- Decompose it into “system agent”, optional “precondition”, and “system response”.
+- Identify constraint expressions, their text spans, their target attributes, and normalized numeric information.
+- Follow the JSON schema EXACTLY (field names, nesting, and types).
+
+You MUST perform explicit step-by-step reasoning (chain-of-thought) to get to the correct structure, but you MUST clearly separate:
+1) Your reasoning (a human-readable explanation), and
+2) The final JSON object.
+
+The final JSON must be the ONLY JSON in your answer and must be syntactically valid.
+
+[SCHEMA DEFINITION]
+
+You MUST output a single JSON object with the following structure:
+
+{
+  "original_text": string,
+  "structure": {
+    "system_agent": string | null,
+    "modal_verb": string | null,
+    "precondition": string | null,
+    "system_response": string | null
+  },
+  "constraints": [
+    {
+      "text_span": string,
+      "target_attribute": string,
+      "normalization": {
+        "operator": string | null,
+        "primary_value": number | null,
+        "secondary_value": number | null,
+        "tolerance": number | null,
+        "unit": string | null
+      }
+    },
+    ...
+  ]
+}
+
+Field semantics:
+
+- original_text (string):
+  The full, original requirement text you were given (exactly as input, unchanged).
+
+- structure (object):
+  - system_agent (string | null):
+    The part of the requirement that describes the system, subsystem, or entity to which the requirement applies. Do not include any articles like "the" or "a" in this field.
+    If you cannot clearly identify it, set this field to null.
+  - modal_verb (string | null):
+    The modal verb used in the requirement (e.g., "must", "shall", "should").
+    If there is no modal verb, set this field to null.
+  - precondition (string | null):
+    Any explicit condition, circumstance, or “when/if/during” clause under which the requirement applies.
+    If there is no explicit precondition, set this field to null.
+  - system_response (string | null):
+    The behavioral or state requirement: what the system must/shall/should do or satisfy. Do not include any modal verbs like "must", "shall", or "should" here.
+    If you cannot clearly identify it, set this field to null.
+
+- constraints (list of objects):
+  Each element represents a constraint (usually a numeric or quantitative condition) extracted from the requirement.
+
+  - text_span (string):
+    The exact substring from the original requirement that expresses the constraint (as close as possible).
+
+  - target_attribute (string):
+    The attribute of the system that this constraint refers to (e.g. "Section Mass (Scope Definition)", "Fastener Count", "Beam Mass", "Coolant Temperature").
+    Use a concise, descriptive phrase; reuse the example names when appropriate.
+
+  - normalization (object):
+    A normalized view of the constraint’s quantitative information.
+
+    - operator (string | null):
+      A symbolic representation of the operator. Examples:
+        - "Range"
+        - "<="
+        - "<"
+        - ">="
+        - ">"
+        - "=="
+      Choose the best-fitting operator. If you are unsure, use a best-effort symbolic approximation. If there truly is no operator, use null.
+
+    - primary_value (number | null):
+      The main numeric value. For a range, this is the lower bound; for a minimum, this is the minimum value; for an equality, this is the target value, etc.
+
+    - secondary_value (number | null):
+      The secondary numeric value when relevant (e.g., upper bound for a range); otherwise null.
+
+    - tolerance (number | null):
+      A symmetric tolerance around the primary_value when explicitly given (e.g., ±5). Otherwise null.
+
+    - unit (string | null):
+      The surface form of the unit (e.g., "kg", "N", "°C", "degC"). If there is no unit, set null.
+
+
+[GENERAL GUIDELINES]
+
+1. Preserve original_text exactly.
+2. Do not invent constraints: only annotate what is explicitly present or very strongly implied by the wording.
+3. When there are multiple quantitative conditions, create multiple constraint objects.
+4. When there is no clear precondition, set "precondition": null.
+5. It is acceptable to assign a generic but meaningful target_attribute (e.g., "Beam Mass", "Coolant Temperature", "Bolt Torque") when the requirement is clear but does not provide a canonical name.
+6. Numeric values can be integers or decimals. Use a dot for decimals (e.g., 3.5).
+7. If you cannot determine a value, or it does not exist, use null.
+
+[SPECIAL CASES]
+
+1. Angle Measurements:
+   - Use "DEG" for degrees and "rad" for radians in the unit field.
+2. Percentages:
+   - Use "PERCENT" as the unit.
+3. Dimensionless Quantities (e.g., ratios, coefficients):
+   - Use "DimensionlessUnit" as the unit.
+
+[FEW-SHOT EXAMPLES]
+
+EXAMPLE 1 (canonical example)
+
+Input requirement:
+Fastened connections between vertical walls around sections containing between 8 kg and 12 kg must have a minimum of three fasteners
+
+OUTPUT:
+
+{
+  "original_text": "Fastened connections between vertical walls around sections containing between 8 kg and 12 kg must have a minimum of three fasteners",
+  "reasoning": "The requirement describes fastened connections between specific wall sections as the system agent. There is no explicit precondition. The system response is the obligation to have at least three fasteners, expressed without the modal verb as 'have a minimum of three fasteners'. One constraint captures the section mass range ('between 8 kg and 12 kg'), normalized as a Range with primary_value 8, secondary_value 12, and unit 'kg'. The second constraint captures the lower bound on the number of fasteners ('minimum of three fasteners') with operator '>=', primary_value 3, and no unit because it is a count.",
+  "structure": {
+    "system_agent": "Fastened connections between vertical walls around sections containing between 8 kg and 12 kg",
+    "modal_verb": "must",
+    "precondition": null,
+    "system_response": "have a minimum of three fasteners"
+  },
+  "constraints": [
+    {
+      "text_span": "between 8 kg and 12 kg",
+      "target_attribute": "Section Mass (Scope Definition)",
+      "normalization": {
+        "operator": "Range",
+        "primary_value": 8,
+        "secondary_value": 12,
+        "tolerance": null,
+        "unit": "kg"
+      }
+    },
+    {
+      "text_span": "minimum of three fasteners",
+      "target_attribute": "Fastener Count",
+      "normalization": {
+        "operator": ">=",
+        "primary_value": 3,
+        "secondary_value": null,
+        "tolerance": null,
+        "unit": null
+      }
+    }
+  ]
+}
+
+EXAMPLE 2
+
+Input requirement:
+Each support beam shall weigh less than 15 kilograms.
+
+OUTPUT:
+
+{
+  "original_text": "Each support beam shall weigh less than 15 kilograms.",
+  "reasoning": "The system agent is 'Each support beam', and there is no explicit precondition. The behavioral requirement is that each beam 'weigh less than 15 kilograms', obtained by stripping the modal verb 'shall'. The quantitative constraint is expressed by the span 'less than 15 kilograms', which constrains the Beam Mass with operator '<', primary_value 15, and unit 'kg'.",
+  "structure": {
+    "system_agent": "Each support beam",
+    "modal_verb": "shall",
+    "precondition": null,
+    "system_response": "weigh less than 15 kilograms"
+  },
+  "constraints": [
+    {
+      "text_span": "less than 15 kilograms",
+      "target_attribute": "Mass",
+      "normalization": {
+        "operator": "<",
+        "primary_value": 15,
+        "secondary_value": null,
+        "tolerance": null,
+        "unit": "kg"
+      }
+    }
+  ]
+}
+
+
+EXAMPLE 3
+
+Input requirement:
+During nominal operation, the coolant temperature shall be 60 ± 5 °C.
+
+OUTPUT:
+
+{
+  "original_text": "During nominal operation, the coolant temperature shall be 60 ± 5 °C.",
+  "reasoning": "The requirement applies 'During nominal operation', which is captured as the precondition. The system agent is 'the coolant temperature'. The behavioral requirement is that the temperature 'be 60 ± 5 °C', with the modal verb 'shall' removed. The constraint span '60 ± 5 °C' describes a nominal coolant temperature with a symmetric tolerance, modeled with operator '==', primary_value 60, tolerance 5, and unit 'degC'.",
+  "structure": {
+    "system_agent": "Coolant",
+    "modal_verb": "shall",
+    "precondition": "During nominal operation",
+    "system_response": "be 60 ± 5 °C"
+  },
+  "constraints": [
+    {
+      "text_span": "60 ± 5 °C",
+      "target_attribute": "Temperature",
+      "normalization": {
+        "operator": "==",
+        "primary_value": 60,
+        "secondary_value": null,
+        "tolerance": 5,
+        "unit": "degC"
+      }
+    }
+  ],
+}
+
+[MAIN TASK]
+
+Now, for any new input requirement, follow these steps:
+
+1) Carefully read the requirement.
+2) Decompose it into:
+   - system_agent
+   - precondition (if any)
+   - system_response
+3) Identify all quantitative or clearly constraint-like expressions and turn each into a constraint:
+   - Choose a meaningful target_attribute.
+   - Extract numeric values, operators, and units.
+4) Construct the JSON object exactly as specified.
+5) In the "REASONING" section, explain your interpretation step by step.
+6) In the "JSON" section, output ONLY the final JSON object.
+
+Remember:
+- The JSON must be valid and parseable.
+- All field names and nesting must be exactly as defined.
+- Use null (not empty strings) where information does not exist or is not applicable.
+
+INPUT REQUIREMENT:
+{requirement_text}

@@ -1,0 +1,158 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/451#> a owl:Ontology .
+
+<http://example.org/req/451#CatchCanType_EngineSystems> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Catch cans for the engine coolant system and engine lubrication system",
+        "Catch cans for the engine coolant system and engine lubrication system"@en ;
+    ns2:hasQuality <http://example.org/req/451#Capacity_EngineSystems> .
+
+<http://example.org/req/451#CatchCanType_OtherSystems> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Catch cans for vents on other systems containing liquid lubricant or coolant",
+        "Catch cans for vents on other systems containing liquid lubricant or coolant"@en ;
+    ns2:hasQuality <http://example.org/req/451#Capacity_OtherSystems> .
+
+<http://example.org/req/451#DS_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/451#CatchCanType_EngineSystems> ;
+    ns2:satisfiesRequirement <http://example.org/req/451#Req_0> .
+
+<http://example.org/req/451#DS_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/451#CatchCanType_OtherSystems> ;
+    ns2:satisfiesRequirement <http://example.org/req/451#Req_0> .
+
+<http://example.org/req/451#ObjSpec_2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    ns2:prescribes <http://example.org/req/451#Capacity_EngineSystems> .
+
+<http://example.org/req/451#ObjSpec_3> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:ObjectiveSpecification ;
+    ns2:prescribes <http://example.org/req/451#Capacity_OtherSystems> .
+
+<http://example.org/req/451#VE_req2_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 1e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/451#Capacity_EngineSystems> .
+
+<http://example.org/req/451#VE_req2_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 9e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/L> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/451#Capacity_EngineSystems> .
+
+<http://example.org/req/451#VE_req3_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 1e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/NUM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/451#Capacity_OtherSystems> .
+
+<http://example.org/req/451#VE_req3_c2> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 5e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/L> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/451#Capacity_OtherSystems> .
+
+<http://example.org/req/451#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "Located rearwards of the Firewall below the driver's shoulder level c. Positively retained, using no tie wraps or tape T.5.6.3 Catch cans for the engine coolant system and engine lubrication system must have a minimum capacity of $10 \\%$ of the fluid being contained or 0.9 liter, whichever is higher T.5.6.4 Catch cans for any vent on other systems containing liquid lubricant or coolant, including a differential, gearbox, or electric motor, must have a minimum capacity of $10 \\%$ of the fluid being contained or 0.5 liter, whichever is higher T.5.6.5" ;
+    ns2:isAbout <http://example.org/req/451#ObjSpec_2>,
+        <http://example.org/req/451#ObjSpec_3> ;
+    ns2:requirementSatisfiedBy <http://example.org/req/451#DS_2>,
+        <http://example.org/req/451#DS_3> .
+
+<http://qudt.org/vocab/unit/L> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/CartesianVolume> .
+
+<http://qudt.org/vocab/unit/NUM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/DimensionlessRatio>,
+        <http://qudt.org/vocab/quantitykind/PositiveDimensionlessRatio> .
+
+<http://example.org/req/451#Capacity_EngineSystems> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "capacity of engine coolant and lubrication catch cans",
+        "capacity of engine coolant and lubrication catch cans"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/451#VE_req2_c0>,
+        <http://example.org/req/451#VE_req2_c1> .
+
+<http://example.org/req/451#Capacity_OtherSystems> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "capacity of other-system vent catch cans",
+        "capacity of other-system vent catch cans"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/451#VE_req3_c1>,
+        <http://example.org/req/451#VE_req3_c2> .
+

@@ -1,0 +1,73 @@
+@prefix : <http://example.org/req/300#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:FuelTank a iof:MaterialEntity ;
+    rdfs:label "Fuel Tank" ;
+    iof:hasRole :FuelTankRole .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Any portion of the Fuel System that is less than 350 mm above the ground, and all parts of the Fuel Tank, must be inside the Primary Structure (F.1.10)" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "All parts of the Fuel Tank must be inside the Primary Structure." ;
+    iof:requirementSatisfiedBy :DS_req1 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :FuelSystemPart,
+        :PrimaryStructure .
+
+:DS_req1 a iof:DesignSpecification ;
+    iof:prescribes :FuelTankPart,
+        :PrimaryStructure .
+
+:FuelSystemPart a iof:MaterialArtifact ;
+    iof:hasRole :FuelSystemRole .
+
+:FuelSystemRole a iof:AgentRole ;
+    rdfs:label "Fuel System" .
+
+:FuelTankLocation a bfo:BFO_0000001 ;
+    iof:hasQuality :LocationQuality .
+
+:FuelTankPart a iof:MaterialArtifact ;
+    iof:hasRole :FuelTankRole .
+
+:HeightAboveGround a bfo:BFO_0000001 ;
+    iof:hasQuality :HeightQuality .
+
+:HeightQuality a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+:LocationQuality a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtAllTimes :VE_req1_c0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxExclusive 3.5e+02 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtAllTimes :HeightAboveGround .
+
+:VE_req1_c0 a iof:ValueExpression ;
+    iof:isValueExpressionOfAtAllTimes :FuelTankLocation .
+
+qudtqk:Height a qudt:QuantityKind .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Height .
+
+:FuelTankRole a iof:AgentRole ;
+    rdfs:label "Fuel Tank" .
+
+:PrimaryStructure a iof:MaterialEntity ;
+    rdfs:label "Primary Structure" .
+

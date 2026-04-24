@@ -1,0 +1,52 @@
+@prefix : <http://example.org/req/731#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The temperature of a minimum of $20 \\%$ of the cells must be monitored by the AMS b" ;
+    iof:isAbout :ObjSpec_req0 ;
+    iof:requirementSatisfiedBy :PlanSpec_req0 .
+
+:AMSb_req0 a bfo:BFO_0000040 .
+
+:ActSpec_req0 a iof:ActionSpecification ;
+    iof:prescribes :TempMonitoringProcess_req0 .
+
+:CellsCoverageQuality_req0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 ;
+    iof:qualityOf :CellsGroup_req0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2e-01 ;
+    qudt:unit qudtu:NUM ;
+    iof:isValueExpressionOfAtSomeTime :CellsCoverageQuality_req0 .
+
+qudtqk:DimensionlessRatio a qudt:QuantityKind .
+
+qudtu:NUM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DimensionlessRatio .
+
+:CellsGroup_req0 a bfo:BFO_0000040 .
+
+:ObjSpec_req0 a iof:ObjectiveSpecification ;
+    iof:prescribes :TempMonitoringProcess_req0 .
+
+:PlanSpec_req0 a iof:PlanSpecification ;
+    bfo:BFO_0000110 :ActSpec_req0,
+        :ObjSpec_req0 ;
+    iof:prescribes :TempMonitoringProcess_req0 .
+
+:TempMonitoringProcess_req0 a iof:PlannedProcess ;
+    iof:hasParticipantAtSomeTime :AMSb_req0,
+        :CellsGroup_req0 ;
+    iof:prescribedBy :PlanSpec_req0 .
+

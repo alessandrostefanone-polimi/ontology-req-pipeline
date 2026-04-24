@@ -1,0 +1,125 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/225#> a owl:Ontology .
+
+<http://example.org/req/225#LowStressLocation_Monocoque> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000029>,
+        <http://purl.obolibrary.org/obo/BFO_0000141>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "low stress location of monocoque section",
+        "low stress location of monocoque section"@en .
+
+<http://example.org/req/225#StructuralEquivalencySpreadsheet> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity ;
+    rdfs:label "Structural Equivalency Spreadsheet",
+        "Structural Equivalency Spreadsheet"@en .
+
+<http://example.org/req/225#VerticalSideImpactStructure> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Vertical Side Impact Structure",
+        "Vertical Side Impact Structure"@en .
+
+<http://example.org/req/225#DrillingProcess_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "drilling of inspection hole through low-stress monocoque location",
+        "drilling of inspection hole through low-stress monocoque location"@en ;
+    ns2:hasInput <http://example.org/req/225#MonocoqueSection> ;
+    ns2:hasSpecifiedOutput <http://example.org/req/225#InspectionHole_0> ;
+    ns2:prescribedBy <http://example.org/req/225#PlanSpec_0> .
+
+<http://example.org/req/225#MonocoqueSection> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "monocoque section",
+        "monocoque section"@en .
+
+<http://example.org/req/225#PlanSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/225#DrillingProcess_0> .
+
+<http://example.org/req/225#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "An inspection hole approximately 4 mm in diameter must be drilled through a low stress location of every monocoque section regulated by the Structural Equivalency Spreadsheet This inspection hole is not required in the Vertical Side Impact Structure F.7.5.3.b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/225#DesignSpec_0> .
+
+<http://example.org/req/225#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 4e+00 ;
+    ns1:minInclusive 4e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/225#Diameter_InspectionHole_0> .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+
+<http://example.org/req/225#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/225#InspectionHole_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/225#Req_0> .
+
+<http://example.org/req/225#Diameter_InspectionHole_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "diameter of inspection hole",
+        "diameter of inspection hole"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/225#VE_req0_c1> .
+
+<http://example.org/req/225#InspectionHole_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "inspection hole in monocoque section",
+        "inspection hole in monocoque section"@en ;
+    ns2:hasQuality <http://example.org/req/225#Diameter_InspectionHole_0> ;
+    ns2:prescribedBy <http://example.org/req/225#DesignSpec_0> .
+

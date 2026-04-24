@@ -1,0 +1,70 @@
+@prefix : <http://example.org/req/728#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The voltage rating of the Overcurrent Protection must be equal to or higher than the maximum segment voltage EV.7.4.5 Overcurrent Protection is not required on a voltage sense wire if all three of the following conditions are met: - AMS is a distributed AMS system (one cell measurement per board) - $\\quad$ Sense wire length is less than 25 mm - AMS board has Overcurrent Protection # EV.7.5 Accumulator Temperature EV.7.5.1" ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:AMS a iof:Organization ;
+    iof:hasRole :AMSRole .
+
+:AMSRole a iof:AgentRole ;
+    rdfs:label "distributed AMS system (one cell measurement per board)" .
+
+:MaxSegmentVoltageEntity a bfo:BFO_0000001 ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c2 .
+
+:OvercurrentProtection a iof:DesignSpecification ;
+    iof:prescribes :MaxSegmentVoltage,
+        :OvercurrentProtectionRequirement,
+        :VoltageSenseWire .
+
+:OvercurrentProtectionRequirement a iof:RequirementSpecification ;
+    iof:requirementSatisfiedBy :OvercurrentProtectionEntity .
+
+:SenseWireLengthEntity a bfo:BFO_0000001 ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c2 .
+
+:Spec_0 a iof:PlanSpecification ;
+    iof:prescribes :OvercurrentProtection .
+
+:VE_req3_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxExclusive 2.5e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :AMS,
+        :VoltageSenseWireEntity .
+
+:VE_req4_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxExclusive 2.5e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :OvercurrentProtectionEntity .
+
+:VoltageSenseWireEntity a bfo:BFO_0000001 ;
+    iof:hasValueExpressionAtSomeTime :VE_req3_c0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:OvercurrentProtectionEntity a bfo:BFO_0000001 ;
+    iof:hasValueExpressionAtSomeTime :VE_req4_c0 .
+
+:VE_req1_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxExclusive 2.5e+01 ;
+    qudt:unit qudtu:MM ;
+    iof:isValueExpressionOfAtSomeTime :MaxSegmentVoltageEntity,
+        :SenseWireLengthEntity .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+

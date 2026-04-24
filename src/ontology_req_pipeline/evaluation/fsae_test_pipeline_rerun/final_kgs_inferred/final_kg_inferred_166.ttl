@@ -1,0 +1,95 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/166#> a owl:Ontology .
+
+<http://example.org/req/166#Circle_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "circle (representative of the two 200 mm circles)" ;
+    ns2:hasQuality <http://example.org/req/166#Circle_0_Diameter> .
+
+<http://example.org/req/166#DS_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/166#Circle_0>,
+        <http://example.org/req/166#Line_0> ;
+    ns2:satisfiesRequirement <http://example.org/req/166#Req_0> .
+
+<http://example.org/req/166#Line_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "straight line connecting circle centers" ;
+    ns2:hasQuality <http://example.org/req/166#Line_0_Length> .
+
+<http://example.org/req/166#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "A straight line measuring 490 mm will connect the centers of the two 200 mm circles" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/166#DS_0> .
+
+<http://example.org/req/166#VE_req0_c1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 4.9e-01 ;
+    ns1:minInclusive 4.9e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/166#Line_0_Length> .
+
+<http://example.org/req/166#VE_req0_c4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 2e-01 ;
+    ns1:minInclusive 2e-01 ;
+    ns1:unit <http://qudt.org/vocab/unit/M> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/166#Circle_0_Diameter> .
+
+<http://example.org/req/166#Circle_0_Diameter> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "diameter of circle" ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/166#VE_req0_c4> .
+
+<http://example.org/req/166#Line_0_Length> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "length of straight line" ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/166#VE_req0_c1> .
+
+<http://qudt.org/vocab/unit/M> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter>,
+        <http://qudt.org/vocab/quantitykind/Length> .
+

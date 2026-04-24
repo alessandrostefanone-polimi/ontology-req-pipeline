@@ -1,0 +1,97 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/req/852#> a owl:Ontology .
+
+<http://example.org/req/852#CostReportSupplement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Supplement to the Cost Report reflecting post-submission changes or corrections" ;
+    ns1:isAbout <http://example.org/req/852#CostReport> .
+
+<http://example.org/req/852#DR_DocumentRequirements> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Section DR Document Requirements" .
+
+<http://example.org/req/852#Q_PenaltyApplicability> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Applicability of late submission penalties as given in DR Document Requirements" ;
+    ns1:isSubjectOf <http://example.org/req/852#DR_DocumentRequirements> ;
+    ns1:qualityOf <http://example.org/req/852#LateSubmissionPenalties> .
+
+<http://example.org/req/852#SubmitCostReportSupplement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Submission of supplement to the Cost Report" ;
+    ns1:hasInput <http://example.org/req/852#CostReport> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/852#CostReportSupplement> ;
+    ns1:prescribedBy <http://example.org/req/852#PS_CostReportSupplement> .
+
+<http://example.org/req/852#CostReport> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "Cost Report" .
+
+<http://example.org/req/852#DS_Penalties> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design specification for late submission penalties for Cost Report" ;
+    ns1:prescribes <http://example.org/req/852#LateSubmissionPenalties> ;
+    ns1:satisfiesRequirement <http://example.org/req/852#Req_0> .
+
+<http://example.org/req/852#LateSubmissionPenalties> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Late Submission Penalties for Late Submission of Cost Report" ;
+    ns1:hasQuality <http://example.org/req/852#Q_PenaltyApplicability> ;
+    ns1:prescribedBy <http://example.org/req/852#DS_Penalties> .
+
+<http://example.org/req/852#PS_CostReportSupplement> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan specification for submission of cost report supplement" ;
+    ns1:prescribes <http://example.org/req/852#SubmitCostReportSupplement> ;
+    ns1:satisfiesRequirement <http://example.org/req/852#Req_0> .
+
+<http://example.org/req/852#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Late Submission Penalties for Late Submission of Cost Report will be imposed as given in section DR Document Requirements. ### 5.3.7 Cost Addendum 5.3.7.1 A supplement to the Cost Report that reflects any changes or corrections made after the submission of the Cost Report may be submitted" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/852#DS_Penalties>,
+        <http://example.org/req/852#PS_CostReportSupplement> .
+

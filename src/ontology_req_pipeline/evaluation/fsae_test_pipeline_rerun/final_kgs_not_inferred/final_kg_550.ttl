@@ -1,0 +1,60 @@
+@prefix : <http://example.org/req/550#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The power to the electronic throttle must be immediately shut down, if throttle position differs by more than $10 \\%$ from the expected target TPS position for more than one second" ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:DeviationDuration_0 a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c3 ;
+    iof:processCharacteristicOf :DeviationProcess_0 .
+
+:DeviationProcess_0 a bfo:BFO_0000015 .
+
+:ElectronicThrottle_0 a bfo:BFO_0000040 .
+
+:ShutdownProcess_0 a iof:PlannedProcess ;
+    iof:hasInput :ElectronicThrottlePower_0 ;
+    iof:hasOutput :ElectronicThrottlePower_0 ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:ThrottlePositionDeviation_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c2 ;
+    iof:qualityOf :ElectronicThrottle_0 .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 1e-01 ;
+    qudt:unit qudtu:NUM ;
+    iof:isValueExpressionOfAtSomeTime :ThrottlePositionDeviation_0 .
+
+:VE_req0_c3 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 1e+00 ;
+    qudt:unit qudtu:SEC ;
+    iof:isValueExpressionOfAtSomeTime :DeviationDuration_0 .
+
+qudtqk:DimensionlessRatio a qudt:QuantityKind .
+
+qudtqk:Time a qudt:QuantityKind .
+
+qudtu:NUM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DimensionlessRatio .
+
+qudtu:SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Time .
+
+:ElectronicThrottlePower_0 a bfo:BFO_0000040 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :ShutdownProcess_0 .
+

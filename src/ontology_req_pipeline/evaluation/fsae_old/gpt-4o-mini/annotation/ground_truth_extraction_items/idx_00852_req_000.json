@@ -1,0 +1,23 @@
+{
+  "idx": 852,
+  "req_idx": 0,
+  "source_text": "Late Submission Penalties for Late Submission of Cost Report will be imposed as given in section DR Document Requirements. ### 5.3.7 Cost Addendum 5.3.7.1 A supplement to the Cost Report that reflects any changes or corrections made after the submission of the Cost Report may be submitted",
+  "requirement_text_pred": "Late Submission Penalties for Late Submission of Cost Report will be imposed as given in section DR Document Requirements.",
+  "prediction": {
+    "subject": "Late Submission Penalties for Late Submission of Cost Report",
+    "modality": "will",
+    "condition": "",
+    "action": "be imposed",
+    "object": "as given in section DR Document Requirements"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

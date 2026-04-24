@@ -1,0 +1,132 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/333#> a owl:Ontology .
+
+<http://example.org/req/333#AccumulatorContainer> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Accumulator Container",
+        "Accumulator Container"@en .
+
+<http://example.org/req/333#ClearanceProcess> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:PlannedProcess ;
+    rdfs:label "process ensuring clearance of non-crushable items to accumulator container",
+        "process ensuring clearance of non-crushable items to accumulator container"@en ;
+    ns3:BFO_0000057 <http://example.org/req/333#AccumulatorContainer>,
+        <http://example.org/req/333#NonCrushableItem> ;
+    ns2:hasProcessCharacteristic <http://example.org/req/333#ClearanceDistance> .
+
+<http://example.org/req/333#DS_MountPlateSize> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/333#MountOrPlate> ;
+    ns2:satisfiesRequirement <http://example.org/req/333#Req_0> .
+
+<http://example.org/req/333#MountOrPlate> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "mounts or plate",
+        "mounts or plate"@en ;
+    ns2:hasQuality <http://example.org/req/333#MountPlateSizeDifference> .
+
+<http://example.org/req/333#NonCrushableItem> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "non-crushable item",
+        "non-crushable item"@en .
+
+<http://example.org/req/333#PS_Clearance> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ActionSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/333#ClearanceProcess> ;
+    ns2:satisfiesRequirement <http://example.org/req/333#Req_0> .
+
+<http://example.org/req/333#VE_req0_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "size difference ≥ 25 mm",
+        "size difference ≥ 25 mm"@en ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/333#MountPlateSizeDifference> .
+
+<http://example.org/req/333#VE_req1_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    rdfs:label "clearance ≥ 25 mm",
+        "clearance ≥ 25 mm"@en ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/333#ClearanceDistance> .
+
+<http://example.org/req/333#ClearanceDistance> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ProcessCharacteristic ;
+    rdfs:label "clearance distance between non-crushable item and accumulator container surface",
+        "clearance distance between non-crushable item and accumulator container surface"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/333#VE_req1_c1> .
+
+<http://example.org/req/333#MountPlateSizeDifference> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "size difference between mount/plate and tubes",
+        "size difference between mount/plate and tubes"@en ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/333#VE_req0_c1> .
+
+<http://example.org/req/333#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "If used, the mounts or plate must be 25 mm or more larger at both the top and bottom of the upper and lower tubes F.11.2.3 All Non Crushable Items should have a minimum 25 mm clearance to the surface of the Accumulator Container" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/333#DS_MountPlateSize>,
+        <http://example.org/req/333#PS_Clearance> .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+

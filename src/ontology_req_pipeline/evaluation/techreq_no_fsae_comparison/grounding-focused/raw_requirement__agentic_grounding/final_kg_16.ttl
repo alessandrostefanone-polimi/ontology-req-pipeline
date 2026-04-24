@@ -1,0 +1,42 @@
+@prefix : <http://example.org/req/16#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Robot_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Objective_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :Reach_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The robot shall have a reach (i.e., a distance between the base and the tool) of at least 600 millimeters." ;
+    iof:isAbout :Objective_0 ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 600.0 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :Reach_0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:Robot_0 a iof:MaterialArtifact ;
+    iof:hasQuality :Reach_0 .
+
+:Reach_0 a bfo:BFO_0000019 ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 ;
+    iof:qualityOf :Robot_0 .
+

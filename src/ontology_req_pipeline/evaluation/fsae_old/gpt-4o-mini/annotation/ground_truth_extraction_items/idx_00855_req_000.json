@@ -1,0 +1,45 @@
+{
+  "idx": 855,
+  "req_idx": 0,
+  "source_text": "3.7.6 Changes to the Cost Report in the Cost Addendum will incur additional cost: a. Added items will be cost at $125 \\%$ of the table cost: + (1.25 x Cost) b",
+  "requirement_text_pred": "Changes to the Cost Report in the Cost Addendum will incur additional cost.",
+  "prediction": {
+    "subject": "Changes to the Cost Report in the Cost Addendum",
+    "modality": "will",
+    "condition": "",
+    "action": "incur additional cost",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "additional cost",
+      "operator_pred": "ge",
+      "value_raw_pred": "125 %",
+      "value_v1_pred": 1.25,
+      "value_v2_pred": null,
+      "unit_text_pred": "DimensionlessUnit",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Dimensionless",
+      "normalized_unit_uri_pred": "UNITLESS",
+      "normalized_si_value_primary_pred": 1.25,
+      "normalized_si_unit_primary_pred": "UNITLESS",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

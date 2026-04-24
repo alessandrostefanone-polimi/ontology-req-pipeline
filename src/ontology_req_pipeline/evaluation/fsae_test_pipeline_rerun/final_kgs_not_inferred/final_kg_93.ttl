@@ -1,0 +1,92 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/93#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req0_C0 a iof:ObjectiveSpecification ;
+    rdfs:comment "req_idx 0, constraint_idx 0: The steering rack must be mechanically attached to the Chassis" ;
+    iof:prescribes :AttachmentProcess .
+
+:Req0_C1 a iof:ObjectiveSpecification ;
+    rdfs:comment "req_idx 0, constraint_idx 1: Joints between all components attaching the Steering Wheel to the steering rack" ;
+    iof:prescribes :JointAssembly .
+
+:Req0_C2 a iof:ObjectiveSpecification ;
+    rdfs:comment "req_idx 0, constraint_idx 2: joint type must be mechanical" ;
+    iof:prescribes :JointAssembly .
+
+:Req0_C3 a iof:ObjectiveSpecification ;
+    rdfs:comment "req_idx 0, constraint_idx 3: joints must be visible at Technical Inspection" ;
+    iof:isAchievedByAtSomeTime :TechnicalInspection ;
+    iof:prescribes :JointAssembly .
+
+:Req1_C0 a iof:ObjectiveSpecification ;
+    rdfs:comment "req_idx 1, constraint_idx 0: be visible at Technical Inspection" ;
+    iof:isAchievedByAtSomeTime :TechnicalInspection ;
+    iof:prescribes :JointAssembly .
+
+:DS_Attachment a iof:DesignSpecification ;
+    iof:prescribes :Chassis,
+        :SteeringRack ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DS_JointMechanical a iof:DesignSpecification ;
+    iof:prescribes :JointAssembly ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DS_JointVisible a iof:DesignSpecification ;
+    iof:prescribes :JointAssembly ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ObjSpec_Attachment a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :AttachmentProcess ;
+    iof:prescribes :AttachmentProcess .
+
+:ObjSpec_JointMechanical a iof:ObjectiveSpecification ;
+    iof:prescribes :JointAssembly .
+
+:ObjSpec_JointVisible a iof:ObjectiveSpecification ;
+    iof:isAchievedByAtSomeTime :TechnicalInspection ;
+    iof:prescribes :JointAssembly .
+
+:Plan_Attachment a iof:PlanSpecification ;
+    iof:prescribes :AttachmentProcess .
+
+:Plan_TechnicalInspection a iof:PlanSpecification ;
+    iof:prescribes :TechnicalInspection .
+
+:SteeringWheel a iof:MaterialArtifact .
+
+:Chassis a iof:MaterialArtifact .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The steering rack must be mechanically attached to the Chassis F.5.14 V.3.2.7 Joints between all components attaching the Steering Wheel to the steering rack must be mechanical and be visible at Technical Inspection" ;
+    iof:isAbout :ObjSpec_Attachment,
+        :ObjSpec_JointMechanical,
+        :ObjSpec_JointVisible ;
+    iof:requirementSatisfiedBy :DS_Attachment,
+        :DS_JointMechanical,
+        :DS_JointVisible .
+
+:SteeringRack a iof:MaterialArtifact .
+
+:AttachmentProcess a iof:PlannedProcess ;
+    bfo:BFO_0000057 :Chassis,
+        :SteeringRack ;
+    iof:prescribedBy :Plan_Attachment .
+
+:TechnicalInspection a iof:PlannedProcess ;
+    bfo:BFO_0000057 :JointAssembly ;
+    iof:prescribedBy :Plan_TechnicalInspection .
+
+:JointAssembly a iof:MaterialArtifact ;
+    iof:hasComponentPartAtSomeTime :SteeringRack,
+        :SteeringWheel .
+

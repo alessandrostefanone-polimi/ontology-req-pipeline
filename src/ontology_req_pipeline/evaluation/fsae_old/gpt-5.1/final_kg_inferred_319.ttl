@@ -1,0 +1,70 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/319#> a owl:Ontology .
+
+<http://example.org/req/319#DesignSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/319#SegmentC> ;
+    ns2:satisfiesRequirement <http://example.org/req/319#Req_0> .
+
+<http://example.org/req/319#MechConnectionCorner_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "mechanical connection at corner" ;
+    ns2:hasQuality <http://example.org/req/319#DistanceFromCorner_0> .
+
+<http://example.org/req/319#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "The mechanical connections at each corner must be 50 mm or less from the corner of the Segment c" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/319#DesignSpec_0> .
+
+<http://example.org/req/319#SegmentC> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Segment c" ;
+    ns2:hasComponentPartAtSomeTime <http://example.org/req/319#MechConnectionCorner_0> .
+
+<http://example.org/req/319#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:maxInclusive 5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/319#DistanceFromCorner_0> .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/319#DistanceFromCorner_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "distance from the corner of the Segment c" ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/319#VE_req0_c0> .
+

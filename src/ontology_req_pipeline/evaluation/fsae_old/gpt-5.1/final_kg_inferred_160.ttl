@@ -1,0 +1,259 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/160#> a owl:Ontology .
+
+<http://example.org/req/160#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Document the adhesive choice, age and expiration date, substrate preparation, and the equivalency of the bonded joint in the SES F.5.5.3 The SES will reduce any referenced or tested adhesive values by $50 \\%$ ## F.5.6 Roll Hoops F.5.6.1 The Chassis must include both a Main Hoop and a Front Hoop. F.5.6.2" ;
+    ns1:isAbout <http://example.org/req/160#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/160#Spec_0> .
+
+<http://example.org/req/160#SES_F553> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "SES F.5.5.3",
+        "SES F.5.5.3"@en .
+
+<http://example.org/req/160#ActSpec_Req0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/160#PlanProc_Req0> .
+
+<http://example.org/req/160#ActSpec_Req1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/160#PlanProc_Req1> .
+
+<http://example.org/req/160#ActSpec_Req3> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/160#PlanProc_Req3> .
+
+<http://example.org/req/160#AdhesiveAgeAndExpiration> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "adhesive age and expiration date",
+        "adhesive age and expiration date"@en ;
+    ns1:qualityOf <http://example.org/req/160#SES_Context> .
+
+<http://example.org/req/160#AdhesiveChoice> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "adhesive choice",
+        "adhesive choice"@en ;
+    ns1:qualityOf <http://example.org/req/160#SES_Context> .
+
+<http://example.org/req/160#Agent_Unknown> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Agent ;
+    rdfs:label "unspecified agent",
+        "unspecified agent"@en .
+
+<http://example.org/req/160#BondedJointEquivalency> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "equivalency of bonded joint in SES F.5.5.3",
+        "equivalency of bonded joint in SES F.5.5.3"@en ;
+    ns1:qualityOf <http://example.org/req/160#SES_Context> .
+
+<http://example.org/req/160#Doc_SES_F553> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DescriptiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "SES F.5.5.3 documentation",
+        "SES F.5.5.3 documentation"@en ;
+    ns1:describes <http://example.org/req/160#AdhesiveAgeAndExpiration>,
+        <http://example.org/req/160#AdhesiveChoice>,
+        <http://example.org/req/160#BondedJointEquivalency>,
+        <http://example.org/req/160#SubstratePreparation> .
+
+<http://example.org/req/160#FrontHoop> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Front Hoop",
+        "Front Hoop"@en .
+
+<http://example.org/req/160#MainHoop> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Main Hoop",
+        "Main Hoop"@en .
+
+<http://example.org/req/160#SES_Document> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity ;
+    rdfs:label "The SES",
+        "The SES"@en .
+
+<http://example.org/req/160#SubstratePreparation> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "substrate preparation",
+        "substrate preparation"@en ;
+    ns1:qualityOf <http://example.org/req/160#SES_Context> .
+
+<http://example.org/req/160#VE_req1_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 5e+01 ;
+    ns2:minInclusive 5e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/PERCENT> ;
+    ns1:isValueExpressionOfAtAllTimes <http://example.org/req/160#ReductionFactor> .
+
+<http://qudt.org/vocab/unit/PERCENT> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/ServiceFactor> .
+
+<http://example.org/req/160#Chassis> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Chassis",
+        "Chassis"@en ;
+    ns1:hasComponentPartAtSomeTime <http://example.org/req/160#FrontHoop>,
+        <http://example.org/req/160#MainHoop> .
+
+<http://example.org/req/160#ObjSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/160#PlanProc_Req0>,
+        <http://example.org/req/160#PlanProc_Req1>,
+        <http://example.org/req/160#PlanProc_Req3> .
+
+<http://example.org/req/160#ReductionFactor> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "reduction factor for adhesive values",
+        "reduction factor for adhesive values"@en ;
+    ns1:hasValueExpressionAtAllTimes <http://example.org/req/160#VE_req1_c0> ;
+    ns1:processCharacteristicOf <http://example.org/req/160#PlanProc_Req1> .
+
+<http://example.org/req/160#PlanProc_Req0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Document SES adhesive information",
+        "Document SES adhesive information"@en ;
+    ns3:BFO_0000057 <http://example.org/req/160#Agent_Unknown> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/160#Doc_SES_F553> ;
+    ns1:prescribedBy <http://example.org/req/160#Spec_0> .
+
+<http://example.org/req/160#PlanProc_Req3> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Include main and front hoops in chassis",
+        "Include main and front hoops in chassis"@en ;
+    ns3:BFO_0000057 <http://example.org/req/160#Chassis> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/160#Chassis> ;
+    ns1:prescribedBy <http://example.org/req/160#Spec_0> .
+
+<http://example.org/req/160#PlanProc_Req1> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "SES adhesive value reduction",
+        "SES adhesive value reduction"@en ;
+    ns3:BFO_0000057 <http://example.org/req/160#SES_Document> ;
+    ns1:hasProcessCharacteristic <http://example.org/req/160#ReductionFactor> ;
+    ns1:prescribedBy <http://example.org/req/160#Spec_0> .
+
+<http://example.org/req/160#SES_Context> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "SES adhesive system context",
+        "SES adhesive system context"@en .
+
+<http://example.org/req/160#Spec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns3:BFO_0000110 <http://example.org/req/160#ActSpec_Req0>,
+        <http://example.org/req/160#ActSpec_Req1>,
+        <http://example.org/req/160#ActSpec_Req3>,
+        <http://example.org/req/160#ObjSpec_0> ;
+    ns1:prescribes <http://example.org/req/160#PlanProc_Req0>,
+        <http://example.org/req/160#PlanProc_Req1>,
+        <http://example.org/req/160#PlanProc_Req3> .
+

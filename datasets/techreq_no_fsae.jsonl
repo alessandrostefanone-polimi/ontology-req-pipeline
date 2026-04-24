@@ -1,0 +1,20 @@
+{"idx": 0, "original_text": "The robot miner should be able to mine up to 0,2 m3/h 100 MPa (uniaxial compressive strength) hard rock and transport the same amount to the processing plant."}
+{"idx": 1, "original_text": "In design solutions the temperature range is from 0 °C up to 85 °C without any extra cooling of components, but with water cooling 125 °C."}
+{"idx": 2, "original_text": "The crusher must be able to crush solid rock 0,2 m3/h and with maximum power of 7,5 kW (reserved)."}
+{"idx": 3, "original_text": "The reach of the manipulator arm is specified to 0,5 m + robot radius"}
+{"idx": 7, "original_text": "Diameter shall be 0,8 m (cross-section area of the tunnel 0,5 m2)"}
+{"idx": 9, "original_text": "The anchoring system shall give 10 000 – 15 000 N total traction force."}
+{"idx": 10, "original_text": "The system shall move along crop rows with widths in the range of 1-1.4 meters, heights between 0.2 and 0.6 meters and lengths between 10 and 100 meters."}
+{"idx": 11, "original_text": "The cart shall have an axle track in the range of 1.2 to 1.5 meters to move along the rows without damaging the crops."}
+{"idx": 12, "original_text": "The cart shall have clear height of 1 to 1.4 meters over the ground to hold the robot, sensors and actuators that must work over the plants."}
+{"idx": 13, "original_text": "The cart shall have a wheelbase of at least 1 meter to be able to collect data of the plants in a circle with a diameter of 1 meter."}
+{"idx": 14, "original_text": "The cart shall carry a payload of at least 120 kilograms"}
+{"idx": 15, "original_text": "The robot shall be able to place its tool within a circle with a diameter of 1 meter at a height of 0.2 meters over the ground."}
+{"idx": 16, "original_text": "The robot shall have a reach (i.e., a distance between the base and the tool) of at least 600 millimeters."}
+{"idx": 17, "original_text": "The robot shall have a precision of at least 10 millimeters in the positioning of its tool."}
+{"idx": 18, "original_text": "The robot shall have a maximum weight of 50 kilograms, including not only the electromechanical components, but also the power and control equipment"}
+{"idx": 19, "original_text": "The robot shall have a load capacity of 1.5 kilograms in operation positions to carry out sensing and actuation elements."}
+{"idx": 20, "original_text": "The prototype shall be able to take pictures of the crops in a circle with a diameter of 1 meter and below the cart with enough resolution to distinguish separate plants."}
+{"idx": 21, "original_text": "CubeSats materials shall have a Total Mass Loss (TML) of less than or equal to 1.0 %"}
+{"idx": 22, "original_text": "The magnetic field of any passive magnets shall be limited to 0.5 Gauss above Earth’s magnetic field, outside the CubeSat static envelope."}
+{"idx": 23, "original_text": "The CubeSat shall be designed to accommodate ascent venting per ventable volume/area of less than 50.8 meters (2000 inches)"}

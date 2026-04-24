@@ -1,0 +1,855 @@
+{
+  "generated_at_utc": "2026-02-13T13:46:07.152889+00:00",
+  "evaluation_dir": "src\\ontology_req_pipeline\\evaluation",
+  "run_id": "20260213T090600.375624Z",
+  "dataset_name": "fsae_test_number_unit_sample.jsonl",
+  "extraction_provider": "openai",
+  "extraction_model": "gpt-4o-mini",
+  "normalization_provider": "openai",
+  "normalization_model": "gpt-4o-mini",
+  "grounding_provider": "openai",
+  "grounding_model": "gpt-4o-mini",
+  "run_metadata": {
+    "run_id": "20260213T090600.375624Z",
+    "started_at_utc": "2026-02-13T09:06:00.375624+00:00",
+    "completed_at_utc": "2026-02-13T13:46:02.288791+00:00",
+    "status": "completed",
+    "input_path": "datasets\\extracted_reqs\\fsae_test_number_unit_sample.jsonl",
+    "dataset_name": "fsae_test_number_unit_sample.jsonl",
+    "output_dir": "src\\ontology_req_pipeline\\evaluation",
+    "input_records_expected": 120,
+    "processed_records": 120,
+    "normalized_ok": 120,
+    "grounded_ok": 110,
+    "grounding_failed": 10,
+    "inferred_ok": 81,
+    "limit": null,
+    "reasoner": "Pellet",
+    "extraction_provider": "openai",
+    "extraction_local": false,
+    "extraction_model": "gpt-4o-mini",
+    "normalization_provider": "openai",
+    "normalization_local": false,
+    "normalization_model": "gpt-4o-mini",
+    "grounding_provider": "openai",
+    "grounding_local": false,
+    "grounding_model": "gpt-4o-mini",
+    "provider": "openai",
+    "local": false,
+    "model": "gpt-4o-mini",
+    "run_duration_seconds": 16801.881572600003
+  },
+  "counts": {
+    "records_extraction": 120,
+    "records_normalization": 120,
+    "records_grounding": 120,
+    "requirements_extracted": 304,
+    "constraints_extracted": 482,
+    "quantity_constraints_extracted": 197,
+    "normalized_quantities_total": 181,
+    "normalized_quantities_with_unit": 181,
+    "invalid_normalized_constraint_idx": 0
+  },
+  "status": {
+    "extraction": {
+      "ok": 120
+    },
+    "normalization": {
+      "ok": 120
+    },
+    "grounding": {
+      "ok": 110,
+      "failed": 10
+    },
+    "inference": {
+      "failed": 29,
+      "ok": 81,
+      "skipped": 10
+    }
+  },
+  "completion_metrics": {
+    "observed_input_records": 120,
+    "expected_input_records": 120,
+    "extraction_success_rate_vs_input": 1.0,
+    "normalization_success_rate_vs_extraction_ok": 1.0,
+    "grounding_success_rate_vs_normalization_ok": 0.9166666666666666,
+    "end_to_end_success_count": 110,
+    "end_to_end_success_rate_vs_input": 0.9166666666666666,
+    "end_to_end_success_rate_vs_expected_input": 0.9166666666666666
+  },
+  "quantitative_fidelity": {
+    "quantity_coverage": 0.9187817258883249,
+    "constraint_index_integrity": 1.0,
+    "unit_completeness": 1.0,
+    "quantity_hallucination_rate": 0.0,
+    "quantity_hallucination_count": 0,
+    "quantity_hallucination_indices": []
+  },
+  "inference_utility": {
+    "inferred_file_count": 110,
+    "inferred_unique_hash_count": 110,
+    "inferred_uniqueness_ratio": 1.0,
+    "inferred_files_with_requirement_markers": 110,
+    "inferred_marker_presence_rate": 1.0,
+    "grounded_with_requirement_linkage": 110,
+    "requirement_linkage_completeness": 1.0,
+    "asserted_triple_stats": {
+      "count": 110,
+      "mean": 32.22727272727273,
+      "stdev": 16.201379902458978,
+      "min": 6.0,
+      "max": 118.0,
+      "p50": 29.0,
+      "p95": 64.0
+    },
+    "inferred_triple_stats": {
+      "count": 110,
+      "mean": 72.22727272727273,
+      "stdev": 44.60465917182543,
+      "min": 19.0,
+      "max": 325.0,
+      "p50": 61.0,
+      "p95": 150.0
+    },
+    "inference_delta_triples_stats": {
+      "count": 110,
+      "mean": 40.0,
+      "stdev": 35.635018527489855,
+      "min": 0.0,
+      "max": 207.0,
+      "p50": 37.0,
+      "p95": 95.0
+    }
+  },
+  "latency_metrics": {
+    "run_duration_seconds": 16801.881572600003,
+    "throughput_records_per_minute": 0.4285234346456495,
+    "extraction_seconds": {
+      "count": 120,
+      "mean": 40.27288321083324,
+      "stdev": 33.311861029824726,
+      "min": 9.207639900007052,
+      "max": 181.0713254000002,
+      "p50": 30.643404400005238,
+      "p95": 105.32534720000695
+    },
+    "normalization_seconds": {
+      "count": 120,
+      "mean": 9.463637297499371,
+      "stdev": 7.218624073253398,
+      "min": 3.7949720000033267,
+      "max": 54.28033339999092,
+      "p50": 7.577646599995205,
+      "p95": 21.061356699996395
+    },
+    "grounding_seconds": {
+      "count": 120,
+      "mean": 88.10437798666656,
+      "stdev": 110.53412165311762,
+      "min": 18.67254219998722,
+      "max": 670.8526928999927,
+      "p50": 43.662013499997556,
+      "p95": 342.3236957999907
+    },
+    "inference_seconds": {
+      "count": 110,
+      "mean": 2.366200106364241,
+      "stdev": 1.6447922775688686,
+      "min": 0.08435699999972712,
+      "max": 12.702350999999908,
+      "p50": 2.419018500004313,
+      "p95": 4.460294300006353
+    },
+    "end_to_end_seconds": {
+      "count": 120,
+      "mean": 140.01488284916667,
+      "stdev": 119.74186360376778,
+      "min": 40.08788620000996,
+      "max": 699.7399592000002,
+      "p50": 97.42224130000977,
+      "p95": 376.7979680999997
+    }
+  },
+  "call_and_cost": {
+    "extraction_invocations": 120,
+    "normalization_invocations": 120,
+    "grounding_invocations": 120,
+    "inference_invocations": 110,
+    "token_usage_available": false,
+    "cost_usage_available": false
+  },
+  "failure_metrics": {
+    "grounding_failed_count": 10,
+    "grounding_failed_rate": 0.08333333333333333,
+    "external_dependency_failure_count": 0,
+    "external_dependency_failure_rate": 0.0
+  },
+  "robustness_metrics": {
+    "runs_in_history": 2,
+    "end_to_end_success_rate_vs_input": {
+      "count": 2,
+      "mean": 0.9541666666666666,
+      "stdev": 0.03750000000000003,
+      "min": 0.9166666666666666,
+      "max": 0.9916666666666667,
+      "p50": 0.9166666666666666,
+      "p95": 0.9916666666666667
+    },
+    "quantity_coverage": {
+      "count": 2,
+      "mean": 0.9502445214807478,
+      "stdev": 0.03146279559242293,
+      "min": 0.9187817258883249,
+      "max": 0.9817073170731707,
+      "p50": 0.9187817258883249,
+      "p95": 0.9817073170731707
+    },
+    "quantity_hallucination_rate": {
+      "count": 2,
+      "mean": 0.0,
+      "stdev": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "p50": 0.0,
+      "p95": 0.0
+    },
+    "external_dependency_failure_rate": {
+      "count": 2,
+      "mean": 0.0,
+      "stdev": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "p50": 0.0,
+      "p95": 0.0
+    },
+    "inferred_uniqueness_ratio": {
+      "count": 2,
+      "mean": 1.0,
+      "stdev": 0.0,
+      "min": 1.0,
+      "max": 1.0,
+      "p50": 1.0,
+      "p95": 1.0
+    },
+    "run_duration_seconds": {
+      "count": 2,
+      "mean": 11905.717085200002,
+      "stdev": 4896.164487400001,
+      "min": 7009.5525978000005,
+      "max": 16801.881572600003,
+      "p50": 7009.5525978000005,
+      "p95": 16801.881572600003
+    }
+  },
+  "quality": {
+    "quantity_coverage": 0.9187817258883249,
+    "quantity_hallucination_count": 0,
+    "quantity_hallucination_indices": [],
+    "inferred_file_count": 110,
+    "inferred_unique_hash_count": 110,
+    "inferred_files_with_requirement_markers": 110,
+    "inferred_files_without_requirement_markers": 0
+  },
+  "per_record_quantity_coverage": [
+    {
+      "idx": 80,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 89,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 93,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 94,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 97,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 111,
+      "quantity_constraints_extracted": 8,
+      "normalized_quantities": 7
+    },
+    {
+      "idx": 113,
+      "quantity_constraints_extracted": 5,
+      "normalized_quantities": 5
+    },
+    {
+      "idx": 122,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 128,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 136,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 160,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 163,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 164,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 165,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 166,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 167,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 168,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 172,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 174,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 179,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 190,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 194,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 199,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 205,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 206,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 225,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 232,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 234,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 236,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 238,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 259,
+      "quantity_constraints_extracted": 3,
+      "normalized_quantities": 3
+    },
+    {
+      "idx": 264,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 276,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 279,
+      "quantity_constraints_extracted": 3,
+      "normalized_quantities": 3
+    },
+    {
+      "idx": 281,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 284,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 287,
+      "quantity_constraints_extracted": 4,
+      "normalized_quantities": 4
+    },
+    {
+      "idx": 300,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 306,
+      "quantity_constraints_extracted": 8,
+      "normalized_quantities": 7
+    },
+    {
+      "idx": 312,
+      "quantity_constraints_extracted": 3,
+      "normalized_quantities": 3
+    },
+    {
+      "idx": 315,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 318,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 319,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 330,
+      "quantity_constraints_extracted": 3,
+      "normalized_quantities": 3
+    },
+    {
+      "idx": 333,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 336,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 355,
+      "quantity_constraints_extracted": 7,
+      "normalized_quantities": 7
+    },
+    {
+      "idx": 357,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 372,
+      "quantity_constraints_extracted": 4,
+      "normalized_quantities": 4
+    },
+    {
+      "idx": 384,
+      "quantity_constraints_extracted": 4,
+      "normalized_quantities": 4
+    },
+    {
+      "idx": 385,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 394,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 397,
+      "quantity_constraints_extracted": 9,
+      "normalized_quantities": 9
+    },
+    {
+      "idx": 403,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 408,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 415,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 418,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 419,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 438,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 440,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 443,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 444,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 448,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 451,
+      "quantity_constraints_extracted": 4,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 452,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 456,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 460,
+      "quantity_constraints_extracted": 3,
+      "normalized_quantities": 3
+    },
+    {
+      "idx": 462,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 465,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 467,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 470,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 471,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 472,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 476,
+      "quantity_constraints_extracted": 5,
+      "normalized_quantities": 4
+    },
+    {
+      "idx": 484,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 488,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 491,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 495,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 496,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 503,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 509,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 514,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 550,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 556,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 559,
+      "quantity_constraints_extracted": 11,
+      "normalized_quantities": 11
+    },
+    {
+      "idx": 570,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 571,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 572,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 576,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 606,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 611,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 622,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 625,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 646,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 647,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 648,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 658,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 668,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 671,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 690,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 698,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 699,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 728,
+      "quantity_constraints_extracted": 4,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 730,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 731,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 797,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 798,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 800,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 807,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 812,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 852,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    },
+    {
+      "idx": 855,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 856,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 920,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 921,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 922,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 927,
+      "quantity_constraints_extracted": 2,
+      "normalized_quantities": 2
+    },
+    {
+      "idx": 937,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 944,
+      "quantity_constraints_extracted": 1,
+      "normalized_quantities": 1
+    },
+    {
+      "idx": 965,
+      "quantity_constraints_extracted": 0,
+      "normalized_quantities": 0
+    }
+  ]
+}

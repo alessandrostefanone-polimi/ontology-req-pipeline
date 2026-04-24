@@ -1,0 +1,95 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <http://example.org/req/111#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Definition Any tubing which does NOT meet F.3.2.1.o Structural Tubing F.3.3.2 Applicability Non Structural Tubing is ignored when assessing compliance to any rule ## F.3.4 Steel Tubing and Material F.3.4.1 Minimum Requirements for Steel Tubing A tube must meet all four minimum requirements for each Size specified: Tube Minimum Area Moment of Inertia Minimum Cross Sectional Area Minimum Outside Diameter or Square Width Minimum Wall Thickness Example Sizes of Round Tube :--: :--: :--: :--: :--: :--: :--: a. Size A $11320 \\mathrm{~mm}^{4}$ $173 \\mathrm{~mm}^{2}$ 25.0 mm 2.0 mm $\\begin{aligned} & 1.0^{\\prime \\prime} \\times 0.095^{\\prime \\prime} \\\\ & 25 \\times 2.5 \\mathrm{~mm} \\end{aligned}$ b" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "A tube must meet all four minimum requirements for each Size specified." ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req_2 a iof:RequirementSpecification ;
+    rdfs:comment "Minimum Area Moment of Inertia." ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req_3 a iof:RequirementSpecification ;
+    rdfs:comment "Minimum Cross Sectional Area." ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req_4 a iof:RequirementSpecification ;
+    rdfs:comment "Minimum Outside Diameter or Square Width." ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Req_5 a iof:RequirementSpecification ;
+    rdfs:comment "Minimum Wall Thickness." ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:Tube a iof:MaterialArtifact .
+
+:VE_req2_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.132e+07 ;
+    qudt:unit qudtu:GRAY-PER-SEC .
+
+:VE_req2_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.73e+02 ;
+    qudt:unit qudtu:MM2 .
+
+:VE_req2_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MM .
+
+:VE_req2_c3 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:MM .
+
+:VE_req4_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MM .
+
+:VE_req4_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MM .
+
+:VE_req5_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 2e+00 ;
+    qudt:unit qudtu:MM .
+
+qudtqk:CartesianArea a qudt:QuantityKind .
+
+qudtqk:MassicPower a qudt:QuantityKind .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:GRAY-PER-SEC a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:MassicPower .
+
+qudtu:MM2 a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:CartesianArea .
+
+qudtu:MM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :VE_req2_c0,
+        :VE_req2_c1,
+        :VE_req2_c2,
+        :VE_req2_c3,
+        :VE_req4_c0,
+        :VE_req4_c1,
+        :VE_req5_c0 .
+

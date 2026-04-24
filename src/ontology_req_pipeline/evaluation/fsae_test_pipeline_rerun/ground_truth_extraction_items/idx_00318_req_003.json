@@ -1,0 +1,46 @@
+{
+  "idx": 318,
+  "req_idx": 3,
+  "source_text": "Alternate materials Equivalent to 2 mm thickness steel F.10.5.5 Teams must justify the Accumulator Container attachment using one of the two methods: - Corner Attachments and Analysis per F.10.5.6 and F.10.5.8 - Load Based Analysis per F.10.5.7 and F.10.5.8 F.10.5.6 Accumulator Attachment - Corner Attachments a. Eight or more attachments are required for any configuration",
+  "requirement_text_pred": "Eight or more attachments are required for any configuration",
+  "prediction": {
+    "subject": "attachments",
+    "modality": "is",
+    "condition": "",
+    "action": "are required",
+    "object": "for any configuration"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "number of attachments",
+      "operator_pred": "ge",
+      "value_raw_pred": "Eight or more",
+      "value_v1_pred": 8.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "DimensionlessUnit",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Dimensionless",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/COUNT",
+      "normalized_si_value_primary_pred": 8.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/BEAT",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

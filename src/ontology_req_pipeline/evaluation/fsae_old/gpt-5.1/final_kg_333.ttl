@@ -1,0 +1,68 @@
+@prefix : <http://example.org/req/333#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:AccumulatorContainer a bfo:BFO_0000040 ;
+    rdfs:label "Accumulator Container"@en .
+
+:ClearanceProcess a iof:PlannedProcess ;
+    rdfs:label "process ensuring clearance of non-crushable items to accumulator container"@en ;
+    bfo:BFO_0000057 :AccumulatorContainer,
+        :NonCrushableItem ;
+    iof:hasProcessCharacteristic :ClearanceDistance .
+
+:DS_MountPlateSize a iof:DesignSpecification ;
+    iof:prescribes :MountOrPlate ;
+    iof:satisfiesRequirement :Req_0 .
+
+:MountOrPlate a bfo:BFO_0000040 ;
+    rdfs:label "mounts or plate"@en ;
+    iof:hasQuality :MountPlateSizeDifference .
+
+:NonCrushableItem a bfo:BFO_0000040 ;
+    rdfs:label "non-crushable item"@en .
+
+:PS_Clearance a iof:PlanSpecification ;
+    iof:prescribes :ClearanceProcess ;
+    iof:satisfiesRequirement :Req_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "size difference ≥ 25 mm"@en ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :MountPlateSizeDifference .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "clearance ≥ 25 mm"@en ;
+    qudt:minInclusive 2.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :ClearanceDistance .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:ClearanceDistance a iof:ProcessCharacteristic ;
+    rdfs:label "clearance distance between non-crushable item and accumulator container surface"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req1_c1 .
+
+:MountPlateSizeDifference a bfo:BFO_0000019 ;
+    rdfs:label "size difference between mount/plate and tubes"@en ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c1 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "If used, the mounts or plate must be 25 mm or more larger at both the top and bottom of the upper and lower tubes F.11.2.3 All Non Crushable Items should have a minimum 25 mm clearance to the surface of the Accumulator Container" ;
+    iof:requirementSatisfiedBy :DS_MountPlateSize,
+        :PS_Clearance .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+

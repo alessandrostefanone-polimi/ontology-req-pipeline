@@ -1,0 +1,103 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/19#> a owl:Ontology .
+
+<http://example.org/req/19#OperationPositions_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/19#SensingAndActuationElements_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/19#CarryOutFunction_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000016>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000034>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Capability,
+        ns1:DesignedFunction ;
+    ns1:functionOf <http://example.org/req/19#Robot_0> ;
+    ns1:prescribedBy <http://example.org/req/19#Spec_0> .
+
+<http://example.org/req/19#ObjSpec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isSubjectOf <http://example.org/req/19#Req_0> ;
+    ns1:prescribes <http://example.org/req/19#LoadCapacity_0> .
+
+<http://example.org/req/19#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:maxInclusive 1.5e+00 ;
+    ns2:minInclusive 1.5e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/KiloGM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/19#LoadCapacity_0> .
+
+<http://qudt.org/vocab/unit/KiloGM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/PayloadMass> .
+
+<http://example.org/req/19#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The robot shall have a load capacity of 1.5 kilograms in operation positions to carry out sensing and actuation elements." ;
+    ns1:isAbout <http://example.org/req/19#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/19#Spec_0> .
+
+<http://example.org/req/19#Spec_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/19#Robot_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/19#Req_0> .
+
+<http://example.org/req/19#LoadCapacity_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/19#VE_req0_c0> ;
+    ns1:qualityOf <http://example.org/req/19#Robot_0> .
+
+<http://example.org/req/19#Robot_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000027>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:EngineeredSystem,
+        ns1:System ;
+    ns1:hasFunction <http://example.org/req/19#CarryOutFunction_0> ;
+    ns1:hasQuality <http://example.org/req/19#LoadCapacity_0> .
+

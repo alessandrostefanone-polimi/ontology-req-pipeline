@@ -1,0 +1,34 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/812#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Loaded deflection should not be more than 25 mm b" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :VE_req0_c0 .
+
+:deflection a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudt:MilliM ;
+    qudt:maxInclusive 2.5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :deflection .
+

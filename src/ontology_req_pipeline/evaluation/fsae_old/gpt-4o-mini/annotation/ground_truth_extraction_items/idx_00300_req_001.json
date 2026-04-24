@@ -1,0 +1,23 @@
+{
+  "idx": 300,
+  "req_idx": 1,
+  "source_text": "Any portion of the Fuel System that is less than 350 mm above the ground, and all parts of the Fuel Tank, must be inside the Primary Structure (F.1.10)",
+  "requirement_text_pred": "All parts of the Fuel Tank must be inside the Primary Structure.",
+  "prediction": {
+    "subject": "All parts of the Fuel Tank",
+    "modality": "must",
+    "condition": "",
+    "action": "be inside",
+    "object": "the Primary Structure"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

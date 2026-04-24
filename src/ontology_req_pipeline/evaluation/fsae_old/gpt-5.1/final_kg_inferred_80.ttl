@@ -1,0 +1,159 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/80#> a owl:Ontology .
+
+<http://example.org/req/80#GroundContactEvent> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Event ;
+    rdfs:label "Ground contact of vehicle (non-tire parts)" ;
+    ns3:BFO_0000057 <http://example.org/req/80#Vehicle> .
+
+<http://example.org/req/80#Tire> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Tire" .
+
+<http://example.org/req/80#DS_GroundClearance> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec: vehicle ground clearance" ;
+    ns1:prescribes <http://example.org/req/80#VehicleGroundClearanceQuality> ;
+    ns1:satisfiesRequirement <http://example.org/req/80#Req_0> .
+
+<http://example.org/req/80#DS_LSIS_Clearance> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec: LSIS ground clearance" ;
+    ns1:prescribes <http://example.org/req/80#LSIS_ClearanceQuality> ;
+    ns1:satisfiesRequirement <http://example.org/req/80#Req_0> .
+
+<http://example.org/req/80#LowerSideImpactStructure> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact ;
+    rdfs:label "Lower Side Impact Structure" ;
+    ns3:BFO_0000040 <http://example.org/req/80#Vehicle> .
+
+<http://example.org/req/80#VE_req1_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression: LSIS distance to ground <= 75 mm" ;
+    ns2:maxInclusive 7.5e+01 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/80#LSIS_ClearanceQuality> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Height> .
+
+<http://example.org/req/80#DynamicEventProcess> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Vehicle dynamic event" ;
+    ns3:BFO_0000057 <http://example.org/req/80#Vehicle> ;
+    ns1:prescribedBy <http://example.org/req/80#PS_DynamicEvents> .
+
+<http://example.org/req/80#ObjSpec_GroundClearance> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective: ground clearance behavior" ;
+    ns1:prescribes <http://example.org/req/80#DynamicEventProcess>,
+        <http://example.org/req/80#LSIS_ClearanceQuality>,
+        <http://example.org/req/80#VehicleGroundClearanceQuality> .
+
+<http://example.org/req/80#PS_DynamicEvents> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan spec: vehicle dynamic events" ;
+    ns3:BFO_0000110 <http://example.org/req/80#ObjSpec_GroundClearance> ;
+    ns1:prescribes <http://example.org/req/80#DynamicEventProcess> ;
+    ns1:satisfiesRequirement <http://example.org/req/80#Req_0> .
+
+<http://example.org/req/80#VehicleGroundClearanceQuality> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Vehicle ground clearance quality" ;
+    ns1:qualityOf <http://example.org/req/80#Vehicle> .
+
+<http://example.org/req/80#LSIS_ClearanceQuality> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Distance to ground below LSIS at lowest point" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/80#VE_req1_c0> ;
+    ns1:qualityOf <http://example.org/req/80#LowerSideImpactStructure> .
+
+<http://example.org/req/80#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Ground Clearance V.1.4.1 Ground clearance must be sufficient to prevent any portion of the vehicle except the tires from touching the ground during dynamic events V.1.4.2 The distance to the ground below the Lower Side Impact Structure ( F.6.4.5, F.7.5.1 ) at its lowest point should be 75 mm or less V.1.4.3 Intentional or excessive ground contact of any portion of the vehicle other than the tires will forfeit a run or an entire dynamic event" ;
+    ns1:isAbout <http://example.org/req/80#ObjSpec_GroundClearance> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/80#DS_GroundClearance>,
+        <http://example.org/req/80#DS_LSIS_Clearance>,
+        <http://example.org/req/80#PS_DynamicEvents> .
+
+<http://example.org/req/80#Vehicle> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000027,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:EngineeredSystem,
+        ns1:System ;
+    rdfs:label "Vehicle" .
+

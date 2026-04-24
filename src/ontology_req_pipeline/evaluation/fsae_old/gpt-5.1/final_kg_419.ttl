@@ -1,0 +1,62 @@
+@prefix : <http://example.org/req/419#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:PedalTravel_Req0 a bfo:BFO_0000019 ;
+    iof:qualityOf :APPSs_Req0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The intent is that in a short circuit the APPSs will only agree at 0\\% Pedal Travel T.4.2.4 Implausibility is defined as a deviation of more than 10\\% Pedal Travel between the sensors or other failure as defined in this Section T.4.2" ;
+    iof:requirementSatisfiedBy :DS_Req419_0,
+        :PS_Req419_1 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 0e+00 ;
+    qudt:minInclusive 0e+00 ;
+    qudt:unit qudtu:PERCENT ;
+    iof:isValueExpressionOfAtSomeTime :AgreementLevel_Req0 .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minExclusive 1e+01 ;
+    qudt:unit qudtu:PERCENT ;
+    iof:isValueExpressionOfAtSomeTime :DeviationBetweenSensors_Req1 .
+
+:AgreementLevel_Req0 a iof:ProcessCharacteristic ;
+    iof:processCharacteristicOf :ShortCircuit_Req0 .
+
+:DS_Req419_0 a iof:DesignSpecification ;
+    iof:isAbout :Obj_Req0 ;
+    iof:prescribes :APPSs_Req0 .
+
+:DeviationBetweenSensors_Req1 a iof:ProcessCharacteristic ;
+    iof:processCharacteristicOf :ImplausibilityProcess_Req1 .
+
+:Obj_Req0 a iof:ObjectiveSpecification .
+
+:Obj_Req1 a iof:ObjectiveSpecification .
+
+:PS_Req419_1 a iof:PlanSpecification ;
+    iof:isAbout :Obj_Req1 ;
+    iof:prescribes :ImplausibilityProcess_Req1 .
+
+:ShortCircuit_Req0 a bfo:BFO_0000015 .
+
+qudtqk:DutyCycle a qudt:QuantityKind .
+
+:APPSs_Req0 a bfo:BFO_0000040 .
+
+:ImplausibilityProcess_Req1 a iof:PlannedProcess .
+
+qudtu:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:DutyCycle .
+

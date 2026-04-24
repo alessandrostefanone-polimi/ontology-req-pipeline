@@ -1,0 +1,71 @@
+@prefix : <http://example.org/req/167#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "A straight line measuring 280 mm will connect the centers of the upper 200 mm circle and the 300 mm head circle" ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:ConnectingProcess_0 a iof:PlannedProcess ;
+    iof:hasInput :HeadCircle_0,
+        :UpperCircle_0 ;
+    iof:hasSpecifiedOutput :ConnectingLine_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :ConnectingProcess_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2.8e+02 ;
+    qudt:minInclusive 2.8e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :LineLength_0 .
+
+:VE_req0_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2e+02 ;
+    qudt:minInclusive 2e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :UpperCircleDiameter_0 .
+
+:VE_req0_c2 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 3e+02 ;
+    qudt:minInclusive 3e+02 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :HeadCircleDiameter_0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+:ConnectingLine_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :LineLength_0 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+:HeadCircleDiameter_0 a bfo:BFO_0000019 ;
+    iof:qualityOf :HeadCircle_0 .
+
+:HeadCircle_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :HeadCircleDiameter_0 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c2 .
+
+:LineLength_0 a bfo:BFO_0000019 ;
+    iof:qualityOf :ConnectingLine_0 .
+
+:UpperCircleDiameter_0 a bfo:BFO_0000019 ;
+    iof:qualityOf :UpperCircle_0 .
+
+:UpperCircle_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :UpperCircleDiameter_0 ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c1 .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+

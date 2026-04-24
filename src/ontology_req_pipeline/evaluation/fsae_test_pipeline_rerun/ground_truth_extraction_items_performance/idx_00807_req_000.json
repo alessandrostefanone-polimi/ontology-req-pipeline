@@ -1,0 +1,24 @@
+{
+  "idx": 807,
+  "req_idx": 0,
+  "source_text": "Successfully complete the Egress Test IN.5.2 IN.5.3.2 A driver(s) must complete the Driver Cockpit Checks to pass Mechanical Inspection # IN",
+  "requirement_text_pred": "Successfully complete the Egress Test IN.5.2 IN.5.3.2",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "Successfully complete",
+    "object": "the Egress Test IN.5.2 IN.5.3.2"
+  },
+  "labels": {
+    "decomposition_error": true,
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

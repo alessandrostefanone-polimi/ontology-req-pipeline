@@ -1,0 +1,53 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@base <https://example.org/ontology/qudt-light> .
+
+<https://example.org/ontology/qudt-light> a owl:Ontology ;
+    rdfs:label "QUDT lightweight schema (classes/properties only; no individuals)" ;
+    owl:versionInfo "2026-01-28 minimal hand-curated slice for IOF bridge" .
+
+# Core classes
+qudt:QuantityValue a owl:Class ;
+    rdfs:label "Quantity Value" .
+
+qudt:Unit a owl:Class ;
+    rdfs:label "Unit" .
+
+qudt:QuantityKind a owl:Class ;
+    rdfs:label "Quantity Kind" .
+
+# Object properties
+qudt:unit a owl:ObjectProperty ;
+    rdfs:label "unit" ;
+    rdfs:domain qudt:QuantityValue ;
+    rdfs:range qudt:Unit .
+
+qudt:hasUnit a owl:ObjectProperty ;
+    rdfs:label "has unit" ;
+    rdfs:domain qudt:QuantityValue ;
+    rdfs:range qudt:Unit ;
+    rdfs:subPropertyOf qudt:unit .
+
+qudt:hasQuantityKind a owl:ObjectProperty ;
+    rdfs:label "has quantity kind" ;
+    rdfs:domain qudt:Unit ;
+    rdfs:range qudt:QuantityKind .
+
+# Data properties
+qudt:numericValue a owl:DatatypeProperty ;
+    rdfs:label "numeric value" ;
+    rdfs:domain qudt:QuantityValue ;
+    rdfs:range xsd:decimal .
+
+qudt:upperBound a owl:DatatypeProperty ;
+    rdfs:label "upper bound" ;
+    rdfs:domain qudt:QuantityValue ;
+    rdfs:range xsd:decimal .
+
+qudt:lowerBound a owl:DatatypeProperty ;
+    rdfs:label "lower bound" ;
+    rdfs:domain qudt:QuantityValue ;
+    rdfs:range xsd:decimal .

@@ -1,0 +1,127 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/443#> a owl:Ontology .
+
+<http://example.org/req/443#Motor_Case_Perforation> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    ns1:hasOutput <http://example.org/req/443#Motor_Case> .
+
+<http://example.org/req/443#Motor_Casing_Rotation> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000003>,
+        <http://purl.obolibrary.org/obo/BFO_0000015>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Process ;
+    ns1:hasOutput <http://example.org/req/443#Motor_Casing> .
+
+<http://example.org/req/443#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Minimum thickness for steel: 2.0 mm T.5.3.2 A Scatter Shield must be included around the Motor(s) when one or both: - The motor casing rotates around the stator - The motor case is perforated T.5.3.3" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/443#DS_req0> .
+
+<http://example.org/req/443#Scatter_Shield> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    ns1:hasRole <http://example.org/req/443#Scatter_Shield_Role> .
+
+<http://example.org/req/443#DS_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/443#VE_req0_c0> .
+
+<http://example.org/req/443#Motor_Case> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    ns1:hasRole <http://example.org/req/443#Motor_Case_Role> .
+
+<http://example.org/req/443#Motor_Case_Role> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:AgentRole ;
+    rdfs:label "Motor Case Role" .
+
+<http://example.org/req/443#Motor_Casing> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialEntity ;
+    ns1:hasRole <http://example.org/req/443#Motor_Casing_Role> .
+
+<http://example.org/req/443#Motor_Casing_Role> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:AgentRole ;
+    rdfs:label "Motor Casing Role" .
+
+<http://example.org/req/443#Scatter_Shield_Role> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:AgentRole ;
+    rdfs:label "Scatter Shield Role" .
+
+<http://example.org/req/443#Thickness_Quality> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/443#VE_req0_c0> .
+
+<http://example.org/req/443#Thickness_Steel> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasQuality <http://example.org/req/443#Thickness_Quality> .
+
+<http://qudt.org/vocab/unit/MilliM> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Thickness> .
+
+<http://example.org/req/443#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:minInclusive 2e+00 ;
+    ns2:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/443#Thickness_Steel> .
+

@@ -1,0 +1,55 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/807#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:DriverAgent a iof:Agent ;
+    rdfs:label "driver(s)" ;
+    bfo:BFO_0000057 :DriverCockpitChecksProcess .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Successfully complete the Egress Test IN.5.2 IN.5.3.2 A driver(s) must complete the Driver Cockpit Checks to pass Mechanical Inspection # IN" ;
+    iof:isAbout :ObjSpec_DriverChecksCompletion,
+        :ObjSpec_EgressCompletion ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:MechanicalInspectionProcess a iof:BusinessProcess ;
+    rdfs:label "Mechanical Inspection # IN" ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:EgressTestProcess a iof:BusinessProcess ;
+    rdfs:label "Egress Test IN.5.2 IN.5.3.2" ;
+    iof:achievesAtSomeTime :ObjSpec_EgressCompletion ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:ObjSpec_DriverChecksCompletion a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: Driver Cockpit Checks completed to pass Mechanical Inspection # IN" ;
+    iof:isAchievedByAtSomeTime :DriverCockpitChecksProcess ;
+    iof:prescribes :DriverCockpitChecksProcess .
+
+:ObjSpec_EgressCompletion a iof:ObjectiveSpecification ;
+    rdfs:label "Objective: Egress Test IN.5.2 IN.5.3.2 completed" ;
+    iof:isAchievedByAtSomeTime :EgressTestProcess ;
+    iof:prescribes :EgressTestProcess .
+
+:DriverCockpitChecksProcess a iof:BusinessProcess ;
+    rdfs:label "Driver Cockpit Checks" ;
+    iof:achievesAtSomeTime :ObjSpec_DriverChecksCompletion ;
+    iof:occursDuring :MechanicalInspectionProcess ;
+    iof:prescribedBy :PlanSpec_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    rdfs:label "Plan for Egress Test and Mechanical Inspection" ;
+    bfo:BFO_0000110 :ObjSpec_DriverChecksCompletion,
+        :ObjSpec_EgressCompletion ;
+    iof:prescribes :DriverCockpitChecksProcess,
+        :EgressTestProcess,
+        :MechanicalInspectionProcess .
+

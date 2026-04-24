@@ -1,0 +1,40 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/194#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "[img-9.jpeg](img-9.jpeg) F.5.12.3 For Double Lug Joints, each lug must: a. Be minimum 4.5 mm ( 0.177 in) thickness steel b" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :VE_req0_c0 .
+
+:each_lug a iof:MaterialArtifact ;
+    iof:hasQuality :thickness_quality .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:MeasuredValueExpression,
+        iof:ValueExpression ;
+    qudt:hasSimpleExpressionValue 4.5 ;
+    qudt:minInclusive 4.5e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :each_lug,
+        :thickness_quality .
+
+:thickness_quality a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 ;
+    iof:prescribes :thickness_quality .
+

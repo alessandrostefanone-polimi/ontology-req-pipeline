@@ -1,0 +1,46 @@
+{
+  "idx": 921,
+  "req_idx": 1,
+  "source_text": "Course width will be minimum 4.9 m wide as measured between the inner edges of the bases of the course edge cones D.9.1.3 Cones are placed along the course edges at intervals, approximately 6 m",
+  "requirement_text_pred": "Cones are placed along the course edges at intervals, approximately 6 m",
+  "prediction": {
+    "subject": "Cones",
+    "modality": "is",
+    "condition": "",
+    "action": "are placed",
+    "object": "along the course edges at intervals, approximately 6 m"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": false,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "placement interval",
+      "operator_pred": "eq",
+      "value_raw_pred": "approximately 6 m",
+      "value_v1_pred": 6.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "m",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Length",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/M",
+      "normalized_si_value_primary_pred": 6.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

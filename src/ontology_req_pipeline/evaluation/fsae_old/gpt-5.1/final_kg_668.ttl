@@ -1,0 +1,77 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/668#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:EV_5_10 a iof:InformationContentEntity ;
+    rdfs:label "EV.5.10"@en .
+
+:EV_7_8 a iof:InformationContentEntity ;
+    rdfs:label "EV.7.8 (document reference)"@en .
+
+:Interlock_EV_7_8 a bfo:BFO_0000040 ;
+    rdfs:label "Interlock EV.7.8"@en .
+
+:Req0_Constraint0 a iof:InformationContentEntity ;
+    rdfs:label "Requirement 0, constraint 0: one-of-two options"@en ;
+    iof:describes :TSConnectorOptionRole ;
+    iof:isSubjectOf :Req_0 .
+
+:Req1_Constraint0 a iof:InformationContentEntity ;
+    rdfs:label "Requirement 1, constraint 0: target circuit relation"@en ;
+    iof:describes :Req1_Action_OpenShutdownCircuit ;
+    iof:isSubjectOf :Req_0 .
+
+:Req2_Constraint0 a iof:InformationContentEntity ;
+    rdfs:label "Requirement 2, constraint 0: sealed at Tech Inspection"@en ;
+    iof:describes :Req2_SealQuality ;
+    iof:isSubjectOf :Req_0 .
+
+:TSAL a bfo:BFO_0000040 ;
+    rdfs:label "TSAL"@en .
+
+:TSAL_c a bfo:BFO_0000040 ;
+    rdfs:label "TSAL c"@en .
+
+:TechInspection_IN_4_7_1 a bfo:BFO_0000015 ;
+    rdfs:label "Tech Inspection IN.4.7.1"@en .
+
+:TractiveSystem a bfo:BFO_0000040 ;
+    rdfs:label "Tractive System"@en .
+
+:DS_0 a iof:DesignSpecification ;
+    iof:prescribes :TractiveSystemConnectorOutsideHousing ;
+    iof:satisfiesRequirement :Req_0 .
+
+:ObjSpec_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :TractiveSystemConnectorOutsideHousing .
+
+:Req1_Action_OpenShutdownCircuit a iof:ActionSpecification ;
+    rdfs:label "Open the Shutdown Circuit EV.7.2.2"@en ;
+    iof:prescribes :ShutdownCircuit_EV_7_2_2 .
+
+:Req2_SealQuality a bfo:BFO_0000019 ;
+    rdfs:label "sealed quality"@en .
+
+:ShutdownCircuit_EV_7_2_2 a bfo:BFO_0000040 ;
+    rdfs:label "Shutdown Circuit EV.7.2.2"@en .
+
+:TSConnectorOptionRole a bfo:BFO_0000023 ;
+    rdfs:label "option role for TS connectors outside housing"@en .
+
+:TractiveSystemConnectorOutsideHousing a bfo:BFO_0000002 ;
+    rdfs:label "Tractive System connectors outside of a housing"@en ;
+    iof:hasRole :TSConnectorOptionRole .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "From a point 1.6 m vertically from ground level, inside a 3 m horizontal radius from the TSAL c. In direct sunlight # EV.5.10 Connectors Tractive System connectors outside of a housing must meet one of the two: - Contain an Interlock EV.7.8 which must Open the Shutdown Circuit EV.7.2.2 - Be sealed at Tech Inspection IN.4.7.1 ## EV" ;
+    iof:isAbout :ObjSpec_0 ;
+    iof:requirementSatisfiedBy :DS_0 .
+

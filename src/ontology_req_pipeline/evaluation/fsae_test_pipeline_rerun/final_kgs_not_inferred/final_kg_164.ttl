@@ -1,0 +1,40 @@
+@prefix : <http://example.org/req/164#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Circle_0 a bfo:BFO_0000030 ;
+    rdfs:label "circle representing shoulder/cervical region" ;
+    iof:hasQuality :Circle_0_Diameter .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :Circle_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "A circle of diameter 200 mm will represent the shoulder/cervical region" ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 2e-01 ;
+    qudt:minInclusive 2e-01 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtAllTimes :Circle_0_Diameter .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:Circle_0_Diameter a bfo:BFO_0000019 ;
+    rdfs:label "diameter of circle representing shoulder/cervical region" ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+

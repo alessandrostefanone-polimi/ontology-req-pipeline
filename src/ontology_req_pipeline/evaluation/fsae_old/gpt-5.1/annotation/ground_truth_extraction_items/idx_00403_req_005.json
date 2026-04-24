@@ -1,0 +1,45 @@
+{
+  "idx": 403,
+  "req_idx": 5,
+  "source_text": "In side view any portion of the Brake System that is mounted on the sprung part of the vehicle must not project below the lower surface of the chassis T.3.1.10 Fasteners in the Brake System are Critical Fasteners, see T.8.2 ## T.3.2 Brake Pedal, Pedal Box and Mounting T.3.2.1 The Brake Pedal must be one of: - Fabricated from steel or aluminum - Machined from steel, aluminum or titanium T.3.2.2 The Brake Pedal and associated components design must withstand a minimum force of 2000 N without any failure of the Brake System, pedal box, chassis mounting, or pedal adjustment",
+  "requirement_text_pred": "The Brake Pedal and associated components design must withstand a minimum force of 2000 N without any failure of the Brake System, pedal box, chassis mounting, or pedal adjustment",
+  "prediction": {
+    "subject": "The Brake Pedal and associated components design",
+    "modality": "must",
+    "condition": "",
+    "action": "withstand",
+    "object": "a minimum force of 2000 N without any failure of the Brake System, pedal box, chassis mounting, or pedal adjustment"
+  },
+  "labels": {
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "withstand force",
+      "operator_pred": "ge",
+      "value_raw_pred": "minimum force of 2000 N",
+      "value_v1_pred": 2000.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "N",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Force",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/N",
+      "normalized_si_value_primary_pred": 2000.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/N",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

@@ -1,0 +1,74 @@
+@prefix : <http://example.org/req/476#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:LV_Battery_Collection_1 a bfo:BFO_0000040 ;
+    rdfs:label "All Low Voltage batteries (req 1)" .
+
+:VE_req1_c1 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "ValueExpression for trip threshold current (req 1, constraint 1)" ;
+    qudt:maxInclusive 0e+00 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :Trip_Threshold_Current_1 .
+
+:Chassis_0 a bfo:BFO_0000040 ;
+    rdfs:label "Chassis (req 0)" .
+
+:DS_Req476_0 a iof:DesignSpecification ;
+    iof:prescribes :Chassis_0,
+        :LV_Battery_Collection_0,
+        :Onboard_Power_Supply_Collection_0,
+        :Shoulder_Belt_Mount_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:DS_Req476_2 a iof:DesignSpecification ;
+    iof:prescribes :Hot_Terminal_2,
+        :Insulation_2 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Hot_Terminal_2 a bfo:BFO_0000040 ;
+    rdfs:label "hot (ungrounded) terminal (req 2)" .
+
+:Insulation_2 a bfo:BFO_0000040 ;
+    rdfs:label "insulation (req 2)" .
+
+:LV_Battery_Collection_0 a bfo:BFO_0000040 ;
+    rdfs:label "All Low Voltage Batteries (req 0)" .
+
+:Onboard_Power_Supply_Collection_0 a bfo:BFO_0000040 ;
+    rdfs:label "Onboard power supplies (req 0)" .
+
+:PS_Req476_1 a iof:PlanSpecification ;
+    iof:prescribes :Overcurrent_Protection_1 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Shoulder_Belt_Mount_0 a bfo:BFO_0000040 ;
+    rdfs:label "Shoulder Belt Mount (req 0)" .
+
+:Trip_Threshold_Current_1 a bfo:BFO_0000019 ;
+    rdfs:label "trip threshold current (req 1)" ;
+    iof:qualityOf :Overcurrent_Protection_1 .
+
+qudtqk:Thickness a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Thickness .
+
+:Overcurrent_Protection_1 a bfo:BFO_0000040 ;
+    rdfs:label "Overcurrent Protection (req 1)" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Any voltage more than 60 V DC or 25 V AC RMS T.9.1.2 Low Voltage - LV Any voltage less than and including 60 V DC or 25 V AC RMS T.9.1.3 Normally Open A type of electrical relay or contactor that allows current flow only in the energized state ## T.9.2 Low Voltage Batteries T.9.2.1 All Low Voltage Batteries and onboard power supplies must be securely mounted inside the Chassis below the height of the Shoulder Belt Mount T.2.6 T.9.2.2 All Low Voltage batteries must have Overcurrent Protection that trips at or below the maximum specified discharge current of the cells T.9.2.3 The hot (ungrounded) terminal must be insulated" ;
+    iof:requirementSatisfiedBy :DS_Req476_0,
+        :DS_Req476_2,
+        :PS_Req476_1 .
+

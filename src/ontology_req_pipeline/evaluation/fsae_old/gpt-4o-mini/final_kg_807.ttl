@@ -1,0 +1,31 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/807#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Successfully complete the Egress Test IN.5.2 IN.5.3.2 A driver(s) must complete the Driver Cockpit Checks to pass Mechanical Inspection # IN" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:DS_0 a iof:PlanSpecification ;
+    iof:prescribes :Driver_Cockpit_Checks .
+
+:Driver a iof:MaterialEntity ;
+    iof:hasFeature :Driver_Feature .
+
+:Driver_Cockpit_Checks_Feature a iof:ActionSpecification ;
+    iof:prescribes :Driver_Cockpit_Checks .
+
+:Driver_Feature a iof:ActionSpecification ;
+    iof:prescribes :Driver .
+
+:Driver_Cockpit_Checks a iof:MaterialEntity ;
+    iof:hasFeature :Driver_Cockpit_Checks_Feature .
+

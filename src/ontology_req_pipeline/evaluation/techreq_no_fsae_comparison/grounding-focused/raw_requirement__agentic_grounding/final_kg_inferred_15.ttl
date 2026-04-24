@@ -1,0 +1,127 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://qudt.org/schema/qudt/> .
+@prefix ns3: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/15#> a owl:Ontology .
+
+<http://example.org/req/15#ActionSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    ns1:prescribes <http://example.org/req/15#PlaceProcess_0> .
+
+<http://example.org/req/15#PlacementDiameter_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/15#VE_req0_c0> .
+
+<http://example.org/req/15#PlacementHeight_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000019,
+        ns3:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/15#VE_req0_c1> .
+
+<http://example.org/req/15#Req_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "The robot shall be able to place its tool within a circle with a diameter of 1 meter at a height of 0.2 meters over the ground." ;
+    ns1:isAbout <http://example.org/req/15#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/15#Spec_0> .
+
+<http://example.org/req/15#Robot_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000027,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:EngineeredSystem,
+        ns1:System .
+
+<http://example.org/req/15#Tool_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000004,
+        ns3:BFO_0000030,
+        ns3:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:MaterialArtifact .
+
+<http://example.org/req/15#VE_req0_c0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:numericValue 1e+00,
+        1.0 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> .
+
+<http://example.org/req/15#VE_req0_c1> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        ns2:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    ns2:numericValue 0.2,
+        2e-01 ;
+    ns2:unit <http://qudt.org/vocab/unit/M> .
+
+<http://example.org/req/15#ObjSpec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    ns1:isAchievedByAtSomeTime <http://example.org/req/15#PlaceProcess_0> ;
+    ns1:prescribes <http://example.org/req/15#PlacementDiameter_0>,
+        <http://example.org/req/15#PlacementHeight_0> .
+
+<http://example.org/req/15#Spec_0> a ns3:BFO_0000001,
+        ns3:BFO_0000002,
+        ns3:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    ns3:BFO_0000110 <http://example.org/req/15#ActionSpec_0>,
+        <http://example.org/req/15#ObjSpec_0> ;
+    ns1:prescribes <http://example.org/req/15#PlaceProcess_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/15#Req_0> .
+
+<http://qudt.org/vocab/unit/M> ns2:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+
+<http://example.org/req/15#PlaceProcess_0> a ns3:BFO_0000001,
+        ns3:BFO_0000003,
+        ns3:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    ns3:BFO_0000057 <http://example.org/req/15#Robot_0>,
+        <http://example.org/req/15#Tool_0> ;
+    ns1:prescribedBy <http://example.org/req/15#Spec_0> .
+

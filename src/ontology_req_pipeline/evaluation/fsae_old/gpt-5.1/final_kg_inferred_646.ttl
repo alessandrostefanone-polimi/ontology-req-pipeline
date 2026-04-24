@@ -1,0 +1,194 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix ns3: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/646#> a owl:Ontology .
+
+<http://example.org/req/646#HVD_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "High Voltage Disconnect (HVD) (req1)" .
+
+<http://example.org/req/646#AIRs_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "AIRs (Accumulator Isolation Relays)" .
+
+<http://example.org/req/646#Accumulator_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Accumulator (req1)" .
+
+<http://example.org/req/646#Accumulator_1_Disconnected> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Accumulator with one or both poles disconnected (req1)" .
+
+<http://example.org/req/646#Agent_Implicit> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Agent ;
+    rdfs:label "Unspecified agent recognizing events" .
+
+<http://example.org/req/646#Capacitor_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "capacitor (requirement 0 subject)" .
+
+<http://example.org/req/646#DS_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec for capacitor and AIRs behavior" ;
+    ns1:prescribes <http://example.org/req/646#AIRs_0>,
+        <http://example.org/req/646#Capacitor_0> ;
+    ns1:satisfiesRequirement <http://example.org/req/646#Req_0> .
+
+<http://example.org/req/646#DS_2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec for High Voltage Disconnect (HVD) (req2)" ;
+    ns1:prescribes <http://example.org/req/646#HVD_2> ;
+    ns1:satisfiesRequirement <http://example.org/req/646#Req_0> .
+
+<http://example.org/req/646#Event_ShutdownCircuitOpens> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:Event ;
+    rdfs:label "Shutdown Circuit Opens event" ;
+    ns1:recognizedByAtSomeTime <http://example.org/req/646#Agent_Implicit> .
+
+<http://example.org/req/646#HVD_2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "High Voltage Disconnect (HVD) (req2)" .
+
+<http://example.org/req/646#PS_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan spec for capacitor holding AIRs closed" ;
+    ns2:BFO_0000110 <http://example.org/req/646#ObjSpec_0> ;
+    ns1:prescribes <http://example.org/req/646#Proc_HoldAIRsClosed> .
+
+<http://example.org/req/646#Proc_HVD_Disconnect> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process: HVD quickly disconnects accumulator poles" ;
+    ns1:hasInput <http://example.org/req/646#Accumulator_1> ;
+    ns1:hasSpecifiedOutput <http://example.org/req/646#Accumulator_1_Disconnected> ;
+    ns1:prescribedBy <http://example.org/req/646#PS_1> .
+
+<http://example.org/req/646#VE_req0_c0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        ns3:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "Value expression for duration <= 250 ms (req0, constraint0)" ;
+    ns3:maxInclusive 2.5e+02 ;
+    ns3:unit <http://qudt.org/vocab/unit/MilliSEC> ;
+    ns1:isValueExpressionOfAtSomeTime <http://example.org/req/646#PC_Duration_0> .
+
+<http://qudt.org/vocab/unit/MilliSEC> ns3:hasQuantityKind <http://qudt.org/vocab/quantitykind/Time> .
+
+<http://example.org/req/646#PC_Duration_0> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ProcessCharacteristic ;
+    rdfs:label "Duration of holding AIRs closed (req0)" ;
+    ns1:hasValueExpressionAtSomeTime <http://example.org/req/646#VE_req0_c0> ;
+    ns1:processCharacteristicOf <http://example.org/req/646#Proc_HoldAIRsClosed> .
+
+<http://example.org/req/646#PS_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan spec for HVD disconnecting accumulator poles" ;
+    ns2:BFO_0000110 <http://example.org/req/646#ObjSpec_0> ;
+    ns1:prescribes <http://example.org/req/646#Proc_HVD_Disconnect> .
+
+<http://example.org/req/646#Proc_HoldAIRsClosed> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:PlannedProcess ;
+    rdfs:label "Process: capacitor holds AIRs closed" ;
+    ns1:hasProcessCharacteristic <http://example.org/req/646#PC_Duration_0> ;
+    ns1:occursDuring <http://example.org/req/646#Event_ShutdownCircuitOpens> ;
+    ns1:prescribedBy <http://example.org/req/646#PS_0> .
+
+<http://example.org/req/646#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "A capacitor may be used to hold the AIRs closed for up to 250 ms after the Shutdown Circuit Opens EV.7.2.2 ## EV.5.5 High Voltage Disconnect - HVD A High Voltage Disconnect (HVD) must be included to quickly disconnect one or both poles of the Accumulator EV.11.3.2 EV.5.5.1 The High Voltage Disconnect (HVD) must be: a" ;
+    ns1:isAbout <http://example.org/req/646#ObjSpec_0> ;
+    ns1:requirementSatisfiedBy <http://example.org/req/646#DS_0>,
+        <http://example.org/req/646#DS_2>,
+        <http://example.org/req/646#PS_1> .
+
+<http://example.org/req/646#ObjSpec_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective for requirement 646" .
+

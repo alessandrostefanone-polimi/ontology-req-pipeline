@@ -1,0 +1,42 @@
+@prefix : <http://example.org/req/315#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Should be maximum 10 mm diameter" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :VE_req0_c0 .
+
+:DiameterQuality a bfo:BFO_0000019 ;
+    iof:hasQuality :DiameterQualityValue .
+
+:DiameterQualityValue a iof:MeasuredValueExpression ;
+    qudt:isMeasuredValueOfAtSomeTime :Diameter_0 ;
+    iof:hasSimpleExpressionValue "10.0"^^xsd:float .
+
+qudtqk:Diameter a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Diameter .
+
+:Diameter_0 a bfo:BFO_0000001,
+        bfo:BFO_0000029 ;
+    iof:hasQuality :DiameterQuality ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtSomeTime :Diameter_0 .
+

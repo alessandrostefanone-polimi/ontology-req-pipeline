@@ -1,0 +1,163 @@
+{
+  "idx": 467,
+  "source_text": "Without a driver in the vehicle The intent is to standardize the measurement, see GR.6.4.1 T.7.3.2 Head Restraint Plane A transverse vertical plane through the rearmost portion of the front face of the driver head restraint support, excluding any padding, set (if adjustable) in its fully rearward position T.7.3.3 Rear Aerodynamic Zone The volume that is: - Rearward of the Head Restraint Plane - Inboard of two vertical planes parallel to the centerline of the chassis touching the inside of the rear tires at the height of the hub centerline ## T.7.4 Location Any part of any Aerodynamic Device or Bodywork must meet V.1.1 and V.1.4.1 ## T.7.5",
+  "graph_path": "src\\ontology_req_pipeline\\evaluation\\fsae\\gpt-5.1\\final_kg_467.ttl",
+  "predicted_claims": [
+    {
+      "s": "http://example.org/req/467#Constraint_req0_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isAbout",
+      "o": "http://example.org/req/467#Subject_req0_partOfAeroOrBodywork",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Constraint_req0_c0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/467#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Constraint_req0_c1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isAbout",
+      "o": "http://example.org/req/467#Ref_req0_V_1_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Constraint_req0_c1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isAbout",
+      "o": "http://example.org/req/467#Ref_req0_V_1_4_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Constraint_req0_c1",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/467#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#PlanSpec_req0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlanSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#PlanSpec_req0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/467#Req_0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#PlanSpec_req0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribes",
+      "o": "http://example.org/req/467#Process_req0_meetCompliance",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Process_req0_meetCompliance",
+      "p": "http://purl.obolibrary.org/obo/BFO_0000057",
+      "o": "http://example.org/req/467#Subject_req0_partOfAeroOrBodywork",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Process_req0_meetCompliance",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/PlannedProcess",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Process_req0_meetCompliance",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/467#Constraint_req0_c1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Process_req0_meetCompliance",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/prescribedBy",
+      "o": "http://example.org/req/467#PlanSpec_req0",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Ref_req0_V_1_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Ref_req0_V_1_4_1",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/InformationContentEntity",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Req_0",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/RequirementSpecification",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isAbout",
+      "o": "http://example.org/req/467#Ref_req0_V_1_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isAbout",
+      "o": "http://example.org/req/467#Ref_req0_V_1_4_1",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Req_0",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isAbout",
+      "o": "http://example.org/req/467#Subject_req0_partOfAeroOrBodywork",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Role_req0_materialComponent",
+      "p": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "o": "https://spec.industrialontologies.org/ontology/core/Core/MaterialComponentRole",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Role_req0_materialComponent",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/roleOf",
+      "o": "http://example.org/req/467#Subject_req0_partOfAeroOrBodywork",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Subject_req0_partOfAeroOrBodywork",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/hasRole",
+      "o": "http://example.org/req/467#Role_req0_materialComponent",
+      "supported_by_sentence": null,
+      "notes": ""
+    },
+    {
+      "s": "http://example.org/req/467#Subject_req0_partOfAeroOrBodywork",
+      "p": "https://spec.industrialontologies.org/ontology/core/Core/isSubjectOf",
+      "o": "http://example.org/req/467#Constraint_req0_c0",
+      "supported_by_sentence": null,
+      "notes": ""
+    }
+  ],
+  "missing_gold_claims": [],
+  "notes": ""
+}

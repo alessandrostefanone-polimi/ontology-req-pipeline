@@ -1,0 +1,46 @@
+{
+  "idx": 460,
+  "req_idx": 0,
+  "source_text": "The shields must be steel or aluminum with a minimum thickness of 1 mm",
+  "requirement_text_pred": "The shields must be steel or aluminum with a minimum thickness of 1 mm",
+  "prediction": {
+    "subject": "The shields",
+    "modality": "must",
+    "condition": "",
+    "action": "be",
+    "object": "steel or aluminum with a minimum thickness of 1 mm"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "thickness",
+      "operator_pred": "ge",
+      "value_raw_pred": "1 mm",
+      "value_v1_pred": 1.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.001,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

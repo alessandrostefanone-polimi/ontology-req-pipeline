@@ -1,0 +1,23 @@
+{
+  "idx": 731,
+  "req_idx": 0,
+  "source_text": "The temperature of a minimum of $20 \\%$ of the cells must be monitored by the AMS b",
+  "requirement_text_pred": "The temperature of a minimum of $20 \\%$ of the cells must be monitored by the AMS",
+  "prediction": {
+    "subject": "The temperature of a minimum of $20 \\%$ of the cells",
+    "modality": "must",
+    "condition": "",
+    "action": "be monitored",
+    "object": "by the AMS"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

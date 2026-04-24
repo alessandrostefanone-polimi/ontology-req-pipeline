@@ -1,0 +1,37 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/232#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:AdhesiveAttachment_0 a bfo:BFO_0000015 ;
+    rdfs:label "attaching the Front Hoop to the monocoque" ;
+    bfo:BFO_0000057 :Adhesive_0,
+        :FrontHoop_0,
+        :Monocoque_0 .
+
+:Adhesive_0 a bfo:BFO_0000040 ;
+    rdfs:label "Adhesive" .
+
+:DS_0 a iof:PlanSpecification ;
+    iof:prescribes :AdhesiveAttachment_0,
+        :FrontHoop_0,
+        :Monocoque_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "A small gap in the laminate (approximately 25 mm ) exists for inspection of the Front Hoop F.5.7.6 F.7.4.4 Adhesive must not be the sole method of attaching the Front Hoop to the monocoque" ;
+    iof:requirementSatisfiedBy :DS_0 .
+
+:FrontHoop_0 a bfo:BFO_0000040 ;
+    rdfs:label "Front Hoop" .
+
+:Monocoque_0 a bfo:BFO_0000040 ;
+    rdfs:label "monocoque" .
+

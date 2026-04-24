@@ -1,0 +1,94 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/333#> a owl:Ontology .
+
+<http://example.org/req/333#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "If used, the mounts or plate must be 25 mm or more larger at both the top and bottom of the upper and lower tubes F.11.2.3 All Non Crushable Items should have a minimum 25 mm clearance to the surface of the Accumulator Container" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/333#DS_req0> .
+
+<http://example.org/req/333#Req_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "All Non Crushable Items should have a minimum 25 mm clearance to the surface of the Accumulator Container." ;
+    ns2:requirementSatisfiedBy <http://example.org/req/333#DS_req1> .
+
+<http://example.org/req/333#All_Non_Crushable_Items> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact .
+
+<http://example.org/req/333#DS_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/333#VE_req0_c0> .
+
+<http://example.org/req/333#DS_req1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/333#VE_req1_c0> .
+
+<http://example.org/req/333#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:hasUnit ns1:MilliM ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/333#the_mounts_or_plate> .
+
+<http://example.org/req/333#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:hasUnit ns1:MilliM ;
+    ns1:minInclusive 2.5e+01 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/333#All_Non_Crushable_Items> .
+
+<http://example.org/req/333#the_mounts_or_plate> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Length> .
+

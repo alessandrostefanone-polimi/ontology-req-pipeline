@@ -1,0 +1,40 @@
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix : <http://example.org/req/21#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:CubeSatMaterial_0 a bfo:BFO_0000040 ;
+    iof:hasQuality :TML_0 .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :CubeSatMaterial_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:Objective_0 a iof:ObjectiveSpecification ;
+    iof:prescribes :TML_0 .
+
+:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind :QuantityKind_Percent .
+
+:QuantityKind_Percent a qudt:QuantityKind .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "CubeSats materials shall have a Total Mass Loss (TML) of less than or equal to 1.0 %" ;
+    iof:isAbout :Objective_0 ;
+    iof:requirementSatisfiedBy :DesignSpec_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:maxInclusive 1.0 ;
+    qudt:unit :PERCENT .
+
+:TML_0 a bfo:BFO_0000019 ;
+    iof:isValueExpressionOfAtSomeTime :VE_req0_c0 .
+

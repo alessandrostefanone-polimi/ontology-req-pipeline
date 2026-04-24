@@ -1,0 +1,46 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/800#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:AdditionalMonitoring a iof:MaterialEntity ;
+    rdfs:label "Additional monitoring" .
+
+:Charger a iof:MaterialEntity ;
+    rdfs:label "Charger" .
+
+:FreeFieldMicrophone a iof:MaterialEntity ;
+    rdfs:label "free field microphone" .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "4.6 Ready to Drive Sound The sound level will be measured with a free field microphone placed free from obstructions in a radius of 2 m around the vehicle against the criteria in EV.9.5 ## IN.4.7 Electrical Inspection Completion IN.4.7.1 All or portions of the Tractive System, Charger and other components may be sealed IN.2.6 IN.4.7.2 Additional monitoring to verify conformance to rules may be installed" ;
+    iof:requirementSatisfiedBy :SoundLevelMeasurementSpec .
+
+:Rules a iof:MaterialEntity ;
+    rdfs:label "rules" .
+
+:TractiveSystem a iof:MaterialEntity ;
+    rdfs:label "Tractive System" .
+
+:SoundLevelMeasurementAction a iof:ActionSpecification ;
+    iof:prescribes :SoundLevelMeasurementObjective .
+
+:SoundLevelMeasurementObjective a iof:ObjectiveSpecification ;
+    iof:prescribes :SoundLevelMeasurementOutput .
+
+:SoundLevelMeasurementOutput a iof:MaterialArtifact ;
+    iof:hasQuality :SoundLevelQuality .
+
+:SoundLevelMeasurementSpec a iof:PlanSpecification ;
+    iof:prescribes :SoundLevelMeasurementAction .
+
+:SoundLevelQuality a iof:Quality ;
+    rdfs:label "sound level" .
+

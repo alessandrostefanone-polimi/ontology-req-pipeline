@@ -1,0 +1,160 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/225#> a owl:Ontology .
+
+<http://example.org/req/225#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "An inspection hole approximately 4 mm in diameter must be drilled through a low stress location of every monocoque section regulated by the Structural Equivalency Spreadsheet This inspection hole is not required in the Vertical Side Impact Structure F.7.5.3.b" ;
+    ns2:requirementSatisfiedBy <http://example.org/req/225#DS_req0> .
+
+<http://example.org/req/225#Req_1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "This inspection hole is not required in the Vertical Side Impact Structure F.7.5.3.b." ;
+    ns2:requirementSatisfiedBy <http://example.org/req/225#DS_req1> .
+
+<http://example.org/req/225#DS_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/225#P_req0> .
+
+<http://example.org/req/225#DS_req1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DesignSpecification,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity ;
+    ns2:prescribes <http://example.org/req/225#P_req1> .
+
+<http://example.org/req/225#P_req0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/225#inspection_hole>,
+        <http://example.org/req/225#objective_specification> .
+
+<http://example.org/req/225#P_req1> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/225#inspection_hole_not_required>,
+        <http://example.org/req/225#objective_specification_not_required> .
+
+<http://example.org/req/225#VE_req0_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:hasUnit <http://qudt.org/vocab/unit/MilliM> ;
+    ns1:maxInclusive 4e+00 ;
+    ns1:minInclusive 4e+00 ;
+    ns1:unit <http://qudt.org/vocab/unit/MilliM> ;
+    ns2:isValueExpressionOfAtSomeTime <http://example.org/req/225#inspection_hole> .
+
+<http://example.org/req/225#VE_req1_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression .
+
+<http://example.org/req/225#inspection_hole_not_required> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    ns2:hasQuality <http://example.org/req/225#quality_inspection_hole_not_required> .
+
+<http://example.org/req/225#low_stress_location> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    ns2:hasRole <http://example.org/req/225#low_stress_location_role> .
+
+<http://example.org/req/225#low_stress_location_role> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000017>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        <http://purl.obolibrary.org/obo/BFO_0000023>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:Role ;
+    rdfs:label "low stress location" .
+
+<http://example.org/req/225#objective_specification> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:ObjectSpecification ;
+    ns2:hasFeature <http://example.org/req/225#low_stress_location> .
+
+<http://example.org/req/225#objective_specification_not_required> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing .
+
+<http://example.org/req/225#quality_inspection_hole> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:Quality ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/225#VE_req0_c0> .
+
+<http://example.org/req/225#quality_inspection_hole_not_required> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000019>,
+        <http://purl.obolibrary.org/obo/BFO_0000020>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:Quality ;
+    ns2:hasValueExpressionAtSomeTime <http://example.org/req/225#VE_req1_c0> .
+
+<http://example.org/req/225#inspection_hole> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000030>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialArtifact ;
+    ns2:hasQuality <http://example.org/req/225#quality_inspection_hole> .
+
+<http://qudt.org/vocab/unit/MilliM> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Diameter> .
+

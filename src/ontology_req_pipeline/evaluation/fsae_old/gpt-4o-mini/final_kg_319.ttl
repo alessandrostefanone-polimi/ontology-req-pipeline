@@ -1,0 +1,37 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix : <http://example.org/req/319#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The mechanical connections at each corner must be 50 mm or less from the corner of the Segment c" ;
+    iof:requirementSatisfiedBy :DS_req0 .
+
+:DS_req0 a iof:DesignSpecification ;
+    iof:prescribes :P_req0 .
+
+:P_req0 a iof:PlanSpecification ;
+    iof:prescribes :C_req0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:hasUnit qudt:MilliM ;
+    qudt:maxInclusive 5e+01 ;
+    qudt:unit qudtu:MilliM ;
+    iof:isValueExpressionOfAtAllTimes :C_req0 .
+
+qudtqk:Length a qudt:QuantityKind .
+
+qudtu:MilliM a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Length .
+
+:C_req0 a iof:MaterialArtifact ;
+    iof:hasValueExpressionAtAllTimes :VE_req0_c0 .
+

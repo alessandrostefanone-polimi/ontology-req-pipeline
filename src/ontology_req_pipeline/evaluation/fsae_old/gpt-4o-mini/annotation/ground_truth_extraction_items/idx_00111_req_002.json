@@ -1,0 +1,108 @@
+{
+  "idx": 111,
+  "req_idx": 2,
+  "source_text": "Definition Any tubing which does NOT meet F.3.2.1.o Structural Tubing F.3.3.2 Applicability Non Structural Tubing is ignored when assessing compliance to any rule ## F.3.4 Steel Tubing and Material F.3.4.1 Minimum Requirements for Steel Tubing A tube must meet all four minimum requirements for each Size specified: Tube Minimum Area Moment of Inertia Minimum Cross Sectional Area Minimum Outside Diameter or Square Width Minimum Wall Thickness Example Sizes of Round Tube :--: :--: :--: :--: :--: :--: :--: a. Size A $11320 \\mathrm{~mm}^{4}$ $173 \\mathrm{~mm}^{2}$ 25.0 mm 2.0 mm $\\begin{aligned} & 1.0^{\\prime \\prime} \\times 0.095^{\\prime \\prime} \\\\ & 25 \\times 2.5 \\mathrm{~mm} \\end{aligned}$ b",
+  "requirement_text_pred": "Minimum Area Moment of Inertia.",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "meet",
+    "object": "all four minimum requirements for each Size specified"
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "Minimum Area Moment of Inertia",
+      "operator_pred": "ge",
+      "value_raw_pred": "11320 mm^4",
+      "value_v1_pred": 11320.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm^4",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/MassicPower",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/W-PER-GM",
+      "normalized_si_value_primary_pred": 11320000.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/GRAY-PER-SEC",
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    },
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "Minimum Cross Sectional Area",
+      "operator_pred": "ge",
+      "value_raw_pred": "173 mm^2",
+      "value_v1_pred": 173.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm^2",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/CartesianArea",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM2",
+      "normalized_si_value_primary_pred": 173.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM2",
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": true,
+        "equivalence_correct": true
+      }
+    },
+    {
+      "constraint_idx": 2,
+      "attribute_name_pred": "Minimum Outside Diameter or Square Width",
+      "operator_pred": "ge",
+      "value_raw_pred": "25.0 mm",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM",
+      "normalized_si_value_primary_pred": 25.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM",
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    },
+    {
+      "constraint_idx": 3,
+      "attribute_name_pred": "Minimum Wall Thickness",
+      "operator_pred": "ge",
+      "value_raw_pred": "2.0 mm",
+      "value_v1_pred": 2.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Thickness",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MM",
+      "normalized_si_value_primary_pred": 2.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/MM",
+      "labels": {
+        "is_true_quantitative_constraint": false,
+        "operator_correct": true,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": true,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

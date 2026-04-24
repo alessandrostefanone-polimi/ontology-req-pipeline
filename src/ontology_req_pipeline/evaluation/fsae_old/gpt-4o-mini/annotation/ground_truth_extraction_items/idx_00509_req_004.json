@@ -1,0 +1,23 @@
+{
+  "idx": 509,
+  "req_idx": 4,
+  "source_text": "Each suit must meet one or more of the following standards and be labeled as such: - $\\quad$ SFI 3.2A/5 (or higher ex: /10, /15, /20) - $\\quad$ SFI 3.4/5 (or higher ex: /10, /15, /20) - FIA Standard 1986 - FIA Standard 8856-2000 - FIA Standard 8856-2018 VE.3.3.2 Underclothing All competitors should wear fire retardant underwear (long pants and long sleeve shirt) under their approved Driver Suit",
+  "requirement_text_pred": "FIA Standard 8856-2000",
+  "prediction": {
+    "subject": "FIA Standard 8856-2000",
+    "modality": "must",
+    "condition": "",
+    "action": "",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

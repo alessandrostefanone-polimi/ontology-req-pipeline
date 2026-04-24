@@ -1,0 +1,21 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/234#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The portion of the Side Impact Zone that is vertically between the upper surface of the floor and 320 mm above the lowest point of the upper surface of the floor must have equivalence to minimum two (2) Steel Tubes per F.4.4." ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:Spec_0 a iof:DesignSpecification ;
+    iof:prescribes :SteelTubes_0 .
+
+:SteelTubes_0 a iof:MaterialProduct .
+

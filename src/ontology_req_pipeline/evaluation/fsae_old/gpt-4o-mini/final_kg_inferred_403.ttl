@@ -1,0 +1,78 @@
+@prefix ns1: <http://qudt.org/schema/qudt/> .
+@prefix ns2: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/403#> a owl:Ontology .
+
+<http://example.org/req/403#Brake_System> a owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "Brake System" .
+
+<http://example.org/req/403#Req_0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:RequirementSpecification ;
+    rdfs:comment "In side view any portion of the Brake System that is mounted on the sprung part of the vehicle must not project below the lower surface of the chassis T.3.1.10 Fasteners in the Brake System are Critical Fasteners, see T.8.2 ## T.3.2 Brake Pedal, Pedal Box and Mounting T.3.2.1 The Brake Pedal must be one of: - Fabricated from steel or aluminum - Machined from steel, aluminum or titanium T.3.2.2 The Brake Pedal and associated components design must withstand a minimum force of 2000 N without any failure of the Brake System, pedal box, chassis mounting, or pedal adjustment." ;
+    ns2:requirementSatisfiedBy <http://example.org/req/403#Spec_4> .
+
+<http://example.org/req/403#chassis_mounting> a owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "chassis mounting" .
+
+<http://example.org/req/403#pedal_adjustment> a owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "pedal adjustment" .
+
+<http://example.org/req/403#pedal_box> a owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "pedal box" .
+
+<http://example.org/req/403#Brake_Pedal> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialEntity ;
+    rdfs:label "Brake Pedal" .
+
+<http://example.org/req/403#Spec_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:DirectiveInformationContentEntity,
+        ns2:InformationContentEntity,
+        ns2:PlanSpecification ;
+    ns2:prescribes <http://example.org/req/403#Output_4> .
+
+<http://example.org/req/403#VE_req4_c0> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000031>,
+        ns1:QuantityValue,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:InformationContentEntity,
+        ns2:ValueExpression ;
+    ns1:minInclusive 2e+03 ;
+    ns1:unit <http://qudt.org/vocab/unit/N> ;
+    ns2:isValueExpressionOfAtAllTimes <http://example.org/req/403#Brake_Pedal>,
+        <http://example.org/req/403#Output_4> .
+
+<http://qudt.org/vocab/unit/N> ns1:hasQuantityKind <http://qudt.org/vocab/quantitykind/Force> .
+
+<http://example.org/req/403#Output_4> a <http://purl.obolibrary.org/obo/BFO_0000001>,
+        <http://purl.obolibrary.org/obo/BFO_0000002>,
+        <http://purl.obolibrary.org/obo/BFO_0000004>,
+        <http://purl.obolibrary.org/obo/BFO_0000040>,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns2:MaterialProduct ;
+    ns2:hasValueExpressionAtAllTimes <http://example.org/req/403#VE_req4_c0> .
+

@@ -1,0 +1,45 @@
+{
+  "idx": 491,
+  "req_idx": 1,
+  "source_text": "1.4 Inspection Sticker The vehicle must have space for the Inspection Sticker(s) IN.13.2 that is: - A clear and unobstructed area, minimum 25 cm wide $\\times 20 \\mathrm{~cm}$ high - Located on the upper front surface of the nose along the vehicle centerline ## VE.1.5 Transponder / RFID Tag VE.1.5.1",
+  "requirement_text_pred": "A clear and unobstructed area, minimum 25 cm wide × 20 cm high is required.",
+  "prediction": {
+    "subject": "A clear and unobstructed area",
+    "modality": "is",
+    "condition": "",
+    "action": "required",
+    "object": ""
+  },
+  "labels": {
+    "subject_correct": null,
+    "modality_correct": null,
+    "condition_correct": null,
+    "action_correct": null,
+    "object_correct": null
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 1,
+      "attribute_name_pred": "dimensions",
+      "operator_pred": "ge",
+      "value_raw_pred": "25 cm wide × 20 cm high",
+      "value_v1_pred": 25.0,
+      "value_v2_pred": 20.0,
+      "unit_text_pred": "cm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/MigrationLength",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/CentiM",
+      "normalized_si_value_primary_pred": 25.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/CentiM",
+      "labels": {
+        "is_true_quantitative_constraint": null,
+        "operator_correct": null,
+        "quantity_value_correct": null,
+        "unit_correct": null,
+        "quantity_kind_correct": null,
+        "equivalence_correct": null
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

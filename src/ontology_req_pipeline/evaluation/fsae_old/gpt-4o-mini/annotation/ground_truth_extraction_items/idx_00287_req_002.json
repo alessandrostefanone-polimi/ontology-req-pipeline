@@ -1,0 +1,45 @@
+{
+  "idx": 287,
+  "req_idx": 2,
+  "source_text": "Energy absorbed must be more than 7350 J When: - Total mass of Vehicle is 300 kg - Impact velocity is $7.0 \\mathrm{~m} / \\mathrm{s}$ F.8.8.3 When using the Standard Impact Attenuator, the SES must meet the following: a. Test data will not be submitted b",
+  "requirement_text_pred": "Impact velocity is $7.0 \text{ m/s}$",
+  "prediction": {
+    "subject": "",
+    "modality": "must",
+    "condition": "",
+    "action": "",
+    "object": "Impact velocity is $7.0 \\mathrm{~m} / \\mathrm{s}$"
+  },
+  "labels": {
+    "subject_correct": false,
+    "modality_correct": false,
+    "condition_correct": false,
+    "action_correct": false,
+    "object_correct": false
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "Impact velocity",
+      "operator_pred": "gt",
+      "value_raw_pred": "7.0 m/s",
+      "value_v1_pred": 7.0,
+      "value_v2_pred": null,
+      "unit_text_pred": "m/s",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Energy",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/J",
+      "normalized_si_value_primary_pred": 7.0,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/J",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": false,
+        "quantity_value_correct": true,
+        "unit_correct": false,
+        "quantity_kind_correct": false,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [],
+  "notes": ""
+}

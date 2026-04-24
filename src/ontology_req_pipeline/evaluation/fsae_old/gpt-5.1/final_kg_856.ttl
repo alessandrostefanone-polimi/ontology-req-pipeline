@@ -1,0 +1,51 @@
+@prefix : <http://example.org/req/856#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:CostReport_1 a iof:InformationContentEntity ;
+    rdfs:label "Cost Report" .
+
+:CostReportingProcess_1 a iof:PlannedProcess ;
+    rdfs:label "Cost reporting process using standardized Cost Tables" ;
+    iof:hasInput :CostReport_1,
+        :StandardizedCostTables_1 .
+
+:DesignSpec_0 a iof:DesignSpecification ;
+    iof:prescribes :RemovedItemCredit_0 ;
+    iof:satisfiesRequirement :Req_0 .
+
+:PlanSpec_1 a iof:PlanSpecification ;
+    iof:prescribes :CostReportingProcess_1 .
+
+:RemovedItemCredit_0 a bfo:BFO_0000002 ;
+    rdfs:label "Credit for removed items (table cost based)" ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "Removed items will be credited $75 \\%$ of the table cost: - ( $0.75 \\times$ Cost) ### 5.3.8 Cost Tables 5.3.8.1 All costs in the Cost Report must come from the standardized Cost Tables. 5.3.8.2" ;
+    iof:requirementSatisfiedBy :DesignSpec_0,
+        :PlanSpec_1 .
+
+:StandardizedCostTables_1 a iof:InformationContentEntity ;
+    rdfs:label "Standardized Cost Tables" .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    rdfs:label "Required credit amount factor for removed items (75 percent of table cost)" ;
+    qudt:maxInclusive 7.5e+01 ;
+    qudt:minInclusive 7.5e+01 ;
+    qudt:unit qudtu:PERCENT .
+
+qudtqk:ServiceFactor a qudt:QuantityKind .
+
+qudtu:PERCENT a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:ServiceFactor .
+

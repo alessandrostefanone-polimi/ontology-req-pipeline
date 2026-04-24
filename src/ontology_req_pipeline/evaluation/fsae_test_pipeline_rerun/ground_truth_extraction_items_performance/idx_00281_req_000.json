@@ -1,0 +1,50 @@
+{
+  "idx": 281,
+  "req_idx": 0,
+  "source_text": "Standard Honeycomb must be mounted 200mm width x 100mm height c",
+  "requirement_text_pred": "Standard Honeycomb must be mounted 200mm width x 100mm height c",
+  "prediction": {
+    "subject": "Standard Honeycomb",
+    "modality": "must",
+    "condition": "",
+    "action": "be mounted",
+    "object": "200mm width x 100mm height c"
+  },
+  "labels": {
+    "decomposition_error": false,
+    "subject_correct": true,
+    "modality_correct": true,
+    "condition_correct": true,
+    "action_correct": true,
+    "object_correct": true
+  },
+  "quantity_constraints": [
+    {
+      "constraint_idx": 0,
+      "attribute_name_pred": "mounting dimensions",
+      "operator_pred": "eq",
+      "value_raw_pred": "200mm width x 100mm height",
+      "value_v1_pred": 200.0,
+      "value_v2_pred": 100.0,
+      "unit_text_pred": "mm",
+      "normalized_quantity_kind_uri_pred": "http://qudt.org/vocab/quantitykind/Width",
+      "normalized_unit_uri_pred": "http://qudt.org/vocab/unit/MilliM",
+      "normalized_si_value_primary_pred": 0.2,
+      "normalized_si_unit_primary_pred": "http://qudt.org/vocab/unit/M",
+      "labels": {
+        "is_true_quantitative_constraint": true,
+        "operator_correct": true,
+        "quantity_value_correct": false,
+        "unit_correct": true,
+        "quantity_kind_correct": true,
+        "equivalence_correct": false
+      }
+    }
+  ],
+  "missing_quantitative_constraints": [
+    {
+      "description": "The requirement also specifies a height dimension of 100mm, which is missing from the extracted quantitative constraints. For this reason, also the quantity_value_correct and equivalence_correct fields were evaluated as being extracted incorrectly."
+    }
+  ],
+  "notes": ""
+}

@@ -1,0 +1,181 @@
+@prefix ns1: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix ns2: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/req/647#> a owl:Ontology .
+
+<http://example.org/req/647#Req_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:RequirementSpecification ;
+    rdfs:comment "Clearly marked with \"HVD\" EV.5.5.2 An Interlock EV.7.8 must Open the Shutdown Circuit EV.7.2.2 when the HVD is removed EV.5.5.3 A dummy connector or similar may be used to restore isolation to meet EV.6.1.2 # EV.5.6 Precharge and Discharge Circuits EV.5.6.1 The Accumulator must contain a Precharge Circuit" ;
+    ns1:requirementSatisfiedBy <http://example.org/req/647#DS_0>,
+        <http://example.org/req/647#DS_3>,
+        <http://example.org/req/647#PS_1>,
+        <http://example.org/req/647#PS_2> .
+
+<http://example.org/req/647#Accumulator_3> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Accumulator" ;
+    ns1:hasComponentPartAtAllTimes <http://example.org/req/647#PrechargeCircuit_3> .
+
+<http://example.org/req/647#DS_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec for HVD marking" ;
+    ns1:prescribes <http://example.org/req/647#HVD_0> .
+
+<http://example.org/req/647#DS_3> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:DesignSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity ;
+    rdfs:label "Design spec for accumulator precharge circuit" ;
+    ns1:prescribes <http://example.org/req/647#Accumulator_3> .
+
+<http://example.org/req/647#DummyConnector_2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Dummy connector or similar" .
+
+<http://example.org/req/647#EV_6_1_2_Objective> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ObjectiveSpecification ;
+    rdfs:label "Objective EV.6.1.2 (isolation requirement)" .
+
+<http://example.org/req/647#HVDRemoval_1> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "HVD removal process" ;
+    ns2:BFO_0000057 <http://example.org/req/647#HVD_1> .
+
+<http://example.org/req/647#HVD_0> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "HVD (high-voltage disconnect)" ;
+    ns1:hasQuality <http://example.org/req/647#HVD_0_Marking> .
+
+<http://example.org/req/647#HVD_0_Label> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:InformationContentEntity,
+        ns1:ValueExpression ;
+    rdfs:label "\"HVD\" marking text" ;
+    ns1:hasSimpleExpressionValue "\"HVD\"",
+        "\"HVD\""^^xsd:string .
+
+<http://example.org/req/647#HVD_0_Marking> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000019,
+        ns2:BFO_0000020,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "HVD marking quality" ;
+    ns1:denotedBy <http://example.org/req/647#HVD_0_Label> .
+
+<http://example.org/req/647#HVD_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "HVD (for interlock requirement)" .
+
+<http://example.org/req/647#InterlockOpenProcess_1> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Process: interlock opens shutdown circuit" ;
+    ns2:BFO_0000057 <http://example.org/req/647#Interlock_1>,
+        <http://example.org/req/647#ShutdownCircuit_1> ;
+    ns1:occursDuring <http://example.org/req/647#HVDRemoval_1> .
+
+<http://example.org/req/647#Interlock_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Interlock EV.7.8" .
+
+<http://example.org/req/647#PS_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan spec for interlock opening shutdown circuit on HVD removal" ;
+    ns1:prescribes <http://example.org/req/647#InterlockOpenProcess_1> .
+
+<http://example.org/req/647#PS_2> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000031,
+        owl:NamedIndividual,
+        owl:Thing,
+        ns1:ActionSpecification,
+        ns1:DirectiveInformationContentEntity,
+        ns1:InformationContentEntity,
+        ns1:PlanSpecification ;
+    rdfs:label "Plan spec for using dummy connector to restore isolation" ;
+    ns1:hasContinuantPartAtAllTimes <http://example.org/req/647#EV_6_1_2_Objective> ;
+    ns1:prescribes <http://example.org/req/647#RestoreIsolationProcess_2> .
+
+<http://example.org/req/647#PrechargeCircuit_3> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Precharge Circuit" .
+
+<http://example.org/req/647#RestoreIsolationProcess_2> a ns2:BFO_0000001,
+        ns2:BFO_0000003,
+        ns2:BFO_0000015,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Process: restore isolation using dummy connector" ;
+    ns2:BFO_0000057 <http://example.org/req/647#DummyConnector_2> .
+
+<http://example.org/req/647#ShutdownCircuit_1> a ns2:BFO_0000001,
+        ns2:BFO_0000002,
+        ns2:BFO_0000004,
+        ns2:BFO_0000040,
+        owl:NamedIndividual,
+        owl:Thing ;
+    rdfs:label "Shutdown Circuit EV.7.2.2" .
+

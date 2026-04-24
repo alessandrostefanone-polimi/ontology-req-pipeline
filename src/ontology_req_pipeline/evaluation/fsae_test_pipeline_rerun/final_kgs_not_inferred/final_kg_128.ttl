@@ -1,0 +1,39 @@
+@prefix : <http://example.org/req/128#> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "The steel tubes must be tested to a minimum displacement of 19.0 mm c" ;
+    iof:requirementSatisfiedBy :PlanSpec_0 .
+
+:PlanSpec_0 a iof:PlanSpecification ;
+    iof:prescribes :TestingProcess_0 .
+
+:SteelTube_0 a bfo:BFO_0000040 .
+
+:TestingProcess_0 a iof:PlannedProcess ;
+    iof:hasParticipantAtSomeTime :SteelTube_0 ;
+    iof:hasProcessCharacteristic :DisplacementDuringTest_0 .
+
+:VE_req0_c0 a qudt:QuantityValue,
+        iof:ValueExpression ;
+    qudt:minInclusive 1.9e-02 ;
+    qudt:unit qudtu:M ;
+    iof:isValueExpressionOfAtSomeTime :DisplacementDuringTest_0 .
+
+qudtqk:Displacement a qudt:QuantityKind .
+
+qudtu:M a qudt:Unit ;
+    qudt:hasQuantityKind qudtqk:Displacement .
+
+:DisplacementDuringTest_0 a iof:ProcessCharacteristic ;
+    iof:hasValueExpressionAtSomeTime :VE_req0_c0 .
+

@@ -1,0 +1,54 @@
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudtu: <http://qudt.org/vocab/unit/> .
+@prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/req/206#> .
+@prefix iof: <https://spec.industrialontologies.org/ontology/core/Core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology .
+
+:Req_0 a iof:RequirementSpecification ;
+    rdfs:comment "If the upper support member is further than 100 mm above the Upper Side Impact member, then properly Triangulated bracing is required to transfer load to the Main Hoop by one of: - the Upper Side Impact member - an additional member transmitting load from the junction of the Upper Support Member with the Front Hoop c" ;
+    iof:requirementSatisfiedBy :Spec_0 .
+
+:Req_1 a iof:RequirementSpecification ;
+    rdfs:comment "If the upper support member is further than 100 mm above the Upper Side Impact member, then properly Triangulated bracing is required to transfer load to the Main Hoop by one of: an additional member transmitting load from the junction of the Upper Support Member with the Front Hoop." ;
+    iof:requirementSatisfiedBy :Spec_1 .
+
+:Additional_Member_Transmitting_Load a iof:MaterialEntity ;
+    rdfs:label "an additional member transmitting load" .
+
+:Load_Transfer a iof:Process ;
+    rdfs:label "transfer load" .
+
+:Load_Transfer_2 a iof:Process ;
+    rdfs:label "to transfer load" .
+
+:Properly_Triangulated_Bracing a iof:ActionSpecification ;
+    iof:hasFeature :Load_Transfer,
+        :Triangulated_Bracing,
+        :Upper_Side_Impact_Member .
+
+:Properly_Triangulated_Bracing_2 a iof:ActionSpecification ;
+    iof:hasFeature :Additional_Member_Transmitting_Load,
+        :Load_Transfer_2,
+        :Triangulated_Bracing_2 .
+
+:Spec_0 a iof:PlanSpecification ;
+    iof:prescribes :Properly_Triangulated_Bracing .
+
+:Spec_1 a iof:PlanSpecification ;
+    iof:prescribes :Properly_Triangulated_Bracing_2 .
+
+:Triangulated_Bracing a iof:MaterialEntity ;
+    rdfs:label "Triangulated bracing" .
+
+:Triangulated_Bracing_2 a iof:MaterialEntity ;
+    rdfs:label "Properly Triangulated bracing" .
+
+:Upper_Side_Impact_Member a iof:MaterialEntity ;
+    rdfs:label "Upper Side Impact member" .
+
