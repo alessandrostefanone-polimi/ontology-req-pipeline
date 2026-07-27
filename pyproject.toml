@@ -15,7 +15,11 @@ dependencies = [
     "networkx>=3.3",
     "ollama>=0.4.0",
     "openai>=1.0.0",
-    "owlapy",
+    # Owlapy 1.6.x incorrectly makes its optional DSPy/LiteLLM agentic stack
+    # mandatory. LiteLLM has no Windows wheel for Python 3.13, so installation
+    # falls back to a failing Rust build. The APIs used here are available in
+    # the last 1.5 release without that unrelated dependency chain.
+    "owlapy==1.5.1",
     "pandas>=2.0.0",
     "pydantic>=2.0.0",
     "pyshacl>=0.25.0",
@@ -23,6 +27,9 @@ dependencies = [
     "pyvis>=0.3.2",
     "quantulum3>=0.9.2",
     "rdflib>=7.0.0",
+    # Owlapy 1.5.1 imports pkg_resources at runtime. Use the last Setuptools
+    # major line before that compatibility module was removed.
+    "setuptools<81",
     "spacy>=3.7.0",
 ]
 authors = [{ name = "Ontology Req Pipeline Authors" }]
