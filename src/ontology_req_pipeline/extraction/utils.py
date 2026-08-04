@@ -1,22 +1,139 @@
 import json
-import textwrap
-from typing import Any, Dict, List, Optional, Literal, Tuple
-from pathlib import Path
 import re
-from pydantic import BaseModel, Field
+import textwrap
+from hashlib import sha256
+from typing import Any, Dict, List, Optional
+
 from ollama import Client
 from openai import OpenAI
+from pydantic import BaseModel
+
 from ontology_req_pipeline.data_models import (
-    IndividualRequirement,
     Constraint,
+    ConstraintsResponse,
+    IndividualRequirement,
+    IndividualRequirementsResponse,
     Record,
     Reference,
+    ReferencesResponse,
     Structure,
     StructureResponse,
-    ConstraintsResponse,
-    ReferencesResponse,
-    IndividualRequirementsResponse,
 )
+
+_OLLAMA_RAW_RESPONSE_LOG_LIMIT = 50_000
+_OLLAMA_REPAIR_RESPONSE_LIMIT = 4_000
+OLLAMA_STRUCTURED_SYSTEM_PROMPT = (
+    "Follow the JSON schema strictly; return JSON only; do not add fields; "
+    "do not include req_idx inside spans; spans must match original_text substrings."
+)
+
+
+class OllamaStructuredResponseError(RuntimeError):
+    """Structured-output failure with serializable diagnostics for each attempt."""
+
+    def __init__(self, model: str, diagnostics: list[dict[str, Any]]):
+        self.model = model
+        self.provider_diagnostics = diagnostics
+        last = diagnostics[-1] if diagnostics else {}
+        detail = ""
+        if last.get("error_type"):
+            detail = f": {last['error_type']}: {last.get('error', '')}"
+        super().__init__(
+            f"Ollama structured response validation failed for model {model}{detail}"
+        )
+
+
+def _ollama_response_attr(response: Any, name: str) -> Any:
+    if response is None:
+        return None
+    if isinstance(response, dict):
+        return response.get(name)
+    return getattr(response, name, None)
+
+
+def _ollama_response_content(response: Any) -> str:
+    message = _ollama_response_attr(response, "message")
+    content = _ollama_response_attr(message, "content")
+    if content is None:
+        raise ValueError("Ollama returned no message content.")
+    return str(content)
+
+
+def _ollama_failure_diagnostic(
+    *, attempt: int, exc: Exception, response: Any, raw_response: str | None
+) -> dict[str, Any]:
+    diagnostic: dict[str, Any] = {
+        "attempt": attempt,
+        "error_type": type(exc).__name__,
+        "error": str(exc),
+    }
+    for field in (
+        "done",
+        "done_reason",
+        "prompt_eval_count",
+        "eval_count",
+        "total_duration",
+        "load_duration",
+        "prompt_eval_duration",
+        "eval_duration",
+    ):
+        value = _ollama_response_attr(response, field)
+        if value is not None:
+            diagnostic[field] = value
+
+    if raw_response is not None:
+        diagnostic["raw_response_length"] = len(raw_response)
+        diagnostic["raw_response_sha256"] = sha256(
+            raw_response.encode("utf-8")
+        ).hexdigest()
+        if len(raw_response) <= _OLLAMA_RAW_RESPONSE_LOG_LIMIT:
+            diagnostic["raw_response"] = raw_response
+            diagnostic["raw_response_truncated"] = False
+        else:
+            half = _OLLAMA_RAW_RESPONSE_LOG_LIMIT // 2
+            diagnostic["raw_response"] = (
+                raw_response[:half]
+                + "\n...[diagnostic response truncated]...\n"
+                + raw_response[-half:]
+            )
+            diagnostic["raw_response_truncated"] = True
+    return diagnostic
+
+
+def _ollama_repair_messages(
+    *, exc: Exception, response: Any, raw_response: str | None
+) -> list[dict[str, str]]:
+    """Build a bounded corrective turn for the second structured-output attempt."""
+
+    done_reason = _ollama_response_attr(response, "done_reason")
+    issue = f"{type(exc).__name__}: {exc}"
+    if len(issue) > 2_000:
+        issue = issue[:2_000] + "...[validation error truncated]"
+
+    repair: list[dict[str, str]] = []
+    if raw_response and done_reason != "length":
+        bounded = raw_response[:_OLLAMA_REPAIR_RESPONSE_LIMIT]
+        if len(raw_response) > len(bounded):
+            bounded += "\n...[invalid response truncated]"
+        repair.append({"role": "assistant", "content": bounded})
+    repair.append(
+        {
+            "role": "user",
+            "content": (
+                "The previous response failed JSON-schema validation"
+                + (
+                    " because generation reached its length limit"
+                    if done_reason == "length"
+                    else ""
+                )
+                + f". Validation feedback: {issue}\n"
+                "Return a complete corrected JSON object only. Preserve the requested facts, obey every "
+                "required field and enum, and do not repeat or explain the error."
+            ),
+        }
+    )
+    return repair
+
 
 def run_ollama(
     client: Client,
@@ -26,27 +143,47 @@ def run_ollama(
     model: str = "llama3.2",
     options: Optional[Dict[str, Any]] = None,
 ) -> Any:
-    messages = [
-        {"role": "system", "content": "Follow the JSON schema strictly; return JSON only; do not add fields; do not include req_idx inside spans; spans must match original_text substrings."},
+    messages: list[dict[str, str]] = [
+        {"role": "system", "content": OLLAMA_STRUCTURED_SYSTEM_PROMPT},
         {"role": "user", "content": prompt},
     ]
     last_exc: Optional[Exception] = None
-    for _ in range(2):
+    diagnostics: list[dict[str, Any]] = []
+    for attempt in range(1, 3):
+        response: Any = None
+        raw: str | None = None
         try:
             response = client.chat(
                 model=model,
                 messages=messages,
+                think=False,
                 format=output_model.model_json_schema() if output_model else "json",
                 options=options,
             )
-            raw = response.message.content
+            raw = _ollama_response_content(response)
             parsed = json.loads(raw)
             validated = output_model.model_validate(parsed) if output_model else parsed
             return validated
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001
             last_exc = exc
+            diagnostics.append(
+                _ollama_failure_diagnostic(
+                    attempt=attempt,
+                    exc=exc,
+                    response=response,
+                    raw_response=raw,
+                )
+            )
+            if attempt == 1:
+                messages.extend(
+                    _ollama_repair_messages(
+                        exc=exc,
+                        response=response,
+                        raw_response=raw,
+                    )
+                )
             continue
-    raise RuntimeError(f"Ollama structured response validation failed for model {model}") from last_exc
+    raise OllamaStructuredResponseError(model, diagnostics) from last_exc
 
 
 def run_openai(
@@ -58,7 +195,10 @@ def run_openai(
     options: Optional[Dict[str, Any]] = None,
 ) -> Any:
     messages = [
-        {"role": "system", "content": "Follow the JSON schema strictly; return JSON only; do not add fields; do not include req_idx inside spans; spans must match original_text substrings."},
+        {
+            "role": "system",
+            "content": "Follow the JSON schema strictly; return JSON only; do not add fields; do not include req_idx inside spans; spans must match original_text substrings.",
+        },
         {"role": "user", "content": prompt},
     ]
     last_exc: Optional[Exception] = None
@@ -79,7 +219,9 @@ def run_openai(
         except Exception as exc:
             last_exc = exc
             continue
-    raise RuntimeError(f"OpenAI structured response validation failed for model {model}") from last_exc
+    raise RuntimeError(
+        f"OpenAI structured response validation failed for model {model}"
+    ) from last_exc
 
 
 BASE_GUIDANCE = """
@@ -90,9 +232,17 @@ Always return pure JSON. Offsets are 0-indexed and end-exclusive. All spans must
 
 
 def _strip_tagged_examples(prompt: str) -> str:
-    stripped = re.sub(r"\n\s*<examples>.*?</examples>\s*", "\n", prompt, flags=re.DOTALL)
-    stripped = re.sub(r"\n\s*<few-shot-examples>.*?</few-shot-examples>\s*", "\n", stripped, flags=re.DOTALL)
+    stripped = re.sub(
+        r"\n\s*<examples>.*?</examples>\s*", "\n", prompt, flags=re.DOTALL
+    )
+    stripped = re.sub(
+        r"\n\s*<few-shot-examples>.*?</few-shot-examples>\s*",
+        "\n",
+        stripped,
+        flags=re.DOTALL,
+    )
     return re.sub(r"\n{3,}", "\n\n", stripped).strip() + "\n"
+
 
 def prompt_record_extraction(original_text: str) -> str:
     return textwrap.dedent(f"""
@@ -187,6 +337,7 @@ def prompt_record_extraction(original_text: str) -> str:
     Return JSON only.
     """)
 
+
 def prompt_structure(ar: Dict[str, Any], original_text: str) -> str:
     return textwrap.dedent(f"""
     {BASE_GUIDANCE}
@@ -251,7 +402,7 @@ def prompt_structure(ar: Dict[str, Any], original_text: str) -> str:
 
     <output-schema>
     {{
-      "req_idx": {ar.get('req_idx', 0)},
+      "req_idx": {ar.get("req_idx", 0)},
       "structure": {{
         "subject": {{ "text": str, "start": int, "end": int }},
         "modality": "shall"|"must"|"should"|"may"|"will"|"is",
@@ -317,12 +468,11 @@ def prompt_structure(ar: Dict[str, Any], original_text: str) -> str:
 
     <input>
     original_text: {original_text}
-    input requirement: {ar.get('text','')}
+    input requirement: {ar.get("text", "")}
     </input>
 
     Return JSON only.
     """)
-
 
 
 def prompt_constraints(ar: Dict[str, Any], original_text: str, structure) -> str:
@@ -482,7 +632,7 @@ def prompt_constraints(ar: Dict[str, Any], original_text: str, structure) -> str
         Only set boolean if explicitly stated true/false in the text.
 
     - References:
-        value.kind in {"entity_ref","event_ref"}
+        value.kind in {"entity_ref", "event_ref"}
         ref.text is the referenced phrase as written.
         expected_type guess ONLY one of:
           "MaterialEntity"|"Process"|"Quality"|"InformationContentEntity"|"Unknown"
@@ -495,7 +645,7 @@ def prompt_constraints(ar: Dict[str, Any], original_text: str, structure) -> str
     Return JSON ONLY:
 
     {{
-      "req_idx": {ar.get('req_idx', 0)},
+      "req_idx": {ar.get("req_idx", 0)},
       "constraints": [
         {{
           "constraint_idx": int,
@@ -646,7 +796,7 @@ def prompt_constraints(ar: Dict[str, Any], original_text: str, structure) -> str
 
     <input>
     original_text: {original_text}
-    atomic_requirement: {ar.get('text','')}
+    atomic_requirement: {ar.get("text", "")}
     structure: {structure.model_dump_json()}
     </input>
 
@@ -662,12 +812,11 @@ def prompt_constraints(ar: Dict[str, Any], original_text: str, structure) -> str
     """)
 
 
-
 def prompt_references(
     ar: Dict[str, Any],
     original_text: str,
     structure: Structure,
-    constraints: List[Constraint]
+    constraints: List[Constraint],
 ) -> str:
 
     # Keep constraints compact but readable
@@ -735,7 +884,7 @@ def prompt_references(
 
     <output-schema>
     {{
-      "req_idx": {ar.get('req_idx', 0)},
+      "req_idx": {ar.get("req_idx", 0)},
       "references": [
         {{
           "ref_idx": int,
@@ -821,14 +970,13 @@ def prompt_references(
 
     <input>
     original_text: {original_text}
-    atomic_requirement: {ar.get('text','')}
+    atomic_requirement: {ar.get("text", "")}
     structure: {structure.model_dump_json()}
     constraints: {constraints_json}
     </input>
 
     Return JSON only.
     """)
-
 
 
 def split_individual_requirements(
@@ -842,9 +990,13 @@ def split_individual_requirements(
     if not include_examples:
         prompt = _strip_tagged_examples(prompt)
     if not local:
-        validated = run_openai(client, prompt, output_model=IndividualRequirementsResponse, model=model)
+        validated = run_openai(
+            client, prompt, output_model=IndividualRequirementsResponse, model=model
+        )
     else:
-        validated = run_ollama(client, prompt, output_model=IndividualRequirementsResponse, model=model)
+        validated = run_ollama(
+            client, prompt, output_model=IndividualRequirementsResponse, model=model
+        )
     return [chunk.model_dump() for chunk in validated.individual_requirements]
 
 
@@ -860,11 +1012,21 @@ def extract_structure(
     if not include_examples:
         prompt = _strip_tagged_examples(prompt)
     if not local:
-        validated = run_openai(client, prompt, output_model=StructureResponse, model=model)
+        validated = run_openai(
+            client, prompt, output_model=StructureResponse, model=model
+        )
     else:
-        validated = run_ollama(client, prompt, output_model=StructureResponse, model=model)
+        validated = run_ollama(
+            client, prompt, output_model=StructureResponse, model=model
+        )
     s = validated.structure
-    return Structure(subject=s.subject, modality=s.modality, condition=s.condition, action=s.action, object=s.object)
+    return Structure(
+        subject=s.subject,
+        modality=s.modality,
+        condition=s.condition,
+        action=s.action,
+        object=s.object,
+    )
 
 
 def extract_constraints(
@@ -880,9 +1042,13 @@ def extract_constraints(
     if not include_examples:
         prompt = _strip_tagged_examples(prompt)
     if not local:
-        validated = run_openai(client, prompt, output_model=ConstraintsResponse, model=model)
+        validated = run_openai(
+            client, prompt, output_model=ConstraintsResponse, model=model
+        )
     else:
-        validated = run_ollama(client, prompt, output_model=ConstraintsResponse, model=model)
+        validated = run_ollama(
+            client, prompt, output_model=ConstraintsResponse, model=model
+        )
     return validated.constraints
 
 
@@ -900,9 +1066,13 @@ def extract_references(
     if not include_examples:
         prompt = _strip_tagged_examples(prompt)
     if not local:
-        validated = run_openai(client, prompt, output_model=ReferencesResponse, model=model)
+        validated = run_openai(
+            client, prompt, output_model=ReferencesResponse, model=model
+        )
     else:
-        validated = run_ollama(client, prompt, output_model=ReferencesResponse, model=model)
+        validated = run_ollama(
+            client, prompt, output_model=ReferencesResponse, model=model
+        )
     return validated.references
 
 

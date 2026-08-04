@@ -31,8 +31,9 @@ src/ontology_req_pipeline/.env
 .env.*
 !.env.example
 
-# dev folders
-notebooks
+# Notebook experiments stay local except for the reproducible ingestion demo.
+notebooks/*
+!notebooks/requirement_ingestion_demo.ipynb
 
 # Public-safe defaults
 artifacts/

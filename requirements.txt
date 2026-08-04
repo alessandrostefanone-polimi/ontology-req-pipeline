@@ -1,5 +1,7 @@
 click>=8.1.0
 chromadb>=0.5.0
+# JPype 1.7.1 fails to enumerate Owlapy's bundled JARs on Windows/JDK 17.
+jpype1>=1.6.0,<1.7
 matplotlib>=3.8.0
 networkx>=3.3
 ollama>=0.4.0
@@ -17,3 +19,6 @@ rdflib>=7.0.0
 # Required at runtime by Owlapy 1.5.1 for pkg_resources.
 setuptools<81
 spacy>=3.7.0
+
+# PDF ingestion and the Streamlit UI are optional extras:
+# pip install -e ".[document,ui]"

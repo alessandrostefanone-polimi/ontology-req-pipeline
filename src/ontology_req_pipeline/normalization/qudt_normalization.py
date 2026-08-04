@@ -1,14 +1,15 @@
+import json
+import os
+import threading
+import warnings
+from hashlib import sha256
 from pathlib import Path
 from typing import Any, Optional
-import os
-from rdflib import Graph, Literal, Namespace
-from rdflib.namespace import RDF
-from rdflib import term  # for _toPythonMapping
 
-# Disable strict parsing of rdf:HTML literals to avoid html5rdf ParseError
-if hasattr(RDF, "HTML") and RDF.HTML in term._toPythonMapping:
-    # Just return the lexical form as-is (string) instead of parsing as HTML
-    term._toPythonMapping[RDF.HTML] = lambda lexical: lexical
+import chromadb
+import pandas as pd
+from rdflib import Graph, term  # term imported for _toPythonMapping
+from rdflib.namespace import RDF
 
 from ontology_req_pipeline.data_models import (
     NormalizedIndividualRequirement,
@@ -22,17 +23,26 @@ from ontology_req_pipeline.normalization.utils import (
     choose_best_unit,
     convert_to_SI,
     decide_best_qk,
-    query_qk_by_unit,
     qudt_extraction_wf,
+    query_qk_by_unit,
 )
-import pandas as pd
-import chromadb
+
+# Disable strict parsing of rdf:HTML literals to avoid html5rdf ParseError
+if hasattr(RDF, "HTML") and RDF.HTML in term._toPythonMapping:
+    # Just return the lexical form as-is (string) instead of parsing as HTML
+    term._toPythonMapping[RDF.HTML] = lambda lexical: lexical
 
 MODULE_DIR = Path(__file__).resolve().parent
 REPO_ROOT = MODULE_DIR.parents[2]
 QUDT_LOCAL_FILE = REPO_ROOT / "ontologies" / "QUDT-all-in-one-OWL.ttl"
 QUDT_LOOKUP_CSV = MODULE_DIR / "qudt_quantity_kinds_units_symbols_with_descriptions.csv"
-DEFAULT_CHROMA_COLLECTION = "qudt_quantity_kinds_with_descriptions_new"
+DEFAULT_CHROMA_COLLECTION = "qudt_quantity_kinds_with_descriptions"
+DEFAULT_LOCAL_CHROMA_PATH = REPO_ROOT / "artifacts" / "cache" / "qudt-chroma"
+LOCAL_INDEX_SCHEMA_VERSION = "1"
+LOCAL_INDEX_BATCH_SIZE = 128
+LOCAL_INDEX_DOCUMENT_CHAR_LIMIT = 1_000
+_COLLECTION_CACHE: dict[tuple[str, ...], Any] = {}
+_COLLECTION_LOCK = threading.RLock()
 DEFAULT_QK_BY_UNIT = {
 }
 
@@ -50,12 +60,151 @@ def _load_qudt_dataframe() -> dict:
     df = pd.read_csv(QUDT_LOOKUP_CSV)
     return df
 
-def _load_qudt_collection() -> any:
+def _file_sha256(path: Path) -> str:
+    digest = sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _clean_index_text(value: Any) -> str:
+    if value is None or pd.isna(value):
+        return ""
+    return " ".join(str(value).split())
+
+
+def _local_index_documents(df: pd.DataFrame) -> list[dict[str, Any]]:
+    documents: list[dict[str, Any]] = []
+    for quantity_kind_uri, group in df.groupby("quantity_kind", sort=True, dropna=True):
+        uri = _clean_index_text(quantity_kind_uri)
+        if not uri:
+            continue
+        name = uri.rsplit("/", 1)[-1]
+        labels = sorted(
+            {
+                text
+                for column in ("quantity_name", "label")
+                if column in group
+                for text in (_clean_index_text(value) for value in group[column])
+                if text
+            }
+        )
+        descriptions = []
+        for column in ("description", "description_dcterms", "comment"):
+            if column not in group:
+                continue
+            for value in group[column]:
+                text = _clean_index_text(value)
+                if text and text not in descriptions:
+                    descriptions.append(text)
+        units = []
+        for _, row in group.iterrows():
+            unit = _clean_index_text(row.get("unit"))
+            symbol = _clean_index_text(row.get("symbol"))
+            display = f"{unit} ({symbol})" if unit and symbol else unit or symbol
+            if display and display not in units:
+                units.append(display)
+
+        parts = [f"QUDT quantity kind: {name}.", f"URI: {uri}."]
+        if labels:
+            parts.append(f"Labels: {', '.join(labels[:20])}.")
+        if descriptions:
+            parts.append(f"Description: {' '.join(descriptions)[:4000]}")
+        if units:
+            parts.append(f"Applicable units: {', '.join(units[:200])}.")
+        documents.append(
+            {
+                "id": "qk-" + sha256(uri.encode("utf-8")).hexdigest()[:24],
+                "document": " ".join(parts)[:LOCAL_INDEX_DOCUMENT_CHAR_LIMIT],
+                "metadata": {
+                    "quantity_kind_uri": uri,
+                    "quantity_kind_name": name,
+                    "unit_count": len(units),
+                },
+            }
+        )
+    return documents
+
+
+def _local_chroma_path() -> Path:
+    configured = str(os.getenv("QUDT_CHROMA_PATH") or "").strip()
+    if not configured:
+        return DEFAULT_LOCAL_CHROMA_PATH
+    path = Path(configured).expanduser()
+    return path if path.is_absolute() else REPO_ROOT / path
+
+
+def _local_manifest_path(chroma_path: Path, collection_name: str) -> Path:
+    collection_key = sha256(collection_name.encode("utf-8")).hexdigest()[:12]
+    return chroma_path / f".{collection_key}.qudt-index.json"
+
+
+def _read_local_manifest(path: Path) -> dict[str, Any]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        return payload if isinstance(payload, dict) else {}
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return {}
+
+
+def _write_local_manifest(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    temporary.replace(path)
+
+
+def _build_local_qudt_collection(chroma_path: Path, collection_name: str) -> Any:
+    chroma_path.mkdir(parents=True, exist_ok=True)
+    source_hash = _file_sha256(QUDT_LOOKUP_CSV)
+    documents = _local_index_documents(pd.read_csv(QUDT_LOOKUP_CSV))
+    manifest_path = _local_manifest_path(chroma_path, collection_name)
+    expected_manifest = {
+        "schema_version": LOCAL_INDEX_SCHEMA_VERSION,
+        "source_sha256": source_hash,
+        "document_count": len(documents),
+        "collection_name": collection_name,
+    }
+    client = chromadb.PersistentClient(path=str(chroma_path))
+    collection = client.get_or_create_collection(
+        name=collection_name,
+        metadata={
+            "source": "bundled QUDT CSV",
+            "schema_version": LOCAL_INDEX_SCHEMA_VERSION,
+            "source_sha256": source_hash,
+        },
+    )
+    manifest = _read_local_manifest(manifest_path)
+    if manifest == expected_manifest and collection.count() == len(documents):
+        return collection
+
+    # This directory is a generated cache. Recreate only the named QUDT
+    # collection when its source data or schema changes.
+    client.delete_collection(collection_name)
+    collection = client.get_or_create_collection(
+        name=collection_name,
+        metadata={
+            "source": "bundled QUDT CSV",
+            "schema_version": LOCAL_INDEX_SCHEMA_VERSION,
+            "source_sha256": source_hash,
+        },
+    )
+    for start in range(0, len(documents), LOCAL_INDEX_BATCH_SIZE):
+        batch = documents[start : start + LOCAL_INDEX_BATCH_SIZE]
+        collection.upsert(
+            ids=[item["id"] for item in batch],
+            documents=[item["document"] for item in batch],
+            metadatas=[item["metadata"] for item in batch],
+        )
+    _write_local_manifest(manifest_path, expected_manifest)
+    return collection
+
+
+def _load_cloud_qudt_collection(collection_name: str) -> Any:
     api_key = str(os.getenv("CHROMA_API_KEY") or "").strip()
     tenant = str(os.getenv("CHROMA_TENANT") or "").strip()
     database = str(os.getenv("CHROMA_DATABASE") or "").strip()
-    collection_name = os.getenv("CHROMA_COLLECTION", DEFAULT_CHROMA_COLLECTION)
-
     missing_vars = [
         name
         for name, value in (
@@ -68,22 +217,59 @@ def _load_qudt_collection() -> any:
     if missing_vars:
         missing = ", ".join(missing_vars)
         raise EnvironmentError(
-            "normalize_qudt() requires Chroma Cloud configuration in the environment. "
+            "Cloud QUDT normalization requires Chroma Cloud configuration in the environment. "
             f"Missing required variable(s): {missing}. "
-            "Set them in your .env file before running normalization."
+            "Set them in your .env file or use QUDT_CHROMA_BACKEND=local."
         )
+    client = chromadb.CloudClient(api_key=api_key, tenant=tenant, database=database)
+    return client.get_collection(name=collection_name)
 
-    try:
-        client = chromadb.CloudClient(
-            api_key=api_key,
-            tenant=tenant,
-            database=database,
-        )
-        collection = client.get_collection(name=collection_name)
-        return collection
-    except Exception as exc:  # noqa: BLE001
-        print(f"Warning: could not load Chroma QUDT collection; semantic QUDT fallback disabled. Cause: {exc}")
+
+def _load_qudt_collection() -> Any:
+    """Load a reusable local QUDT index, or an explicitly configured cloud index."""
+
+    backend = str(os.getenv("QUDT_CHROMA_BACKEND") or "local").strip().lower()
+    if backend in {"none", "off", "disabled"}:
         return None
+    if backend not in {"local", "cloud", "auto"}:
+        raise ValueError("QUDT_CHROMA_BACKEND must be local, cloud, auto, or disabled")
+
+    collection_name = str(os.getenv("CHROMA_COLLECTION") or DEFAULT_CHROMA_COLLECTION).strip()
+    cloud_configured = all(
+        str(os.getenv(name) or "").strip()
+        for name in ("CHROMA_API_KEY", "CHROMA_TENANT", "CHROMA_DATABASE")
+    )
+    selected_backend = "cloud" if backend == "cloud" or (backend == "auto" and cloud_configured) else "local"
+    local_path = _local_chroma_path()
+    cache_key = (
+        selected_backend,
+        collection_name,
+        str(local_path.resolve()) if selected_backend == "local" else "cloud",
+        str(os.getenv("CHROMA_TENANT") or "") if selected_backend == "cloud" else "",
+        str(os.getenv("CHROMA_DATABASE") or "") if selected_backend == "cloud" else "",
+    )
+
+    with _COLLECTION_LOCK:
+        if cache_key in _COLLECTION_CACHE:
+            return _COLLECTION_CACHE[cache_key]
+        try:
+            if selected_backend == "cloud":
+                collection = _load_cloud_qudt_collection(collection_name)
+            else:
+                collection = _build_local_qudt_collection(local_path, collection_name)
+        except EnvironmentError:
+            raise
+        except Exception as exc:  # noqa: BLE001
+            warnings.warn(
+                "Could not initialize the "
+                f"{selected_backend} Chroma QUDT index; semantic fallback is disabled for this run. "
+                f"Deterministic RDF/CSV normalization will continue. Cause: {exc}",
+                RuntimeWarning,
+                stacklevel=2,
+            )
+            collection = None
+        _COLLECTION_CACHE[cache_key] = collection
+        return collection
 
 
 def _build_constraint_context(requirement_text: str, constraint: Any, fallback_text: str) -> str:
@@ -195,8 +381,8 @@ def _normalize_constraint_via_candidate_selection(
     model: Optional[str],
     prompt_style: str,
 ) -> Optional[NormalizedQuantity]:
-    from openai import OpenAI
     from ollama import Client as OllamaClient
+    from openai import OpenAI
 
     client = OpenAI() if provider == "openai" else OllamaClient()
     qk_candidates = query_qk_by_unit(unit, g)
@@ -356,6 +542,7 @@ def normalize_qudt(
     model: str | None = None,
     strategy: str = "pipeline",
     prompt_style: str = "few_shot",
+    source=None,
 ) -> any:
     g = _load_qudt_graph()
     df_qudt = _load_qudt_dataframe()
@@ -481,6 +668,7 @@ def normalize_qudt(
 
     return NormalizedRecord(
         idx=idx,
+        source=source or {},
         original_text=input_text,
         requirements=normalized_individual_requirements
     )
