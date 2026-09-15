@@ -153,6 +153,7 @@ def _call_with_retry(
             response = client.chat(
                 model="qwen3:4b",
                 messages=messages,
+                think=False,
                 format=schema.model_json_schema(),
             )
             return schema.model_validate_json(response["message"]["content"])

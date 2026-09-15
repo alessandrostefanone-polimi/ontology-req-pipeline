@@ -6,7 +6,7 @@ from openai import OpenAI
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 from ontology_req_pipeline.data_models import NormalizedQuantity
-from rdflib import URIRef
+from rdflib import Namespace, URIRef
 
 load_dotenv()
 
@@ -137,6 +137,7 @@ def _normalize_unit_token(unit_token: str | None) -> str:
         "kilopascal": "KiloPA",
         "kilopascals": "KiloPA",
         "kilopa": "KiloPA",
+        "pa": "PA",
         "pascal": "PA",
         "pascals": "PA",
         "inch": "IN",
@@ -248,6 +249,7 @@ def _run_structured_response(client, provider: str, model: str, system_prompt: s
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt},
                 ],
+                think=False,
                 format=output_model.model_json_schema(),
                 options={"temperature": 0},
             )
@@ -274,8 +276,13 @@ WHERE {
     try:
         ans = g.query(query, initBindings={"unit": unit_uri})
     except Exception:
-        return []
+        ans = []
     qks = [str(row.qk) for row in ans]
+    if not qks:
+        # The direct triple lookup is equivalent and remains reliable with
+        # lightweight/in-memory graphs whose SPARQL plugin is unavailable.
+        qudt = Namespace("http://qudt.org/schema/qudt/")
+        qks = [str(subject) for subject in g.subjects(qudt.applicableUnit, unit_uri)]
     return qks
 
 def extract_si_units(unit_str, g):

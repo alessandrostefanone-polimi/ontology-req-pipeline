@@ -11,6 +11,7 @@ from pathlib import Path
 import re
 import statistics
 import time
+import traceback
 from typing import Any, Dict, List, Optional
 
 import click
@@ -25,8 +26,8 @@ from dotenv import load_dotenv
 
 DEFAULT_DATASET = Path("datasets/fsae_test_number_unit_sample.jsonl")
 DEFAULT_EVALUATION_DIR = Path("src/ontology_req_pipeline/evaluation")
-DEFAULT_OPENAI_MODEL = "gpt-5.1"
-DEFAULT_OLLAMA_MODEL = "llama3.2"
+DEFAULT_OPENAI_MODEL = "gpt-5.6-luna"
+DEFAULT_OLLAMA_MODEL = "qwen3.5:9b-bf16"
 DEFAULT_COMPARISON_PROFILE = "none"
 
 
@@ -48,9 +49,13 @@ def _load_jsonl_rows(path: Path, limit: Optional[int] = None) -> List[Dict[str, 
             try:
                 row = json.loads(line)
             except json.JSONDecodeError as exc:
-                raise click.ClickException(f"Invalid JSON at {path}:{line_no}: {exc}") from exc
+                raise click.ClickException(
+                    f"Invalid JSON at {path}:{line_no}: {exc}"
+                ) from exc
             if not isinstance(row, dict):
-                raise click.ClickException(f"Invalid JSONL row type at {path}:{line_no}. Expected object.")
+                raise click.ClickException(
+                    f"Invalid JSONL row type at {path}:{line_no}. Expected object."
+                )
             rows.append(row)
             if limit is not None and len(rows) >= limit:
                 break
@@ -111,9 +116,17 @@ def _resolve_stage_config(
 ) -> Dict[str, Any]:
     normalized_provider = str(provider).strip().lower()
     if normalized_provider not in {"openai", "ollama"}:
-        raise click.ClickException(f"{provider_option_name} must be either 'openai' or 'ollama'.")
-    selected_model = model.strip() if isinstance(model, str) and model.strip() else (
-        DEFAULT_OPENAI_MODEL if normalized_provider == "openai" else DEFAULT_OLLAMA_MODEL
+        raise click.ClickException(
+            f"{provider_option_name} must be either 'openai' or 'ollama'."
+        )
+    selected_model = (
+        model.strip()
+        if isinstance(model, str) and model.strip()
+        else (
+            DEFAULT_OPENAI_MODEL
+            if normalized_provider == "openai"
+            else DEFAULT_OLLAMA_MODEL
+        )
     )
     return {
         "provider": normalized_provider,
@@ -123,7 +136,9 @@ def _resolve_stage_config(
 
 
 def _resolve_extraction_config(provider: str, model: Optional[str]) -> Dict[str, Any]:
-    return _resolve_stage_config(provider=provider, model=model, provider_option_name="--provider")
+    return _resolve_stage_config(
+        provider=provider, model=model, provider_option_name="--provider"
+    )
 
 
 def _resolve_method_choice(method: Optional[str], default: str = "pipeline") -> str:
@@ -226,6 +241,7 @@ def _run_normalization_for_method(
         idx=extracted.idx,
         input_text=input_text,
         requirements=extracted.requirements,
+        source=extracted.source,
         provider=normalization_config["provider"],
         model=normalization_config["model"],
         strategy=strategy_map[normalization_method],
@@ -245,10 +261,17 @@ def _run_grounding_for_method(
         reasoner=reasoner,
         llm_provider=grounding_config["provider"],
         llm_model=grounding_config["model"],
+        ollama_think=grounding_config.get("think", False),
+        ontology_context_mode=grounding_config.get("ontology_context_mode", "compact"),
     )
-    if grounding_method == "zero-shot-llm":
-        return grounder, grounder.zero_shot_workflow()
-    return grounder, grounder.two_stage_workflow()
+    try:
+        if grounding_method == "zero-shot-llm":
+            return grounder, grounder.zero_shot_workflow()
+        return grounder, grounder.two_stage_workflow()
+    except Exception as exc:
+        exc.grounding_stage = grounder.grounding_stage
+        exc.grounding_candidate = grounder.last_grounding_candidate
+        raise
 
 
 def _run_raw_grounding_for_method(
@@ -261,14 +284,41 @@ def _run_raw_grounding_for_method(
 ):
     grounder = AgenticKGBuilder(
         tbox_path=_resolve_project_path(Path("ontologies/Core.rdf")),
-        record={"idx": idx, "original_text": input_text, "requirements": [], "source": {}},
+        record={
+            "idx": idx,
+            "original_text": input_text,
+            "requirements": [],
+            "source": {},
+        },
         reasoner=reasoner,
         llm_provider=grounding_config["provider"],
         llm_model=grounding_config["model"],
+        ollama_think=grounding_config.get("think", False),
+        ontology_context_mode=grounding_config.get("ontology_context_mode", "compact"),
     )
-    if grounding_method == "zero-shot-llm":
-        return grounder, grounder.raw_zero_shot_workflow()
-    return grounder, grounder.raw_agentic_workflow()
+    try:
+        if grounding_method == "zero-shot-llm":
+            return grounder, grounder.raw_zero_shot_workflow()
+        return grounder, grounder.raw_agentic_workflow()
+    except Exception as exc:
+        exc.grounding_stage = grounder.grounding_stage
+        exc.grounding_candidate = grounder.last_grounding_candidate
+        raise
+
+
+def _grounding_failure_diagnostics(
+    exc: Exception, evaluation_dir: Path, idx: int
+) -> Dict[str, Any]:
+    diagnostics: Dict[str, Any] = {
+        "grounding_stage": getattr(exc, "grounding_stage", "initialization"),
+        "traceback": traceback.format_exc(),
+    }
+    candidate = getattr(exc, "grounding_candidate", None)
+    if isinstance(candidate, str) and candidate.strip():
+        candidate_path = evaluation_dir / f"grounding_candidate_{idx}.ttl"
+        candidate_path.write_text(candidate, encoding="utf-8")
+        diagnostics["grounding_candidate_path"] = str(candidate_path.resolve())
+    return diagnostics
 
 
 def _safe_div(numerator: float, denominator: float) -> Optional[float]:
@@ -335,7 +385,10 @@ def _contains_quantity_value(path: Path) -> bool:
     if not path.exists():
         return False
     text = path.read_text(encoding="utf-8", errors="ignore")
-    return "qudt:QuantityValue" in text or "http://qudt.org/schema/qudt/QuantityValue" in text
+    return (
+        "qudt:QuantityValue" in text
+        or "http://qudt.org/schema/qudt/QuantityValue" in text
+    )
 
 
 def _contains_requirement_markers(path: Path) -> bool:
@@ -349,7 +402,9 @@ def _contains_requirement_linkage(path: Path) -> bool:
     if not path.exists():
         return False
     text = path.read_text(encoding="utf-8", errors="ignore")
-    has_req_spec = "RequirementSpecification" in text or "iof:RequirementSpecification" in text
+    has_req_spec = (
+        "RequirementSpecification" in text or "iof:RequirementSpecification" in text
+    )
     has_sat_link = "requirementSatisfiedBy" in text or "satisfiesRequirement" in text
     return has_req_spec and has_sat_link
 
@@ -374,7 +429,9 @@ def _graph_triple_count(path: Path) -> Optional[int]:
     return None
 
 
-def _upsert_history_entry(path: Path, entry: Dict[str, Any], key: str = "run_id") -> None:
+def _upsert_history_entry(
+    path: Path, entry: Dict[str, Any], key: str = "run_id"
+) -> None:
     existing: List[Dict[str, Any]] = []
     if path.exists():
         for row in _load_jsonl_rows(path):
@@ -469,15 +526,26 @@ def _save_requirement_specific_inferred_owl(
                 # Drop pure vocabulary declarations outside requirement namespace.
                 if isinstance(subject, URIRef):
                     subj_str = str(subject)
-                    if subj_str.startswith("https://spec.industrialontologies.org/") and predicate == RDF.type:
+                    if (
+                        subj_str.startswith("https://spec.industrialontologies.org/")
+                        and predicate == RDF.type
+                    ):
                         return True
-                    if subj_str.startswith("http://purl.obolibrary.org/obo/") and predicate == RDF.type:
+                    if (
+                        subj_str.startswith("http://purl.obolibrary.org/obo/")
+                        and predicate == RDF.type
+                    ):
                         return True
-                    if subj_str.startswith("http://qudt.org/") and predicate == RDF.type:
+                    if (
+                        subj_str.startswith("http://qudt.org/")
+                        and predicate == RDF.type
+                    ):
                         return True
                 return False
 
-            def _is_requirement_local_uri(node: Any, requirement_ns: Optional[str]) -> bool:
+            def _is_requirement_local_uri(
+                node: Any, requirement_ns: Optional[str]
+            ) -> bool:
                 if not requirement_ns or not isinstance(node, URIRef):
                     return False
                 node_str = str(node)
@@ -491,7 +559,12 @@ def _save_requirement_specific_inferred_owl(
                 target_graph: "rdflib.Graph",
                 requirement_ns: Optional[str],
             ) -> None:
-                annotation_predicates = {RDFS.label, RDFS.comment, RDFS.seeAlso, RDFS.isDefinedBy}
+                annotation_predicates = {
+                    RDFS.label,
+                    RDFS.comment,
+                    RDFS.seeAlso,
+                    RDFS.isDefinedBy,
+                }
                 local_nodes = set()
 
                 for s, _, o in target_graph:
@@ -510,15 +583,21 @@ def _save_requirement_specific_inferred_owl(
                             target_graph.add((node, pred, obj))
 
                 # Keep the local ontology declaration and its annotations.
-                for ont_subject, _, _ in source_graph.triples((None, RDF.type, OWL.Ontology)):
+                for ont_subject, _, _ in source_graph.triples(
+                    (None, RDF.type, OWL.Ontology)
+                ):
                     if not _is_requirement_local_uri(ont_subject, requirement_ns):
                         continue
                     target_graph.add((ont_subject, RDF.type, OWL.Ontology))
                     for pred in annotation_predicates:
-                        for _, _, obj in source_graph.triples((ont_subject, pred, None)):
+                        for _, _, obj in source_graph.triples(
+                            (ont_subject, pred, None)
+                        ):
                             target_graph.add((ont_subject, pred, obj))
 
-            def _build_requirement_connected_abox(graph: "rdflib.Graph", requirement_ns: Optional[str]) -> "rdflib.Graph":
+            def _build_requirement_connected_abox(
+                graph: "rdflib.Graph", requirement_ns: Optional[str]
+            ) -> "rdflib.Graph":
                 non_schema_triples: List[Any] = []
                 for triple in graph:
                     if not _is_schema_triple(*triple):
@@ -537,7 +616,9 @@ def _save_requirement_specific_inferred_owl(
                 seed_nodes: List[Any] = []
                 if requirement_ns:
                     for node in outgoing.keys():
-                        if isinstance(node, URIRef) and str(node).startswith(requirement_ns):
+                        if isinstance(node, URIRef) and str(node).startswith(
+                            requirement_ns
+                        ):
                             seed_nodes.append(node)
 
                 if not seed_nodes:
@@ -550,7 +631,9 @@ def _save_requirement_specific_inferred_owl(
                     result = rdflib.Graph()
                     for s, p, o in non_schema_triples:
                         result.add((s, p, o))
-                    _preserve_local_annotations(graph, result, requirement_ns=requirement_ns)
+                    _preserve_local_annotations(
+                        graph, result, requirement_ns=requirement_ns
+                    )
                     return result
 
                 keep = rdflib.Graph()
@@ -579,9 +662,13 @@ def _save_requirement_specific_inferred_owl(
             # OWLAPI/OWLAPY save() usually emits RDF/XML for .owl outputs.
             # Parsing RDF/XML as Turtle can "succeed" with malformed URI warnings,
             # so detect the likely syntax first and parse accordingly.
-            reasoner_text = reasoner_output_path.read_text(encoding="utf-8", errors="ignore")
+            reasoner_text = reasoner_output_path.read_text(
+                encoding="utf-8", errors="ignore"
+            )
             reasoner_head = reasoner_text.lstrip()[:256].lower()
-            looks_like_xml = reasoner_head.startswith("<?xml") or "<rdf:rdf" in reasoner_head
+            looks_like_xml = (
+                reasoner_head.startswith("<?xml") or "<rdf:rdf" in reasoner_head
+            )
 
             if looks_like_xml:
                 try:
@@ -595,7 +682,9 @@ def _save_requirement_specific_inferred_owl(
                     merged.parse(reasoner_output_path.as_posix(), format="xml")
 
             requirement_ns = _extract_requirement_namespace(asserted_ttl)
-            abox_only = _build_requirement_connected_abox(merged, requirement_ns=requirement_ns)
+            abox_only = _build_requirement_connected_abox(
+                merged, requirement_ns=requirement_ns
+            )
             serialized = abox_only.serialize(format="turtle")
             if isinstance(serialized, bytes):
                 serialized = serialized.decode("utf-8")
@@ -642,35 +731,29 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
         or "unknown"
     )
     extraction_model = str(
-        run_metadata.get("extraction_model")
-        or run_metadata.get("model")
-        or "unknown"
+        run_metadata.get("extraction_model") or run_metadata.get("model") or "unknown"
     )
     normalization_provider = str(
-        run_metadata.get("normalization_provider")
-        or extraction_provider
-        or "unknown"
+        run_metadata.get("normalization_provider") or extraction_provider or "unknown"
     )
     normalization_model = str(
-        run_metadata.get("normalization_model")
-        or extraction_model
-        or "unknown"
+        run_metadata.get("normalization_model") or extraction_model or "unknown"
     )
     grounding_provider = str(
-        run_metadata.get("grounding_provider")
-        or extraction_provider
-        or "unknown"
+        run_metadata.get("grounding_provider") or extraction_provider or "unknown"
     )
     grounding_model = str(
-        run_metadata.get("grounding_model")
-        or extraction_model
-        or "unknown"
+        run_metadata.get("grounding_model") or extraction_model or "unknown"
     )
 
     extraction_status = Counter(row.get("status", "unknown") for row in extraction_rows)
-    normalization_status = Counter(row.get("status", "unknown") for row in normalization_rows)
+    normalization_status = Counter(
+        row.get("status", "unknown") for row in normalization_rows
+    )
     grounding_status = Counter(row.get("status", "unknown") for row in grounding_rows)
-    inference_status = Counter(row.get("inference_status", "missing") for row in grounding_rows)
+    inference_status = Counter(
+        row.get("inference_status", "missing") for row in grounding_rows
+    )
 
     observed_input_records = len(extraction_rows)
     expected_input_records = _coerce_idx(
@@ -699,12 +782,22 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
     completion_metrics = {
         "observed_input_records": observed_input_records,
         "expected_input_records": expected_input_records,
-        "extraction_success_rate_vs_input": _safe_div(extraction_ok, observed_input_records),
-        "normalization_success_rate_vs_extraction_ok": _safe_div(normalization_ok, extraction_ok),
-        "grounding_success_rate_vs_normalization_ok": _safe_div(grounding_ok, normalization_ok),
+        "extraction_success_rate_vs_input": _safe_div(
+            extraction_ok, observed_input_records
+        ),
+        "normalization_success_rate_vs_extraction_ok": _safe_div(
+            normalization_ok, extraction_ok
+        ),
+        "grounding_success_rate_vs_normalization_ok": _safe_div(
+            grounding_ok, normalization_ok
+        ),
         "end_to_end_success_count": end_to_end_success,
-        "end_to_end_success_rate_vs_input": _safe_div(end_to_end_success, observed_input_records),
-        "end_to_end_success_rate_vs_expected_input": _safe_div(end_to_end_success, expected_input_records),
+        "end_to_end_success_rate_vs_input": _safe_div(
+            end_to_end_success, observed_input_records
+        ),
+        "end_to_end_success_rate_vs_expected_input": _safe_div(
+            end_to_end_success, expected_input_records
+        ),
     }
 
     total_requirements = 0
@@ -722,7 +815,9 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
             total_constraints += len(req.get("constraints", []))
         total_quantity_constraints += qty_count
 
-    normalization_by_idx = {_coerce_idx(row.get("idx"), fallback=-1): row for row in normalization_rows}
+    normalization_by_idx = {
+        _coerce_idx(row.get("idx"), fallback=-1): row for row in normalization_rows
+    }
     normalized_quantities_total = 0
     invalid_constraint_idx_total = 0
     normalized_with_unit_total = 0
@@ -746,7 +841,10 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
             for nq in req.get("normalized_quantities", []):
                 normalized_quantities_total += 1
                 constraint_idx = nq.get("constraint_idx")
-                if not (isinstance(constraint_idx, int) and 0 <= constraint_idx < constraint_count):
+                if not (
+                    isinstance(constraint_idx, int)
+                    and 0 <= constraint_idx < constraint_count
+                ):
                     invalid_constraint_idx_total += 1
                 else:
                     valid_constraint_idx_total += 1
@@ -756,9 +854,7 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
                 if best_unit or si_unit:
                     normalized_with_unit_total += 1
 
-    quant_coverage = (
-        _safe_div(normalized_quantities_total, total_quantity_constraints)
-    )
+    quant_coverage = _safe_div(normalized_quantities_total, total_quantity_constraints)
 
     hallucinated_quant_indices: List[int] = []
     non_quant_requirements_with_kg = 0
@@ -780,7 +876,9 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
             *evaluation_dir.glob("final_kg_inferred_*.owl"),
         }
     )
-    inferred_hashes = Counter(hashlib.sha256(path.read_bytes()).hexdigest() for path in inferred_files)
+    inferred_hashes = Counter(
+        hashlib.sha256(path.read_bytes()).hexdigest() for path in inferred_files
+    )
     inferred_with_req_marker = 0
     for path in inferred_files:
         if _contains_requirement_markers(path):
@@ -810,24 +908,36 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
         triple_deltas.append(float(inferred_count - final_count))
 
     extraction_seconds = [
-        _to_float(row.get("extraction_seconds")) for row in extraction_rows if _to_float(row.get("extraction_seconds")) is not None
+        _to_float(row.get("extraction_seconds"))
+        for row in extraction_rows
+        if _to_float(row.get("extraction_seconds")) is not None
     ]
     normalization_seconds = [
-        _to_float(row.get("normalization_seconds")) for row in normalization_rows if _to_float(row.get("normalization_seconds")) is not None
+        _to_float(row.get("normalization_seconds"))
+        for row in normalization_rows
+        if _to_float(row.get("normalization_seconds")) is not None
     ]
     grounding_seconds = [
-        _to_float(row.get("grounding_seconds")) for row in grounding_rows if _to_float(row.get("grounding_seconds")) is not None
+        _to_float(row.get("grounding_seconds"))
+        for row in grounding_rows
+        if _to_float(row.get("grounding_seconds")) is not None
     ]
     inference_seconds = [
-        _to_float(row.get("inference_seconds")) for row in grounding_rows if _to_float(row.get("inference_seconds")) is not None
+        _to_float(row.get("inference_seconds"))
+        for row in grounding_rows
+        if _to_float(row.get("inference_seconds")) is not None
     ]
     end_to_end_seconds = [
-        _to_float(row.get("record_total_seconds")) for row in grounding_rows if _to_float(row.get("record_total_seconds")) is not None
+        _to_float(row.get("record_total_seconds"))
+        for row in grounding_rows
+        if _to_float(row.get("record_total_seconds")) is not None
     ]
 
     run_duration_seconds = _to_float(run_metadata.get("run_duration_seconds"))
     throughput_records_per_minute = (
-        _safe_div(observed_input_records * 60.0, run_duration_seconds) if run_duration_seconds else None
+        _safe_div(observed_input_records * 60.0, run_duration_seconds)
+        if run_duration_seconds
+        else None
     )
 
     external_dependency_failure_count = 0
@@ -853,14 +963,22 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
         "grounding_failed_count": grounding_failed,
         "grounding_failed_rate": _safe_div(grounding_failed, grounding_attempts),
         "external_dependency_failure_count": external_dependency_failure_count,
-        "external_dependency_failure_rate": _safe_div(external_dependency_failure_count, grounding_attempts),
+        "external_dependency_failure_rate": _safe_div(
+            external_dependency_failure_count, grounding_attempts
+        ),
     }
 
     quantitative_fidelity = {
         "quantity_coverage": quant_coverage,
-        "constraint_index_integrity": _safe_div(valid_constraint_idx_total, normalized_quantities_total),
-        "unit_completeness": _safe_div(normalized_with_unit_total, normalized_quantities_total),
-        "quantity_hallucination_rate": _safe_div(len(hallucinated_quant_indices), non_quant_requirements_with_kg),
+        "constraint_index_integrity": _safe_div(
+            valid_constraint_idx_total, normalized_quantities_total
+        ),
+        "unit_completeness": _safe_div(
+            normalized_with_unit_total, normalized_quantities_total
+        ),
+        "quantity_hallucination_rate": _safe_div(
+            len(hallucinated_quant_indices), non_quant_requirements_with_kg
+        ),
         "quantity_hallucination_count": len(hallucinated_quant_indices),
         "quantity_hallucination_indices": sorted(hallucinated_quant_indices),
     }
@@ -869,11 +987,17 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
     inference_utility = {
         "inferred_file_count": inferred_file_count,
         "inferred_unique_hash_count": len(inferred_hashes),
-        "inferred_uniqueness_ratio": _safe_div(len(inferred_hashes), inferred_file_count),
+        "inferred_uniqueness_ratio": _safe_div(
+            len(inferred_hashes), inferred_file_count
+        ),
         "inferred_files_with_requirement_markers": inferred_with_req_marker,
-        "inferred_marker_presence_rate": _safe_div(inferred_with_req_marker, inferred_file_count),
+        "inferred_marker_presence_rate": _safe_div(
+            inferred_with_req_marker, inferred_file_count
+        ),
         "grounded_with_requirement_linkage": grounded_with_requirement_linkage,
-        "requirement_linkage_completeness": _safe_div(grounded_with_requirement_linkage, len(grounded_rows_ok)),
+        "requirement_linkage_completeness": _safe_div(
+            grounded_with_requirement_linkage, len(grounded_rows_ok)
+        ),
         "asserted_triple_stats": _numeric_stats(asserted_triple_counts),
         "inferred_triple_stats": _numeric_stats(inferred_triple_counts),
         "inference_delta_triples_stats": _numeric_stats(triple_deltas),
@@ -916,10 +1040,16 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
         "normalization_model": normalization_model,
         "grounding_provider": grounding_provider,
         "grounding_model": grounding_model,
-        "end_to_end_success_rate_vs_input": completion_metrics["end_to_end_success_rate_vs_input"],
+        "end_to_end_success_rate_vs_input": completion_metrics[
+            "end_to_end_success_rate_vs_input"
+        ],
         "grounding_failed_rate": failure_metrics["grounding_failed_rate"],
-        "external_dependency_failure_rate": failure_metrics["external_dependency_failure_rate"],
-        "quantity_hallucination_rate": quantitative_fidelity["quantity_hallucination_rate"],
+        "external_dependency_failure_rate": failure_metrics[
+            "external_dependency_failure_rate"
+        ],
+        "quantity_hallucination_rate": quantitative_fidelity[
+            "quantity_hallucination_rate"
+        ],
         "quantity_coverage": quantitative_fidelity["quantity_coverage"],
         "inferred_uniqueness_ratio": inference_utility["inferred_uniqueness_ratio"],
         "run_duration_seconds": latency_metrics["run_duration_seconds"],
@@ -930,22 +1060,46 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
     robustness_metrics = {
         "runs_in_history": len(history_rows),
         "end_to_end_success_rate_vs_input": _numeric_stats(
-            [_to_float(row.get("end_to_end_success_rate_vs_input")) for row in history_rows if _to_float(row.get("end_to_end_success_rate_vs_input")) is not None]
+            [
+                _to_float(row.get("end_to_end_success_rate_vs_input"))
+                for row in history_rows
+                if _to_float(row.get("end_to_end_success_rate_vs_input")) is not None
+            ]
         ),
         "quantity_coverage": _numeric_stats(
-            [_to_float(row.get("quantity_coverage")) for row in history_rows if _to_float(row.get("quantity_coverage")) is not None]
+            [
+                _to_float(row.get("quantity_coverage"))
+                for row in history_rows
+                if _to_float(row.get("quantity_coverage")) is not None
+            ]
         ),
         "quantity_hallucination_rate": _numeric_stats(
-            [_to_float(row.get("quantity_hallucination_rate")) for row in history_rows if _to_float(row.get("quantity_hallucination_rate")) is not None]
+            [
+                _to_float(row.get("quantity_hallucination_rate"))
+                for row in history_rows
+                if _to_float(row.get("quantity_hallucination_rate")) is not None
+            ]
         ),
         "external_dependency_failure_rate": _numeric_stats(
-            [_to_float(row.get("external_dependency_failure_rate")) for row in history_rows if _to_float(row.get("external_dependency_failure_rate")) is not None]
+            [
+                _to_float(row.get("external_dependency_failure_rate"))
+                for row in history_rows
+                if _to_float(row.get("external_dependency_failure_rate")) is not None
+            ]
         ),
         "inferred_uniqueness_ratio": _numeric_stats(
-            [_to_float(row.get("inferred_uniqueness_ratio")) for row in history_rows if _to_float(row.get("inferred_uniqueness_ratio")) is not None]
+            [
+                _to_float(row.get("inferred_uniqueness_ratio"))
+                for row in history_rows
+                if _to_float(row.get("inferred_uniqueness_ratio")) is not None
+            ]
         ),
         "run_duration_seconds": _numeric_stats(
-            [_to_float(row.get("run_duration_seconds")) for row in history_rows if _to_float(row.get("run_duration_seconds")) is not None]
+            [
+                _to_float(row.get("run_duration_seconds"))
+                for row in history_rows
+                if _to_float(row.get("run_duration_seconds")) is not None
+            ]
         ),
     }
 
@@ -987,12 +1141,19 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
         "robustness_metrics": robustness_metrics,
         "quality": {
             "quantity_coverage": quantitative_fidelity["quantity_coverage"],
-            "quantity_hallucination_count": quantitative_fidelity["quantity_hallucination_count"],
-            "quantity_hallucination_indices": quantitative_fidelity["quantity_hallucination_indices"],
+            "quantity_hallucination_count": quantitative_fidelity[
+                "quantity_hallucination_count"
+            ],
+            "quantity_hallucination_indices": quantitative_fidelity[
+                "quantity_hallucination_indices"
+            ],
             "inferred_file_count": inferred_file_count,
-            "inferred_unique_hash_count": inference_utility["inferred_unique_hash_count"],
+            "inferred_unique_hash_count": inference_utility[
+                "inferred_unique_hash_count"
+            ],
             "inferred_files_with_requirement_markers": inferred_with_req_marker,
-            "inferred_files_without_requirement_markers": inferred_file_count - inferred_with_req_marker,
+            "inferred_files_without_requirement_markers": inferred_file_count
+            - inferred_with_req_marker,
         },
         "per_record_quantity_coverage": qty_coverage_rows,
     }
@@ -1001,7 +1162,11 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
     qa_md_path = evaluation_dir / "qa_report.md"
     qa_json_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
-    coverage_text = f"{quantitative_fidelity['quantity_coverage']:.2%}" if isinstance(quantitative_fidelity["quantity_coverage"], float) else "n/a"
+    coverage_text = (
+        f"{quantitative_fidelity['quantity_coverage']:.2%}"
+        if isinstance(quantitative_fidelity["quantity_coverage"], float)
+        else "n/a"
+    )
     end_to_end_text = (
         f"{completion_metrics['end_to_end_success_rate_vs_input']:.2%}"
         if isinstance(completion_metrics["end_to_end_success_rate_vs_input"], float)
@@ -1045,7 +1210,11 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
             f"{inferred_file_count}"
         ),
         f"- Grounding failed count/rate: {failure_metrics['grounding_failed_count']} / "
-        + (f"{failure_metrics['grounding_failed_rate']:.2%}" if isinstance(failure_metrics["grounding_failed_rate"], float) else "n/a"),
+        + (
+            f"{failure_metrics['grounding_failed_rate']:.2%}"
+            if isinstance(failure_metrics["grounding_failed_rate"], float)
+            else "n/a"
+        ),
         "",
         "## Latency",
         "",
@@ -1078,10 +1247,12 @@ def _generate_evaluation_qa_report(evaluation_dir: Path) -> Dict[str, Any]:
         "qa_md_path": str(qa_md_path.resolve()),
     }
 
+
 @click.group()
 def main() -> None:
     """Ontology-grounded requirements extraction pipeline CLI."""
-    
+
+
 @main.command("run-pipeline")
 def run_pipeline() -> None:
     """Run the full ontology requirements extraction pipeline."""
@@ -1090,10 +1261,10 @@ def run_pipeline() -> None:
     core_ontology_path = _resolve_project_path(Path("ontologies/Core.rdf"))
 
     record = extractor.extract(
-        "A two dimensional template used to represent the 95th percentile male is made to the following dimensions (see figure below): - A circle of diameter 200 mm will represent the hips and buttocks", 
+        "A two dimensional template used to represent the 95th percentile male is made to the following dimensions (see figure below): - A circle of diameter 200 mm will represent the hips and buttocks",
         local=False,
         idx=0,
-        )
+    )
 
     print("\n=== Extraction Result ===")
     print(record)
@@ -1143,6 +1314,7 @@ def run_pipeline() -> None:
 
     # print(f"Conforms: {conforms}")
     # print(report)
+
 
 @main.command("generate-labeled-dataset")
 @click.option(
@@ -1297,14 +1469,19 @@ def generate_labeled_dataset(
 )
 @click.option(
     "--extraction-method",
-    type=click.Choice(["pipeline", "zero-shot-llm", "rule-based"], case_sensitive=False),
+    type=click.Choice(
+        ["pipeline", "zero-shot-llm", "rule-based"], case_sensitive=False
+    ),
     default="pipeline",
     show_default=True,
     help="Extraction method to evaluate.",
 )
 @click.option(
     "--normalization-method",
-    type=click.Choice(["pipeline", "few-shot-llm", "zero-shot-llm", "quantulum3"], case_sensitive=False),
+    type=click.Choice(
+        ["pipeline", "few-shot-llm", "zero-shot-llm", "quantulum3"],
+        case_sensitive=False,
+    ),
     default="pipeline",
     show_default=True,
     help="Normalization method to evaluate.",
@@ -1315,6 +1492,19 @@ def generate_labeled_dataset(
     default="pipeline",
     show_default=True,
     help="Grounding method to evaluate.",
+)
+@click.option(
+    "--grounding-think/--no-grounding-think",
+    default=False,
+    show_default=True,
+    help="Enable thinking for Ollama grounding calls only.",
+)
+@click.option(
+    "--grounding-context-mode",
+    type=click.Choice(["compact", "full"], case_sensitive=False),
+    default="compact",
+    show_default=True,
+    help="Use a retrieved token-efficient IOF signature or embed the complete Core.rdf ontology.",
 )
 @click.option(
     "--raw-grounding-input/--no-raw-grounding-input",
@@ -1337,6 +1527,8 @@ def run_evaluation_pipeline(
     extraction_method: str,
     normalization_method: str,
     grounding_method: str,
+    grounding_think: bool,
+    grounding_context_mode: str,
     raw_grounding_input: bool,
 ) -> None:
     """Run extraction -> normalization -> grounding and save all outputs."""
@@ -1347,29 +1539,48 @@ def run_evaluation_pipeline(
     load_dotenv()
     extraction_config = _resolve_extraction_config(provider=provider, model=model)
     extraction_method = _resolve_method_choice(extraction_method, default="pipeline")
-    selected_normalization_provider = normalization_provider or extraction_config["provider"]
+    selected_normalization_provider = (
+        normalization_provider or extraction_config["provider"]
+    )
     selected_normalization_model = (
         normalization_model
         if normalization_model
-        else (extraction_config["model"] if selected_normalization_provider == extraction_config["provider"] else None)
+        else (
+            extraction_config["model"]
+            if selected_normalization_provider == extraction_config["provider"]
+            else None
+        )
     )
     normalization_config = _resolve_stage_config(
         provider=selected_normalization_provider,
         model=selected_normalization_model,
         provider_option_name="--normalization-provider",
     )
-    normalization_method = _resolve_method_choice(normalization_method, default="pipeline")
+    normalization_method = _resolve_method_choice(
+        normalization_method, default="pipeline"
+    )
     selected_grounding_provider = grounding_provider or extraction_config["provider"]
     selected_grounding_model = (
         grounding_model
         if grounding_model
-        else (extraction_config["model"] if selected_grounding_provider == extraction_config["provider"] else None)
+        else (
+            extraction_config["model"]
+            if selected_grounding_provider == extraction_config["provider"]
+            else None
+        )
     )
     grounding_config = _resolve_stage_config(
         provider=selected_grounding_provider,
         model=selected_grounding_model,
         provider_option_name="--grounding-provider",
     )
+
+    grounding_think = bool(grounding_think) and grounding_config["provider"] == "ollama"
+    grounding_config["think"] = grounding_think
+    grounding_context_mode = AgenticKGBuilder._normalize_ontology_context_mode(
+        grounding_context_mode
+    )
+    grounding_config["ontology_context_mode"] = grounding_context_mode
     grounding_method = _resolve_method_choice(grounding_method, default="pipeline")
     raw_grounding_input = bool(raw_grounding_input)
     if raw_grounding_input:
@@ -1441,6 +1652,8 @@ def run_evaluation_pipeline(
             "grounding_local": grounding_config["local"],
             "grounding_model": grounding_config["model"],
             "grounding_method": grounding_method,
+            "grounding_think": grounding_think,
+            "grounding_context_mode": grounding_context_mode,
             "raw_grounding_input": raw_grounding_input,
             "provider": extraction_config["provider"],
             "local": extraction_config["local"],
@@ -1532,6 +1745,9 @@ def run_evaluation_pipeline(
                 except Exception as exc:  # noqa: BLE001
                     grounding_seconds = time.perf_counter() - grounding_started
                     grounding_failed += 1
+                    failure_diagnostics = _grounding_failure_diagnostics(
+                        exc, evaluation_dir, idx
+                    )
                     _append_jsonl(
                         grounding_path,
                         {
@@ -1555,7 +1771,9 @@ def run_evaluation_pipeline(
                             "grounding_seconds": grounding_seconds,
                             "inference_status": "skipped",
                             "inference_message": "skipped because grounding failed",
-                            "record_total_seconds": time.perf_counter() - record_started_perf,
+                            "record_total_seconds": time.perf_counter()
+                            - record_started_perf,
+                            **failure_diagnostics,
                         },
                     )
                     continue
@@ -1574,20 +1792,32 @@ def run_evaluation_pipeline(
                     inference_artifact: Dict[str, Any] = {}
                     inference_started = time.perf_counter()
                     try:
-                        grounder._update_base_ontology_from_owl(grounding_result["final_owl"])
-                        inference_success, inference_message, inferred_ontology, _ = grounder.reason()
+                        grounder._update_base_ontology_from_owl(
+                            grounding_result["final_owl"]
+                        )
+                        inference_success, inference_message, inferred_ontology, _ = (
+                            grounder.reason()
+                        )
                         if inference_success:
                             grounder.inferred_ontology = inferred_ontology
                             latest_inferred_ontology = inferred_ontology
                             reasoner_output_path = _resolve_project_path(
-                                Path("src/ontology_req_pipeline/outputs/inferred_abox.owl")
+                                Path(
+                                    "src/ontology_req_pipeline/outputs/inferred_abox.owl"
+                                )
                             )
-                            reasoner_output_path.parent.mkdir(parents=True, exist_ok=True)
+                            reasoner_output_path.parent.mkdir(
+                                parents=True, exist_ok=True
+                            )
                             inferred_ontology.save(str(reasoner_output_path))
-                            inference_artifact = _save_requirement_specific_inferred_owl(
-                                inferred_path=inferred_path,
-                                final_owl_text=grounder.ensure_prefixes(grounding_result["final_owl"]),
-                                reasoner_output_path=reasoner_output_path,
+                            inference_artifact = (
+                                _save_requirement_specific_inferred_owl(
+                                    inferred_path=inferred_path,
+                                    final_owl_text=grounder.ensure_prefixes(
+                                        grounding_result["final_owl"]
+                                    ),
+                                    reasoner_output_path=reasoner_output_path,
+                                )
                             )
                             inferred_ok += 1
                         else:
@@ -1636,11 +1866,14 @@ def run_evaluation_pipeline(
                             "model": grounding_config["model"],
                             "final_kg_path": str(final_kg_path.resolve()),
                             "final_kg_inferred_path": (
-                                str(inferred_path.resolve()) if inference_artifact.get("saved") else None
+                                str(inferred_path.resolve())
+                                if inference_artifact.get("saved")
+                                else None
                             ),
                             "grounding_seconds": grounding_seconds,
                             "inference_seconds": inference_seconds,
-                            "record_total_seconds": time.perf_counter() - record_started_perf,
+                            "record_total_seconds": time.perf_counter()
+                            - record_started_perf,
                             "inference_status": "ok" if inference_success else "failed",
                             "inference_message": inference_message,
                             "inference_artifact": inference_artifact,
@@ -1674,7 +1907,8 @@ def run_evaluation_pipeline(
                             "grounding_seconds": grounding_seconds,
                             "inference_status": "skipped",
                             "inference_message": "skipped because finalization failed",
-                            "record_total_seconds": time.perf_counter() - record_started_perf,
+                            "record_total_seconds": time.perf_counter()
+                            - record_started_perf,
                         },
                     )
                 continue
@@ -1688,6 +1922,10 @@ def run_evaluation_pipeline(
                     idx=idx,
                     extraction_config=extraction_config,
                 )
+                if row.get("source") and hasattr(extracted, "source"):
+                    from ontology_req_pipeline.data_models import SourceMeta
+
+                    extracted.source = SourceMeta.model_validate(row["source"])
                 extraction_seconds = time.perf_counter() - extraction_started
                 extracted_dump = _model_dump_json(extracted)
                 _append_jsonl(
@@ -1768,7 +2006,8 @@ def run_evaluation_pipeline(
                         "grounding_method": grounding_method,
                         "provider": grounding_config["provider"],
                         "model": grounding_config["model"],
-                        "record_total_seconds": time.perf_counter() - record_started_perf,
+                        "record_total_seconds": time.perf_counter()
+                        - record_started_perf,
                     },
                 )
                 continue
@@ -1824,7 +2063,8 @@ def run_evaluation_pipeline(
                         "grounding_method": grounding_method,
                         "provider": grounding_config["provider"],
                         "model": grounding_config["model"],
-                        "record_total_seconds": time.perf_counter() - record_started_perf,
+                        "record_total_seconds": time.perf_counter()
+                        - record_started_perf,
                     },
                 )
                 continue
@@ -1869,7 +2109,8 @@ def run_evaluation_pipeline(
                         "grounding_method": grounding_method,
                         "provider": grounding_config["provider"],
                         "model": grounding_config["model"],
-                        "record_total_seconds": time.perf_counter() - record_started_perf,
+                        "record_total_seconds": time.perf_counter()
+                        - record_started_perf,
                     },
                 )
                 continue
@@ -1909,6 +2150,9 @@ def run_evaluation_pipeline(
             except Exception as exc:  # noqa: BLE001
                 grounding_seconds = time.perf_counter() - grounding_started
                 grounding_failed += 1
+                failure_diagnostics = _grounding_failure_diagnostics(
+                    exc, evaluation_dir, idx
+                )
                 _append_jsonl(
                     grounding_path,
                     {
@@ -1932,7 +2176,9 @@ def run_evaluation_pipeline(
                         "grounding_seconds": grounding_seconds,
                         "inference_status": "skipped",
                         "inference_message": "skipped because grounding failed",
-                        "record_total_seconds": time.perf_counter() - record_started_perf,
+                        "record_total_seconds": time.perf_counter()
+                        - record_started_perf,
+                        **failure_diagnostics,
                     },
                 )
                 continue
@@ -1951,8 +2197,12 @@ def run_evaluation_pipeline(
                 inference_artifact: Dict[str, Any] = {}
                 inference_started = time.perf_counter()
                 try:
-                    grounder._update_base_ontology_from_owl(grounding_result["final_owl"])
-                    inference_success, inference_message, inferred_ontology, _ = grounder.reason()
+                    grounder._update_base_ontology_from_owl(
+                        grounding_result["final_owl"]
+                    )
+                    inference_success, inference_message, inferred_ontology, _ = (
+                        grounder.reason()
+                    )
                     if inference_success:
                         grounder.inferred_ontology = inferred_ontology
                         latest_inferred_ontology = inferred_ontology
@@ -1963,7 +2213,9 @@ def run_evaluation_pipeline(
                         inferred_ontology.save(str(reasoner_output_path))
                         inference_artifact = _save_requirement_specific_inferred_owl(
                             inferred_path=inferred_path,
-                            final_owl_text=grounder.ensure_prefixes(grounding_result["final_owl"]),
+                            final_owl_text=grounder.ensure_prefixes(
+                                grounding_result["final_owl"]
+                            ),
                             reasoner_output_path=reasoner_output_path,
                         )
                         inferred_ok += 1
@@ -2013,11 +2265,14 @@ def run_evaluation_pipeline(
                         "model": grounding_config["model"],
                         "final_kg_path": str(final_kg_path.resolve()),
                         "final_kg_inferred_path": (
-                            str(inferred_path.resolve()) if inference_artifact.get("saved") else None
+                            str(inferred_path.resolve())
+                            if inference_artifact.get("saved")
+                            else None
                         ),
                         "grounding_seconds": grounding_seconds,
                         "inference_seconds": inference_seconds,
-                        "record_total_seconds": time.perf_counter() - record_started_perf,
+                        "record_total_seconds": time.perf_counter()
+                        - record_started_perf,
                         "inference_status": "ok" if inference_success else "failed",
                         "inference_message": inference_message,
                         "inference_artifact": inference_artifact,
@@ -2051,7 +2306,8 @@ def run_evaluation_pipeline(
                         "grounding_seconds": grounding_seconds,
                         "inference_status": "skipped",
                         "inference_message": "skipped because finalization failed",
-                        "record_total_seconds": time.perf_counter() - record_started_perf,
+                        "record_total_seconds": time.perf_counter()
+                        - record_started_perf,
                     },
                 )
                 continue
@@ -2087,6 +2343,8 @@ def run_evaluation_pipeline(
             "grounding_local": grounding_config["local"],
             "grounding_model": grounding_config["model"],
             "grounding_method": grounding_method,
+            "grounding_think": grounding_think,
+            "grounding_context_mode": grounding_context_mode,
             "raw_grounding_input": raw_grounding_input,
             "provider": extraction_config["provider"],
             "local": extraction_config["local"],
@@ -2096,7 +2354,9 @@ def run_evaluation_pipeline(
     )
 
     if latest_inferred_ontology is not None:
-        latest_inferred_ontology.save(str(evaluation_dir / f"inferred_ontology_{run_id}.owl"))
+        latest_inferred_ontology.save(
+            str(evaluation_dir / f"inferred_ontology_{run_id}.owl")
+        )
 
     qa_report = _generate_evaluation_qa_report(evaluation_dir)
     protocol_artifacts = _write_protocol_artifacts(evaluation_dir)
@@ -2120,7 +2380,9 @@ def run_evaluation_pipeline(
     click.echo(f"Evaluation report:     {protocol_artifacts['evaluation_report_md']}")
 
 
-def _write_comparison_summary(output_dir: Path, rows: List[Dict[str, Any]]) -> Dict[str, str]:
+def _write_comparison_summary(
+    output_dir: Path, rows: List[Dict[str, Any]]
+) -> Dict[str, str]:
     summary_json_path = output_dir / "comparison_summary.json"
     summary_md_path = output_dir / "comparison_summary.md"
     payload = {
@@ -2233,7 +2495,13 @@ def _run_stage_comparison_profile(
             extraction_method=overrides.get("extraction_method", "pipeline"),
             normalization_method=overrides.get("normalization_method", "pipeline"),
             grounding_method=overrides.get("grounding_method", "pipeline"),
-            raw_grounding_input=overrides.get("raw_grounding_input", raw_grounding_input),
+            grounding_think=grounding_config.get("think", False),
+            grounding_context_mode=grounding_config.get(
+                "ontology_context_mode", "compact"
+            ),
+            raw_grounding_input=overrides.get(
+                "raw_grounding_input", raw_grounding_input
+            ),
         )
         qa_report = _read_json(subdir / "qa_report.json")
         summary_rows.append(
@@ -2243,16 +2511,318 @@ def _run_stage_comparison_profile(
                 "run_dir": str(subdir.resolve()),
                 "qa_report_json": str((subdir / "qa_report.json").resolve()),
                 "qa_report_md": str((subdir / "qa_report.md").resolve()),
-                "evaluation_report_json": str((subdir / "evaluation_report.json").resolve()),
-                "evaluation_report_md": str((subdir / "evaluation_report.md").resolve()),
-                "ground_truth_extraction": str((subdir / "ground_truth_extraction.jsonl").resolve()),
-                "ground_truth_claims": str((subdir / "ground_truth_claims.jsonl").resolve()),
-                "quantity_coverage": qa_report.get("quality", {}).get("quantity_coverage"),
-                "grounding_failed_count": qa_report.get("failure_metrics", {}).get("grounding_failed_count"),
+                "evaluation_report_json": str(
+                    (subdir / "evaluation_report.json").resolve()
+                ),
+                "evaluation_report_md": str(
+                    (subdir / "evaluation_report.md").resolve()
+                ),
+                "ground_truth_extraction": str(
+                    (subdir / "ground_truth_extraction.jsonl").resolve()
+                ),
+                "ground_truth_claims": str(
+                    (subdir / "ground_truth_claims.jsonl").resolve()
+                ),
+                "quantity_coverage": qa_report.get("quality", {}).get(
+                    "quantity_coverage"
+                ),
+                "grounding_failed_count": qa_report.get("failure_metrics", {}).get(
+                    "grounding_failed_count"
+                ),
             }
         )
 
     return _write_comparison_summary(evaluation_dir, summary_rows)
+
+
+@main.command("extract-pdf")
+@click.option(
+    "--pdf",
+    "pdf_path",
+    type=click.Path(path_type=Path, exists=True, dir_okay=False),
+    required=True,
+)
+@click.option(
+    "--output-root",
+    type=click.Path(path_type=Path),
+    default=Path("artifacts/runs"),
+    show_default=True,
+)
+@click.option(
+    "--run-name", default=None, help="Optional stable label for the run directory."
+)
+@click.option(
+    "--provider",
+    type=click.Choice(["openai", "ollama"], case_sensitive=False),
+    default="ollama",
+    show_default=True,
+)
+@click.option("--model", default=None, help="Document extraction model.")
+@click.option("--high-threshold", type=float, default=35.0, show_default=True)
+@click.option("--ambiguous-threshold", type=float, default=15.0, show_default=True)
+@click.option("--max-workers", type=click.IntRange(min=1), default=4, show_default=True)
+@click.option(
+    "--num-ctx",
+    type=click.IntRange(min=1024),
+    default=8192,
+    show_default=True,
+    envvar="DOCUMENT_OLLAMA_NUM_CTX",
+    help="Explicit Ollama context allocation for each document-model request.",
+)
+@click.option(
+    "--num-predict",
+    type=click.IntRange(min=1),
+    default=3072,
+    show_default=True,
+    envvar="DOCUMENT_OLLAMA_NUM_PREDICT",
+    help="Maximum generated tokens for each document-model request.",
+)
+@click.option(
+    "--prompt-token-budget",
+    type=click.IntRange(min=1),
+    default=4096,
+    show_default=True,
+    envvar="DOCUMENT_PROMPT_TOKEN_BUDGET",
+    help="Maximum estimated input tokens, including the structured-output schema.",
+)
+@click.option(
+    "--low-batch-max-tokens",
+    type=click.IntRange(min=1),
+    default=3072,
+    show_default=True,
+    envvar="DOCUMENT_LOW_BATCH_MAX_TOKENS",
+    help="Maximum estimated input tokens in a low-confidence triage batch.",
+)
+@click.option(
+    "--max-chunks",
+    type=click.IntRange(min=1),
+    default=None,
+    help="Bounded smoke-test limit for source chunks.",
+)
+def extract_pdf(
+    pdf_path: Path,
+    output_root: Path,
+    run_name: Optional[str],
+    provider: str,
+    model: Optional[str],
+    high_threshold: float,
+    ambiguous_threshold: float,
+    max_workers: int,
+    num_ctx: int,
+    num_predict: int,
+    prompt_token_budget: int,
+    low_batch_max_tokens: int,
+    max_chunks: Optional[int],
+) -> None:
+    """Extract traceable requirement candidates and prepare the HITL queue."""
+
+    from ontology_req_pipeline.document.models import DocumentExtractionConfig
+    from ontology_req_pipeline.document.service import DocumentPipelineService
+
+    load_dotenv()
+    selected_provider = provider.lower()
+    selected_model = model or (
+        DEFAULT_OPENAI_MODEL if selected_provider == "openai" else "qwen3.5:9b-bf16"
+    )
+    config = DocumentExtractionConfig(
+        provider=selected_provider,
+        model=selected_model,
+        high_threshold=high_threshold,
+        ambiguous_threshold=ambiguous_threshold,
+        max_workers=max_workers,
+        ollama_num_ctx=num_ctx,
+        ollama_num_predict=num_predict,
+        prompt_token_budget=prompt_token_budget,
+        low_batch_max_tokens=low_batch_max_tokens,
+        max_chunks=max_chunks,
+    )
+    service = DocumentPipelineService()
+
+    def progress(stage: str, current: int, total: int, message: str) -> None:
+        click.echo(f"[{stage}] {current}/{total}: {message}")
+
+    try:
+        result = service.create_and_extract(
+            pdf_path=_resolve_project_path(pdf_path),
+            output_root=_resolve_project_path(output_root),
+            config=config,
+            run_name=run_name,
+            progress=progress,
+        )
+    except Exception as exc:  # noqa: BLE001
+        raise click.ClickException(str(exc)) from exc
+    click.echo(f"Document run: {result['paths'].root}")
+    click.echo(f"Machine requirements: {len(result['requirements'])}")
+    click.echo(f"HITL queue items: {len(result['review_queue'])}")
+
+
+@main.command("apply-document-review")
+@click.option(
+    "--run-dir",
+    type=click.Path(path_type=Path, exists=True, file_okay=False),
+    required=True,
+)
+@click.option("--llm-recovery/--no-llm-recovery", default=True, show_default=True)
+def apply_document_review(run_dir: Path, llm_recovery: bool) -> None:
+    """Apply saved HITL decisions and prepare focused adjudication."""
+
+    from ontology_req_pipeline.document.service import DocumentPipelineService
+
+    load_dotenv()
+    service = DocumentPipelineService()
+    paths = service.paths(run_dir)
+    try:
+        result = service.apply_review(paths, use_llm_recovery=llm_recovery)
+        queue = service.prepare_adjudication(paths)
+    except Exception as exc:  # noqa: BLE001
+        raise click.ClickException(str(exc)) from exc
+    click.echo(f"Final requirements: {len(result['requirements'])}")
+    click.echo(f"Recovered requirements: {len(result['recovered'])}")
+    click.echo(f"Focused adjudication items: {len(queue)}")
+
+
+@main.command("finalize-document-adjudication")
+@click.option(
+    "--run-dir",
+    type=click.Path(path_type=Path, exists=True, file_okay=False),
+    required=True,
+)
+@click.option("--require-complete/--allow-unresolved", default=True, show_default=True)
+def finalize_document_adjudication(run_dir: Path, require_complete: bool) -> None:
+    """Finalize approve/edit/reject decisions for HITL-affected requirements."""
+
+    from ontology_req_pipeline.document.service import DocumentPipelineService
+
+    service = DocumentPipelineService()
+    paths = service.paths(run_dir)
+    try:
+        result = service.finalize_adjudication(paths, require_complete=require_complete)
+    except Exception as exc:  # noqa: BLE001
+        raise click.ClickException(str(exc)) from exc
+    click.echo(f"Adjudicated requirements: {len(result['requirements'])}")
+    click.echo(f"Unresolved items: {len(result['unresolved'])}")
+
+
+@main.command("export-document-requirements")
+@click.option(
+    "--run-dir",
+    type=click.Path(path_type=Path, exists=True, file_okay=False),
+    required=True,
+)
+@click.option(
+    "--source",
+    type=click.Choice(
+        ["best", "machine", "final", "adjudicated"], case_sensitive=False
+    ),
+    default="best",
+    show_default=True,
+)
+@click.option("--output-path", type=click.Path(path_type=Path), default=None)
+def export_document_requirements(
+    run_dir: Path, source: str, output_path: Optional[Path]
+) -> None:
+    """Export reviewed PDF requirements in main-pipeline JSONL format."""
+
+    from ontology_req_pipeline.document.service import DocumentPipelineService
+
+    service = DocumentPipelineService()
+    paths = service.paths(run_dir)
+    try:
+        target = service.export_pipeline_input(
+            paths, source=source, output_path=output_path
+        )
+    except Exception as exc:  # noqa: BLE001
+        raise click.ClickException(str(exc)) from exc
+    click.echo(f"Pipeline input: {target}")
+
+
+@main.command("run-document-pipeline")
+@click.option(
+    "--run-dir",
+    type=click.Path(path_type=Path, exists=True, file_okay=False),
+    required=True,
+)
+@click.option(
+    "--source",
+    type=click.Choice(
+        ["best", "machine", "final", "adjudicated"], case_sensitive=False
+    ),
+    default="best",
+    show_default=True,
+)
+@click.option("--limit", type=click.IntRange(min=1), default=None)
+@click.option(
+    "--provider",
+    type=click.Choice(["openai", "ollama"], case_sensitive=False),
+    default="openai",
+    show_default=True,
+)
+@click.option("--model", default=None)
+@click.option("--normalization-provider", default=None)
+@click.option("--normalization-model", default=None)
+@click.option("--grounding-provider", default=None)
+@click.option("--grounding-model", default=None)
+@click.option(
+    "--grounding-context-mode",
+    type=click.Choice(["compact", "full"], case_sensitive=False),
+    default="compact",
+    show_default=True,
+)
+@click.option("--reasoner", default="Pellet", show_default=True)
+def run_document_pipeline(
+    run_dir: Path,
+    source: str,
+    limit: Optional[int],
+    provider: str,
+    model: Optional[str],
+    normalization_provider: Optional[str],
+    normalization_model: Optional[str],
+    grounding_provider: Optional[str],
+    grounding_model: Optional[str],
+    grounding_context_mode: str,
+    reasoner: str,
+) -> None:
+    """Run extraction, normalization, grounding, reasoning, and QA from a PDF run."""
+
+    from ontology_req_pipeline.document.service import DocumentPipelineService
+
+    load_dotenv()
+    service = DocumentPipelineService()
+    paths = service.paths(run_dir)
+    try:
+        output_dir = service.run_downstream(
+            paths,
+            source=source,
+            limit=limit,
+            provider=provider,
+            model=model,
+            normalization_provider=normalization_provider,
+            normalization_model=normalization_model,
+            grounding_provider=grounding_provider,
+            grounding_model=grounding_model,
+            grounding_context_mode=grounding_context_mode,
+            reasoner=reasoner,
+        )
+    except Exception as exc:  # noqa: BLE001
+        raise click.ClickException(str(exc)) from exc
+    click.echo(f"Pipeline outputs: {output_dir}")
+
+
+@main.command("ui")
+@click.option(
+    "--port", type=click.IntRange(min=1, max=65535), default=8501, show_default=True
+)
+def launch_ui(port: int) -> None:
+    """Launch the local PDF ingestion, HITL, and pipeline interface."""
+
+    try:
+        from ontology_req_pipeline.ui.launcher import main as ui_main
+
+        ui_main(port=port)
+    except ImportError as exc:
+        raise click.ClickException(
+            "The UI dependencies are not installed. Run `pip install -e .[ui]`."
+        ) from exc
 
 
 @main.command("qa-evaluation-report")
@@ -2289,15 +2859,16 @@ def qa_evaluation_report(output_dir: Path) -> None:
         f"{quality.get('inferred_file_count')}"
     )
 
+
 @main.command("test")
 def test() -> None:
     load_dotenv()
     extractor = get_default_extractor()
     record = extractor.extract(
-    """The top 180° of the wheels/tires must be unobstructed when viewed from vertically above the wheel.""", 
-    local=True,
-    idx=0,
-    model="gemma3:4b"
+        """The top 180° of the wheels/tires must be unobstructed when viewed from vertically above the wheel.""",
+        local=True,
+        idx=0,
+        model="gemma3:4b",
     )
     with open("test.json", "w", encoding="utf-8") as f:
         json.dump(record.model_dump(), f, indent=2)

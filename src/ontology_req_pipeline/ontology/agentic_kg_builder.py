@@ -1,4 +1,5 @@
-from openai import OpenAI
+from openai import BadRequestError, OpenAI
+from ollama import Client as OllamaClient
 from ontology_req_pipeline.data_models import NormalizedRecord
 from typing import Dict, Any, Optional, Tuple, List
 from pathlib import Path
@@ -10,7 +11,7 @@ import json
 import os
 import re
 import rdflib
-from rdflib import OWL, RDF, URIRef, Literal, XSD
+from rdflib import OWL, RDF, RDFS, URIRef, Literal, XSD
 from owlapy.iri import IRI
 from owlapy.owl_ontology import SyncOntology, Ontology, RDFLibOntology
 from owlapy.owl_reasoner import SyncReasoner
@@ -20,6 +21,64 @@ from owlapy.owl_individual import OWLNamedIndividual
 from owlapy.owl_literal import OWLLiteral
 
 class AgenticKGBuilder:
+    ONTOLOGY_CONTEXT_MODES = {"compact", "full"}
+    COMPACT_RETRIEVAL_LIMIT = 16
+    COMPACT_REQUIRED_CORE_TERMS = (
+        "RequirementSpecification",
+        "DesignSpecification",
+        "PlanSpecification",
+        "InformationContentEntity",
+        "MaterialArtifact",
+        "System",
+        "EngineeredSystem",
+        "PieceOfEquipment",
+        "DesignedFunction",
+        "PlannedProcess",
+        "ProcessCharacteristic",
+        "Event",
+        "ValueExpression",
+        "requirementSatisfiedBy",
+        "satisfiesRequirement",
+        "prescribes",
+        "prescribedBy",
+        "hasFunction",
+        "functionOf",
+        "hasQuality",
+        "qualityOf",
+        "hasProcessCharacteristic",
+        "processCharacteristicOf",
+        "hasInput",
+        "hasOutput",
+        "hasValueExpressionAtSomeTime",
+        "hasValueExpressionAtAllTimes",
+        "isValueExpressionOfAtSomeTime",
+        "isValueExpressionOfAtAllTimes",
+    )
+    COMPACT_STOP_WORDS = {
+        "a",
+        "an",
+        "and",
+        "are",
+        "at",
+        "be",
+        "by",
+        "for",
+        "from",
+        "has",
+        "in",
+        "is",
+        "it",
+        "of",
+        "on",
+        "or",
+        "shall",
+        "that",
+        "the",
+        "this",
+        "to",
+        "with",
+    }
+
     def __init__(
         self,
         tbox_path: Path,
@@ -28,6 +87,8 @@ class AgenticKGBuilder:
         max_iters: int = 3,
         llm_provider: str = "openai",
         llm_model: Optional[str] = None,
+        ollama_think: bool = False,
+        ontology_context_mode: str = "compact",
     ):
         self.tbox_path = Path(tbox_path)
         self.llm_provider = str(llm_provider or "openai").strip().lower()
@@ -38,15 +99,20 @@ class AgenticKGBuilder:
             if isinstance(llm_model, str) and str(llm_model).strip()
             else ("gpt-5.1" if self.llm_provider == "openai" else "llama3.2")
         )
+        self.ollama_think = bool(ollama_think) if self.llm_provider == "ollama" else False
+        self.ontology_context_mode = self._normalize_ontology_context_mode(ontology_context_mode)
+        self.grounding_stage = "initialization"
+        self.last_grounding_candidate: Optional[str] = None
         self.payload = record.model_dump() if hasattr(record, 'model_dump') else json.loads(json.dumps(record))
         self.temperature = 0
+        self._models_without_temperature: set[str] = set()
         if self.llm_provider == "openai":
             self.client = OpenAI()
         else:
-            self.client = OpenAI(
-                base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1"),
-                api_key=os.getenv("OLLAMA_API_KEY", "ollama"),
-            )
+            ollama_host = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434").rstrip("/")
+            if ollama_host.endswith("/v1"):
+                ollama_host = ollama_host[:-3]
+            self.client = OllamaClient(host=ollama_host)
         self.record = record
         self.reasoner = reasoner
         self.INFERRED_PATH = Path(f"final_KG_inferred_{self.payload.get('idx', 'demo')}.owl")
@@ -54,25 +120,31 @@ class AgenticKGBuilder:
         self.REPO_ROOT = Path.cwd()
         self.ONTOLOGY_DIR = (self.REPO_ROOT / "ontologies") if (self.REPO_ROOT / "ontologies").exists() else (self.REPO_ROOT.parent / "ontologies")
         self.CORE_PATH = self.tbox_path if self.tbox_path.exists() else (self.ONTOLOGY_DIR / "Core.rdf")
+        self.iof_ns = "https://spec.industrialontologies.org/ontology/core/Core/"
+        self.qudt_ns = "http://qudt.org/schema/qudt/"
+        self.qudt_qk_ns = "http://qudt.org/vocab/quantitykind/"
+        self.qudt_unit_ns = "http://qudt.org/vocab/unit/"
         self._tbox_axioms = self._load_tbox_axioms()
         self._inverse_object_property_pairs = self._load_inverse_object_property_pairs()
         self.base_ontology = SyncOntology(IRI.create("file:/base.owl"), load=False)
         for ax in self._tbox_axioms:
             self.base_ontology.add_axiom(ax)
+        self._abox_axioms: List[Any] = []
+        self._abox_individuals: set[OWLNamedIndividual] = set()
+        self._abox_object_properties: set[OWLObjectProperty] = set()
+        self._abox_data_properties: set[OWLDataProperty] = set()
+        self._latest_inferred_abox_axioms: List[Any] = []
         self.inferred_ontology = None
         self.CORE_CONTEXT = self._safe_read(self.CORE_PATH)
+        self._compact_context_cache: Dict[str, str] = {}
         self.record_idx = self.payload.get("idx", record.idx if hasattr(record, "idx") else "demo")
-        self.ontology_context = self.CORE_CONTEXT
+        self.ontology_context = self._ontology_context_for_payload(self.payload)
         self.max_iters = max_iters
         self.prompt_cache_enabled = self.llm_provider == "openai" and os.getenv("OPENAI_ENABLE_PROMPT_CACHING", "1").strip().lower() not in {"0", "false", "no", "off"}
         requested_retention = os.getenv("OPENAI_PROMPT_CACHE_RETENTION", "24h").strip() or "24h"
         self.prompt_cache_retention = requested_retention if requested_retention in {"in_memory", "24h"} else "24h"
         self.prompt_cache_namespace = os.getenv("OPENAI_PROMPT_CACHE_NAMESPACE", "req-iof")
         self.last_prompt_cache_usage: Optional[Dict[str, Any]] = None
-        self.iof_ns = "https://spec.industrialontologies.org/ontology/core/Core/"
-        self.qudt_ns = "http://qudt.org/schema/qudt/"
-        self.qudt_qk_ns = "http://qudt.org/vocab/quantitykind/"
-        self.qudt_unit_ns = "http://qudt.org/vocab/unit/"
 
         self.value_expression_class = OWLClass(IRI(self.iof_ns, "ValueExpression"))
         self.quantity_value_class = OWLClass(IRI(self.qudt_ns, "QuantityValue"))
@@ -105,7 +177,8 @@ class AgenticKGBuilder:
 
         Inputs you must use directly:
         - Structured extraction + alignment payload (JSON below), including `normalized_quantities` entries from the NormalizedRecord.
-        - Full IOF Core ontology (Core.rdf, RDF/XML) as authoritative vocabulary and axioms.
+        - The selected IOF Core context below as authoritative vocabulary. In compact mode it is a
+          record-specific ontology signature extracted from Core.rdf; in full mode it is the complete RDF/XML.
 
         Goals (in order):
         1) Map the whole requirement into IOF classes and properties. Do not define new classes or properties of any kind.
@@ -147,7 +220,7 @@ class AgenticKGBuilder:
         @prefix owl: <http://www.w3.org/2002/07/owl#> .
         @prefix : <http://example.org/req/{record_idx}#> .
 
-        Authoritative ontology (full Core.rdf content):
+        Authoritative ontology context:
         {ontology_context}
 
         Return ONLY OWL/Turtle (TTL syntax), no commentary, no RDF/XML, base IRI http://example.org/req/{record_idx}#
@@ -180,7 +253,8 @@ class AgenticKGBuilder:
 
         Inputs you must use directly:
         - Structured extraction + alignment payload (JSON below), including `normalized_quantities` entries from the NormalizedRecord.
-        - Full IOF Core ontology (Core.rdf, RDF/XML) as authoritative vocabulary and axioms.
+        - The selected IOF Core context below as authoritative vocabulary. In compact mode it is a
+          record-specific ontology signature extracted from Core.rdf; in full mode it is the complete RDF/XML.
 
         Goals (in order):
         1) Map the whole requirement into IOF classes and properties. Do not define new classes or properties of any kind.
@@ -216,7 +290,7 @@ class AgenticKGBuilder:
         @prefix owl: <http://www.w3.org/2002/07/owl#> .
         @prefix : <http://example.org/req/{record_idx}#> .
 
-        Authoritative ontology (full Core.rdf content):
+        Authoritative ontology context:
         {ontology_context}
 
         Return ONLY OWL/Turtle (TTL syntax), no commentary, no RDF/XML, base IRI http://example.org/req/{record_idx}#
@@ -227,17 +301,54 @@ class AgenticKGBuilder:
     def _build_prompt_cache_key(self, scope: str, model: str) -> str:
         """Build a stable cache key for prompt families that share the same large prefix."""
         ontology_digest = hashlib.sha256(self.CORE_CONTEXT.encode("utf-8")).hexdigest()[:16]
-        return f"{self.prompt_cache_namespace}:{scope}:{model}:{ontology_digest}"
+        context_mode = getattr(self, "ontology_context_mode", "full")
+        return f"{self.prompt_cache_namespace}:{scope}:{model}:{context_mode}:{ontology_digest}"
 
     def _record_prompt_cache_usage(self, completion: Any) -> None:
         usage = getattr(completion, "usage", None)
         prompt_details = getattr(usage, "prompt_tokens_details", None) if usage is not None else None
+        native_prompt_tokens = getattr(completion, "prompt_eval_count", None)
+        native_completion_tokens = getattr(completion, "eval_count", None)
         self.last_prompt_cache_usage = {
-            "prompt_tokens": getattr(usage, "prompt_tokens", None),
-            "completion_tokens": getattr(usage, "completion_tokens", None),
-            "total_tokens": getattr(usage, "total_tokens", None),
+            "prompt_tokens": getattr(usage, "prompt_tokens", native_prompt_tokens),
+            "completion_tokens": getattr(usage, "completion_tokens", native_completion_tokens),
+            "total_tokens": getattr(
+                usage,
+                "total_tokens",
+                (
+                    native_prompt_tokens + native_completion_tokens
+                    if native_prompt_tokens is not None and native_completion_tokens is not None
+                    else None
+                ),
+            ),
             "cached_tokens": getattr(prompt_details, "cached_tokens", None),
         }
+
+    @staticmethod
+    def _completion_content(completion: Any) -> str:
+        """Read content from either OpenAI or native Ollama chat responses."""
+        native_message = getattr(completion, "message", None)
+        if native_message is not None:
+            return str(getattr(native_message, "content", "") or "")
+        return str(completion.choices[0].message.content or "")
+
+    @staticmethod
+    def _is_unsupported_temperature_error(exc: BadRequestError) -> bool:
+        """Return whether OpenAI rejected temperature for the selected model."""
+        body = getattr(exc, "body", None)
+        if not isinstance(body, dict):
+            return False
+
+        error = body.get("error", body)
+        if not isinstance(error, dict) or error.get("param") != "temperature":
+            return False
+
+        code = str(error.get("code") or "").lower()
+        message = str(error.get("message") or "").lower()
+        return code in {"unsupported_parameter", "unsupported_value"} or any(
+            phrase in message
+            for phrase in ("not supported", "unsupported", "only the default")
+        )
 
     def _chat_completion_create(
         self,
@@ -246,18 +357,37 @@ class AgenticKGBuilder:
         temperature: float,
         messages: List[Dict[str, Any]],
         cache_scope: Optional[str] = None,
-        client: Optional[OpenAI] = None,
+        client: Optional[Any] = None,
     ) -> Any:
         request_kwargs: Dict[str, Any] = {
             "model": model,
-            "temperature": temperature,
             "messages": messages,
         }
+        models_without_temperature = getattr(self, "_models_without_temperature", set())
+        self._models_without_temperature = models_without_temperature
+        if model not in models_without_temperature:
+            request_kwargs["temperature"] = temperature
         if self.prompt_cache_enabled and cache_scope:
             request_kwargs["prompt_cache_key"] = self._build_prompt_cache_key(cache_scope, model)
             request_kwargs["prompt_cache_retention"] = self.prompt_cache_retention
 
-        completion = (client or self.client).chat.completions.create(**request_kwargs)
+        selected_client = client or self.client
+        if self.llm_provider == "ollama":
+            completion = selected_client.chat(
+                model=model,
+                messages=messages,
+                think=self.ollama_think,
+                options={"temperature": temperature},
+            )
+        else:
+            try:
+                completion = selected_client.chat.completions.create(**request_kwargs)
+            except BadRequestError as exc:
+                if "temperature" not in request_kwargs or not self._is_unsupported_temperature_error(exc):
+                    raise
+                self._models_without_temperature.add(model)
+                request_kwargs.pop("temperature")
+                completion = selected_client.chat.completions.create(**request_kwargs)
         self._record_prompt_cache_usage(completion)
         return completion
 
@@ -306,7 +436,7 @@ class AgenticKGBuilder:
                 {"role": "user", "content": prompt},
             ],
         )
-        return self._coerce_to_turtle_text(completion.choices[0].message.content)
+        return self._coerce_to_turtle_text(self._completion_content(completion))
 
     def llm_repair_graph_from_raw_requirement(
         self,
@@ -358,7 +488,7 @@ class AgenticKGBuilder:
                 {"role": "user", "content": prompt},
             ],
         )
-        return self._coerce_to_turtle_text(completion.choices[0].message.content)
+        return self._coerce_to_turtle_text(self._completion_content(completion))
 
     def two_stage_workflow(self) -> Dict[str, Any]:
         """Run LLM stage then deterministic QUDT enrichment with LLM fallback only if needed."""
@@ -416,11 +546,14 @@ class AgenticKGBuilder:
 
     def zero_shot_workflow(self) -> Dict[str, Any]:
         """Single-pass LLM grounding with no repair loop or deterministic enrichment."""
+        self.grounding_stage = "llm_graph_generation"
         owl = self.llm_build_graph_zero_shot(self.client, self.payload)
         owl = self.ensure_prefixes(owl)
         base = f"http://example.org/req/{self.payload.get('idx', 'demo')}"
         owl = self.enforce_base(owl, base)
         owl = self.add_ontology_header(owl, base if base.endswith(('#', '/')) else base + '#')
+        self.last_grounding_candidate = owl
+        self.grounding_stage = "grounding_complete"
         return {
             "stage1": {
                 "history": [],
@@ -434,11 +567,14 @@ class AgenticKGBuilder:
 
     def raw_zero_shot_workflow(self) -> Dict[str, Any]:
         """Single-pass LLM grounding directly from the raw requirement text."""
+        self.grounding_stage = "llm_graph_generation"
         owl = self.llm_build_graph_from_raw_requirement(self.client, self.payload)
         owl = self.ensure_prefixes(owl)
         base = f"http://example.org/req/{self.payload.get('idx', 'demo')}"
         owl = self.enforce_base(owl, base)
         owl = self.add_ontology_header(owl, base if base.endswith(('#', '/')) else base + '#')
+        self.last_grounding_candidate = owl
+        self.grounding_stage = "grounding_complete"
         return {
             "stage1": {
                 "history": [],
@@ -838,65 +974,78 @@ class AgenticKGBuilder:
             lines.append(f"- ... truncated {len(rows) - max_rows} additional normalized rows")
         return "\n".join(lines)
 
-    def _load_ontology_from_text(self, owl_text: str) -> Tuple[Ontology, Path]:
-        with NamedTemporaryFile("w", suffix=".ttl", encoding="utf-8", delete=False) as tmp:
-            tmp.write(owl_text)
-            tmp_path = Path(tmp.name)
-        # Use OWLAPI-backed ontology loading here so get_abox_axioms() is consistent
-        # with what the reasoner sees in SyncOntology.
-        onto = SyncOntology(str(tmp_path))
-        return onto, tmp_path
-
     def _update_base_ontology_from_owl(self, owl_text: str) -> None:
-        parsed_onto, tmp_path = self._load_ontology_from_text(owl_text)
-        try:
-            self.base_ontology = SyncOntology(IRI.create("file:/base.owl"), load=False)
-            for ax in self._tbox_axioms:
-                self.base_ontology.add_axiom(ax)
-            for ax in parsed_onto.get_abox_axioms():
-                self.base_ontology.add_axiom(ax)
+        """Load asserted triples without Owlapy's JPype collection mapper.
 
-            # Ensure ABox assertion coverage by directly projecting RDF triples.
-            # This captures object/data property assertions even when the ontology
-            # loader exposes only a subset via get_abox_axioms().
-            graph = self._parse_graph_from_text(owl_text)
-            for subject, predicate, obj in graph:
-                if not isinstance(subject, URIRef):
+        Owlapy 1.5.1 maps Java ``Set``/``LinkedHashSet`` values with Python's
+        ``singledispatchmethod``. On Python 3.13 that dispatch can raise
+        ``RuntimeError: Inconsistent hierarchy`` for JPype proxy classes. The
+        RDFLib projection below was already the authoritative coverage path, so
+        keep its Python axioms explicitly and add those directly to OWLAPI.
+        """
+        graph = self._parse_graph_from_text(owl_text)
+        base_ontology = SyncOntology(IRI.create("file:/base.owl"), load=False)
+        for axiom in self._tbox_axioms:
+            base_ontology.add_axiom(axiom)
+
+        abox_axioms: List[Any] = []
+        individuals: set[OWLNamedIndividual] = set()
+        object_properties: set[OWLObjectProperty] = set()
+        data_properties: set[OWLDataProperty] = set()
+
+        for subject, predicate, obj in graph:
+            if not isinstance(subject, URIRef):
+                continue
+            subj = self._individual_from_uri(str(subject))
+
+            if predicate == RDF.type and isinstance(obj, URIRef):
+                if obj == OWL.Ontology:
                     continue
-                subj = self._individual_from_uri(str(subject))
+                axiom = OWLClassAssertionAxiom(subj, self._class_from_uri(str(obj)))
+                base_ontology.add_axiom(axiom)
+                abox_axioms.append(axiom)
+                individuals.add(subj)
+                continue
 
-                if predicate == RDF.type and isinstance(obj, URIRef):
-                    if obj == OWL.Ontology:
-                        continue
-                    cls = self._class_from_uri(str(obj))
-                    self.base_ontology.add_axiom(OWLClassAssertionAxiom(subj, cls))
-                    continue
+            if not isinstance(predicate, URIRef):
+                continue
+            pred_uri = str(predicate)
 
-                if not isinstance(predicate, URIRef):
-                    continue
-                pred_uri = str(predicate)
+            if isinstance(obj, URIRef):
+                prop = self._object_property_from_uri(pred_uri)
+                obj_ind = self._individual_from_uri(str(obj))
+                axiom = OWLObjectPropertyAssertionAxiom(subj, prop, obj_ind)
+                base_ontology.add_axiom(axiom)
+                abox_axioms.append(axiom)
+                individuals.update((subj, obj_ind))
+                object_properties.add(prop)
+            elif isinstance(obj, Literal):
+                prop = self._data_property_from_uri(pred_uri)
+                lit = self._owl_literal_from_rdflib_literal(obj)
+                axiom = OWLDataPropertyAssertionAxiom(subj, prop, lit)
+                base_ontology.add_axiom(axiom)
+                abox_axioms.append(axiom)
+                individuals.add(subj)
+                data_properties.add(prop)
 
-                if isinstance(obj, URIRef):
-                    prop = self._object_property_from_uri(pred_uri)
-                    obj_ind = self._individual_from_uri(str(obj))
-                    self.base_ontology.add_axiom(OWLObjectPropertyAssertionAxiom(subj, prop, obj_ind))
-                elif isinstance(obj, Literal):
-                    prop = self._data_property_from_uri(pred_uri)
-                    lit = self._owl_literal_from_rdflib_literal(obj)
-                    self.base_ontology.add_axiom(OWLDataPropertyAssertionAxiom(subj, prop, lit))
-        finally:
-            try:
-                tmp_path.unlink(missing_ok=True)
-            except Exception:
-                pass
+        self.base_ontology = base_ontology
+        self._abox_axioms = abox_axioms
+        self._abox_individuals = individuals
+        self._abox_object_properties = object_properties
+        self._abox_data_properties = data_properties
 
     def _materialize_inferred_abox_ontology(self, asserted_ontology: Ontology, reasoner: SyncReasoner) -> Ontology:
         """Build an ontology containing asserted + inferred ABox assertions."""
         inferred_abox = SyncOntology(IRI.create("file:/final_inferred.owl"), load=False)
+        inferred_axioms: List[Any] = []
+
+        def add_inferred_axiom(axiom: Any) -> None:
+            inferred_abox.add_axiom(axiom)
+            inferred_axioms.append(axiom)
 
         # Keep all asserted ABox assertions.
-        for ax in asserted_ontology.get_abox_axioms():
-            inferred_abox.add_axiom(ax)
+        for axiom in self._abox_axioms:
+            add_inferred_axiom(axiom)
 
         skip_class_iris = {
             "http://www.w3.org/2002/07/owl#Thing",
@@ -911,20 +1060,13 @@ class AgenticKGBuilder:
             "http://www.w3.org/2002/07/owl#bottomDataProperty",
         }
 
-        individuals = list(asserted_ontology.individuals_in_signature())
-        classes = [
-            cls
-            for cls in asserted_ontology.classes_in_signature()
-            if self._entity_str(cls) not in skip_class_iris
-        ]
+        individuals = list(self._abox_individuals)
         object_properties = [
-            prop
-            for prop in asserted_ontology.object_properties_in_signature()
+            prop for prop in self._abox_object_properties
             if self._entity_str(prop) not in skip_object_property_iris
         ]
         data_properties = [
-            prop
-            for prop in asserted_ontology.data_properties_in_signature()
+            prop for prop in self._abox_data_properties
             if self._entity_str(prop) not in skip_data_property_iris
         ]
 
@@ -937,14 +1079,14 @@ class AgenticKGBuilder:
                     continue
                 if self._entity_str(cls) in skip_class_iris:
                     continue
-                inferred_abox.add_axiom(OWLClassAssertionAxiom(ind, cls))
+                add_inferred_axiom(OWLClassAssertionAxiom(ind, cls))
 
             if object_property_values_supported:
                 for prop in object_properties:
                     try:
                         for obj in reasoner.object_property_values(ind, prop):
                             if isinstance(obj, OWLNamedIndividual):
-                                inferred_abox.add_axiom(OWLObjectPropertyAssertionAxiom(ind, prop, obj))
+                                add_inferred_axiom(OWLObjectPropertyAssertionAxiom(ind, prop, obj))
                     except NotImplementedError:
                         object_property_values_supported = False
                         break
@@ -953,11 +1095,12 @@ class AgenticKGBuilder:
                 for prop in data_properties:
                     try:
                         for obj in reasoner.data_property_values(ind, prop):
-                            inferred_abox.add_axiom(OWLDataPropertyAssertionAxiom(ind, prop, obj))
+                            add_inferred_axiom(OWLDataPropertyAssertionAxiom(ind, prop, obj))
                     except NotImplementedError:
                         data_property_values_supported = False
                         break
 
+        self._latest_inferred_abox_axioms = inferred_axioms
         return inferred_abox
 
     def _postprocess_inverse_object_properties(self, ontology: Ontology) -> Tuple[Ontology, int]:
@@ -965,7 +1108,8 @@ class AgenticKGBuilder:
             return ontology, 0
 
         graph = rdflib.Graph()
-        for axiom in ontology.get_abox_axioms():
+        inferred_axioms = list(self._latest_inferred_abox_axioms)
+        for axiom in inferred_axioms:
             if not isinstance(axiom, OWLObjectPropertyAssertionAxiom):
                 continue
             graph.add(
@@ -992,13 +1136,13 @@ class AgenticKGBuilder:
             return ontology, 0
 
         for subject_uri, prop_uri, object_uri in added_axioms:
-            ontology.add_axiom(
-                OWLObjectPropertyAssertionAxiom(
-                    self._individual_from_uri(subject_uri),
-                    self._object_property_from_uri(prop_uri),
-                    self._individual_from_uri(object_uri),
-                )
+            axiom = OWLObjectPropertyAssertionAxiom(
+                self._individual_from_uri(subject_uri),
+                self._object_property_from_uri(prop_uri),
+                self._individual_from_uri(object_uri),
             )
+            ontology.add_axiom(axiom)
+            self._latest_inferred_abox_axioms.append(axiom)
 
         return ontology, len(added_axioms)
 
@@ -1259,7 +1403,7 @@ Current graph:
                 {"role": "user", "content": prompt},
             ],
         )
-        return self._coerce_to_turtle_text(completion.choices[0].message.content)
+        return self._coerce_to_turtle_text(self._completion_content(completion))
 
     def _validate_iof_qudt_pattern(self, owl_text: str, payload: Optional[Dict[str, Any]] = None) -> List[str]:
         g = self._parse_graph_from_text(owl_text)
@@ -1568,7 +1712,7 @@ Never return RDF/XML or XML declarations.
                 {"role": "user", "content": prompt},
             ],
         )
-        return self._coerce_to_turtle_text(completion.choices[0].message.content)
+        return self._coerce_to_turtle_text(self._completion_content(completion))
 
     def llm_apply_qudt_guideline(
         self,
@@ -1624,7 +1768,7 @@ Graph:
                 {"role": "user", "content": user_prompt},
             ],
         )
-        enriched = self.ensure_prefixes(self._coerce_to_turtle_text(completion.choices[0].message.content))
+        enriched = self.ensure_prefixes(self._coerce_to_turtle_text(self._completion_content(completion)))
         enriched = self._normalize_qudt_prefix_aliases(enriched)
         actions: List[Dict[str, Any]] = [{"note": "Applied LLM QUDT enrichment stage."}]
 
@@ -1648,6 +1792,156 @@ Graph:
         except FileNotFoundError:
             print(f"Missing context file: {path}")
             return ""
+
+    @classmethod
+    def _normalize_ontology_context_mode(cls, mode: str) -> str:
+        normalized = str(mode or "compact").strip().lower().replace("_", "-")
+        aliases = {
+            "token-efficient": "compact",
+            "token-efficient-context": "compact",
+            "whole": "full",
+            "whole-ontology": "full",
+        }
+        normalized = aliases.get(normalized, normalized)
+        if normalized not in cls.ONTOLOGY_CONTEXT_MODES:
+            choices = ", ".join(sorted(cls.ONTOLOGY_CONTEXT_MODES))
+            raise ValueError(f"ontology_context_mode must be one of: {choices}")
+        return normalized
+
+    @classmethod
+    def _lexical_tokens(cls, value: str) -> set[str]:
+        expanded = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", str(value or ""))
+        tokens = set(re.findall(r"[a-z0-9]+", expanded.lower()))
+        normalized: set[str] = set()
+        for token in tokens - cls.COMPACT_STOP_WORDS:
+            if len(token) > 4 and token.endswith("ies"):
+                token = token[:-3] + "y"
+            elif len(token) > 4 and token.endswith("s") and not token.endswith("ss"):
+                token = token[:-1]
+            normalized.add(token)
+        return normalized
+
+    def _compact_curie(self, value: Any) -> str:
+        uri = str(value)
+        prefixes = (
+            (self.iof_ns, "iof:"),
+            ("http://purl.obolibrary.org/obo/", "bfo:"),
+            (str(RDFS), "rdfs:"),
+            (str(RDF), "rdf:"),
+            (str(OWL), "owl:"),
+        )
+        for namespace, prefix in prefixes:
+            if uri.startswith(namespace):
+                return prefix + uri[len(namespace):]
+        return f"<{uri}>"
+
+    @staticmethod
+    def _compact_definition(graph: rdflib.Graph, term: URIRef) -> str:
+        for predicate, value in graph.predicate_objects(term):
+            if str(predicate).lower().endswith("naturallanguagedefinition"):
+                return re.sub(r"\s+", " ", str(value)).strip()
+        return ""
+
+    def _build_compact_ontology_context(self, payload: Dict[str, Any]) -> str:
+        """Create a small, record-specific IOF signature without embedding Core.rdf."""
+        graph = rdflib.Graph()
+        graph.parse(self.CORE_PATH)
+
+        kind_by_term: Dict[URIRef, str] = {}
+        for rdf_type, kind in (
+            (OWL.Class, "class"),
+            (OWL.ObjectProperty, "object property"),
+            (OWL.DatatypeProperty, "datatype property"),
+        ):
+            for term in graph.subjects(RDF.type, rdf_type):
+                if isinstance(term, URIRef) and str(term).startswith(self.iof_ns):
+                    kind_by_term[term] = kind
+
+        term_by_local_name = {
+            str(term)[len(self.iof_ns):]: term
+            for term in kind_by_term
+            if str(term).startswith(self.iof_ns)
+        }
+        required = [
+            term_by_local_name[name]
+            for name in self.COMPACT_REQUIRED_CORE_TERMS
+            if name in term_by_local_name
+        ]
+
+        payload_text = json.dumps(payload, ensure_ascii=False, sort_keys=True)
+        query_tokens = self._lexical_tokens(payload_text)
+        scored: List[Tuple[int, str, URIRef]] = []
+        required_set = set(required)
+        for term, _kind in kind_by_term.items():
+            if term in required_set:
+                continue
+            local_name = str(term)[len(self.iof_ns):]
+            labels = " ".join(str(value) for value in graph.objects(term, RDFS.label))
+            definition = self._compact_definition(graph, term)
+            name_tokens = self._lexical_tokens(f"{local_name} {labels}")
+            definition_tokens = self._lexical_tokens(definition)
+            score = 5 * len(query_tokens & name_tokens) + len(query_tokens & definition_tokens)
+            if labels and labels.lower() in payload_text.lower():
+                score += 8
+            if score > 0:
+                scored.append((score, local_name.lower(), term))
+
+        scored.sort(key=lambda item: (-item[0], item[1]))
+        retrieved = [term for _score, _name, term in scored[: self.COMPACT_RETRIEVAL_LIMIT]]
+        selected = list(dict.fromkeys(required + retrieved))
+        retrieved_set = set(retrieved)
+
+        lines = [
+            "Mode: compact IOF Core signature selected locally for this requirement.",
+            "Use only the listed IOF classes/properties as ontology vocabulary. You may mint local",
+            "individual IRIs under ':' but must not invent IOF/BFO classes or properties.",
+            "Each entry has: CURIE [kind]; label; selected direct axioms.",
+            "BFO anchors: BFO_0000001 entity; BFO_0000002 continuant; BFO_0000003 occurrent; "
+            "BFO_0000004 independent continuant; BFO_0000015 process; BFO_0000019 quality; "
+            "BFO_0000027 object aggregate; BFO_0000030 object; BFO_0000031 generically dependent "
+            "continuant; BFO_0000034 function.",
+        ]
+        relation_specs = (
+            (RDFS.subClassOf, "subClassOf"),
+            (RDFS.domain, "domain"),
+            (RDFS.range, "range"),
+            (OWL.inverseOf, "inverseOf"),
+        )
+        for term in selected:
+            label = next((str(value) for value in graph.objects(term, RDFS.label)), "")
+            clean_label = re.sub(r"\s+", " ", label).replace('"', "'")
+            details = [f'label="{clean_label}"'] if clean_label else []
+            for predicate, relation_name in relation_specs:
+                values = [
+                    self._compact_curie(value)
+                    for value in graph.objects(term, predicate)
+                    if isinstance(value, URIRef)
+                ]
+                if values:
+                    details.append(f"{relation_name}={','.join(sorted(values))}")
+            if term in retrieved_set:
+                definition = self._compact_definition(graph, term)
+                if definition:
+                    shortened = definition[:160].rstrip()
+                    if len(definition) > len(shortened):
+                        shortened += "..."
+                    details.append(f'definition="{shortened.replace(chr(34), chr(39))}"')
+            suffix = "; ".join(details)
+            lines.append(
+                f"- {self._compact_curie(term)} [{kind_by_term[term]}]"
+                + (f"; {suffix}" if suffix else "")
+            )
+        return "\n".join(lines)
+
+    def _ontology_context_for_payload(self, payload: Dict[str, Any]) -> str:
+        if self.ontology_context_mode == "full":
+            return self.CORE_CONTEXT
+        cache_key = hashlib.sha256(
+            json.dumps(payload, ensure_ascii=False, sort_keys=True).encode("utf-8")
+        ).hexdigest()
+        if cache_key not in self._compact_context_cache:
+            self._compact_context_cache[cache_key] = self._build_compact_ontology_context(payload)
+        return self._compact_context_cache[cache_key]
 
     def _load_tbox_axioms_from_source(self, source_path: Path) -> List[Any]:
         temp_path: Optional[Path] = None
@@ -1716,11 +2010,13 @@ Graph:
         return sorted(inverse_pairs)
 
     def agentic_loop(self) -> Dict[str, Any]:
+        self.grounding_stage = "llm_graph_generation"
         owl = self.llm_build_graph(self.client, self.payload)
         owl = self.ensure_prefixes(owl)
         base = f"http://example.org/req/{self.payload.get('idx','demo')}"
         owl = self.enforce_base(owl, base)
         owl = self.add_ontology_header(owl, base if base.endswith(('#','/')) else base + '#')
+        self.last_grounding_candidate = owl
         history = []
         for step in range(self.max_iters):
             owl, spec_output_actions = self._sanitize_specification_has_specified_output_usage(owl)
@@ -1732,7 +2028,10 @@ Graph:
             owl, value_literal_actions = self._sanitize_qudt_valueexpression_literals(owl)
             if value_literal_actions:
                 print(f"Applied {len(value_literal_actions)} QUDT/simple-expression cleanup repair(s) before reasoning.")
+            self.last_grounding_candidate = owl
+            self.grounding_stage = "abox_projection"
             self._update_base_ontology_from_owl(owl)
+            self.grounding_stage = "reasoning"
             success, msg, onto, reasoner = self.reason()
             print(msg)
             if success:
@@ -1745,20 +2044,24 @@ Graph:
                     "pellet_report": msg
                 })
                 print(f"Graph valid after {step} iterations.")
+                self.grounding_stage = "grounding_complete"
                 return {"owl": owl, "history": history}
 
             else:
+                self.grounding_stage = "llm_graph_repair"
                 owl = self.llm_repair_graph(owl, msg)
 
         return {"owl": owl, "history": history}
 
     def raw_agentic_loop(self) -> Dict[str, Any]:
+        self.grounding_stage = "llm_graph_generation"
         owl = self.llm_build_graph_from_raw_requirement(self.client, self.payload)
         owl = self.ensure_prefixes(owl)
         base = f"http://example.org/req/{self.payload.get('idx','demo')}"
         owl = self.enforce_base(owl, base)
         owl = self.add_ontology_header(owl, base if base.endswith(('#','/')) else base + '#')
         initial_owl = owl
+        self.last_grounding_candidate = owl
         history = []
         for step in range(self.max_iters):
             owl, spec_output_actions = self._sanitize_specification_has_specified_output_usage(owl)
@@ -1770,7 +2073,10 @@ Graph:
             owl, value_literal_actions = self._sanitize_qudt_valueexpression_literals(owl)
             if value_literal_actions:
                 print(f"Applied {len(value_literal_actions)} QUDT/simple-expression cleanup repair(s) before reasoning.")
+            self.last_grounding_candidate = owl
+            self.grounding_stage = "abox_projection"
             self._update_base_ontology_from_owl(owl)
+            self.grounding_stage = "reasoning"
             success, msg, onto, reasoner = self.reason()
             print(msg)
             if success:
@@ -1782,7 +2088,9 @@ Graph:
                     "pellet_report": msg
                 })
                 print(f"Graph valid after {step} iterations.")
+                self.grounding_stage = "grounding_complete"
                 return {"initial_owl": initial_owl, "owl": owl, "history": history}
+            self.grounding_stage = "llm_graph_repair"
             owl = self.llm_repair_graph_from_raw_requirement(owl, msg)
 
         return {"initial_owl": initial_owl, "owl": owl, "history": history}
@@ -1890,7 +2198,7 @@ Graph:
         normalized_brief = self.build_normalized_record_brief(payload)
         system_prompt = self.SYSTEM_PROMPT_TEMPLATE.format(
             record_idx=payload.get("idx", "demo"),
-            ontology_context=self.CORE_CONTEXT,
+            ontology_context=self._ontology_context_for_payload(payload),
         )
         user_prompt = (
             "NormalizedRecord quantitative summary (derived from normalized_quantities):\n"
@@ -1908,7 +2216,7 @@ Graph:
                 {"role": "user", "content": user_prompt},
             ],
         )
-        return self._coerce_to_turtle_text(completion.choices[0].message.content)
+        return self._coerce_to_turtle_text(self._completion_content(completion))
 
     def llm_build_graph_zero_shot(self, client: Optional[OpenAI] = None, payload: Optional[dict] = None) -> str:
         """Build OWL graph text via a single LLM call with inline IOF+QUDT grounding guidance."""
@@ -1917,7 +2225,7 @@ Graph:
         normalized_brief = self.build_normalized_record_brief(payload)
         system_prompt = self.ZERO_SHOT_SYSTEM_PROMPT_TEMPLATE.format(
             record_idx=payload.get("idx", "demo"),
-            ontology_context=self.CORE_CONTEXT,
+            ontology_context=self._ontology_context_for_payload(payload),
             zero_shot_iof_qudt_rules=self.ZERO_SHOT_IOF_QUDT_RULES.strip(),
         )
         user_prompt = (
@@ -1936,7 +2244,7 @@ Graph:
                 {"role": "user", "content": user_prompt},
             ],
         )
-        return self._coerce_to_turtle_text(completion.choices[0].message.content)
+        return self._coerce_to_turtle_text(self._completion_content(completion))
 
     def llm_build_graph_from_raw_requirement(
         self,
@@ -1948,13 +2256,15 @@ Graph:
         client = client or self.client
         record_idx = payload.get("idx", "demo")
         original_text = str(payload.get("original_text") or "").strip()
+        ontology_context = self._ontology_context_for_payload(payload)
         system_prompt = dedent(
             f"""
         You are an ontological engineer. Given a raw requirement sentence, produce an OWL graph in Turtle (.ttl) format.
 
         Inputs you must use directly:
         - Requirement sentence text (original_text field of the input record).
-        - Full IOF Core ontology (Core.rdf, RDF/XML) as authoritative vocabulary and axioms.
+        - The selected IOF Core context below as authoritative vocabulary. In compact mode it is a
+          record-specific ontology signature extracted from Core.rdf; in full mode it is the complete RDF/XML.
 
         Goals (in order):
         1) Map the whole requirement into IOF classes and properties. Do not define new classes or properties of any kind.
@@ -1992,8 +2302,8 @@ Graph:
         @prefix owl: <http://www.w3.org/2002/07/owl#> .
         @prefix : <http://example.org/req/{record_idx}#> .
 
-        Authoritative ontology (full Core.rdf content):
-        {self.CORE_CONTEXT}
+        Authoritative ontology context:
+        {ontology_context}
 
         Return ONLY OWL/Turtle (TTL syntax), no commentary, no RDF/XML, base IRI http://example.org/req/{record_idx}#
         Before final output, verify that `:Req_0` exists and every quantitative constraint found in the sentence has one corresponding `:VE_req0_c<constraint_idx>` node.
@@ -2010,7 +2320,7 @@ Graph:
                 {"role": "user", "content": user_prompt},
             ],
         )
-        return self._coerce_to_turtle_text(completion.choices[0].message.content)
+        return self._coerce_to_turtle_text(self._completion_content(completion))
 
     def ensure_prefixes(self, ttl_text: str) -> str:
         ttl_text = self._coerce_to_turtle_text(ttl_text)
@@ -2084,7 +2394,9 @@ Graph:
         # Save your ABox graph to a file first
         # with open(abox_path, "w", encoding="utf-8") as f:
         #     f.write(g.serialize(format="xml"))
-        for axiom in self.base_ontology.get_abox_axioms():  
+        # Reuse the Python axioms projected from RDFLib. Avoid enumerating the
+        # Java ABox set through Owlapy's singledispatch-based JPype mapper.
+        for axiom in self._abox_axioms:
             combined.add_axiom(axiom)  
         
         # 4. (Optional) Save the combined ontology  

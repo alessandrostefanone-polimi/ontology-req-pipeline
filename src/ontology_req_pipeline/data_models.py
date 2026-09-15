@@ -155,6 +155,13 @@ class SourceMeta(BaseModel):
     revision: Optional[str] = None
     section: Optional[str] = None
     sentence_id: Optional[str] = None
+    page: Optional[int] = None
+    chunk_id: Optional[str] = None
+    chunk_index: Optional[int] = None
+    requirement_fingerprint: Optional[str] = None
+    evidence_span_ids: List[str] = Field(default_factory=list)
+    requirement_origin: Optional[str] = None
+    reviewer: Optional[str] = None
 
 
 class Record(BaseModel):
