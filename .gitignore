@@ -25,6 +25,7 @@ dist/
 .DS_Store
 Thumbs.db
 
+notebooks
 notebooks/.env
 src/ontology_req_pipeline/.env
 .env

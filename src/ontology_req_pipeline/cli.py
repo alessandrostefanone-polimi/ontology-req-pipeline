@@ -41,7 +41,7 @@ def _resolve_project_path(path_like: Path) -> Path:
 
 def _load_jsonl_rows(path: Path, limit: Optional[int] = None) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
-    with path.open("r", encoding="utf-8") as infile:
+    with path.open("r", encoding="utf-8-sig") as infile:
         for line_no, raw_line in enumerate(infile, start=1):
             line = raw_line.strip()
             if not line:

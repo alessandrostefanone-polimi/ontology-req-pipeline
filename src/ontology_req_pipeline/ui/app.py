@@ -6,6 +6,7 @@ from pathlib import Path
 from uuid import uuid4
 
 import streamlit as st
+from dotenv import load_dotenv
 
 from ontology_req_pipeline.document.adapter import select_requirement_path
 from ontology_req_pipeline.document.artifacts import (
@@ -18,6 +19,8 @@ from ontology_req_pipeline.document.models import DocumentExtractionConfig
 from ontology_req_pipeline.document.service import DocumentPipelineService
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
+load_dotenv(PROJECT_ROOT / ".env")
+
 RUNS_ROOT = PROJECT_ROOT / "artifacts" / "runs"
 UPLOAD_ROOT = PROJECT_ROOT / "artifacts" / "uploads"
 SERVICE = DocumentPipelineService()
